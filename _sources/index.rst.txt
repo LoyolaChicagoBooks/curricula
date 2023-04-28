@@ -12,10 +12,10 @@ Welcome to the CS Curriculum Systems Modules
    99-sandbox/issues.rst
 
 Repository
-   `github.com/LoyolaChicagoBooks/unoapi <https://github.com/LoyolaChicagoBooks/unoapi>`_
+   `github.com/LoyolaChicagoBooks/curricula <https://github.com/LoyolaChicagoBooks/curricula>`_
 
 Releases
-   `github.com/LoyolaChicagoBooks/unoapi/releases/latest <https://github.com/LoyolaChicagoBooks/unoapi/releases/latest>`_
+   `github.com/LoyolaChicagoBooks/curricula/releases/latest <https://github.com/LoyolaChicagoBooks/curricula/releases/latest>`_
 
 Topics
 
