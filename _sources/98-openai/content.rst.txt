@@ -70,3 +70,19 @@ Computing Curricula 2020 (CC2020)
 
 Note that these guidelines have evolved over time to keep up with the rapid developments in computing and technology. The most recent version, CC2020, provides a comprehensive and up-to-date framework for computer science and related computing disciplines.
 
+Which of the curricla reference CS1 and CS2. Is this terminology still relevant?
+----------------------------------------------------------------------------------
+
+CS1 and CS2 terminology originated from the early ACM curricular guidelines and has been used in subsequent versions to some extent. The terms refer to the foundational sequence of computer science courses, where CS1 is an introductory course in programming, and CS2 is a course that focuses on data structures and more advanced programming concepts. Here's a brief overview of the curricular guidelines that mention CS1 and CS2:
+
+- Curriculum 68 (1968): Does not specifically use the terms CS1 and CS2.
+- Curriculum 78 (1978): Refers to the terms CS1 and CS2.
+- Computing Curricula 1991 (CC1991): Uses the terms CS1 and CS2.
+- Computing Curricula 2001 (CC2001): Refers to CS1 and CS2 in the context of introductory courses, but with less emphasis.
+- Computing Curricula 2005 (CC2005): Does not explicitly use the terms CS1 and CS2.
+- Computer Science Curricula 2013 (CS2013): Refers to CS1 and CS2 in the context of introductory courses, but with less emphasis.
+- Computing Curricula 2020 (CC2020): Does not explicitly use the terms CS1 and CS2.
+
+While the terminology of CS1 and CS2 might not be explicitly mentioned in the most recent curricular guidelines (CC2020), the concepts behind them are still relevant. The CC2020 guidelines provide learning outcomes and topics for introductory programming courses (similar to CS1 and CS2) under the "Algorithms and Complexity" and "Programming Languages" knowledge areas.
+
+In summary, the terms CS1 and CS2 might not be explicitly used in the latest ACM/IEEE curricular guidelines, but the concepts behind these foundational computer science courses remain relevant and are covered within the broader framework of the guidelines.
