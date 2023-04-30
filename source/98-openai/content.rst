@@ -38,37 +38,37 @@ The ACM and IEEE Computer Society have been collaborating on computing curricula
 Curriculum 68: Recommendations for Academic Programs in Computer Science (1968)
 
 - Developed by ACM
-- URL: http://bitsavers.trailing-edge.com/pdf/acm/Curriculum68.pdf
+- URL: https://dl.acm.org/doi/10.1145/362929.362976
 
 Curriculum 78: Recommendations for the Undergraduate Program in Computer Science (1978)
 
 - Developed by ACM and IEEE-CS (IEEE Computer Society)
-- URL: https://www.acm.org/binaries/content/assets/education/curricula-recommendations/cc1978.pdf
+- URL: https://dl.acm.org/doi/10.1145/359080.359083
 
 Computing Curricula 1991 (CC1991)
 
 - Developed by ACM and IEEE-CS
-- URL: https://www.acm.org/binaries/content/assets/education/curricula-recommendations/cc1991.pdf
+- URL: https://dl.acm.org/doi/10.1145/103701.103710
 
 Computing Curricula 2001 (CC2001)
 
 - Developed by ACM and IEEE-CS
-- URL: https://www.acm.org/binaries/content/assets/education/curricula-recommendations/cc2001.pdf
+- URL: https://dl.acm.org/doi/10.1145/384274.384275
 
 Computing Curricula 2005: The Overview Report (CC2005)
 
 - Developed by ACM, IEEE-CS, AIS (Association for Information Systems), and IFIP (International Federation for Information Processing)
-- URL: https://www.acm.org/binaries/content/assets/education/curricula-recommendations/cc2005-march06final.pdf
+- URL: https://dl.acm.org/doi/10.1145/1121341.1121482
 
 Computer Science Curricula 2013 (CS2013)
 
 - Developed by ACM and IEEE-CS
-- URL: https://www.acm.org/binaries/content/assets/education/cs2013_web_final.pdf
+- URL: https://dl.acm.org/doi/book/10.1145/2534860
 
 Computing Curricula 2020 (CC2020)
 
 - Developed by ACM and IEEE-CS
-- URL: https://www.acm.org/binaries/content/assets/education/cc2020-final-report.pdf
+- URL: https://dl.acm.org/doi/book/10.1145/3467967
 
 Note that these guidelines have evolved over time to keep up with the rapid developments in computing and technology. The most recent version, CC2020, provides a comprehensive and up-to-date framework for computer science and related computing disciplines.
 
