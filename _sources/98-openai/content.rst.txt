@@ -1,6 +1,8 @@
 Background
 =============
 
+.. note:: Several ACM DL links broken here. Working on it.
+
 When was the first computer science program created?
 -------------------------------------------------------
 
@@ -124,8 +126,81 @@ Evidence
 The information (above) is synthesized from the knowledge acquired during my training, which includes various sources, such as academic websites, course catalogs, and educational materials. It is important to note that this is a general overview, and the actual course offerings and sequence may differ among institutions. It's always a good idea to consult the specific curriculum and course catalog of the institution you're interested in for more accurate information.
 
 
+How much math is absolutely required for a CS degree, focusing on the ACM guidelines?
+--------------------------------------------------------------------------------------
+
+According to the ACM/IEEE Computing Curricula 2020 (CC2020) guidelines, mathematics plays an essential role in computer science education. While the exact requirements may vary among institutions, the guidelines recommend several key areas of mathematics that are important for computer science students. These areas include:
+
+- *Discrete Mathematics*: This is a crucial part of computer science and typically covers topics such as set theory, logic, relations, functions, combinatorics, graph theory, and proofs.
+- *Probability and Statistics*: These topics are important for analyzing algorithms, understanding data science, and working with machine learning. Students should learn basic probability theory, random variables, distributions, hypothesis testing, and regression analysis.
+- *Linear Algebra*: This area of mathematics is essential for computer graphics, machine learning, and data science. It covers topics such as vectors, matrices, linear transformations, and eigenvalues.
+- *Calculus*: Although not every computer science student may need advanced calculus, a basic understanding of differential and integral calculus is often required. Calculus is particularly important in areas such as optimization, numerical analysis, and some aspects of machine learning.
+- *Numerical Methods*: These techniques are used to solve mathematical problems that cannot be solved analytically. They are relevant to computer graphics, scientific computing, and some machine learning applications.
+
+The exact courses and extent of mathematical knowledge required for a computer science degree may vary depending on the institution and the specific program. However, the above topics represent the core mathematical areas that the ACM/IEEE curricular guidelines recommend for a well-rounded computer science education.
+
+Are these same math classes always needed for other ACM/IEEE curricula, e.g. SE and IT?
+----------------------------------------------------------------------------------------
+
+The ACM/IEEE curricular guidelines for other computing disciplines, such as Software Engineering (SE) and Information Technology (IT), have some overlap with the mathematics requirements for a computer science degree, but they may also have differences based on the focus of each discipline.
+
+For Software Engineering (SE), the mathematical requirements are likely to be similar to those for a computer science degree. The ACM/IEEE Software Engineering 2004 (SE2004) guidelines recommend the following mathematical topics:
+
+- Discrete Mathematics
+- Probability and Statistics
+- Calculus
+- Linear Algebra
+- Numerical Methods
+
+For Information Technology (IT), the mathematical requirements may be less extensive than those for computer science or software engineering. According to the ACM/IEEE Information Technology 2017 (IT2017) guidelines, IT students should have a solid foundation in the following mathematical areas:
+
+- Discrete Mathematics
+- Probability and Statistics
+- College Algebra or Pre-Calculus
+
+Although the exact requirements may vary depending on the institution and the specific program, these recommendations provide a general idea of the mathematical areas relevant to each discipline. It's important to note that the mathematical requirements for IT may be less extensive than those for CS or SE, as IT programs often focus more on applied skills and practical aspects of computing.
+
+How about Cybersecurity? 
+--------------------------
+
+For Cybersecurity, the mathematical requirements may not be as extensive as those for a computer science degree. However, having a strong foundation in certain mathematical areas is crucial for understanding and applying cybersecurity concepts. The Joint Task Force on Cybersecurity Education, formed by ACM, IEEE-CS, AIS, and IFIP, released the Cybersecurity Curricular Guidelines in 2017 (CSEC2017). According to the CSEC2017 guidelines, cybersecurity students should have a solid foundation in the following mathematical areas:
+
+- *Discrete Mathematics*: As with other computing disciplines, discrete mathematics is essential for understanding fundamental concepts such as logic, set theory, relations, functions, combinatorics, graph theory, and proofs.
+- *Probability and Statistics*: This area is important for risk assessment, anomaly detection, and understanding the performance of security systems. Students should learn basic probability theory, random variables, distributions, hypothesis testing, and regression analysis.
+- *Basic Algebra, Number Theory, and Finite Fields*: These topics are particularly relevant for cryptography, which is a crucial aspect of cybersecurity. Students should understand concepts such as modular arithmetic, prime numbers, and finite fields.
+- *Calculus*: A basic understanding of differential and integral calculus may be useful in some areas of cybersecurity, such as optimization and analysis of algorithms. However, the emphasis on calculus in a cybersecurity program might not be as strong as in a computer science program.
+
+While the exact courses and extent of mathematical knowledge required for a cybersecurity degree may vary depending on the institution and the specific program, the above topics represent the core mathematical areas that the CSEC2017 curricular guidelines recommend for a well-rounded cybersecurity education.
 
 
+I know there are no guidelines for minors in CS and related fields, but what courses should a non-major take to be best positioned for careers in CS?
+-------------------------------------------------------------------------------------------------------------------------------------------------------
 
+While there are no specific guidelines for minors in CS, there are certain foundational courses that non-majors can take to gain essential skills and knowledge for a career in the computer science field. Here's a suggested list of courses that non-majors can consider to be well-positioned for careers in CS:
 
+- *Introduction to Programming (CS1)*: This foundational course teaches the basics of programming, usually using a language like Python, Java, or C++. It focuses on problem-solving, algorithmic thinking, and basic programming constructs.
+- *Data Structures and Algorithms (CS2)*: This course builds upon the programming skills acquired in CS1 and covers essential data structures (e.g., arrays, linked lists, trees, graphs) and algorithms (e.g., searching, sorting). It also introduces algorithm analysis and complexity.
+- *Discrete Mathematics*: This course covers the fundamentals of discrete math, including set theory, logic, relations, functions, combinatorics, and graph theory, which are essential for understanding computer science concepts and algorithms.
+- *Computer Organization and Architecture*: This course provides an understanding of the basics of digital logic, memory systems, processor design, and computer organization, which are important for understanding how computers work at the hardware level.
+- *Operating Systems*: This course introduces the fundamentals of operating system design, process management, memory management, and file systems, which are necessary for understanding the software that manages computer hardware.
+- *Databases*: This course covers the basics of database design, SQL, and relational database management systems, which are essential skills for managing and working with data.
+- *Web Development or Mobile App Development*: These courses teach the principles of web or mobile app development using modern frameworks and tools, which are important skills for many software development roles.
+- *Networking*: This course introduces the basics of computer networks, including network protocols, layers, and architectures, which are essential for understanding how computers communicate over networks.
+- *[An elective] course in a specialized area*: Depending on your interests and career goals, consider taking a course in a specialized area such as artificial intelligence, machine learning, cybersecurity, computer graphics, or game development.
+
+This list provides a general overview of the core courses that non-majors can consider taking to be well-positioned for careers in computer science. The specific courses offered and their sequence may differ among institutions, so it's a good idea to consult the course catalog of the institution you're interested in for more accurate information.
+
+Ok, but what are the top six, since most majors can only be 6 courses?
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+If you need to choose only six courses for a minor in computer science, I would recommend focusing on the most fundamental and broadly applicable topics. Here are the top six courses to consider:
+
+- *Introduction to Programming (CS1)*: This foundational course teaches the basics of programming, usually using a language like Python, Java, or C++. It focuses on problem-solving, algorithmic thinking, and basic programming constructs.
+- *Data Structures and Algorithms (CS2)*: This course builds upon the programming skills acquired in CS1 and covers essential data structures (e.g., arrays, linked lists, trees, graphs) and algorithms (e.g., searching, sorting). It also introduces algorithm analysis and complexity.
+- *Discrete Mathematics*: This course covers the fundamentals of discrete math, including set theory, logic, relations, functions, combinatorics, and graph theory, which are essential for understanding computer science concepts and algorithms.
+- *Computer Organization and Architecture*: This course provides an understanding of the basics of digital logic, memory systems, processor design, and computer organization, which are important for understanding how computers work at the hardware level.
+- *Operating Systems*: This course introduces the fundamentals of operating system design, process management, memory management, and file systems, which are necessary for understanding the software that manages computer hardware.
+- *Databases, Networking, or Web/Mobile Development*: For the sixth course, consider choosing one that aligns with your interests and career goals. Databases will provide essential skills for managing and working with data, Networking will give you an understanding of computer communication, and Web/Mobile Development will teach you practical skills for developing software applications.
+
+These six courses provide a solid foundation in computer science, covering essential topics that are broadly applicable across various computing disciplines. It's important to note that the specific courses offered and their sequence may differ among institutions, so consult the course catalog of the institution you're interested in for more accurate information.
 
