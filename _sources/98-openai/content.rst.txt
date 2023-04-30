@@ -17,8 +17,7 @@ The first curricular guidelines for computer science degrees were published in 1
 
 "Curriculum 68" aimed to define the core components of a computer science education and offer guidance on organizing courses and content. It was a landmark document that helped shape the early development of computer science as an academic discipline. Since then, the ACM has periodically updated its curriculum recommendations to keep pace with the rapidly evolving field of computer science.
 
-You can find the "Curriculum 68" report at the following link:
-http://bitsavers.trailing-edge.com/pdf/acm/Curriculum68.pdf
+You can find the "Curriculum 68" report at the following link: https://dl.acm.org/doi/10.1145/362929.362976
 
 Is there a URL for this that is on ACM and not on some random site?
 ---------------------------------------------------------------------
