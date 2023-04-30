@@ -86,3 +86,46 @@ CS1 and CS2 terminology originated from the early ACM curricular guidelines and 
 While the terminology of CS1 and CS2 might not be explicitly mentioned in the most recent curricular guidelines (CC2020), the concepts behind them are still relevant. The CC2020 guidelines provide learning outcomes and topics for introductory programming courses (similar to CS1 and CS2) under the "Algorithms and Complexity" and "Programming Languages" knowledge areas.
 
 In summary, the terms CS1 and CS2 might not be explicitly used in the latest ACM/IEEE curricular guidelines, but the concepts behind these foundational computer science courses remain relevant and are covered within the broader framework of the guidelines.
+
+What are the most common 1st, 2nd, and 3rd year courses in computer science?
+-----------------------------------------------------------------------------
+
+The most common computer science courses in the first, second, and third years of an undergraduate program may vary between institutions, but there are some core subjects that are typically covered during these years. Here's a general list of common courses for each year:
+
+First Year
+^^^^^^^^^^^
+
+- Introduction to Programming (CS1) - Often taught using languages like Python, Java, or C++
+- Discrete Mathematics - Covers topics such as logic, set theory, relations, functions, and combinatorics
+- Computer Organization and Architecture - Introduces concepts like digital logic, memory systems, and processor design
+- Data Structures and Algorithms (CS2) - Explores foundational data structures (e.g., arrays, linked lists, trees, graphs) and algorithms (e.g., searching, sorting)
+ 
+Second Year
+^^^^^^^^^^^^
+
+- Algorithms and Complexity - Covers advanced algorithm design, analysis, and complexity theory
+- Operating Systems - Explores the fundamentals of operating system design, process management, and memory management
+- Computer Networks - Introduces network protocols, layers, and architectures
+- Object-Oriented Programming and Design - Teaches principles of object-oriented programming, design patterns, and software engineering practices
+
+Third Year
+^^^^^^^^^^^
+
+- Databases - Covers database design, SQL, and relational database management systems
+- Software Engineering - Introduces software development processes, methodologies, and tools for large-scale projects
+- Web Development or Mobile App Development - Teaches principles of web or mobile app development using modern frameworks and tools
+- Artificial Intelligence and/or Machine Learning - Explores AI concepts, search algorithms, machine learning techniques, and neural networks
+
+In addition to these core courses, students typically have the option to take elective courses in specialized areas such as cybersecurity, computer graphics, game development, human-computer interaction, data science, and more. The specific courses offered and their sequence may vary between institutions, but the list above provides a general overview of the common courses in a typical undergraduate computer science program.
+
+Evidence
+^^^^^^^^
+
+The information (above) is synthesized from the knowledge acquired during my training, which includes various sources, such as academic websites, course catalogs, and educational materials. It is important to note that this is a general overview, and the actual course offerings and sequence may differ among institutions. It's always a good idea to consult the specific curriculum and course catalog of the institution you're interested in for more accurate information.
+
+
+
+
+
+
+
