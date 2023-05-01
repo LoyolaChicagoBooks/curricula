@@ -1,0 +1,25 @@
+{
+  "creators": [
+    {
+      "name": "Thiruvathukal, George K.",
+      "affiliation": "Loyola University Chicago and Argonne National Laboratory",
+      "orcid": "0000-0002-0452-5571"
+    },
+    {
+      "name": "Läufer, Konstantin",
+      "affiliation": "Loyola University Chicago",
+      "orcid": "0000-0002-7548-0876"
+    }
+  ],
+  "keywords": [
+    "computing education",
+    "ACM",
+    "IEEE",
+    "computing curicula",
+    "Bloom's txonomy",
+    "pedagogy",
+    "GPT"
+  ],
+  "license": "GPL-3.0",
+  "upload_type": "software"
+}
