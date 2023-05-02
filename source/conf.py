@@ -318,3 +318,7 @@ epub_copyright = u'2013, CS-Curricula Software Systems Laboratory'
 
 # Allow duplicate toc entries.
 #epub_tocdup = True
+
+# Project-specific settings
+
+todo_include_todos = True
