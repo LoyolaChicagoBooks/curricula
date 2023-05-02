@@ -1,5 +1,5 @@
-CS1 - Introduction to CS
-=========================
+CS1 - Introduction to CS (LUC COMP 170)
+=========================================
 
 About the Curriculum
 ---------------------
