@@ -23,11 +23,13 @@ paradigm and a basic understanding of the object-oriented programming paradigm.
 Overview
 --------
 
-This course provides an overview of the most significant programming paradigms:
+.. todo::
+   Discuss whether we'll leave advanced OO to 313/373 and include XML/XSLT instead!
+   OTOH, the markup languages course already covers the latter in depth.
 
-- object-oriented programming (beyond the prerequisite basics) 
-- functional programming
-- concurrent programming  
-- logic programming
+This course provides an overview of the most significant programming paradigms and introduces the student to a paradigm-defining language for each of these paradigms. 
 
-The course introduces the student to a paradigm-defining language for each of these paradigms.
+- object-oriented programming (beyond the prerequisite basics): Scala
+- functional programming: Haskell
+- concurrent programming: Clojure
+- logic programming: Prolog
