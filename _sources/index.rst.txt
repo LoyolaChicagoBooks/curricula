@@ -11,6 +11,7 @@ Welcome to the CS Curriculum Systems Modules
    00-preliminaries/content.rst
    05-acm-ieee-cc/content.rst
    10-cs1/content.rst
+   12-discrete-structures/content.rst
    15-cs2/content.rst
    20-languages/content.rst
    25-systems/content.rst
