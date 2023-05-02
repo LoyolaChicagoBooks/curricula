@@ -1,8 +1,8 @@
 CS2 - COMP  271 - Data Structures
 =================================
 
-Top 15 opics in CS2 curricula?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Top 15 topics in CS2 curricula?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 In a typical CS2 course, you may expect to find the following topics covered, although the order and emphasis may vary depending on the particular curriculum and instructor:
 
