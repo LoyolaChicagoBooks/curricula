@@ -1,4 +1,4 @@
-Discrete Structures Topics
+CS? - COMP 163 - Discrete Structures
 ===========================================
 
 These are the top 15 topics in Discrete Structures

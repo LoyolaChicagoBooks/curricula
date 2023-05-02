@@ -1,5 +1,5 @@
-CS2 - Data Structures (LUC COMP 271)
-=======================================
+CS2 - COMP  271 - Data Structures
+=================================
 
 Top 15 opics in CS2 curricula?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
