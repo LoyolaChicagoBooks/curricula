@@ -15,6 +15,7 @@ Welcome to the CS Curriculum Systems Modules
    15-cs2/content.rst
    20-languages/content.rst
    25-systems/content.rst
+   30-software-engineering/content.rst
    98-openai/content.rst
    99-sandbox/content.rst
 
