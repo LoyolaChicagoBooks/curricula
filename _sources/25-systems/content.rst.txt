@@ -1,4 +1,4 @@
-CS? - COMP 264 - Computer Systems, Organization, Architecture
+Computer Systems 1 (COMP 264)
 ==============================================================
 
 .. note:: George

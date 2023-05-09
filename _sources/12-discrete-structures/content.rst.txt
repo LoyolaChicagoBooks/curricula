@@ -1,5 +1,5 @@
-CS? - COMP 163 - Discrete Structures
-===========================================
+Discrete Structures (LUC COMP 163)
+=====================================
 
 These are the top 15 topics in Discrete Structures
 
