@@ -27,7 +27,7 @@ from datetime import date
 
 # Add any Sphinx extension module names here, as strings. They can be extensions
 # coming with Sphinx (named 'sphinx.ext.*') or your custom ones.
-extensions = ['sphinx.ext.todo', 'sphinx.ext.mathjax']
+extensions = ['sphinx.ext.todo', 'sphinx.ext.mathjax', 'sphinx.ext.todo']
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -42,8 +42,8 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'CS-Curricula'
-copyright = u'2013-2019, CS-Curricula Software Systems Laboratory'
+project = u'CS Curricula'
+copyright = u'2023-, Software Systems Laboratory'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -199,7 +199,7 @@ html_static_path = ['_static']
 #html_file_suffix = None
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'CS-Curriculadoc'
+htmlhelp_basename = 'CS-Curricula-doc'
 
 
 # -- Options for LaTeX output --------------------------------------------------
@@ -218,8 +218,8 @@ latex_elements = {
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-  ('index', 'CS-Curricula.tex', u'CS-Curricula Documentation',
-   u'CS-Curricula Software Systems Laboratory', 'manual'),
+  ('index', 'CS-Curricula.tex', u'CS Curricula at Loyola University Chicago',
+   u'CS Curricula, Software Systems Laboratory', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
@@ -248,8 +248,8 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'cs-curriculum', u'CS-Curricula Documentation',
-     [u'CS-Curricula Software Systems Laboratory'], 1)
+    ('index', 'cs-curriculum', u'CS Curricula at Loyola University Chicago',
+     [u'Software Systems Laboratory'], 1)
 ]
 
 # If true, show URL addresses after external links.
@@ -262,8 +262,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-  ('index', 'CS-Curricula', u'CS-Curricula Documentation',
-   u'CS-Curricula Software Systems Laboratory', 'CS-Curricula', 'One line description of project.',
+  ('index', 'CS-Curricula', u'CS Curricula at Loyola University Chicago',
+   u'CS Curricula at Loyola University CHicago', 'CS-Curricula', 'One line description of project.',
    'Miscellaneous'),
 ]
 
@@ -281,9 +281,9 @@ texinfo_documents = [
 
 # Bibliographic Dublin Core info.
 epub_title = u'CS-Curricula'
-epub_author = u'CS-Curricula Software Systems Laboratory'
-epub_publisher = u'CS-Curricula Software Systems Laboratory'
-epub_copyright = u'2013, CS-Curricula Software Systems Laboratory'
+epub_author = u'Software Systems Laboratory'
+epub_publisher = u' Software Systems Laboratory'
+epub_copyright = u'2023, Software Systems Laboratory'
 
 # The language of the text. It defaults to the language option
 # or en if the language is not set.
