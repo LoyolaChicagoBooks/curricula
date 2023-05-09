@@ -1,4 +1,4 @@
-CS-Lang - COMP 371 - Programming Languages
+Programming Languages (LUC COMP 371)
 ==========================================
 
 .. todo:: If this is a book, shouldn't these top-level units be chapters rather than sections? 

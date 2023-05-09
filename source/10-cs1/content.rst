@@ -1,4 +1,4 @@
-CS1 - COMP 170: Introduction to CS
+Introduction to CS (CS1 / LUC COMP 170)
 ========================================
 
 What does CS1 mean with respect to the ACM Computing Curricula?
@@ -46,9 +46,30 @@ These topics provide a solid foundation in computer science for students in a CS
 
 What are simple examples of the most important programming constructs in Java?
 --------------------------------------------------------------------------------
+- Variables and data types: Java has various data types such as int, double, char, boolean, and String for storing different types of data.
+
+- Conditional statements: Java supports conditional statements like if-else and switch to execute code based on specific conditions.
+
+- Loops: Java provides loop structures like for, while, and do-while for repeated execution of code until a certain condition is met.
+
+- Functions (methods): Java allows you to define reusable pieces of code called functions (methods) to perform specific tasks.
+
+- Basic input/output: Java has the ability to read and write data from/to the console and external files using classes like Scanner and BufferedReader for input, and System.out and FileWriter for output.
+
+- Arrays: Java supports fixed-size arrays for storing and manipulating collections of elements of the same data type.
+
+- Classes and objects: Java is an object-oriented programming language, which means it supports the creation and use of custom classes and objects to model real-world entities.
+
+- Inheritance: Java allows classes to inherit properties and methods from other classes, promoting code reuse and modularity.
+
+- Interfaces and abstract classes: Java supports the use of interfaces and abstract classes to define a contract or blueprint for classes, ensuring they implement specific methods.
+
+- Exceptions and error handling: Java provides a mechanism to handle errors and exceptions that may occur during program execution, using try-catch blocks and custom exception classes.
 
 Variables and Data Types
 ^^^^^^^^^^^^^^^^^^^^^^^^
+
+Java has various data types such as int, double, char, boolean, and String for storing different types of data.
 
 .. code-block:: java
 
@@ -72,6 +93,8 @@ Variables and Data Types
 Conditional Statements (if-else)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Java supports conditional statements like if-else and switch to execute code based on specific conditions.
+
 .. code-block:: java
 
    public class ConditionalStatements {
@@ -89,6 +112,8 @@ Conditional Statements (if-else)
 
 Loops (for and while)
 ^^^^^^^^^^^^^^^^^^^^^^
+
+Java provides loop structures like for, while, and do-while for repeated execution of code until a certain condition is met.
 
 .. code-block:: java
 
@@ -111,6 +136,8 @@ Loops (for and while)
 
 Functions
 ^^^^^^^^^^^
+  
+Functions (methods): Java allows you to define reusable pieces of code called functions (methods) to perform specific tasks.
 
 .. code-block:: java
 
@@ -130,6 +157,8 @@ Functions
 
 Basic I/O
 ^^^^^^^^^^^
+
+Java has the ability to read and write data from/to the console and external files using classes like Scanner and BufferedReader for input, and System.out and FileWriter for output.
 
 .. code-block:: java
 
@@ -152,6 +181,8 @@ Basic I/O
 Arrays
 ^^^^^^^
 
+Java supports fixed-size arrays for storing and manipulating collections of elements of the same data type.
+
 .. code-block:: java
 
    public class BasicArrays {
@@ -173,6 +204,8 @@ Arrays
 
 Classes and Objects
 ^^^^^^^^^^^^^^^^^^^^^
+
+Classes and objects: Java is an object-oriented programming language, which means it supports the creation and use of custom classes and objects to model real-world entities.
 
 .. code-block:: java
 
@@ -197,6 +230,8 @@ Classes and Objects
 
 Inheritance
 ^^^^^^^^^^^^
+
+Java allows classes to inherit properties and methods from other classes, promoting code reuse and modularity.
 
 .. code-block:: java
 
@@ -223,6 +258,8 @@ Inheritance
 
 Interfaces and Abstract Classes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Interfaces and abstract classes: Java supports the use of interfaces and abstract classes to define a contract or blueprint for classes, ensuring they implement specific methods.
 
 .. code-block:: java
 
@@ -263,6 +300,8 @@ Interfaces and Abstract Classes
 Exceptions and Error Handling
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Java provides a mechanism to handle errors and exceptions that may occur during program execution, using try-catch blocks and custom exception classes.
+
 .. code-block:: java
 
    public class ExceptionsAndErrorHandling {
@@ -277,9 +316,42 @@ Exceptions and Error Handling
        }
    }
 
+Here's the ExceptionsAndErrorHandling example refactored to use a simple return code mechanism instead of exceptions:
+
+.. code-block:: java
+
+   public class SimpleErrorHandling {
+   
+       public static void main(String[] args) {
+           int[] numbers = {1, 2, 3, 4, 5};
+           int index = 5;
+   
+           int result = getElement(numbers, index);
+           if (result != -1) {
+               System.out.println("Element at index " + index + " is: " + result);
+           } else {
+               System.out.println("Error: Invalid index " + index);
+           }
+       }
+   
+       public static int getElement(int[] array, int index) {
+           if (index >= 0 && index < array.length) {
+               return array[index];
+           } else {
+               return -1;
+           }
+       }
+   }
+
+In this refactored version, the ``getElement()`` method returns -1 if the index is out of bounds, indicating an error. The main method checks the return value and, if it's not -1, prints the element at the specified index. Otherwise, it prints an error message. Keep in mind that this approach assumes that -1 is not a valid value in the array. In a more generic solution, you could use an optional type or a custom result object to handle error cases.
+
 
 Refactor Animal and Dog example with an interface that has all common methods?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+We tend to think in terms of interfaces instead of inheritance whenever possible.
+We asked Chat-GPT4 to refactor this example to use interfaces instead of inheritance.
+This is the result.
 
 .. code-block:: java
 
@@ -305,6 +377,9 @@ Refactor Animal and Dog example with an interface that has all common methods?
 Refactor: Animal not a good name for an interface. Use WhatAnimalsDo instead.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+``Animal`` would be fine for inheritance. But it's less of a good name for an interface.
+We asked to refactor ``Animal`` to ``WhatAnimalsDo``. This also allows for us to define other interfaces associated with animals.
+
 .. code-block:: java
 
    interface WhatAnimalsDo {
@@ -328,6 +403,8 @@ Refactor: Animal not a good name for an interface. Use WhatAnimalsDo instead.
 
 Refactor: Add two other animals...
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+And this shows how to add additional animals....
 
 .. code-block:: java
 
@@ -370,4 +447,11 @@ Refactor: Add two other animals...
    }
 
 
-.. note:: More of the top 15 coming...
+
+How do these Java topics map to the CS1 curricula and ACM/IEEE?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. note:: George to finish.
+
+
+

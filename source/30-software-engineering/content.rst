@@ -1,5 +1,5 @@
-Software Engineering Ideas
-============================
+Software Engineering (LUC COMP 330)
+====================================
 
 .. note:: GPT-4 + Insights
 

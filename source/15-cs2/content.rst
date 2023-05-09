@@ -1,5 +1,5 @@
-CS2 - COMP  271 - Data Structures
-=================================
+Data Structures 1 (CS2 / LUC COMP 271)
+=======================================
 
 Top 15 topics in CS2 curricula?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
