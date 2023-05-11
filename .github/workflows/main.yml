@@ -73,7 +73,7 @@ jobs:
       - name: Prepare PDF for upload to Figshare
         run: |
           mkdir upload
-	  cp build/latex/CS-Curricula.pdf upload
+          cp build/latex/CS-Curricula.pdf upload
 
       - name: Upload PDF to Figshare
 	uses: figshare/github-upload-action@v1.1
