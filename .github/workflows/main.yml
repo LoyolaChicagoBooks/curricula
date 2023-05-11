@@ -76,7 +76,7 @@ jobs:
           cp build/latex/CS-Curricula.pdf upload
 
       - name: Upload PDF to Figshare
-	uses: figshare/github-upload-action@v1.1
+        uses: figshare/github-upload-action@v1.1
         with:
           FIGSHARE_TOKEN: ${{ secrets.FIGSHARE_TOKEN }}
           FIGSHARE_ENDPOINT: 'https://api.figshare.com/v2'
