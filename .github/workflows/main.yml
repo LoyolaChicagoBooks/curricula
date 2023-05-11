@@ -74,11 +74,13 @@ jobs:
             $PDF_FILE_NAME
 
       - name: Prepare PDF for upload to Figshare
+        if: startsWith(github.ref, 'refs/tags/')
         run: |
           mkdir upload
-          cp $PDF_FILE_NAME upload/CS-Curricula-$(date "+%F-%T").pdf
+          cp $PDF_FILE_NAME upload/CS-Curricula-${{ github.ref_name }}.pdf
 
       - name: Upload PDF to Figshare
+        if: startsWith(github.ref, 'refs/tags/')
         uses: figshare/github-upload-action@v1.1
         with:
           FIGSHARE_TOKEN: ${{ secrets.FIGSHARE_TOKEN }}
