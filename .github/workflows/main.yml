@@ -69,3 +69,16 @@ jobs:
         with:
           files: |
             build/latex/CS-Curricula.pdf
+
+      - name: Prepare PDF for upload to Figshare
+        run: |
+          mkdir upload
+	  cp build/latex/CS-Curricula.pdf upload
+
+      - name: Upload PDF to Figshare
+	uses: figshare/github-upload-action@v1.1
+        with:
+          FIGSHARE_TOKEN: ${{ secrets.FIGSHARE_TOKEN }}
+          FIGSHARE_ENDPOINT: 'https://api.figshare.com/v2'
+          FIGSHARE_ARTICLE_ID: 22806431
+          DATA_DIR: 'upload'
