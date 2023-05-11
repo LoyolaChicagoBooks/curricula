@@ -8,6 +8,9 @@ on:
       - 'v*'
   workflow_dispatch:
 
+env:
+  PDF_FILE_NAME: build/latex/CS-Curricula.pdf
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -68,12 +71,12 @@ jobs:
         if: startsWith(github.ref, 'refs/tags/')
         with:
           files: |
-            build/latex/CS-Curricula.pdf
+            $PDF_FILE_NAME
 
       - name: Prepare PDF for upload to Figshare
         run: |
           mkdir upload
-          cp build/latex/CS-Curricula.pdf upload
+          cp $PDF_FILE_NAME upload/CS-Curricula-$(date "+%F-%T").pdf
 
       - name: Upload PDF to Figshare
         uses: figshare/github-upload-action@v1.1
