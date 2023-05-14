@@ -301,13 +301,7 @@ In summary, the aggregation relationship allows for the association of multiple 
        }
    }
 
-   public class Wheel {
-       private int size;
-
-       public Wheel(final int size) {
-	   this.size = size;
-       }
-
+   public record Wheel(int size) {
        public void rotate() {
 	   // Code to rotate the wheel
 	   System.out.println("Wheel rotating.");
@@ -334,7 +328,7 @@ In summary, the aggregation relationship allows for the association of multiple 
        }
 
        public void drive() {
-	   for (Wheel wheel : wheels) {
+	   for (final var wheel : wheels) {
 	       wheel.rotate();
 	   }
 	   System.out.println("Car is driving.");
