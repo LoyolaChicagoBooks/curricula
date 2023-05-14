@@ -228,12 +228,14 @@ What's the difference, if any, between composition and aggregation?
 Composition and aggregation are both forms of object relationships in object-oriented programming, but they differ in terms of the strength of the relationship and the lifecycle dependency between the objects involved. Here's a breakdown of the differences:
 
 Composition:
+
 1. Strong Relationship: Composition represents a strong relationship between objects, where one object (the whole) is composed of other objects (the parts). The parts are owned by the whole, and their existence is tightly coupled with the existence of the whole.
 2. Exclusive Ownership: In composition, the whole object takes ownership and responsibility for creating, managing, and destroying its component objects. The lifetime of the parts is dependent on the lifetime of the whole.
 3. No Independent Existence: The parts typically do not have an independent existence outside of the whole object. They are created and destroyed as part of the whole, and their behavior is often tightly integrated with the overall behavior of the whole object.
 4. Strong Encapsulation: Composition enforces strong encapsulation, as the internal structure and implementation details of the parts are typically not exposed to the external world. The whole object controls and encapsulates the behavior of its parts.
 
 Aggregation:
+
 1. Weaker Relationship: Aggregation represents a weaker relationship between objects, where one object (the aggregate) contains or is associated with other objects (the components). The components can exist independently of the aggregate object.
 2. Shared Ownership: In aggregation, the components are not owned by the aggregate object. They may have their own independent lifecycles and can be shared between multiple aggregate objects.
 3. Independent Existence: The components can exist outside of the aggregate object and can be associated with multiple aggregates or exist on their own.
@@ -242,36 +244,37 @@ Aggregation:
 
 In summary, composition and aggregation differ in the strength of the relationship, ownership, lifecycle dependency, and encapsulation. Composition represents a strong ownership relationship with exclusive ownership and tight lifecycle dependency, while aggregation represents a looser relationship with shared ownership and independent existence of the components.
 
-
-Certainly! Here's an example that illustrates the concept of aggregation:
+Here's an example that illustrates the concept of aggregation:
 
 Consider a university system where a Department object represents a department within the university, and a Professor object represents a faculty member. In this scenario:
 
 - Aggregation: The Department aggregates Professor objects as its faculty members. Multiple professors can be associated with a department, and they can exist independently outside of the department.
 
 Example:
-```java
-public class Professor {
-    private String name;
-    private String specialization;
 
-    // Constructor, getters, and setters
-}
+.. code-block:: java
 
-public class Department {
-    private String name;
-    private List<Professor> faculty;
+   public class Professor {
+       private String name;
+       private String specialization;
 
-    // Constructor, getters, and setters
-    public void addProfessor(Professor professor) {
-        faculty.add(professor);
-    }
+       // Constructor, getters, and setters
+   }
 
-    public void removeProfessor(Professor professor) {
-        faculty.remove(professor);
-    }
-}
-```
+   public class Department {
+       private String name;
+       private List<Professor> faculty;
+
+       // Constructor, getters, and setters
+       public void addProfessor(final Professor professor) {
+	   faculty.add(professor);
+       }
+
+       public void removeProfessor(final Professor professor) {
+	   faculty.remove(professor);
+       }
+   }
+
 
 In this example, the Department class has an aggregation relationship with the Professor class. Each Department object maintains a list of Professor objects as its faculty members. Professors can exist independently and can be associated with multiple departments or even exist without any department affiliation.
 
@@ -282,75 +285,71 @@ This aggregation relationship provides flexibility in terms of professors being 
 In summary, the aggregation relationship allows for the association of multiple objects while maintaining their independent existence and provides a looser relationship compared to composition.
 
 
-Here's an example of composition using the car analogy:
+ Here's an example of composition using the car analogy:
 
-```java
-public class Engine {
-    public void start() {
-        // Code to start the engine
-        System.out.println("Engine started.");
-    }
+.. code-block:: java
 
-    public void stop() {
-        // Code to stop the engine
-        System.out.println("Engine stopped.");
-    }
-}
+   public class Engine {
+       public void start() {
+	   // Code to start the engine
+	   System.out.println("Engine started.");
+       }
 
-public class Wheel {
-    private int size;
+       public void stop() {
+	   // Code to stop the engine
+	   System.out.println("Engine stopped.");
+       }
+   }
 
-    public Wheel(int size) {
-        this.size = size;
-    }
+   public class Wheel {
+       private int size;
 
-    public void rotate() {
-        // Code to rotate the wheel
-        System.out.println("Wheel rotating.");
-    }
-}
+       public Wheel(final int size) {
+	   this.size = size;
+       }
 
-public class Car {
-    private Engine engine;
-    private List<Wheel> wheels;
+       public void rotate() {
+	   // Code to rotate the wheel
+	   System.out.println("Wheel rotating.");
+       }
+   }
 
-    public Car() {
-        engine = new Engine();
-        wheels = new ArrayList<>();
+   public class Car {
+       private Engine engine;
+       private List<Wheel> wheels;
 
-        // Create 4 wheels for the car
-        for (int i = 0; i < 4; i++) {
-            wheels.add(new Wheel(18));
-        }
-    }
+       public Car() {
+	   engine = new Engine();
+           wheels = List.of(new Wheel(18), new Wheel(18), new Wheel(18), new Wheel(18));
+       }
 
-    public void startCar() {
-        engine.start();
-        System.out.println("Car started.");
-    }
+       public void startCar() {
+	   engine.start();
+	   System.out.println("Car started.");
+       }
 
-    public void stopCar() {
-        engine.stop();
-        System.out.println("Car stopped.");
-    }
+       public void stopCar() {
+	   engine.stop();
+	   System.out.println("Car stopped.");
+       }
 
-    public void drive() {
-        for (Wheel wheel : wheels) {
-            wheel.rotate();
-        }
-        System.out.println("Car is driving.");
-    }
-}
+       public void drive() {
+	   for (Wheel wheel : wheels) {
+	       wheel.rotate();
+	   }
+	   System.out.println("Car is driving.");
+       }
+   }
 
-public class Main {
-    public static void main(String[] args) {
-        Car car = new Car();
-        car.startCar();
-        car.drive();
-        car.stopCar();
-    }
-}
-```
+   public class Main {
+       public static void main(final String[] args) {
+	   final var car = new Car();
+	   car.startCar();
+	   car.drive();
+	   car.stopCar();
+       }
+   }
+
 
 In this example, we have three classes: `Engine`, `Wheel`, and `Car`. The `Car` class composes an `Engine` object and a list of `Wheel` objects. The `Car` class creates and owns these objects, and their lifetimes are tied to the lifetime of the `Car` object.
 
@@ -359,30 +358,33 @@ When the `Car` object is created, it initializes its `Engine` and creates four `
 In the `Main` class, we create a `Car` object and invoke the `startCar()`, `drive()`, and `stopCar()` methods to demonstrate the composition relationship. The `Car` object delegates the responsibility of starting the engine and rotating the wheels to its composed objects, providing the functionality of a fully functioning car.
 
 Executing the code will produce the following output:
-```
-Engine started.
-Car started.
-Wheel rotating.
-Wheel rotating.
-Wheel rotating.
-Wheel rotating.
-Car is driving.
-Engine stopped.
-Car stopped.
-```
+
+
+.. code-block::
+   
+   Engine started.
+   Car started.
+   Wheel rotating.
+   Wheel rotating.
+   Wheel rotating.
+   Wheel rotating.
+   Car is driving.
+   Engine stopped.
+   Car stopped.
+
 
 This example demonstrates how the `Car` object composes the `Engine` and `Wheel` objects, utilizing their behaviors and encapsulating them within its own functionality.
 
 
-.. csv-table:: Comparison between Composition and Aggregation
-   :header: "Aspect", "Composition", "Aggregation"
-   :widths: 20, 40, 40
+   .. csv-table:: Comparison between Composition and Aggregation
+      :header: "Aspect", "Composition", "Aggregation"
+      :widths: 20, 40, 40
 
-   "Relationship Strength", "Strong", "Weak"
-   "Ownership", "Whole object owns and manages the parts", "Parts are not owned by the aggregate"
-   "Lifetime Dependency", "Parts' lifetimes are tightly coupled with the whole", "Parts can exist independently of the aggregate"
-   "Independent Existence", "Parts typically do not exist independently", "Parts can exist outside of the aggregate"
-   "Responsibility", "Whole object takes responsibility for creating, managing, and destroying parts", "Parts have their own behavior and responsibilities"
-   "Encapsulation", "Strong encapsulation of parts within the whole", "Looser encapsulation with more independence for parts"
+      "Relationship Strength", "Strong", "Weak"
+      "Ownership", "Whole object owns and manages the parts", "Parts are not owned by the aggregate"
+      "Lifetime Dependency", "Parts' lifetimes are tightly coupled with the whole", "Parts can exist independently of the aggregate"
+      "Independent Existence", "Parts typically do not exist independently", "Parts can exist outside of the aggregate"
+      "Responsibility", "Whole object takes responsibility for creating, managing, and destroying parts", "Parts have their own behavior and responsibilities"
+      "Encapsulation", "Strong encapsulation of parts within the whole", "Looser encapsulation with more independence for parts"
 
-You can copy this ReST table code and include it in your Sphinx document. Feel free to adjust the table headers, widths, or content as needed.
+..   You can copy this ReST table code and include it in your Sphinx document. Feel free to adjust the table headers, widths, or content as needed.
