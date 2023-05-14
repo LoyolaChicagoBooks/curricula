@@ -10,6 +10,7 @@ on:
 
 env:
   PDF_FILE_NAME: build/latex/CS-Curricula.pdf
+  FIGSHARE_ARTICLE_ID: 22806431
 
 jobs:
   deploy:
@@ -73,15 +74,20 @@ jobs:
           files: |
             $PDF_FILE_NAME
 
+      - name: Remove existing Figshare file
+        run: |
+	  
+
+
       - name: Prepare PDF for upload to Figshare
         run: |
           mkdir upload
-          cp $PDF_FILE_NAME upload/CS-Curricula-${{ github.ref_name }}.pdf
+          cp $PDF_FILE_NAME upload
 
       - name: Upload PDF to Figshare
         uses: figshare/github-upload-action@v1.1
         with:
           FIGSHARE_TOKEN: ${{ secrets.FIGSHARE_TOKEN }}
           FIGSHARE_ENDPOINT: 'https://api.figshare.com/v2'
-          FIGSHARE_ARTICLE_ID: 22806431
+          FIGSHARE_ARTICLE_ID: ${{ FIGSHARE_ARTICLE_ID }}
           DATA_DIR: 'upload'
