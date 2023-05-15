@@ -84,5 +84,5 @@ jobs:
         with:
           FIGSHARE_TOKEN: ${{ secrets.FIGSHARE_TOKEN }}
           FIGSHARE_ENDPOINT: 'https://api.figshare.com/v2'
-          FIGSHARE_ARTICLE_ID: ${{ FIGSHARE_ARTICLE_ID }}
+          FIGSHARE_ARTICLE_ID: ${{ env.FIGSHARE_ARTICLE_ID }}
           DATA_DIR: 'upload'
