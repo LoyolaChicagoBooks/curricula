@@ -140,6 +140,21 @@ Subtyping enables polymorphism and supports the "is-a" relationship between clas
 In the context of CS2, subtyping is a significant aspect of understanding inheritance and polymorphism. It enables students to create class hierarchies, define relationships between classes, and utilize the principles of code reuse and abstraction. By grasping the concept of subtyping, students can effectively design and implement object-oriented programs that utilize inheritance and polymorphism to their full potential.
 
 
+.. csv-table:: Comparison between type hierarchy relationships
+    :header: "Feature", "Subtyping", "Inheritance"
+    :widths: 25, 25, 25
+
+    "Relationship", "Is-a relationship between types", "Mechanism for code reuse and specialization"
+    "Nature", "Defines a subtype-supertype relationship", "Defines a relationship for inheriting attributes and behaviors"
+    "Polymorphism", "Enables substitution of subtypes for supertypes", "Enables runtime polymorphism and method overriding"
+    "Extensibility", "Allows adding new subtypes to the hierarchy", "Supports extension of existing classes through subclassing"
+    "Code Reuse", "Facilitates reuse of behavior and interface from supertype", "Allows inheriting methods and fields from superclass"
+    "Method Overriding", "Enables subclass to provide its own implementation of inherited methods", "Provides the ability to override superclass methods"
+    "Specialization", "Refines and specializes behavior and characteristics of supertype", "Allows creating specialized versions of a generalized superclass"
+    "Hierarchy Structure", "Forms a hierarchy of related types based on subtyping", "Organizes classes in a hierarchical structure based on inheritance"
+    "Example", "Animal and Dog (A dog is an animal)", "Vehicle and Car (A car inherits attributes and behaviors from the vehicle)"
+
+
 Where would you put delegation?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -370,15 +385,19 @@ Executing the code will produce the following output:
 This example demonstrates how the `Car` object composes the `Engine` and `Wheel` objects, utilizing their behaviors and encapsulating them within its own functionality.
 
 
-   .. csv-table:: Comparison between Composition and Aggregation
-      :header: "Aspect", "Composition", "Aggregation"
-      :widths: 20, 40, 40
+.. csv-table:: Comparison among object relationships
+    :header: "Feature", "Composition", "Aggregation", "Association"
+    :widths: 25, 25, 25, 25
 
-      "Relationship Strength", "Strong", "Weak"
-      "Ownership", "Whole object owns and manages the parts", "Parts are not owned by the aggregate"
-      "Lifetime Dependency", "Parts' lifetimes are tightly coupled with the whole", "Parts can exist independently of the aggregate"
-      "Independent Existence", "Parts typically do not exist independently", "Parts can exist outside of the aggregate"
-      "Responsibility", "Whole object takes responsibility for creating, managing, and destroying parts", "Parts have their own behavior and responsibilities"
-      "Encapsulation", "Strong encapsulation of parts within the whole", "Looser encapsulation with more independence for parts"
+    "Relationship", "Strong 'whole-part' relationship", "Weak 'whole-part' relationship", "Semantically related but independent"
+    "Dependency", "Strong", "Weak", "Weak"
+    "Lifespan", "Contained object depends on the container object", "Independent object can exist independently", "Independent object can exist independently"
+    "Navigation", "Unidirectional (one-way)", "Unidirectional (one-way)", "Bidirectional (two-way)"
+    "Ownership", "Owner has full ownership of the contained objects", "No ownership relationship, objects can exist independently", "No ownership relationship, objects can exist independently"
+    "Responsibility", "Owner is responsible for the existence and behavior of the contained objects", "No specific responsibility for the lifecycle of the aggregated objects", "No specific responsibility for the associated objects"
+    "Encapsulation", "Strong encapsulation, contained objects are encapsulated within the owner", "Loose encapsulation, aggregated objects are not encapsulated within the owner", "Loose encapsulation, associated objects are not encapsulated within each other"
+    "Cardinality", "Typically one-to-one or one-to-many", "Typically one-to-many or many-to-many", "Can be one-to-one, one-to-many, or many-to-many"
+    "Example", "Car and Engine", "University and Student", "Teacher and Student"
+
 
 ..   You can copy this ReST table code and include it in your Sphinx document. Feel free to adjust the table headers, widths, or content as needed.
