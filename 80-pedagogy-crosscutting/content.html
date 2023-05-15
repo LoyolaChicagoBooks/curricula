@@ -90,7 +90,30 @@
 <p>In this chapter, we discuss various pedagogical considerations that may apply to more than one specific course.</p>
 <section id="focusing-on-a-high-level-api-vs-lower-level-implementation-working-title">
 <h2>Focusing on a high-level API vs lower-level implementation (working title)<a class="headerlink" href="#focusing-on-a-high-level-api-vs-lower-level-implementation-working-title" title="Permalink to this heading"></a></h2>
-<p><em>Let’s take a look at the cool `String.lines()` method. How would you split a string with embedded line breaks into multiple lines without using Stream?</em></p>
+<p><em>Let’s take a look at the cool `String.lines()` method. How would you split a string using this method?</em></p>
+<p>To split a string into lines using the <cite>lines()</cite> method, you can follow this approach:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">String</span><span class="w"> </span><span class="n">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello\nWorld!\nWelcome\nto\nJava&quot;</span><span class="p">;</span>
+
+<span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">lines</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">str</span><span class="p">.</span><span class="na">lines</span><span class="p">().</span><span class="na">collect</span><span class="p">(</span><span class="n">Collectors</span><span class="p">.</span><span class="na">toList</span><span class="p">());</span>
+
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">lines</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">line</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In this example, the <cite>lines()</cite> method is invoked on the <cite>String</cite> object <cite>str</cite>. It returns a <cite>Stream&lt;String&gt;</cite> consisting of the lines in the original string.</p>
+<p>Using the <cite>collect()</cite> method with <cite>Collectors.toList()</cite>, we collect the lines from the stream into a <cite>List&lt;String&gt;</cite>. Each line of the original string becomes an element in the resulting list.</p>
+<p>Finally, we iterate over the lines and print them, but you can use the <cite>lines</cite> list as desired in your program.</p>
+<p>Output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Hello
+World!
+Welcome
+to
+Java
+</pre></div>
+</div>
+<p>By utilizing the <cite>lines()</cite> method, you can split a string into lines in a concise and expressive manner, leveraging the power of the Stream API for streamlined string processing.</p>
+<p><em>How would you split a string with embedded line breaks into multiple lines without using Stream?</em></p>
 <p>To split a string with embedded line breaks into multiple lines without using the <cite>Stream</cite> API, you can use the <cite>String.split()</cite> method combined with the newline delimiter. Here’s an example:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">String</span><span class="w"> </span><span class="n">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello\nWorld!\nWelcome\nto\nJava&quot;</span><span class="p">;</span>
 

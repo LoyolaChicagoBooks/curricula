@@ -6,7 +6,43 @@ In this chapter, we discuss various pedagogical considerations that may apply to
 Focusing on a high-level API vs lower-level implementation (working title)
 --------------------------------------------------------------------------
 
-*Let's take a look at the cool `String.lines()` method. How would you split a string with embedded line breaks into multiple lines without using Stream?*
+
+*Let's take a look at the cool `String.lines()` method. How would you split a string using this method?*
+
+To split a string into lines using the `lines()` method, you can follow this approach:
+
+.. code-block:: java
+
+    String str = "Hello\nWorld!\nWelcome\nto\nJava";
+
+    List<String> lines = str.lines().collect(Collectors.toList());
+
+    for (String line : lines) {
+        System.out.println(line);
+    }
+
+
+In this example, the `lines()` method is invoked on the `String` object `str`. It returns a `Stream<String>` consisting of the lines in the original string.
+
+Using the `collect()` method with `Collectors.toList()`, we collect the lines from the stream into a `List<String>`. Each line of the original string becomes an element in the resulting list.
+
+Finally, we iterate over the lines and print them, but you can use the `lines` list as desired in your program.
+
+Output:
+
+.. code-block:: 
+    
+    Hello
+    World!
+    Welcome
+    to
+    Java
+
+
+By utilizing the `lines()` method, you can split a string into lines in a concise and expressive manner, leveraging the power of the Stream API for streamlined string processing.
+
+
+*How would you split a string with embedded line breaks into multiple lines without using Stream?*
 
 To split a string with embedded line breaks into multiple lines without using the `Stream` API, you can use the `String.split()` method combined with the newline delimiter. Here's an example:
 
