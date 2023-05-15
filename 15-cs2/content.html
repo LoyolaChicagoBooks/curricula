@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Data Structures 1 (CS2 / LUC COMP 271) &mdash; CS Curricula 11 May 2023 documentation</title>
+  <title>Data Structures 1 (CS2 / LUC COMP 271) &mdash; CS Curricula 15 May 2023 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -33,7 +33,7 @@
             CS Curricula
           </a>
               <div class="version">
-                11 May 2023
+                15 May 2023
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -50,11 +50,24 @@
 <li class="toctree-l1"><a class="reference internal" href="../12-discrete-structures/content.html">Discrete Structures (LUC COMP 163)</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Data Structures 1 (CS2 / LUC COMP 271)</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#top-15-topics-in-cs2-curricula">Top 15 topics in CS2 curricula?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cs2-at-loyola-current-topics-and-learning-outcomes">CS2 at Loyola: Current topics and learning outcomes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#which-cs2-topics-can-be-considered-cross-cutting">Which CS2 topics can be considered cross-cutting?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-does-beautiful-code-look-like-in-the-context-of-a-cs2-course">What does beautiful code look like in the context of a CS2 course?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#in-the-context-of-cs2-what-are-the-essential-elements-of-oop">In the context of CS2, what are the essential elements of OOP?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#where-does-subtyping-fit-in">Where does subtyping fit in?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#where-would-you-put-delegation">Where would you put delegation?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#in-practice-shouldn-t-delegation-be-on-par-with-inheritance">In practice, shouldn’t delegation be on par with inheritance?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#where-do-composition-aggregation-and-association-fit-into-this-list">Where do composition, aggregation, and association fit into this list?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#is-association-related-to-delegation">Is association related to delegation?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#is-composition-related-to-delegation">Is composition related to delegation?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-s-the-difference-if-any-between-composition-and-aggregation">What’s the difference, if any, between composition and aggregation?</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../20-languages/content.html">Programming Languages (LUC COMP 371)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../25-systems/content.html">Computer Systems 1 (COMP 264)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../30-software-engineering/content.html">Software Engineering (LUC COMP 330)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../80-pedagogy-crosscutting/content.html">Pedagogical Considerations Cutting Across the Curriculum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../95-chatgpt-limitations/content.html">Understanding the Limitations of ChatGPT</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../98-openai/content.html">Background</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../99-sandbox/content.html">Issues</a></li>
 </ul>
@@ -133,6 +146,282 @@
 <p class="admonition-title">Note</p>
 <p>Konstantin will take it from here.</p>
 </div>
+</section>
+<section id="cs2-at-loyola-current-topics-and-learning-outcomes">
+<h2>CS2 at Loyola: Current topics and learning outcomes<a class="headerlink" href="#cs2-at-loyola-current-topics-and-learning-outcomes" title="Permalink to this heading"></a></h2>
+<p>Here’s a version of the list of current topics and learning outcomes of the CS2 course at Loyola, COMP 271.</p>
+<ol class="arabic simple">
+<li><p>Basics of Object-Oriented Programming: Students will be able to create, use, and understand properly constructed OOP classes with public and private members, constructors, accessors, and mutators. They will also learn how to use method overloading appropriately and create classes with proper encapsulation. Additionally, they will be able to use existing classes and access documentation to find and understand components of classes to create new programs.</p></li>
+<li><p>More Object-Oriented Programming: Building on the basics, students will learn how to create solutions with multiple cooperating OOP classes. They will understand and use basic inheritance and interfaces, apply them to problem-solving, and create well-structured solutions. Students will also know how to use overriding of methods, abstract classes and methods, and interfaces. They will be able to implement common methods appropriately (toString, equals, compareTo, hashMap.) and understand and apply the substitution rule in inheritance. Finally, they will be familiar with boxing and unboxing of primitive types.</p></li>
+<li><p>Sequential Structures: Students will learn to select and use appropriate sequential data structures in problem-solving, including ArrayList, List, Linked List, Queue, Dequeue, and Stack. They will use iterators with sequential data structures, understand how these implementations impact performance (Big-Oh), and learn the implementation of array-based and list-based data structures. They will also be able to create medium scale applications and identify limits when picking appropriate data structures for unfamiliar problems.</p></li>
+<li><p>Algorithms and Recursion: Students will gain an introduction to recursion, its uses and pitfalls, and understand the appropriate uses of recursion and which algorithms using it are likely to perform acceptably. They will be able to analyze when recursion is and is not necessary and appropriate. Students will also extend their ability to predict and compare Big-Oh performance of programs and knowledge of algorithms with an understanding of backtracking and recursion.</p></li>
+<li><p>Sorting and Searching: Students will understand sorting and searching techniques and how they are implemented in linear data structures. They will iterate through information using linear and binary searches, and be able to compare the performance of array-based and linked list sorting and searching.</p></li>
+<li><p>Problem Solving, Testing, Debugging: Students will be able to apply problem-solving techniques to new computing problems, evaluate and select approaches including step-wise refinement, divide and conquer, etc. They will gain introductory experience with test-driven development, be able to define and evaluate test cases appropriate to the problem at hand, and become proficient at applying debugging principles including breakpoints and tracking of variables when code does not work as intended. Students will also understand and apply JUnit for creating and analyzing problems and selecting appropriate techniques.</p></li>
+<li><p>Tools, Organization, Professional Development: Students will become fully proficient at creating, editing, compiling, and running programs using both an Integrated Development Environment and the command line. They will also be able to install and update programming tools on their own computers. Additionally, students will create, grow, and maintain a GitHub account and use it as a repository for class work and projects throughout their continued education at Loyola University Chicago. They will be prepared to use it to demonstrate their experience and non-text materials to be supplied.</p></li>
+<li><p>Code Reading and Inspections, Java Documentation, Programming Style: Students will learn how to effectively read code produced by others, either for learning or finding defects. They will develop a professional-looking programming style, learn to create and use Java doc when reading and writing code, and gain experience interacting with others by doing code reading and inspections. Students will also understand the concept of defects in programs and apply their skills to their own work and the work of others.</p></li>
+<li><p>Introduction to Non-Linear Data Structures: Students will gain an introduction to advanced data structures, including trees, binary trees, and graphs. They will be able to compare these data structures with linear data structures and understand when they may be useful in implementations.</p></li>
+</ol>
+</section>
+<section id="which-cs2-topics-can-be-considered-cross-cutting">
+<h2>Which CS2 topics can be considered cross-cutting?<a class="headerlink" href="#which-cs2-topics-can-be-considered-cross-cutting" title="Permalink to this heading"></a></h2>
+<p>Cross-cutting topics in CS2 are those that are applicable to multiple areas of study and can be integrated across different topics. Here are a few CS2 topics that could be considered cross-cutting:</p>
+<ol class="arabic simple">
+<li><p>Problem-solving: Problem-solving is a fundamental skill that is essential for success in many areas of computer science. It involves breaking down complex problems into smaller, more manageable parts and using various techniques to solve them.</p></li>
+<li><p>Algorithms: Algorithms are a key component of computer science and are used to solve a wide range of problems. They involve a series of steps or instructions that are followed in order to solve a problem, and they can be used in many different areas of study, such as sorting, searching, and graph traversal.</p></li>
+<li><p>Data structures: Data structures are used to organize and store data in a way that is efficient and easy to access. They are a fundamental component of computer science and are used in many different areas of study, such as databases, artificial intelligence, and machine learning.</p></li>
+<li><p>Object-oriented programming: Object-oriented programming is a programming paradigm that is used to model complex systems. It involves creating objects that have properties and behaviors and using those objects to build larger systems. Object-oriented programming is used in many different areas of study, such as game development, web development, and software engineering.</p></li>
+<li><p>Software development: Software development involves the process of designing, creating, testing, and maintaining software. It is a cross-cutting topic because it involves many different areas of study, such as programming languages, data structures, algorithms, and user experience design.</p></li>
+</ol>
+</section>
+<section id="what-does-beautiful-code-look-like-in-the-context-of-a-cs2-course">
+<h2>What does beautiful code look like in the context of a CS2 course?<a class="headerlink" href="#what-does-beautiful-code-look-like-in-the-context-of-a-cs2-course" title="Permalink to this heading"></a></h2>
+<p>Beautiful code in the context of a CS2 course can be described as code that is well-organized, easy to read, and easy to understand. Here are a few characteristics of beautiful code:</p>
+<ol class="arabic simple">
+<li><p>Clarity: Beautiful code should be easy to understand and should clearly convey its purpose and functionality. This includes using meaningful variable and function names, writing comments when necessary, and organizing the code into logical blocks.</p></li>
+<li><p>Simplicity: Beautiful code should be simple and straightforward. This means avoiding unnecessary complexity and using the simplest possible solution to achieve the desired functionality.</p></li>
+<li><p>Modularity: Beautiful code should be modular, with each piece of code serving a specific purpose and being easily reusable in other parts of the program. This includes using functions and classes to organize code into logical modules.</p></li>
+<li><p>Consistency: Beautiful code should be consistent in its style and formatting. This includes using consistent indentation, spacing, and naming conventions throughout the program.</p></li>
+<li><p>Efficiency: Beautiful code should be efficient and optimized for performance. This includes using appropriate data structures and algorithms to minimize time and space complexity.</p></li>
+<li><p>Error-handling: Beautiful code should handle errors gracefully, with appropriate error messages and error handling code that does not cause the program to crash or behave unexpectedly.</p></li>
+</ol>
+<p>Overall, beautiful code in the context of a CS2 course should prioritize readability, simplicity, modularity, consistency, efficiency, and error-handling. By following these principles, students can create code that is not only functional, but also aesthetically pleasing and easy to work with.</p>
+</section>
+<section id="in-the-context-of-cs2-what-are-the-essential-elements-of-oop">
+<h2>In the context of CS2, what are the essential elements of OOP?<a class="headerlink" href="#in-the-context-of-cs2-what-are-the-essential-elements-of-oop" title="Permalink to this heading"></a></h2>
+<p>In the context of CS2 (second course in computer science), the essential elements of Object-Oriented Programming (OOP) include the following:</p>
+<ol class="arabic simple">
+<li><p>Classes: Classes are the fundamental building blocks of object-oriented programming. They define the blueprint or template for creating objects. A class encapsulates data (attributes) and behavior (methods) related to a specific concept or entity.</p></li>
+<li><p>Objects: Objects are instances of classes. They represent specific occurrences of the concepts defined by the class. Objects have their own unique state (attribute values) and can perform actions (methods) defined by the class.</p></li>
+<li><p>Encapsulation: Encapsulation is the principle of bundling data and methods within a single entity (class) and restricting direct access to internal implementation details. It promotes information hiding and allows for the abstraction and modular organization of code.</p></li>
+<li><p>Inheritance: Inheritance allows for the creation of new classes (child or derived classes) based on existing classes (parent or base classes). It facilitates code reuse by inheriting attributes and behaviors from the parent class, enabling hierarchical relationships and polymorphism.</p></li>
+<li><p>Polymorphism: Polymorphism allows objects of different classes to be treated as objects of a common parent class, enabling objects to respond to the same messages (method calls) in different ways. It promotes code flexibility, extensibility, and the ability to write generic code.</p></li>
+<li><p>Abstraction: Abstraction involves representing essential features and behaviors of a concept while hiding unnecessary details. It allows for the creation of abstract classes and interfaces that define common characteristics and behaviors shared by multiple classes.</p></li>
+<li><p>Modularity: Modularity emphasizes organizing code into separate, self-contained modules (classes) that focus on specific aspects of the problem domain. It promotes code organization, reusability, and maintainability.</p></li>
+</ol>
+</section>
+<section id="where-does-subtyping-fit-in">
+<h2>Where does subtyping fit in?<a class="headerlink" href="#where-does-subtyping-fit-in" title="Permalink to this heading"></a></h2>
+<p>Subtyping is an important concept in object-oriented programming and is closely related to inheritance. It allows for the substitution of objects of one class with objects of another class that is derived from or related to the former class.</p>
+<p>Subtyping enables polymorphism and supports the “is-a” relationship between classes. It allows objects of a derived class to be treated as objects of their parent class, providing flexibility and extensibility in program design. By leveraging subtyping, code can be written in a way that is more generic and adaptable to different types of objects.</p>
+<p>In the context of CS2, subtyping is a significant aspect of understanding inheritance and polymorphism. It enables students to create class hierarchies, define relationships between classes, and utilize the principles of code reuse and abstraction. By grasping the concept of subtyping, students can effectively design and implement object-oriented programs that utilize inheritance and polymorphism to their full potential.</p>
+</section>
+<section id="where-would-you-put-delegation">
+<h2>Where would you put delegation?<a class="headerlink" href="#where-would-you-put-delegation" title="Permalink to this heading"></a></h2>
+<p>Delegation is a concept that can be closely related to both composition and inheritance in object-oriented programming. It involves one object (delegate) handing off a specific task or responsibility to another object (delegator).</p>
+<p>In terms of its placement, delegation can be seen as a design pattern or technique that can be applied in various parts of an object-oriented program. It is not necessarily a core element of OOP like classes, objects, inheritance, or polymorphism, but rather a flexible approach to achieve code reuse and modularity.</p>
+<p>Delegation can be utilized within the methods or behaviors of a class, where a specific task or functionality is delegated to another object responsible for performing that task. This allows the delegator object to rely on the expertise or specialized behavior of the delegate object without inheriting from it.</p>
+<p>Additionally, delegation can also be used at a higher level in the design of a system, where an object delegates certain responsibilities or operations to other objects to achieve a more modular and loosely coupled architecture. This promotes the separation of concerns and enhances code maintainability and flexibility.</p>
+<p>In summary, delegation is a technique that can be applied within the methods of a class or at a higher level in the system design. It is a flexible approach that allows objects to delegate specific tasks to other objects, promoting code reuse, modularity, and separation of concerns.</p>
+<ol class="arabic simple" start="8">
+<li><p>Delegation: Delegation is a technique where one object (delegator) hands off a specific task or responsibility to another object (delegate). It allows objects to rely on the specialized behavior of other objects without directly inheriting from them, promoting code reuse and modular design.</p></li>
+</ol>
+</section>
+<section id="in-practice-shouldn-t-delegation-be-on-par-with-inheritance">
+<h2>In practice, shouldn’t delegation be on par with inheritance?<a class="headerlink" href="#in-practice-shouldn-t-delegation-be-on-par-with-inheritance" title="Permalink to this heading"></a></h2>
+<p>In practice, both delegation and inheritance are important concepts in object-oriented programming, but they serve different purposes and have distinct advantages and use cases. While inheritance is a mechanism for creating class hierarchies and sharing behavior and attributes between classes, delegation is a technique for achieving code reuse and modularity by handing off specific tasks or responsibilities to other objects.</p>
+<p>The choice between delegation and inheritance depends on the specific requirements and design goals of the program. In some cases, inheritance may be more appropriate when there is a clear “is-a” relationship between classes and a need to share common behavior and attributes. Inheritance can provide a convenient way to define and organize class hierarchies, promote code reuse, and enable polymorphism.</p>
+<p>On the other hand, delegation can be preferred when there is a need for more flexible and modular design. Delegation allows objects to delegate specific tasks to other objects that specialize in those tasks, enabling composition and separation of concerns. It promotes code reuse without requiring a rigid class hierarchy and allows objects to rely on the behavior of other objects without inheriting from them directly.</p>
+<p>In practice, both inheritance and delegation are used together or in combination to achieve desired design goals. They are not mutually exclusive, and the choice between them often depends on the specific problem domain, the relationships between objects, and the desired flexibility and extensibility of the system.</p>
+<p>So, while delegation is indeed an important technique in practice and can be used on par with inheritance in certain scenarios, it’s important to consider the specific requirements and design goals to determine the most appropriate approach for a given situation.</p>
+</section>
+<section id="where-do-composition-aggregation-and-association-fit-into-this-list">
+<h2>Where do composition, aggregation, and association fit into this list?<a class="headerlink" href="#where-do-composition-aggregation-and-association-fit-into-this-list" title="Permalink to this heading"></a></h2>
+<ol class="arabic simple" start="9">
+<li><p>Composition: Composition is a strong “whole-part” relationship where the lifetime of the parts is tightly coupled with the lifetime of the whole. The whole object is responsible for creating and managing its component objects. If the whole object is destroyed, its parts are also destroyed. Composition is often represented by a class having one or more member variables of another class type.</p></li>
+<li><p>Aggregation: Aggregation is a weaker form of composition, representing a relationship where one object (the aggregate) contains or is associated with other objects (the components). The components can exist independently of the aggregate, and their lifetimes are not necessarily tied to the aggregate’s lifetime. Aggregation is often represented by a class having member variables that are references or pointers to other objects.</p></li>
+<li><p>Association: Association represents a relationship between two or more objects, indicating that they are somehow connected or interact with each other. Unlike composition and aggregation, association doesn’t imply ownership or lifetime dependencies between the associated objects. Associations can be represented through member variables, method parameters, or return values.</p></li>
+</ol>
+<p>By understanding and effectively utilizing these essential elements of OOP, including delegation, students in CS2 can develop a strong foundation in object-oriented programming principles and apply them to create robust, maintainable, and flexible software solutions.</p>
+<p>Composition, aggregation, and association are relationship types that expand the ways in which objects can interact and collaborate in an object-oriented system. They provide additional flexibility in designing object relationships, capturing different levels of ownership and dependency.</p>
+<p>By understanding and utilizing composition, aggregation, and association, students in CS2 can create more expressive and accurate models of real-world systems, enabling them to design and implement object-oriented programs that accurately reflect the relationships and interactions between objects.</p>
+</section>
+<section id="is-association-related-to-delegation">
+<h2>Is association related to delegation?<a class="headerlink" href="#is-association-related-to-delegation" title="Permalink to this heading"></a></h2>
+<p>Association and delegation are distinct concepts in object-oriented programming, but they can be related in certain scenarios.</p>
+<p>Association represents a relationship between two or more objects, indicating that they are somehow connected or interact with each other. It captures the concept of objects being aware of each other and potentially collaborating, but it does not imply any specific behavior or responsibility transfer.</p>
+<p>Delegation, on the other hand, is a technique where one object (delegator) hands off a specific task or responsibility to another object (delegate). It involves one object relying on the specialized behavior of another object to fulfill a specific aspect of its functionality.</p>
+<p>While association and delegation are separate concepts, they can coexist in a system. In some cases, an object involved in an association may delegate a specific task to another object. The object responsible for the delegated task can be considered the delegate in the context of delegation, even though there is an association between the delegator and the delegate.</p>
+<p>The association between objects can provide the context or mechanism through which delegation occurs. The delegating object can access and interact with the delegate through the association. The association relationship can establish the connection necessary for delegation to take place.</p>
+<p>In summary, association and delegation are related in the sense that delegation can occur within the context of an association. The association provides the linkage between objects, and the delegation allows one object to delegate specific responsibilities to another object, leveraging their specialized behavior.</p>
+</section>
+<section id="is-composition-related-to-delegation">
+<h2>Is composition related to delegation?<a class="headerlink" href="#is-composition-related-to-delegation" title="Permalink to this heading"></a></h2>
+<p>Composition and delegation are distinct concepts in object-oriented programming, but they can be related and often coexist in system design.</p>
+<p>Composition refers to a strong “whole-part” relationship between objects, where the lifetime of the parts is tightly coupled with the lifetime of the whole. In composition, an object is composed of one or more component objects, and the components cannot exist independently outside of the composite object. The composite object takes responsibility for creating, managing, and coordinating the behavior of its component objects.</p>
+<p>Delegation, on the other hand, is a technique where an object (delegator) hands off a specific task or responsibility to another object (delegate). The delegating object relies on the specialized behavior of the delegate object to perform that task.</p>
+<p>In practice, delegation is often used within the context of composition. A composite object may delegate certain tasks or responsibilities to its component objects, allowing the components to handle specific aspects of functionality while the composite object orchestrates their collaboration. This delegation of tasks promotes modularity, code reuse, and separation of concerns.</p>
+<p>By combining composition and delegation, complex behaviors can be achieved through a hierarchical organization of objects, where a composite object delegates tasks to its component objects, each responsible for a specific aspect of functionality.</p>
+<p>For example, consider a composite object representing a car. The car object may internally contain component objects such as an engine, wheels, and a steering system. The car object, acting as the delegator, can delegate tasks like accelerating, turning, or braking to its component objects (delegate), which are specialized to handle those specific tasks. The delegation allows the car object to coordinate the overall behavior of the car while leveraging the specific functionalities provided by its components.</p>
+<p>In summary, composition and delegation are related in the sense that delegation can occur within the context of composition. Composition establishes the strong whole-part relationship between objects, while delegation allows the composite object to delegate specific responsibilities to its component objects to achieve modular and specialized behavior.</p>
+</section>
+<section id="what-s-the-difference-if-any-between-composition-and-aggregation">
+<h2>What’s the difference, if any, between composition and aggregation?<a class="headerlink" href="#what-s-the-difference-if-any-between-composition-and-aggregation" title="Permalink to this heading"></a></h2>
+<p>Composition and aggregation are both forms of object relationships in object-oriented programming, but they differ in terms of the strength of the relationship and the lifecycle dependency between the objects involved. Here’s a breakdown of the differences:</p>
+<p>Composition:</p>
+<ol class="arabic simple">
+<li><p>Strong Relationship: Composition represents a strong relationship between objects, where one object (the whole) is composed of other objects (the parts). The parts are owned by the whole, and their existence is tightly coupled with the existence of the whole.</p></li>
+<li><p>Exclusive Ownership: In composition, the whole object takes ownership and responsibility for creating, managing, and destroying its component objects. The lifetime of the parts is dependent on the lifetime of the whole.</p></li>
+<li><p>No Independent Existence: The parts typically do not have an independent existence outside of the whole object. They are created and destroyed as part of the whole, and their behavior is often tightly integrated with the overall behavior of the whole object.</p></li>
+<li><p>Strong Encapsulation: Composition enforces strong encapsulation, as the internal structure and implementation details of the parts are typically not exposed to the external world. The whole object controls and encapsulates the behavior of its parts.</p></li>
+</ol>
+<p>Aggregation:</p>
+<ol class="arabic simple">
+<li><p>Weaker Relationship: Aggregation represents a weaker relationship between objects, where one object (the aggregate) contains or is associated with other objects (the components). The components can exist independently of the aggregate object.</p></li>
+<li><p>Shared Ownership: In aggregation, the components are not owned by the aggregate object. They may have their own independent lifecycles and can be shared between multiple aggregate objects.</p></li>
+<li><p>Independent Existence: The components can exist outside of the aggregate object and can be associated with multiple aggregates or exist on their own.</p></li>
+<li><p>Shared Responsibility: Unlike in composition, the components in aggregation can have their own behavior and responsibilities that are not solely governed by the aggregate object.</p></li>
+<li><p>Weaker Encapsulation: Aggregation allows for looser encapsulation, as the components may have their own interfaces and can be accessed directly by external objects, independent of the aggregate object.</p></li>
+</ol>
+<p>In summary, composition and aggregation differ in the strength of the relationship, ownership, lifecycle dependency, and encapsulation. Composition represents a strong ownership relationship with exclusive ownership and tight lifecycle dependency, while aggregation represents a looser relationship with shared ownership and independent existence of the components.</p>
+<p>Here’s an example that illustrates the concept of aggregation:</p>
+<p>Consider a university system where a Department object represents a department within the university, and a Professor object represents a faculty member. In this scenario:</p>
+<ul class="simple">
+<li><p>Aggregation: The Department aggregates Professor objects as its faculty members. Multiple professors can be associated with a department, and they can exist independently outside of the department.</p></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Professor</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">specialization</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">// Constructor, getters, and setters</span>
+<span class="p">}</span>
+
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Department</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Professor</span><span class="o">&gt;</span><span class="w"> </span><span class="n">faculty</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">// Constructor, getters, and setters</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">addProfessor</span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="n">Professor</span><span class="w"> </span><span class="n">professor</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">faculty</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">professor</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">removeProfessor</span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="n">Professor</span><span class="w"> </span><span class="n">professor</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">faculty</span><span class="p">.</span><span class="na">remove</span><span class="p">(</span><span class="n">professor</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In this example, the Department class has an aggregation relationship with the Professor class. Each Department object maintains a list of Professor objects as its faculty members. Professors can exist independently and can be associated with multiple departments or even exist without any department affiliation.</p>
+<p>The Department class aggregates Professor objects by providing methods to add or remove professors from its faculty list. This allows the Department object to associate and interact with multiple Professor objects while maintaining their independent existence.</p>
+<p>This aggregation relationship provides flexibility in terms of professors being able to switch departments or be associated with multiple departments without being tightly coupled to any specific department.</p>
+<p>In summary, the aggregation relationship allows for the association of multiple objects while maintaining their independent existence and provides a looser relationship compared to composition.</p>
+<blockquote>
+<div><p>Here’s an example of composition using the car analogy:</p>
+</div></blockquote>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Engine</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">start</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Code to start the engine</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Engine started.&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">stop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Code to stop the engine</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Engine stopped.&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">public</span><span class="w"> </span><span class="kd">record</span> <span class="nc">Wheel</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">rotate</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Code to rotate the wheel</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Wheel rotating.&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Car</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Engine</span><span class="w"> </span><span class="n">engine</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Wheel</span><span class="o">&gt;</span><span class="w"> </span><span class="n">wheels</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">Car</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">engine</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Engine</span><span class="p">();</span>
+<span class="w">        </span><span class="n">wheels</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">List</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Wheel</span><span class="p">(</span><span class="mi">18</span><span class="p">),</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Wheel</span><span class="p">(</span><span class="mi">18</span><span class="p">),</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Wheel</span><span class="p">(</span><span class="mi">18</span><span class="p">),</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Wheel</span><span class="p">(</span><span class="mi">18</span><span class="p">));</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">startCar</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">engine</span><span class="p">.</span><span class="na">start</span><span class="p">();</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Car started.&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">stopCar</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">engine</span><span class="p">.</span><span class="na">stop</span><span class="p">();</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Car stopped.&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">drive</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">wheel</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">wheels</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">wheel</span><span class="p">.</span><span class="na">rotate</span><span class="p">();</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Car is driving.&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Main</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">car</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Car</span><span class="p">();</span>
+<span class="w">        </span><span class="n">car</span><span class="p">.</span><span class="na">startCar</span><span class="p">();</span>
+<span class="w">        </span><span class="n">car</span><span class="p">.</span><span class="na">drive</span><span class="p">();</span>
+<span class="w">        </span><span class="n">car</span><span class="p">.</span><span class="na">stopCar</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In this example, we have three classes: <cite>Engine</cite>, <cite>Wheel</cite>, and <cite>Car</cite>. The <cite>Car</cite> class composes an <cite>Engine</cite> object and a list of <cite>Wheel</cite> objects. The <cite>Car</cite> class creates and owns these objects, and their lifetimes are tied to the lifetime of the <cite>Car</cite> object.</p>
+<p>When the <cite>Car</cite> object is created, it initializes its <cite>Engine</cite> and creates four <cite>Wheel</cite> objects. The <cite>Car</cite> class encapsulates the behavior of the engine and wheels and provides methods to start the car, stop the car, and drive the car.</p>
+<p>In the <cite>Main</cite> class, we create a <cite>Car</cite> object and invoke the <cite>startCar()</cite>, <cite>drive()</cite>, and <cite>stopCar()</cite> methods to demonstrate the composition relationship. The <cite>Car</cite> object delegates the responsibility of starting the engine and rotating the wheels to its composed objects, providing the functionality of a fully functioning car.</p>
+<p>Executing the code will produce the following output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Engine</span> <span class="n">started</span><span class="o">.</span>
+<span class="n">Car</span> <span class="n">started</span><span class="o">.</span>
+<span class="n">Wheel</span> <span class="n">rotating</span><span class="o">.</span>
+<span class="n">Wheel</span> <span class="n">rotating</span><span class="o">.</span>
+<span class="n">Wheel</span> <span class="n">rotating</span><span class="o">.</span>
+<span class="n">Wheel</span> <span class="n">rotating</span><span class="o">.</span>
+<span class="n">Car</span> <span class="ow">is</span> <span class="n">driving</span><span class="o">.</span>
+<span class="n">Engine</span> <span class="n">stopped</span><span class="o">.</span>
+<span class="n">Car</span> <span class="n">stopped</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>This example demonstrates how the <cite>Car</cite> object composes the <cite>Engine</cite> and <cite>Wheel</cite> objects, utilizing their behaviors and encapsulating them within its own functionality.</p>
+<blockquote>
+<div><table class="docutils align-default" id="id1">
+<caption><span class="caption-text">Comparison between Composition and Aggregation</span><a class="headerlink" href="#id1" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 40%" />
+<col style="width: 40%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Aspect</p></th>
+<th class="head"><p>Composition</p></th>
+<th class="head"><p>Aggregation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Relationship Strength</p></td>
+<td><p>Strong</p></td>
+<td><p>Weak</p></td>
+</tr>
+<tr class="row-odd"><td><p>Ownership</p></td>
+<td><p>Whole object owns and manages the parts</p></td>
+<td><p>Parts are not owned by the aggregate</p></td>
+</tr>
+<tr class="row-even"><td><p>Lifetime Dependency</p></td>
+<td><p>Parts’ lifetimes are tightly coupled with the whole</p></td>
+<td><p>Parts can exist independently of the aggregate</p></td>
+</tr>
+<tr class="row-odd"><td><p>Independent Existence</p></td>
+<td><p>Parts typically do not exist independently</p></td>
+<td><p>Parts can exist outside of the aggregate</p></td>
+</tr>
+<tr class="row-even"><td><p>Responsibility</p></td>
+<td><p>Whole object takes responsibility for creating, managing, and destroying parts</p></td>
+<td><p>Parts have their own behavior and responsibilities</p></td>
+</tr>
+<tr class="row-odd"><td><p>Encapsulation</p></td>
+<td><p>Strong encapsulation of parts within the whole</p></td>
+<td><p>Looser encapsulation with more independence for parts</p></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
 </section>
 </section>
 

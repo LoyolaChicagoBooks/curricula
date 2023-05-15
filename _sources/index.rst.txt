@@ -16,6 +16,8 @@ Welcome to the CS Curriculum Systems Modules
    20-languages/content.rst
    25-systems/content.rst
    30-software-engineering/content.rst
+   80-pedagogy-crosscutting/content.rst
+   95-chatgpt-limitations/content.rst
    98-openai/content.rst
    99-sandbox/content.rst
 

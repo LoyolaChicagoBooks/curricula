@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pedagogical Considerations Cutting Across the Curriculum &mdash; CS Curricula 15 May 2023 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Understanding the Limitations of ChatGPT" href="../95-chatgpt-limitations/content.html" />
+    <link rel="prev" title="Software Engineering (LUC COMP 330)" href="../30-software-engineering/content.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #922247" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            CS Curricula
+          </a>
+              <div class="version">
+                15 May 2023
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../00-preliminaries/content.html">Preliminaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../05-acm-ieee-cc/content.html">Curricular Standards - ACM/IEEE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../10-cs1/content.html">Introduction to CS (CS1 / LUC COMP 170)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../12-discrete-structures/content.html">Discrete Structures (LUC COMP 163)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../15-cs2/content.html">Data Structures 1 (CS2 / LUC COMP 271)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../20-languages/content.html">Programming Languages (LUC COMP 371)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../25-systems/content.html">Computer Systems 1 (COMP 264)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../30-software-engineering/content.html">Software Engineering (LUC COMP 330)</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Pedagogical Considerations Cutting Across the Curriculum</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#focusing-on-a-high-level-api-vs-lower-level-implementation-working-title">Focusing on a high-level API vs lower-level implementation (working title)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../95-chatgpt-limitations/content.html">Understanding the Limitations of ChatGPT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../98-openai/content.html">Background</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../99-sandbox/content.html">Issues</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #922247" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">CS Curricula</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Pedagogical Considerations Cutting Across the Curriculum</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/80-pedagogy-crosscutting/content.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="pedagogical-considerations-cutting-across-the-curriculum">
+<h1>Pedagogical Considerations Cutting Across the Curriculum<a class="headerlink" href="#pedagogical-considerations-cutting-across-the-curriculum" title="Permalink to this heading"></a></h1>
+<p>In this chapter, we discuss various pedagogical considerations that may apply to more than one specific course.</p>
+<section id="focusing-on-a-high-level-api-vs-lower-level-implementation-working-title">
+<h2>Focusing on a high-level API vs lower-level implementation (working title)<a class="headerlink" href="#focusing-on-a-high-level-api-vs-lower-level-implementation-working-title" title="Permalink to this heading"></a></h2>
+<p><em>Let’s take a look at the cool `String.lines()` method. How would you split a string with embedded line breaks into multiple lines without using Stream?</em></p>
+<p>To split a string with embedded line breaks into multiple lines without using the <cite>Stream</cite> API, you can use the <cite>String.split()</cite> method combined with the newline delimiter. Here’s an example:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">String</span><span class="w"> </span><span class="n">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello\nWorld!\nWelcome\nto\nJava&quot;</span><span class="p">;</span>
+
+<span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">lines</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">str</span><span class="p">.</span><span class="na">split</span><span class="p">(</span><span class="s">&quot;\\R&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// Split using the newline delimiter</span>
+
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">lines</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">line</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In this example, we use the <cite>split(”\R”)</cite> method to split the string <cite>str</cite> at each occurrence of a newline. The <cite>\R</cite> regular expression pattern matches any line break, whether it is a newline (<cite>n</cite>), carriage return (<cite>r</cite>), or a combination of both.</p>
+<p>The resulting array <cite>lines</cite> will contain the individual lines of the original string. We can then iterate over the array and print each line.</p>
+<p>Output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Hello
+World!
+Welcome
+to
+Java
+</pre></div>
+</div>
+<p>This approach splits the string based on newline delimiters and does not use the <cite>Stream</cite> API. Each line becomes an element in the resulting array.</p>
+<p><em>Rather than printing the resulting lines, how would you return a collection of them instead?</em></p>
+<p>To return a collection of lines instead of printing them directly, you can use a <cite>List</cite> or any other appropriate collection type. Here’s an example that demonstrates returning a <cite>List&lt;String&gt;</cite> containing the individual lines of the input string:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.ArrayList</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.List</span><span class="p">;</span>
+
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Main</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">splitStringIntoLines</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">input</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">lines</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">input</span><span class="p">.</span><span class="na">split</span><span class="p">(</span><span class="s">&quot;\\R&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">lineList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">lines</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">lineList</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">line</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">lineList</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello\nWorld!\nWelcome\nto\nJava&quot;</span><span class="p">;</span>
+<span class="w">        </span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">lines</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">splitStringIntoLines</span><span class="p">(</span><span class="n">str</span><span class="p">);</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">lines</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In this example, the <cite>splitStringIntoLines()</cite> method takes an input string and splits it into individual lines using the <cite>split(”\R”)</cite> method. It then iterates over the resulting array of lines, adding each line to a <cite>List&lt;String&gt;</cite> called <cite>lineList</cite>.</p>
+<p>The <cite>splitStringIntoLines()</cite> method returns the <cite>lineList</cite>, which contains all the lines as separate elements in the list.</p>
+<p>When you run the <cite>main()</cite> method, it will output the list of lines:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[Hello, World!, Welcome, to, Java]
+</pre></div>
+</div>
+<p>By returning a collection like <cite>List&lt;String&gt;</cite>, you can further process or utilize the lines in your code.</p>
+<p><em>For CS2, does the education community recommend using String.lines() or explicitly splitting a string into lines as you just demonstrated?</em></p>
+<p>In CS2 education, the choice between using <cite>String.lines()</cite> and explicitly splitting a string into lines depends on the specific context and learning objectives of the course. Here are some considerations:</p>
+<ol class="arabic simple">
+<li><p>Learning the Fundamentals: If the primary goal is to understand the underlying concepts and mechanisms involved in string manipulation, explicitly splitting a string using <cite>split()</cite> can provide a more in-depth learning experience. It allows students to explore regular expressions, delimiters, and manual string processing techniques.</p></li>
+<li><p>Introducing Stream API: If the focus is on introducing students to the Stream API and functional programming concepts, using <cite>String.lines()</cite> with stream operations can be beneficial. It demonstrates the power and expressiveness of functional-style programming and stream-based data processing.</p></li>
+<li><p>Course Prerequisites and Programming Background: Consider the programming background and experience of the students. If they are already familiar with streams or have covered them in previous courses, utilizing <cite>String.lines()</cite> and stream operations can be a natural progression. However, if streams are new to them or the course serves as an introduction to programming concepts, explicit splitting might provide a more gradual learning curve.</p></li>
+</ol>
+<p>It’s important to note that both approaches have their merits, and the choice ultimately depends on the educational objectives, course curriculum, and instructor’s preferences. It may also be valuable to expose students to both techniques to provide a comprehensive understanding of different string processing strategies.</p>
+<p>As an educator or curriculum designer, you should assess the specific goals of the CS2 course and determine the most appropriate approach that aligns with those goals while considering the needs and backgrounds of your students.</p>
+<p><em>Good points. Should I teach my CS2 students split() first and then lines()? Will it fit into one semester?</em></p>
+<p>Teaching <cite>split()</cite> before <cite>String.lines()</cite> in a CS2 course can be a logical sequence and can help students gradually build their understanding of string manipulation concepts. Starting with <cite>split()</cite> allows students to learn about delimiters, regular expressions, and manual string processing techniques. It provides a solid foundation for working with strings.</p>
+<p>Once students have gained familiarity with <cite>split()</cite>, introducing <cite>String.lines()</cite> can be a natural progression. It allows them to leverage the power of the Stream API and functional programming for more streamlined and expressive string processing. This approach can deepen their understanding of advanced string manipulation techniques.</p>
+<p>Whether teaching both <cite>split()</cite> and <cite>String.lines()</cite> within a single semester depends on various factors, including the curriculum, pace of instruction, and the students’ prior knowledge and programming experience. It’s advisable to assess the complexity of the material, the depth of coverage desired, and the time available for the course.</p>
+<p>If there is sufficient time and the course structure allows it, covering both <cite>split()</cite> and <cite>String.lines()</cite> within a single semester can be achievable. However, if time constraints or other topics take priority, it may be more feasible to focus on one approach and thoroughly cover it. You could then provide additional resources or optional material for students who are interested in exploring the alternative approach.</p>
+<p>Ultimately, it’s important to strike a balance between depth of understanding and coverage of topics within the available time frame. Consider the learning objectives, the pace of the course, and the needs of your students when deciding on the scope and sequence of topics in your CS2 curriculum.</p>
+<p><em>More generally, should CS2 discuss the Java Stream API? If so, at what Bloom level and in how much detail?</em></p>
+<p>Introducing the Java Stream API in CS2 can be beneficial as it exposes students to functional programming concepts and provides powerful tools for data manipulation. However, the depth and extent of coverage may depend on the specific learning objectives, curriculum constraints, and the level of students’ programming experience. Here are some considerations:</p>
+<ol class="arabic simple">
+<li><p>Relevance to Learning Objectives: Evaluate the relevance of the Stream API to the learning objectives of your CS2 course. If the course aims to introduce students to advanced data manipulation techniques, functional programming paradigms, or modern Java features, the Stream API can be a valuable addition.</p></li>
+<li><p>Bloom’s Taxonomy Level: The Stream API can be taught at higher levels of Bloom’s Taxonomy, such as “Apply” and “Analyze.” Students can learn to use streams for filtering, mapping, reducing, and performing various operations on data collections. Encourage them to analyze and evaluate the efficiency and effectiveness of different stream operations.</p></li>
+<li><p>Amount of Detail: Determine the appropriate level of detail based on the course’s scope and duration. Consider covering the foundational concepts of streams, including creating streams, intermediate operations (e.g., filter, map), terminal operations (e.g., collect, forEach), and working with parallel streams. You may explore examples and use cases relevant to your curriculum.</p></li>
+<li><p>Balancing Stream API with Other Concepts: Ensure a balanced curriculum that covers other essential topics in CS2, such as object-oriented programming, algorithms, data structures, and problem-solving techniques. The Stream API can be integrated into specific topics, such as data processing or advanced algorithms, to demonstrate its application and relevance.</p></li>
+<li><p>Resources and Hands-on Practice: Provide students with resources, tutorials, and exercises to reinforce their understanding of the Stream API. Encourage hands-on practice and projects that involve stream-based data manipulation to solidify their knowledge and skills.</p></li>
+</ol>
+<p>Remember that the depth of coverage should be aligned with the course’s overall goals, the students’ prior knowledge, and the time available. It’s crucial to strike a balance between teaching foundational programming concepts and introducing modern features like the Stream API to provide students with a well-rounded understanding of Java programming.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../30-software-engineering/content.html" class="btn btn-neutral float-left" title="Software Engineering (LUC COMP 330)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../95-chatgpt-limitations/content.html" class="btn btn-neutral float-right" title="Understanding the Limitations of ChatGPT" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023-, Software Systems Laboratory.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
