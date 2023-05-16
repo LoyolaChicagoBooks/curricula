@@ -1,5 +1,11 @@
-Programming Languages (LUC COMP 371)
-==========================================
+Programming Languages
+======================
+
+Historical Term
+   Programming Languages?
+
+Loyola University Chicago
+  `COMP 371 <https://academics.cs.luc.edu/courses/comp371.html>`__
 
 .. todo:: If this is a book, shouldn't these top-level units be chapters rather than sections? 
 

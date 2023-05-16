@@ -51,7 +51,7 @@ copyright = u'2023-, Software Systems Laboratory'
 #
 # The short X.Y version.
 #version = 'v0.1'
-version = date.today().strftime("%d %b %Y")
+version = date.today().strftime("v%Y-%m-%d")
 # The full version, including alpha/beta/rc tags.
 release = version
 
@@ -94,7 +94,8 @@ pygments_style = 'sphinx'
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
-html_theme = 'sphinx_rtd_theme'
+#html_theme = 'sphinx_rtd_theme'
+html_theme = 'sphinx_book_theme'
 
 
 html_theme_options = {
@@ -103,15 +104,15 @@ html_theme_options = {
     #'logo_only': False,
     #'display_version': True,
     #'prev_next_buttons_location': 'bottom',
-    "style_external_links": True,
-    "vcs_pageview_mode": "edit",
-    'style_nav_header_background': '#922247',
+    #"style_external_links": True,
+    #"vcs_pageview_mode": "edit",
+    #'style_nav_header_background': '#922247',
     # Toc options
-    'collapse_navigation': True,
-    'sticky_navigation': True,
-    'navigation_depth': -1,
-    'includehidden': True,
-    'titles_only': False
+    #'collapse_navigation': True,
+    #'sticky_navigation': True,
+    #'navigation_depth': -1,
+    #'includehidden': True,
+    #'titles_only': False
 }
 
 
@@ -138,7 +139,7 @@ html_theme_options = {
 
 # The name for this set of Sphinx documents.  If None, it defaults to
 # "<project> v<release> documentation".
-#html_title = None
+#html_title = "CS Curricula <release>"
 
 # A shorter title for the navigation bar.  Default is the same as html_title.
 #html_short_title = None
