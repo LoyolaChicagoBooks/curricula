@@ -1,3 +1,4 @@
 sphinx
-sphinx-awesome-theme
+sphinx-rtd-theme
+sphinxawesome-theme --pre
 travis-sphinx
