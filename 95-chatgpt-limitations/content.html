@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Understanding the Limitations of ChatGPT &mdash; CS Curricula 15 May 2023 documentation</title>
+  <title>Understanding the Limitations of ChatGPT &mdash; CS Curricula 16 May 2023 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -33,7 +33,7 @@
             CS Curricula
           </a>
               <div class="version">
-                15 May 2023
+                16 May 2023
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -54,7 +54,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../30-software-engineering/content.html">Software Engineering (LUC COMP 330)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../80-pedagogy-crosscutting/content.html">Pedagogical Considerations Cutting Across the Curriculum</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Understanding the Limitations of ChatGPT</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#chatgpt-responds-inconsistently-despite-repeated-redirection">ChatGPT responds inconsistently despite repeated redirection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#chatgpt-gpt-3-5-responds-inconsistently-despite-repeated-redirection">ChatGPT (GPT-3.5) responds inconsistently despite repeated redirection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#chatgpt-gpt-4-gets-it-right-the-first-time">ChatGPT (GPT-4) gets it right the first time</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../98-openai/content.html">Background</a></li>
@@ -89,10 +90,10 @@
 <h1>Understanding the Limitations of ChatGPT<a class="headerlink" href="#understanding-the-limitations-of-chatgpt" title="Permalink to this heading"></a></h1>
 <p>In this chapter, we will discuss some of the limitations of large language models such as the one underlying ChatGPT.
 We argue that these limitations are the reason a human with an appropriate level of expertise needs to be kept in the loop for quality control.</p>
-<section id="chatgpt-responds-inconsistently-despite-repeated-redirection">
-<h2>ChatGPT responds inconsistently despite repeated redirection<a class="headerlink" href="#chatgpt-responds-inconsistently-despite-repeated-redirection" title="Permalink to this heading"></a></h2>
-<p>The following ChatGPT session is intended to illustrate this observation:</p>
-<p><em>On another note, as of Java 17, which widely used classes in java.lang depend on java.util.Stream?</em></p>
+<section id="chatgpt-gpt-3-5-responds-inconsistently-despite-repeated-redirection">
+<h2>ChatGPT (GPT-3.5) responds inconsistently despite repeated redirection<a class="headerlink" href="#chatgpt-gpt-3-5-responds-inconsistently-despite-repeated-redirection" title="Permalink to this heading"></a></h2>
+<p>The following ChatGPT 3.5 session is intended to illustrate this observation:</p>
+<p><em>As of Java 17, which widely used classes in java.lang depend on java.util.Stream?</em></p>
 <p>As of Java 17, there are no widely used classes in <cite>java.lang</cite> that directly depend on <cite>java.util.Stream</cite>. The <cite>java.lang</cite> package contains fundamental classes and interfaces that are part of the Java core libraries and do not have direct dependencies on higher-level APIs like <cite>java.util.Stream</cite>.</p>
 <p>However, it’s worth noting that the <cite>Stream</cite> API, introduced in Java 8, is widely used in Java programming for processing collections and performing functional-style operations. The <cite>Stream</cite> API is part of <cite>java.util.stream</cite> package, which is separate from the <cite>java.lang</cite> package.</p>
 <p>While there may not be direct dependencies between widely used classes in <cite>java.lang</cite> and <cite>java.util.Stream</cite>, the <cite>Stream</cite> API is commonly used alongside classes from <cite>java.util</cite>, such as <cite>List</cite>, <cite>Set</cite>, or <cite>Map</cite>, to perform various data processing tasks in a functional and declarative manner.</p>
@@ -176,9 +177,20 @@ We argue that these limitations are the reason a human with an appropriate level
 <p>I apologize for the confusion caused by my previous response. To clarify, the <cite>java.lang.CharSequence</cite> interface does not extend <cite>java.lang.Comparable&lt;CharSequence&gt;</cite>. It extends <cite>java.lang.Object</cite> and does not introduce any additional interfaces through its inheritance hierarchy.</p>
 <p>I apologize for any misunderstanding or incorrect information provided. If you have any further questions, please let me know, and I’ll be happy to assist you.</p>
 <p><em>NP, it’s a complicated API.</em></p>
-<p>ChatGPT
-Indeed, the Java API can be extensive and complex, with various classes and interfaces interacting in intricate ways. Navigating and understanding the relationships between different classes and interfaces can sometimes be challenging. It’s perfectly understandable to find certain aspects of the API complex.</p>
+<p>Indeed, the Java API can be extensive and complex, with various classes and interfaces interacting in intricate ways. Navigating and understanding the relationships between different classes and interfaces can sometimes be challenging. It’s perfectly understandable to find certain aspects of the API complex.</p>
 <p>If you have any specific questions or need assistance with any particular topic within the Java API, feel free to ask. I’m here to help clarify any doubts and provide guidance.</p>
+</section>
+<section id="chatgpt-gpt-4-gets-it-right-the-first-time">
+<h2>ChatGPT (GPT-4) gets it right the first time<a class="headerlink" href="#chatgpt-gpt-4-gets-it-right-the-first-time" title="Permalink to this heading"></a></h2>
+<p><em>As of Java 17, which widely used classes in java.lang depend on java.util.Stream?</em></p>
+<p>As of my knowledge cutoff in September 2021, Java’s <cite>java.lang</cite> package does not have any classes that directly depend on <cite>java.util.stream.Stream</cite>.</p>
+<p>However, there is an indirect dependency through some methods in <cite>java.lang</cite> classes that use <cite>java.util.stream.Stream</cite> or its related classes in their method signatures. Here are a few examples:</p>
+<ol class="arabic simple">
+<li><p><cite>CharSequence</cite> interface: The <cite>chars()</cite> and <cite>codePoints()</cite> methods return an <cite>IntStream</cite>.</p></li>
+<li><p><cite>String</cite> class: The <cite>chars()</cite>, <cite>codePoints()</cite>, and <cite>lines()</cite> methods return <cite>IntStream</cite> and <cite>Stream&lt;String&gt;</cite> respectively.</p></li>
+</ol>
+<p>These methods are designed to facilitate the processing of character sequences and strings in a functional programming style, which is the primary use case of Java Streams.</p>
+<p>You should check the Java 17 documentation to see if there have been any updates or changes to these classes or other classes in the <cite>java.lang</cite> package. The Java language and its standard library are continually evolving, so it’s always a good idea to check the most recent documentation.</p>
 </section>
 </section>
 
