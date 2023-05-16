@@ -4,13 +4,14 @@ Understanding the Limitations of ChatGPT
 In this chapter, we will discuss some of the limitations of large language models such as the one underlying ChatGPT.
 We argue that these limitations are the reason a human with an appropriate level of expertise needs to be kept in the loop for quality control.
 
-ChatGPT responds inconsistently despite repeated redirection
-------------------------------------------------------------
 
-The following ChatGPT session is intended to illustrate this observation:
+ChatGPT (GPT-3.5) responds inconsistently despite repeated redirection
+----------------------------------------------------------------------
+
+The following ChatGPT 3.5 session is intended to illustrate this observation:
 
 
-*On another note, as of Java 17, which widely used classes in java.lang depend on java.util.Stream?*
+*As of Java 17, which widely used classes in java.lang depend on java.util.Stream?*
 
 As of Java 17, there are no widely used classes in `java.lang` that directly depend on `java.util.Stream`. The `java.lang` package contains fundamental classes and interfaces that are part of the Java core libraries and do not have direct dependencies on higher-level APIs like `java.util.Stream`.
 
@@ -173,7 +174,23 @@ I apologize for any misunderstanding or incorrect information provided. If you h
 
 *NP, it's a complicated API.*
 
-ChatGPT
 Indeed, the Java API can be extensive and complex, with various classes and interfaces interacting in intricate ways. Navigating and understanding the relationships between different classes and interfaces can sometimes be challenging. It's perfectly understandable to find certain aspects of the API complex.
 
 If you have any specific questions or need assistance with any particular topic within the Java API, feel free to ask. I'm here to help clarify any doubts and provide guidance.
+
+
+ChatGPT (GPT-4) gets it right the first time
+--------------------------------------------
+
+*As of Java 17, which widely used classes in java.lang depend on java.util.Stream?*
+
+As of my knowledge cutoff in September 2021, Java's `java.lang` package does not have any classes that directly depend on `java.util.stream.Stream`. 
+
+However, there is an indirect dependency through some methods in `java.lang` classes that use `java.util.stream.Stream` or its related classes in their method signatures. Here are a few examples:
+
+1. `CharSequence` interface: The `chars()` and `codePoints()` methods return an `IntStream`.
+2. `String` class: The `chars()`, `codePoints()`, and `lines()` methods return `IntStream` and `Stream<String>` respectively.
+
+These methods are designed to facilitate the processing of character sequences and strings in a functional programming style, which is the primary use case of Java Streams. 
+
+You should check the Java 17 documentation to see if there have been any updates or changes to these classes or other classes in the `java.lang` package. The Java language and its standard library are continually evolving, so it's always a good idea to check the most recent documentation.
