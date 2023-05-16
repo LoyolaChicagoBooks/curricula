@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Data Structures 1 (CS2 / LUC COMP 271) &mdash; CS Curricula 16 May 2023 documentation</title>
+  <title>Basic object-oriented programming &mdash; CS Curricula 16 May 2023 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -16,9 +16,7 @@
         <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Programming Languages (LUC COMP 371)" href="../20-languages/content.html" />
-    <link rel="prev" title="Discrete Structures (LUC COMP 163)" href="../12-discrete-structures/content.html" /> 
+    <link rel="search" title="Search" href="../search.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -43,45 +41,12 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul class="current">
+              <ul>
 <li class="toctree-l1"><a class="reference internal" href="../00-preliminaries/content.html">Preliminaries</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../05-acm-ieee-cc/content.html">Curricular Standards - ACM/IEEE</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../10-cs1/content.html">Introduction to CS (CS1 / LUC COMP 170)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../12-discrete-structures/content.html">Discrete Structures (LUC COMP 163)</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Data Structures 1 (CS2 / LUC COMP 271)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#top-15-topics-in-cs2-curricula">Top 15 topics in CS2 curricula?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#top-15-cs2-topics-as-opposed-to-cs7">Top 15 CS2 topics as opposed to CS7</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#cs2-at-loyola-current-topics-and-learning-outcomes">CS2 at Loyola: Current topics and learning outcomes</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#review-of-basic-programming-concepts">Review of basic programming concepts</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#example-conditionals-loops-arrays-and-unit-testing">Example: conditionals, loops, arrays, and unit testing</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#basic-object-oriented-programming">Basic object-oriented programming</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#in-the-context-of-cs2-what-are-the-essential-elements-of-oop">In the context of CS2, what are the essential elements of OOP?</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#enums-classes-and-records">Enums, classes, and records</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#associations-between-classes">Associations between classes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#subtype-polymorphism">Subtype polymorphism</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#subclasses-and-method-overriding">Subclasses and method overriding</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#interfaces">Interfaces</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#where-does-subtyping-fit-in">Where does subtyping fit in?</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#where-would-you-put-delegation">Where would you put delegation?</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#in-practice-shouldn-t-delegation-be-on-par-with-inheritance">In practice, shouldn’t delegation be on par with inheritance?</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#where-do-composition-aggregation-and-association-fit-into-this-list">Where do composition, aggregation, and association fit into this list?</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#is-association-related-to-delegation">Is association related to delegation?</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#is-composition-related-to-delegation">Is composition related to delegation?</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#what-s-the-difference-if-any-between-composition-and-aggregation">What’s the difference, if any, between composition and aggregation?</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#only-observable-relationships-matter">Only observable relationships matter</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#arrays-and-array-based-lists">Arrays and array-based lists</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#software-engineering-principles">Software engineering principles</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#what-does-beautiful-code-look-like-in-the-context-of-a-cs2-course">What does beautiful code look like in the context of a CS2 course?</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="content.html">Data Structures 1 (CS2 / LUC COMP 271)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../20-languages/content.html">Programming Languages (LUC COMP 371)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../25-systems/content.html">Computer Systems 1 (COMP 264)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../30-software-engineering/content.html">Software Engineering (LUC COMP 330)</a></li>
@@ -105,9 +70,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Data Structures 1 (CS2 / LUC COMP 271)</li>
+      <li class="breadcrumb-item active">Basic object-oriented programming</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/15-cs2/content.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/15-cs2/20-basic-oop.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -115,230 +80,10 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="data-structures-1-cs2-luc-comp-271">
-<h1>Data Structures 1 (CS2 / LUC COMP 271)<a class="headerlink" href="#data-structures-1-cs2-luc-comp-271" title="Permalink to this heading"></a></h1>
-<section id="top-15-topics-in-cs2-curricula">
-<h2>Top 15 topics in CS2 curricula?<a class="headerlink" href="#top-15-topics-in-cs2-curricula" title="Permalink to this heading"></a></h2>
-<p>In a typical CS2 course, you may expect to find the following topics covered, although the order and emphasis may vary depending on the particular curriculum and instructor:</p>
-<ul class="simple">
-<li><p>Data Structures</p>
-<ul>
-<li><p>Stacks</p></li>
-<li><p>Queues</p></li>
-<li><p>Linked Lists</p></li>
-<li><p>Trees</p></li>
-<li><p>Graphs</p></li>
-<li><p>Hash Tables</p></li>
-</ul>
-</li>
-<li><p>Algorithms</p>
-<ul>
-<li><p>Sorting (e.g., QuickSort, MergeSort)</p></li>
-<li><p>Searching (e.g., Binary Search)</p></li>
-<li><p>Graph traversal (e.g., Breadth-First Search, Depth-First Search)</p></li>
-<li><p>Shortest path algorithms (e.g., Dijkstra’s Algorithm)</p></li>
-</ul>
-</li>
-<li><p>Object-Oriented Programming</p>
-<ul>
-<li><p>Inheritance</p></li>
-<li><p>Polymorphism</p></li>
-<li><p>Abstraction</p></li>
-<li><p>Encapsulation</p></li>
-</ul>
-</li>
-<li><p>Recursion</p></li>
-<li><p>Algorithm Complexity Analysis</p></li>
-<li><p>File I/O and Serialization</p></li>
-<li><p>Memory Management</p></li>
-<li><p>Error Handling and Exceptions</p></li>
-<li><p>Introduction to Concurrency</p></li>
-<li><p>Software Engineering Principles</p></li>
-<li><p>Basic Design Patterns</p></li>
-<li><p>Unit Testing and Test-Driven Development</p></li>
-<li><p>Debugging Techniques</p></li>
-<li><p>Version Control Systems (e.g., Git)</p></li>
-<li><p>Introduction to GUI Programming</p></li>
-</ul>
-<p>Please note that this list is not exhaustive, and the topics covered in a specific CS2 course may vary depending on the institution, curriculum, and instructor.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Konstantin will take it from here.</p>
-</div>
-</section>
-<section id="top-15-cs2-topics-as-opposed-to-cs7">
-<h2>Top 15 CS2 topics as opposed to CS7<a class="headerlink" href="#top-15-cs2-topics-as-opposed-to-cs7" title="Permalink to this heading"></a></h2>
-<p><em>Let’s consider the ACM 2020 curriculum guidelines. If we split topics in such a way that CS2 focuses on an introduction to data structures and CS7 on more advanced data structures, what should the top 15 CS2-specific topics be? (GPT-4)</em></p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>The ACM 2020 curriculum guidelines are not specifically available to me at my last training cut-off in September 2021.</p>
-</div>
-<p>However, I can provide an example list of topics that are often covered in a typical second course in computer science (CS2), focusing on an introduction to data structures. These topics build upon the basics learned in a CS1 course, such as basic programming constructs, control structures, and introductory object-oriented programming.</p>
-<p>Here is a general list of 15 topics:</p>
-<ol class="arabic simple">
-<li><p><strong>Review of Basic Programming Concepts:</strong> This might include basic data types, control structures, functions, and classes.</p></li>
-<li><p><strong>Array and ArrayList:</strong> Understanding of these basic data structures, their uses, and limitations.</p></li>
-<li><p><strong>Stacks:</strong> Introduction to stack data structures, their uses, and basic operations like push and pop.</p></li>
-<li><p><strong>Queues:</strong> Similar to stacks, this would cover the concept, uses, and operations of queues.</p></li>
-<li><p><strong>Linked Lists:</strong> Covers singly-linked and doubly-linked lists, their operations, and use cases.</p></li>
-<li><p><strong>Recursion:</strong> Understanding of recursive functions and their applications, and the relationship to data structures.</p></li>
-<li><p><strong>Trees:</strong> Introduction to basic tree structures, tree traversals, and binary trees.</p></li>
-<li><p><strong>Binary Search Trees:</strong> A more specific tree structure with ordering properties, including operations like insertion and deletion.</p></li>
-<li><p><strong>Hashing:</strong> Introduction to hash tables, hash functions, collision strategies, and their applications.</p></li>
-<li><p><strong>Heaps:</strong> Understanding of heap data structures, and algorithms like heap sort.</p></li>
-<li><p><strong>Graphs:</strong> Introduction to basic graph concepts, representation, and traversals (DFS, BFS).</p></li>
-<li><p><strong>Sorting Algorithms:</strong> Covers basic sorting algorithms like selection sort, insertion sort, bubble sort, quicksort, mergesort, and heapsort.</p></li>
-<li><p><strong>Search Algorithms:</strong> Covers linear search and binary search on various data structures.</p></li>
-<li><p><strong>Algorithm Analysis:</strong> Understanding Big O notation, time complexity, and space complexity.</p></li>
-<li><p><strong>Software Engineering Principles:</strong> Introduction to basic principles such as code readability, modularity, and debugging techniques.</p></li>
-</ol>
-<p>The exact order and selection of these topics may vary depending on the specific course and curriculum guidelines. Also, real-life examples and problem-solving exercises should be included to apply these data structures and concepts. The complexity and depth of these topics will increase when students move on to more advanced courses like CS7.</p>
-<section id="cs2-at-loyola-current-topics-and-learning-outcomes">
-<h3>CS2 at Loyola: Current topics and learning outcomes<a class="headerlink" href="#cs2-at-loyola-current-topics-and-learning-outcomes" title="Permalink to this heading"></a></h3>
-<div class="admonition-todo admonition" id="id1">
-<p class="admonition-title">Todo</p>
-<p>Update as needed.</p>
-</div>
-<p>Here’s a version of the list of current topics and learning outcomes of the CS2 course at Loyola, COMP 271.</p>
-<ol class="arabic simple">
-<li><p>Basics of Object-Oriented Programming: Students will be able to create, use, and understand properly constructed OOP classes with public and private members, constructors, accessors, and mutators. They will also learn how to use method overloading appropriately and create classes with proper encapsulation. Additionally, they will be able to use existing classes and access documentation to find and understand components of classes to create new programs.</p></li>
-<li><p>More Object-Oriented Programming: Building on the basics, students will learn how to create solutions with multiple cooperating OOP classes. They will understand and use basic inheritance and interfaces, apply them to problem-solving, and create well-structured solutions. Students will also know how to use overriding of methods, abstract classes and methods, and interfaces. They will be able to implement common methods appropriately (toString, equals, compareTo, hashMap.) and understand and apply the substitution rule in inheritance. Finally, they will be familiar with boxing and unboxing of primitive types.</p></li>
-<li><p>Sequential Structures: Students will learn to select and use appropriate sequential data structures in problem-solving, including ArrayList, List, Linked List, Queue, Dequeue, and Stack. They will use iterators with sequential data structures, understand how these implementations impact performance (Big-Oh), and learn the implementation of array-based and list-based data structures. They will also be able to create medium scale applications and identify limits when picking appropriate data structures for unfamiliar problems.</p></li>
-<li><p>Algorithms and Recursion: Students will gain an introduction to recursion, its uses and pitfalls, and understand the appropriate uses of recursion and which algorithms using it are likely to perform acceptably. They will be able to analyze when recursion is and is not necessary and appropriate. Students will also extend their ability to predict and compare Big-Oh performance of programs and knowledge of algorithms with an understanding of backtracking and recursion.</p></li>
-<li><p>Sorting and Searching: Students will understand sorting and searching techniques and how they are implemented in linear data structures. They will iterate through information using linear and binary searches, and be able to compare the performance of array-based and linked list sorting and searching.</p></li>
-<li><p>Problem Solving, Testing, Debugging: Students will be able to apply problem-solving techniques to new computing problems, evaluate and select approaches including step-wise refinement, divide and conquer, etc. They will gain introductory experience with test-driven development, be able to define and evaluate test cases appropriate to the problem at hand, and become proficient at applying debugging principles including breakpoints and tracking of variables when code does not work as intended. Students will also understand and apply JUnit for creating and analyzing problems and selecting appropriate techniques.</p></li>
-<li><p>Tools, Organization, Professional Development: Students will become fully proficient at creating, editing, compiling, and running programs using both an Integrated Development Environment and the command line. They will also be able to install and update programming tools on their own computers. Additionally, students will create, grow, and maintain a GitHub account and use it as a repository for class work and projects throughout their continued education at Loyola University Chicago. They will be prepared to use it to demonstrate their experience and non-text materials to be supplied.</p></li>
-<li><p>Code Reading and Inspections, Java Documentation, Programming Style: Students will learn how to effectively read code produced by others, either for learning or finding defects. They will develop a professional-looking programming style, learn to create and use Java doc when reading and writing code, and gain experience interacting with others by doing code reading and inspections. Students will also understand the concept of defects in programs and apply their skills to their own work and the work of others.</p></li>
-<li><p>Introduction to Non-Linear Data Structures: Students will gain an introduction to advanced data structures, including trees, binary trees, and graphs. They will be able to compare these data structures with linear data structures and understand when they may be useful in implementations.</p></li>
-</ol>
-<p><em>How would you reconcile your earlier list with our own current set of topics and learning outcomes?</em></p>
-<p>The list you provided for Loyola’s COMP 271 is quite comprehensive and aligns well with the general introductory data structures course topics I initially suggested. I’ll try to reconcile the two lists by mapping the suggested topics to your current ones and identifying potential areas of expansion.</p>
-<ol class="arabic simple">
-<li><p><strong>Review of Basic Programming Concepts:</strong> This is covered in your “Basics of Object-Oriented Programming” and “More Object-Oriented Programming” sections. Students already learn about the fundamentals of OOP, which is a good foundation for the course.</p></li>
-<li><p><strong>Array and ArrayList:</strong> This is included in your “Sequential Structures” section where students learn about ArrayList and other linear data structures.</p></li>
-<li><p><strong>Stacks and Queues:</strong> These topics are also part of your “Sequential Structures” section.</p></li>
-<li><p><strong>Linked Lists:</strong> Again, part of your “Sequential Structures” section.</p></li>
-<li><p><strong>Recursion:</strong> This is covered in your “Algorithms and Recursion” section.</p></li>
-<li><p><strong>Trees:</strong> The basics of tree data structures seem to be covered in the “Introduction to Non-Linear Data Structures” section.</p></li>
-<li><p><strong>Binary Search Trees:</strong> This is an area where you could consider expanding your “Introduction to Non-Linear Data Structures” section. While you currently introduce trees and binary trees, binary search trees are a specific kind of binary tree with unique properties and operations that might be worth covering.</p></li>
-<li><p><strong>Hashing:</strong> This topic isn’t explicitly mentioned in your current topics. It could be a valuable addition to your course, as hash tables are a commonly used data structure in software development.</p></li>
-<li><p><strong>Heaps:</strong> This is another topic that could be added to your “Introduction to Non-Linear Data Structures” section. Heaps are a useful type of tree-based data structure.</p></li>
-<li><p><strong>Graphs:</strong> These are included in your “Introduction to Non-Linear Data Structures” section.</p></li>
-<li><p><strong>Sorting Algorithms:</strong> This is covered in your “Sorting and Searching” section.</p></li>
-<li><p><strong>Search Algorithms:</strong> This is also covered in your “Sorting and Searching” section.</p></li>
-<li><p><strong>Algorithm Analysis:</strong> This is part of your “Algorithms and Recursion” section where students learn about Big-Oh notation and algorithm performance.</p></li>
-<li><p><strong>Software Engineering Principles:</strong> Your “Problem Solving, Testing, Debugging”, “Tools, Organization, Professional Development”, and “Code Reading and Inspections, Java Documentation, Programming Style” sections cover various aspects of software engineering principles, such as testing, debugging, and code style.</p></li>
-<li><p><strong>Advanced Concepts (Optional):</strong> Depending on the pace of the class and the preparedness of the students, more advanced topics such as dynamic programming, greedy algorithms, and understanding of data structures like tries, AVL trees, red-black trees, and disjoint sets could be introduced.</p></li>
-</ol>
-<p>Overall, the Loyola COMP 271 course seems comprehensive and well-structured. Adding a few more topics like hashing, heaps, and binary search trees could make it even more robust.</p>
-<p><em>Thanks, though we want to cover the most essential topics in depth during our 15-week semester, and we have the opportunity to defer the most advanced topics to our subsequent CS7 course. Which three to five topics do you think would be good candidates for coverage in CS7 instead of CS2?</em></p>
-<p>Certainly, it’s crucial to ensure students have a thorough understanding of fundamental topics before introducing more advanced ones. Here are a few topics that could be deferred to a CS7 course:</p>
-<ol class="arabic simple">
-<li><p><strong>Advanced Trees (AVL Trees, Red-Black Trees, B-Trees, etc.):</strong> While CS2 covers basic tree structures and binary search trees, advanced trees like AVL trees, Red-Black trees, and B-trees have more complex balancing algorithms that might be better suited for a more advanced course.</p></li>
-<li><p><strong>Graph Algorithms:</strong> CS2 introduces basic graph concepts, but more advanced graph algorithms like Dijkstra’s, Bellman-Ford, Floyd-Warshall, and algorithms for minimum spanning trees (Kruskal’s and Prim’s), along with topics like topological sorting, strongly connected components, etc., could be reserved for CS7.</p></li>
-<li><p><strong>Advanced Data Structures (Hashing, Heaps, Disjoint Sets, Tries):</strong> While basic hashing can be covered in CS2, more advanced topics like open addressing, perfect hashing, universal hashing, and advanced data structures like disjoint set union and tries could be deferred to CS7.</p></li>
-<li><p><strong>Dynamic Programming and Greedy Algorithms:</strong> These topics involve a higher level of problem-solving skills and a deep understanding of recursion and optimization. They are typically introduced in more advanced algorithms courses.</p></li>
-<li><p><strong>NP-Completeness and Computational Intractability:</strong> This is a more theoretical aspect of computer science and requires a good understanding of algorithms and their complexities. This would be more suitable for an advanced course.</p></li>
-</ol>
-<p>These topics would provide a solid foundation for a CS7 course and would build nicely on the topics covered in CS2. The exact division of topics will depend on the pace and depth at which the material is covered in CS2, as well as the specific goals of the CS7 course.</p>
-<p><em>What’s your recommended order of the remaining CS2 topics?</em></p>
-<p>Here’s a recommended order for these CS2 topics, with the understanding that some topics will naturally overlap and interweave:</p>
-<ol class="arabic simple">
-<li><p><strong>Review of Basic Programming Concepts:</strong> This is a natural starting point, reinforcing the foundations of Object-Oriented Programming (OOP).</p></li>
-<li><p><strong>Array and ArrayList:</strong> Introduce these fundamental data structures early on, as they’re the backbone of many other structures and algorithms.</p></li>
-<li><p><strong>Stacks and Queues:</strong> These are simple, yet powerful, data structures that can be understood with the foundation of Arrays/ArrayLists.</p></li>
-<li><p><strong>Linked Lists:</strong> This introduces another way to structure data sequentially, with different performance implications. It’s a good lead-in to more complex structures.</p></li>
-<li><p><strong>Recursion:</strong> Recursion can be a challenging concept for many students, so introducing it relatively early allows more time for practice and reinforcement throughout the course.</p></li>
-<li><p><strong>Algorithm Analysis:</strong> Once students have seen a few different algorithms (in the form of data structure operations), it’s a good time to introduce Big-Oh notation and the concept of time complexity.</p></li>
-<li><p><strong>Sorting and Searching Algorithms:</strong> With a basic understanding of algorithm analysis, students can start exploring more complex algorithms and comparing their performance.</p></li>
-<li><p><strong>Trees and Binary Search Trees:</strong> Trees are a key non-linear data structure. Understanding them leads naturally to binary search trees, which are a practical application with important efficiency characteristics.</p></li>
-<li><p><strong>Hashing:</strong> This is a good point to introduce hashing, which underlies a very efficient (on average) data structure: the hash table.</p></li>
-<li><p><strong>Software Engineering Principles:</strong> These principles can be introduced and then reinforced throughout the course. However, students will appreciate them more once they’ve dealt with more complex code.</p></li>
-</ol>
-<p>Remember, this order isn’t rigid. Many of these topics naturally overlap, and teaching them isn’t necessarily a linear process. For instance, basic algorithm analysis can be introduced as soon as you’re discussing different operations on data structures, and then reinforced throughout the course as you introduce more complex algorithms. Similarly, software engineering principles can be woven throughout the course as students write more and more complex code.</p>
-<p><em>Which of these topics would you consider cross-cutting?</em></p>
-<p>Cross-cutting topics in a curriculum are those that span multiple areas of study or are applicable to a variety of specific topics. In the context of a CS2 course focused on data structures, these topics often include general principles and methodologies rather than specific technologies or structures.</p>
-<p>Here are the cross-cutting topics from your list:</p>
-<ol class="arabic simple">
-<li><p><strong>Review of Basic Programming Concepts:</strong> The principles of object-oriented programming, such as encapsulation, inheritance, and polymorphism, are applicable across a wide range of topics in computer science.</p></li>
-<li><p><strong>Algorithm Analysis:</strong> Understanding how to analyze the efficiency of algorithms, particularly with Big-O notation, is critical when studying various data structures and algorithms.</p></li>
-<li><p><strong>Recursion:</strong> This is a fundamental concept that applies to many different data structures and algorithms, such as tree traversals, searching algorithms, and sorting algorithms.</p></li>
-<li><p><strong>Sorting and Searching Algorithms:</strong> The concepts behind these algorithms are universal and will apply to different data structures. Understanding how to sort and search efficiently is important across a wide range of problem domains.</p></li>
-<li><p><strong>Software Engineering Principles:</strong> Principles like code readability, modularity, testing, and debugging apply to all areas of software development, not just to data structures and algorithms. These are skills that students will use continuously, no matter what specific topic they’re studying.</p></li>
-</ol>
-<p>While it’s important to study specific data structures like arrays, trees, and hash tables, these cross-cutting topics provide a framework for understanding how to use those structures effectively and efficiently. They will be revisited and applied repeatedly throughout both this course and subsequent computer science courses.</p>
-</section>
-</section>
-<section id="review-of-basic-programming-concepts">
-<h2>Review of basic programming concepts<a class="headerlink" href="#review-of-basic-programming-concepts" title="Permalink to this heading"></a></h2>
-<p>When reviewing basic programming concepts, it’s important to cover the following essential subtopics to ensure a solid foundation for the rest of the CS2 course:</p>
-<ol class="arabic simple">
-<li><p><strong>Variables and Data Types:</strong> Review the use of variables, constants, and basic data types, including integers, floating-point numbers, booleans, and strings. Discuss the type system of the language being used.</p></li>
-<li><p><strong>Control Structures:</strong> Review the basic control structures, including conditional statements (like <cite>if</cite>, <cite>else</cite>, <cite>switch</cite>), loops (like <cite>for</cite>, <cite>while</cite>, <cite>do-while</cite>), and how to use <cite>break</cite> and <cite>continue</cite>.</p></li>
-<li><p><strong>Functions/Methods:</strong> Discuss the declaration and definition of functions/methods, parameters, return types, and the call stack. Review the concept of recursion.</p></li>
-<li><p><strong>Arrays and Strings:</strong> Review the declaration, initialization, and manipulation of arrays and strings. Discuss multi-dimensional arrays if relevant.</p></li>
-<li><p><strong>Object-Oriented Programming:</strong> Review the basics of OOP, including classes, objects, methods, and instance variables. Discuss encapsulation, inheritance, and polymorphism.</p></li>
-<li><p><strong>Exception Handling:</strong> Discuss the concept of exceptions and how they’re handled in the language being used.</p></li>
-<li><p><strong>Input/Output (I/O):</strong> Review basic I/O operations, including reading from and writing to the console and file I/O.</p></li>
-<li><p><strong>Memory Management:</strong> Discuss concepts like stack and heap, reference types and value types, and garbage collection (if relevant to the language being used).</p></li>
-<li><p><strong>Basic Data Structures:</strong> Discuss the use of basic data structures provided by the language’s standard library, such as arrays, strings, lists, and dictionaries/maps.</p></li>
-<li><p><strong>Programming Style and Documentation:</strong> Discuss best practices for writing clean, readable code and for documenting code effectively.</p></li>
-</ol>
-<p>Remember that the exact subtopics will depend on what programming language is being used and what the students have covered in their previous courses. The goal is to ensure that all students have a solid understanding of these fundamental concepts before moving on to more advanced topics.</p>
-<section id="example-conditionals-loops-arrays-and-unit-testing">
-<h3>Example: conditionals, loops, arrays, and unit testing<a class="headerlink" href="#example-conditionals-loops-arrays-and-unit-testing" title="Permalink to this heading"></a></h3>
-<p>Here is a simple example that incorporates conditionals, loops, arrays, and unit testing in Java.</p>
-<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">org.junit.jupiter.api.Test</span><span class="p">;</span>
-<span class="kn">import static</span><span class="w"> </span><span class="nn">org.junit.jupiter.api.Assertions.*</span><span class="p">;</span>
-
-<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ArrayProcessor</span><span class="w"> </span><span class="p">{</span>
-
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">findMax</span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">arr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">arr</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">arr</span><span class="p">.</span><span class="na">length</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IllegalArgumentException</span><span class="p">(</span><span class="s">&quot;Array must not be null or empty&quot;</span><span class="p">);</span>
-<span class="w">        </span><span class="p">}</span>
-
-<span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="n">max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arr</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">;</span>
-
-<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">arr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">num</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">max</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="n">max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">num</span><span class="p">;</span>
-<span class="w">            </span><span class="p">}</span>
-<span class="w">        </span><span class="p">}</span>
-
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">max</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
-
-<span class="w">    </span><span class="nd">@Test</span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">testFindMax</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">arrayProcessor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayProcessor</span><span class="p">();</span>
-
-<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">array</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="p">};</span>
-<span class="w">        </span><span class="n">assertEquals</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="n">arrayProcessor</span><span class="p">.</span><span class="na">findMax</span><span class="p">(</span><span class="n">array</span><span class="p">));</span>
-
-<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">array2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">4</span><span class="w"> </span><span class="p">};</span>
-<span class="w">        </span><span class="n">assertEquals</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">arrayProcessor</span><span class="p">.</span><span class="na">findMax</span><span class="p">(</span><span class="n">array2</span><span class="p">));</span>
-
-<span class="w">        </span><span class="n">assertThrows</span><span class="p">(</span><span class="n">IllegalArgumentException</span><span class="p">.</span><span class="na">class</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">arrayProcessor</span><span class="p">.</span><span class="na">findMax</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="p">{}));</span>
-<span class="w">        </span><span class="n">assertThrows</span><span class="p">(</span><span class="n">IllegalArgumentException</span><span class="p">.</span><span class="na">class</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">arrayProcessor</span><span class="p">.</span><span class="na">findMax</span><span class="p">(</span><span class="kc">null</span><span class="p">));</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p>Here’s how the code works:</p>
-<ul class="simple">
-<li><p>The <cite>findMax</cite> method takes an array and finds the maximum value in it. It throws an <cite>IllegalArgumentException</cite> if the array is <cite>null</cite> or empty (this is the conditional part).</p></li>
-<li><p>It uses a <cite>for</cite> loop to iterate through each element in the array.</p></li>
-<li><p>It uses a conditional <cite>if</cite> statement to check whether each number is greater than the current maximum.</p></li>
-<li><p>The <cite>testFindMax</cite> method is a unit test for the <cite>findMax</cite> method. It tests the method with an array of positive numbers, an array of negative numbers, an empty array, and <cite>null</cite>. It uses assertions to verify that the method returns the expected results.</p></li>
-</ul>
-<p>Note: This code uses JUnit 5 for unit testing. If you’re using a different version of JUnit or a different testing framework, the code for the test may need to be adjusted accordingly. Also, remember that <cite>var</cite> can’t be used with array in Java, as the language doesn’t support this style yet.</p>
-</section>
-</section>
-<section id="basic-object-oriented-programming">
-<h2>Basic object-oriented programming<a class="headerlink" href="#basic-object-oriented-programming" title="Permalink to this heading"></a></h2>
+  <section id="basic-object-oriented-programming">
+<h1>Basic object-oriented programming<a class="headerlink" href="#basic-object-oriented-programming" title="Permalink to this heading"></a></h1>
 <section id="in-the-context-of-cs2-what-are-the-essential-elements-of-oop">
-<h3>In the context of CS2, what are the essential elements of OOP?<a class="headerlink" href="#in-the-context-of-cs2-what-are-the-essential-elements-of-oop" title="Permalink to this heading"></a></h3>
+<h2>In the context of CS2, what are the essential elements of OOP?<a class="headerlink" href="#in-the-context-of-cs2-what-are-the-essential-elements-of-oop" title="Permalink to this heading"></a></h2>
 <p>In the context of CS2 (second course in computer science), the essential elements of Object-Oriented Programming (OOP) include the following:</p>
 <ol class="arabic simple">
 <li><p>Classes: Classes are the fundamental building blocks of object-oriented programming. They define the blueprint or template for creating objects. A class encapsulates data (attributes) and behavior (methods) related to a specific concept or entity.</p></li>
@@ -351,7 +96,7 @@
 </ol>
 </section>
 <section id="enums-classes-and-records">
-<h3>Enums, classes, and records<a class="headerlink" href="#enums-classes-and-records" title="Permalink to this heading"></a></h3>
+<h2>Enums, classes, and records<a class="headerlink" href="#enums-classes-and-records" title="Permalink to this heading"></a></h2>
 <p>Here is a simple example in Java that covers classes, records (introduced in Java 14), enums, constructors, accessors, mutators, and the use of <cite>public</cite> and <cite>private</cite> members:</p>
 <p>First, we’ll create an <cite>enum</cite> to represent a type of a pet:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">enum</span><span class="w"> </span><span class="n">PetType</span><span class="w"> </span><span class="p">{</span>
@@ -454,7 +199,7 @@
 <p>Now the <cite>type</cite> is marked as <cite>final</cite> and there’s no <cite>setType</cite> method, meaning the <cite>type</cite> can’t be changed after a <cite>Pet</cite> object is created. If you want to create a pet of a different type, you would need to create a new <cite>Pet</cite> object. This is more representative of the real world, where a pet’s species can’t change.</p>
 </section>
 <section id="associations-between-classes">
-<h3>Associations between classes<a class="headerlink" href="#associations-between-classes" title="Permalink to this heading"></a></h3>
+<h2>Associations between classes<a class="headerlink" href="#associations-between-classes" title="Permalink to this heading"></a></h2>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Ran out of GPT-4 queries here.</p>
@@ -513,7 +258,7 @@
 <p>It’s important to note that this example illustrates a simplified association relationship. In more complex scenarios, you might encounter different types of relationships like composition or bidirectional associations. The choice of the appropriate relationship type depends on the specific requirements and design of the system.</p>
 </section>
 <section id="subtype-polymorphism">
-<h3>Subtype polymorphism<a class="headerlink" href="#subtype-polymorphism" title="Permalink to this heading"></a></h3>
+<h2>Subtype polymorphism<a class="headerlink" href="#subtype-polymorphism" title="Permalink to this heading"></a></h2>
 <p><em>For this Pet class, how would you define behaviors that are specific to a type of pet, such as a dog barking and a cat meowing?</em></p>
 <p>To represent behaviors specific to different types of pets, you can use polymorphism and inheritance in object-oriented programming. You could define a base class or interface <cite>Pet</cite> and then create subclasses for each specific type of pet. Each subclass can then implement its own version of the behavior methods. Here’s an example:</p>
 <p>First, we’ll define the base class <cite>Pet</cite>:</p>
@@ -581,7 +326,7 @@ Whiskers says: Meow!
 <p>In this way, we’ve represented behaviors specific to different types of pets. Each type of pet can have its own unique behaviors, while still sharing common attributes and behaviors through the <cite>Pet</cite> base class.</p>
 </section>
 <section id="subclasses-and-method-overriding">
-<h3>Subclasses and method overriding<a class="headerlink" href="#subclasses-and-method-overriding" title="Permalink to this heading"></a></h3>
+<h2>Subclasses and method overriding<a class="headerlink" href="#subclasses-and-method-overriding" title="Permalink to this heading"></a></h2>
 <p><em>Aren’t there some dogs that howl rather than bark? Can we enhance our class hierarchy accordingly?</em></p>
 <p>To handle this, we can introduce another layer in our class hierarchy. Let’s create a <cite>Dog</cite> subclass called <cite>Husky</cite>, which overrides the <cite>makeSound</cite> method to return “Howl!” instead of “Bark!”. Here’s how you can do it:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Husky</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Dog</span><span class="w"> </span><span class="p">{</span>
@@ -622,7 +367,7 @@ Balto says: Howl!
 <p>This demonstrates the flexibility of object-oriented programming. By creating a subclass and overriding methods, you can create variations of a base class that behave differently. And thanks to polymorphism, you can handle objects of the base class and its subclasses in a unified way.</p>
 </section>
 <section id="interfaces">
-<h3>Interfaces<a class="headerlink" href="#interfaces" title="Permalink to this heading"></a></h3>
+<h2>Interfaces<a class="headerlink" href="#interfaces" title="Permalink to this heading"></a></h2>
 <p>Interfaces provide a way to define common behavior and can be utilized in this example to further enhance the design. Let’s introduce an interface called <cite>Soundable</cite> to represent pets that can make sounds. Here’s an updated version that incorporates interfaces:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.ArrayList</span><span class="p">;</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">java.util.List</span><span class="p">;</span>
@@ -813,12 +558,12 @@ Balto says: Howl!
 <p>This updated version demonstrates the utilization of interfaces, inheritance, and polymorphism to handle different types of pets with varying behaviors in a unified way.</p>
 </section>
 <section id="where-does-subtyping-fit-in">
-<h3>Where does subtyping fit in?<a class="headerlink" href="#where-does-subtyping-fit-in" title="Permalink to this heading"></a></h3>
+<h2>Where does subtyping fit in?<a class="headerlink" href="#where-does-subtyping-fit-in" title="Permalink to this heading"></a></h2>
 <p>Subtyping is an important concept in object-oriented programming and is closely related to inheritance. It allows for the substitution of objects of one class with objects of another class that is derived from or related to the former class.</p>
 <p>Subtyping enables polymorphism and supports the “is-a” relationship between classes. It allows objects of a derived class to be treated as objects of their parent class, providing flexibility and extensibility in program design. By leveraging subtyping, code can be written in a way that is more generic and adaptable to different types of objects.</p>
 <p>In the context of CS2, subtyping is a significant aspect of understanding inheritance and polymorphism. It enables students to create class hierarchies, define relationships between classes, and utilize the principles of code reuse and abstraction. By grasping the concept of subtyping, students can effectively design and implement object-oriented programs that utilize inheritance and polymorphism to their full potential.</p>
-<table class="docutils align-default" id="id2">
-<caption><span class="caption-text">Comparison between type hierarchy relationships</span><a class="headerlink" href="#id2" title="Permalink to this table"></a></caption>
+<table class="docutils align-default" id="id1">
+<caption><span class="caption-text">Comparison between type hierarchy relationships</span><a class="headerlink" href="#id1" title="Permalink to this table"></a></caption>
 <colgroup>
 <col style="width: 33%" />
 <col style="width: 33%" />
@@ -871,7 +616,7 @@ Balto says: Howl!
 </table>
 </section>
 <section id="where-would-you-put-delegation">
-<h3>Where would you put delegation?<a class="headerlink" href="#where-would-you-put-delegation" title="Permalink to this heading"></a></h3>
+<h2>Where would you put delegation?<a class="headerlink" href="#where-would-you-put-delegation" title="Permalink to this heading"></a></h2>
 <p>Delegation is a concept that can be closely related to both composition and inheritance in object-oriented programming. It involves one object (delegate) handing off a specific task or responsibility to another object (delegator).</p>
 <p>In terms of its placement, delegation can be seen as a design pattern or technique that can be applied in various parts of an object-oriented program. It is not necessarily a core element of OOP like classes, objects, inheritance, or polymorphism, but rather a flexible approach to achieve code reuse and modularity.</p>
 <p>Delegation can be utilized within the methods or behaviors of a class, where a specific task or functionality is delegated to another object responsible for performing that task. This allows the delegator object to rely on the expertise or specialized behavior of the delegate object without inheriting from it.</p>
@@ -882,7 +627,7 @@ Balto says: Howl!
 </ol>
 </section>
 <section id="in-practice-shouldn-t-delegation-be-on-par-with-inheritance">
-<h3>In practice, shouldn’t delegation be on par with inheritance?<a class="headerlink" href="#in-practice-shouldn-t-delegation-be-on-par-with-inheritance" title="Permalink to this heading"></a></h3>
+<h2>In practice, shouldn’t delegation be on par with inheritance?<a class="headerlink" href="#in-practice-shouldn-t-delegation-be-on-par-with-inheritance" title="Permalink to this heading"></a></h2>
 <p>In practice, both delegation and inheritance are important concepts in object-oriented programming, but they serve different purposes and have distinct advantages and use cases. While inheritance is a mechanism for creating class hierarchies and sharing behavior and attributes between classes, delegation is a technique for achieving code reuse and modularity by handing off specific tasks or responsibilities to other objects.</p>
 <p>The choice between delegation and inheritance depends on the specific requirements and design goals of the program. In some cases, inheritance may be more appropriate when there is a clear “is-a” relationship between classes and a need to share common behavior and attributes. Inheritance can provide a convenient way to define and organize class hierarchies, promote code reuse, and enable polymorphism.</p>
 <p>On the other hand, delegation can be preferred when there is a need for more flexible and modular design. Delegation allows objects to delegate specific tasks to other objects that specialize in those tasks, enabling composition and separation of concerns. It promotes code reuse without requiring a rigid class hierarchy and allows objects to rely on the behavior of other objects without inheriting from them directly.</p>
@@ -890,7 +635,7 @@ Balto says: Howl!
 <p>So, while delegation is indeed an important technique in practice and can be used on par with inheritance in certain scenarios, it’s important to consider the specific requirements and design goals to determine the most appropriate approach for a given situation.</p>
 </section>
 <section id="where-do-composition-aggregation-and-association-fit-into-this-list">
-<h3>Where do composition, aggregation, and association fit into this list?<a class="headerlink" href="#where-do-composition-aggregation-and-association-fit-into-this-list" title="Permalink to this heading"></a></h3>
+<h2>Where do composition, aggregation, and association fit into this list?<a class="headerlink" href="#where-do-composition-aggregation-and-association-fit-into-this-list" title="Permalink to this heading"></a></h2>
 <ol class="arabic simple" start="9">
 <li><p>Composition: Composition is a strong “whole-part” relationship where the lifetime of the parts is tightly coupled with the lifetime of the whole. The whole object is responsible for creating and managing its component objects. If the whole object is destroyed, its parts are also destroyed. Composition is often represented by a class having one or more member variables of another class type.</p></li>
 <li><p>Aggregation: Aggregation is a weaker form of composition, representing a relationship where one object (the aggregate) contains or is associated with other objects (the components). The components can exist independently of the aggregate, and their lifetimes are not necessarily tied to the aggregate’s lifetime. Aggregation is often represented by a class having member variables that are references or pointers to other objects.</p></li>
@@ -901,7 +646,7 @@ Balto says: Howl!
 <p>By understanding and utilizing composition, aggregation, and association, students in CS2 can create more expressive and accurate models of real-world systems, enabling them to design and implement object-oriented programs that accurately reflect the relationships and interactions between objects.</p>
 </section>
 <section id="is-association-related-to-delegation">
-<h3>Is association related to delegation?<a class="headerlink" href="#is-association-related-to-delegation" title="Permalink to this heading"></a></h3>
+<h2>Is association related to delegation?<a class="headerlink" href="#is-association-related-to-delegation" title="Permalink to this heading"></a></h2>
 <p>Association and delegation are distinct concepts in object-oriented programming, but they can be related in certain scenarios.</p>
 <p>Association represents a relationship between two or more objects, indicating that they are somehow connected or interact with each other. It captures the concept of objects being aware of each other and potentially collaborating, but it does not imply any specific behavior or responsibility transfer.</p>
 <p>Delegation, on the other hand, is a technique where one object (delegator) hands off a specific task or responsibility to another object (delegate). It involves one object relying on the specialized behavior of another object to fulfill a specific aspect of its functionality.</p>
@@ -910,7 +655,7 @@ Balto says: Howl!
 <p>In summary, association and delegation are related in the sense that delegation can occur within the context of an association. The association provides the linkage between objects, and the delegation allows one object to delegate specific responsibilities to another object, leveraging their specialized behavior.</p>
 </section>
 <section id="is-composition-related-to-delegation">
-<h3>Is composition related to delegation?<a class="headerlink" href="#is-composition-related-to-delegation" title="Permalink to this heading"></a></h3>
+<h2>Is composition related to delegation?<a class="headerlink" href="#is-composition-related-to-delegation" title="Permalink to this heading"></a></h2>
 <p>Composition and delegation are distinct concepts in object-oriented programming, but they can be related and often coexist in system design.</p>
 <p>Composition refers to a strong “whole-part” relationship between objects, where the lifetime of the parts is tightly coupled with the lifetime of the whole. In composition, an object is composed of one or more component objects, and the components cannot exist independently outside of the composite object. The composite object takes responsibility for creating, managing, and coordinating the behavior of its component objects.</p>
 <p>Delegation, on the other hand, is a technique where an object (delegator) hands off a specific task or responsibility to another object (delegate). The delegating object relies on the specialized behavior of the delegate object to perform that task.</p>
@@ -920,7 +665,7 @@ Balto says: Howl!
 <p>In summary, composition and delegation are related in the sense that delegation can occur within the context of composition. Composition establishes the strong whole-part relationship between objects, while delegation allows the composite object to delegate specific responsibilities to its component objects to achieve modular and specialized behavior.</p>
 </section>
 <section id="what-s-the-difference-if-any-between-composition-and-aggregation">
-<h3>What’s the difference, if any, between composition and aggregation?<a class="headerlink" href="#what-s-the-difference-if-any-between-composition-and-aggregation" title="Permalink to this heading"></a></h3>
+<h2>What’s the difference, if any, between composition and aggregation?<a class="headerlink" href="#what-s-the-difference-if-any-between-composition-and-aggregation" title="Permalink to this heading"></a></h2>
 <p>Composition and aggregation are both forms of object relationships in object-oriented programming, but they differ in terms of the strength of the relationship and the lifecycle dependency between the objects involved. Here’s a breakdown of the differences:</p>
 <p>Composition:</p>
 <ol class="arabic simple">
@@ -1045,8 +790,8 @@ Balto says: Howl!
 </pre></div>
 </div>
 <p>This example demonstrates how the <cite>Car</cite> object composes the <cite>Engine</cite> and <cite>Wheel</cite> objects, utilizing their behaviors and encapsulating them within its own functionality.</p>
-<table class="docutils align-default" id="id3">
-<caption><span class="caption-text">Comparison among object relationships</span><a class="headerlink" href="#id3" title="Permalink to this table"></a></caption>
+<table class="docutils align-default" id="id2">
+<caption><span class="caption-text">Comparison among object relationships</span><a class="headerlink" href="#id2" title="Permalink to this table"></a></caption>
 <colgroup>
 <col style="width: 25%" />
 <col style="width: 25%" />
@@ -1110,7 +855,7 @@ Balto says: Howl!
 </table>
 </section>
 <section id="only-observable-relationships-matter">
-<h3>Only observable relationships matter<a class="headerlink" href="#only-observable-relationships-matter" title="Permalink to this heading"></a></h3>
+<h2>Only observable relationships matter<a class="headerlink" href="#only-observable-relationships-matter" title="Permalink to this heading"></a></h2>
 <p><em>If a relationship between class and another class is purely internal, without public members to observe the relationship, it’s as if it didn’t exist, right? For example, if class A has a private field of class B but class B doesn’t occur in any constructor or method parameters or return types, we shouldn’t say A has-a B, should we?</em></p>
 <p>Yes, you are correct. If a relationship between two classes is purely internal and not observable from outside the class, it can be considered as if it doesn’t exist in terms of the class’s public interface. In the scenario you described, where class A has a private field of class B but class B doesn’t occur in any constructor or method parameters or return types, we wouldn’t typically say that class A “has-a” relationship with class B.</p>
 <p>The concept of “has-a” relationship usually implies that a class directly incorporates or contains another class as a part of its public interface, visible to external entities. It signifies a stronger association where the presence of the associated class is observable and relevant to the class’s behavior and interactions.</p>
@@ -1120,77 +865,11 @@ Balto says: Howl!
 <p>If you have any further questions or need additional clarification, please let me know!</p>
 </section>
 </section>
-<section id="arrays-and-array-based-lists">
-<h2>Arrays and array-based lists<a class="headerlink" href="#arrays-and-array-based-lists" title="Permalink to this heading"></a></h2>
-<p>Let’s explore the Array and ArrayList data structures.</p>
-<p><strong>Array:</strong>
-An array is a fixed-size data structure that stores elements of the same type in contiguous memory locations. It provides random access to its elements using indices. Arrays have a predetermined length that is defined at the time of declaration, and this length cannot be changed once the array is created.</p>
-<p>Here’s an example of creating and using an array in Java:</p>
-<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">numbers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="o">[</span><span class="mi">5</span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="c1">// Creating an array of integers with a length of 5</span>
-
-<span class="n">numbers</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="c1">// Assigning a value to the first element</span>
-<span class="n">numbers</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span><span class="p">;</span><span class="w"> </span><span class="c1">// Assigning a value to the second element</span>
-
-<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">numbers</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">);</span><span class="w"> </span><span class="c1">// Accessing and printing the value of the first element</span>
-<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">numbers</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">);</span><span class="w"> </span><span class="c1">// Accessing and printing the value of the second element</span>
-</pre></div>
-</div>
-<p>In this example, we create an array called <cite>numbers</cite> with a length of 5. We can assign values to specific elements using index notation (<cite>numbers[index] = value</cite>) and access the values using the same notation (<cite>numbers[index]</cite>). Arrays provide constant-time access to any element, making it efficient to retrieve or modify elements by their index.</p>
-<p>Arrays have a fixed size, so adding or removing elements requires creating a new array with the desired size and copying the existing elements. This can be cumbersome and inefficient if the size of the array needs to change frequently.</p>
-<p><strong>ArrayList:</strong>
-The ArrayList is a dynamic data structure provided by the Java Collections Framework. It is implemented as an array internally, but it automatically manages the resizing and reallocation of memory as elements are added or removed. Unlike regular arrays, ArrayLists can grow or shrink dynamically to accommodate the number of elements.</p>
-<p>Here’s an example of creating and using an ArrayList in Java:</p>
-<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.ArrayList</span><span class="p">;</span>
-
-<span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">numbersList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span><span class="w"> </span><span class="c1">// Creating an ArrayList of integers</span>
-
-<span class="n">numbersList</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span><span class="w"> </span><span class="c1">// Adding an element to the ArrayList</span>
-<span class="n">numbersList</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">20</span><span class="p">);</span><span class="w"> </span><span class="c1">// Adding another element to the ArrayList</span>
-
-<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">numbersList</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span><span class="w"> </span><span class="c1">// Accessing and printing the value of the first element</span>
-<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">numbersList</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span><span class="w"> </span><span class="c1">// Accessing and printing the value of the second element</span>
-</pre></div>
-</div>
-<p>In this example, we create an ArrayList called <cite>numbersList</cite> to store integers. We can add elements to the ArrayList using the <cite>add</cite> method and access the elements using the <cite>get</cite> method. ArrayLists provide similar functionality as arrays but with the added benefit of dynamic resizing.</p>
-<p>ArrayLists automatically handle memory allocation and resizing behind the scenes. When the ArrayList reaches its initial capacity, it automatically increases its size by allocating a new array and copying the elements from the old array to the new one. This dynamic resizing makes ArrayLists more flexible than regular arrays when it comes to adding or removing elements.</p>
-<p>It’s important to note that ArrayLists have a small performance overhead compared to regular arrays due to the dynamic resizing and memory management operations. If you need constant-time access to elements by index and the size of the collection is fixed, arrays may be more suitable. However, if you require a flexible and resizable collection, ArrayLists provide a convenient solution.</p>
-<p>Both arrays and ArrayLists have their own use cases and limitations, and the choice between them depends on the specific requirements of the problem you are solving.</p>
-<p><em>Do ArrayLists have any other disadvantages we should be aware of?</em></p>
-<p>While ArrayLists offer flexibility and convenience, there are a few disadvantages to consider:</p>
-<ol class="arabic simple">
-<li><p><strong>Memory Overhead</strong>: ArrayLists have a higher memory overhead compared to arrays. In addition to storing the actual elements, ArrayLists also maintain internal bookkeeping information such as the array capacity and size. This extra memory usage can be a concern if memory efficiency is critical in your application.</p></li>
-<li><p><strong>Insertion and Deletion in the Middle</strong>: Inserting or removing elements in the middle of an ArrayList can be less efficient compared to appending elements at the end. When an element is inserted or removed in the middle, the ArrayList needs to shift subsequent elements, which requires additional time. If you frequently perform operations that involve insertion or deletion in the middle, a different data structure like a linked list may be more suitable.</p></li>
-<li><p><strong>Primitive Types Boxing/Unboxing</strong>: ArrayLists in Java can only store objects, so when working with primitive types (e.g., <cite>int</cite>, <cite>char</cite>, etc.), they are automatically boxed into their corresponding wrapper classes (e.g., <cite>Integer</cite>, <cite>Character</cite>, etc.). This process of autoboxing and unboxing can lead to a slight performance overhead and increased memory usage.</p></li>
-<li><p><strong>Synchronized Access</strong>: ArrayLists are not inherently thread-safe. If you need to use ArrayLists in a multi-threaded environment, you must ensure proper synchronization to avoid concurrent modification issues. This can add complexity and potential overhead in terms of performance.</p></li>
-<li><p><strong>Resizing Impact</strong>: When an ArrayList needs to resize its internal array, it creates a new array with a larger size and copies the elements from the old array to the new one. This resizing operation can be time-consuming, especially if the ArrayList contains a large number of elements. If you know the approximate size requirements in advance, initializing the ArrayList with an initial capacity can help mitigate frequent resizing.</p></li>
-</ol>
-<p>Despite these disadvantages, ArrayLists remain a widely used data structure due to their flexibility, ease of use, and the convenience provided by the Java Collections Framework. Understanding the limitations and trade-offs of ArrayLists can help you make informed decisions when selecting the appropriate data structure for your specific needs.</p>
-</section>
-<section id="software-engineering-principles">
-<h2>Software engineering principles<a class="headerlink" href="#software-engineering-principles" title="Permalink to this heading"></a></h2>
-<section id="what-does-beautiful-code-look-like-in-the-context-of-a-cs2-course">
-<h3>What does beautiful code look like in the context of a CS2 course?<a class="headerlink" href="#what-does-beautiful-code-look-like-in-the-context-of-a-cs2-course" title="Permalink to this heading"></a></h3>
-<p>Beautiful code in the context of a CS2 course can be described as code that is well-organized, easy to read, and easy to understand. Here are a few characteristics of beautiful code:</p>
-<ol class="arabic simple">
-<li><p>Clarity: Beautiful code should be easy to understand and should clearly convey its purpose and functionality. This includes using meaningful variable and function names, writing comments when necessary, and organizing the code into logical blocks.</p></li>
-<li><p>Simplicity: Beautiful code should be simple and straightforward. This means avoiding unnecessary complexity and using the simplest possible solution to achieve the desired functionality.</p></li>
-<li><p>Modularity: Beautiful code should be modular, with each piece of code serving a specific purpose and being easily reusable in other parts of the program. This includes using functions and classes to organize code into logical modules.</p></li>
-<li><p>Consistency: Beautiful code should be consistent in its style and formatting. This includes using consistent indentation, spacing, and naming conventions throughout the program.</p></li>
-<li><p>Efficiency: Beautiful code should be efficient and optimized for performance. This includes using appropriate data structures and algorithms to minimize time and space complexity.</p></li>
-<li><p>Error-handling: Beautiful code should handle errors gracefully, with appropriate error messages and error handling code that does not cause the program to crash or behave unexpectedly.</p></li>
-</ol>
-<p>Overall, beautiful code in the context of a CS2 course should prioritize readability, simplicity, modularity, consistency, efficiency, and error-handling. By following these principles, students can create code that is not only functional, but also aesthetically pleasing and easy to work with.</p>
-</section>
-</section>
-</section>
 
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../12-discrete-structures/content.html" class="btn btn-neutral float-left" title="Discrete Structures (LUC COMP 163)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../20-languages/content.html" class="btn btn-neutral float-right" title="Programming Languages (LUC COMP 371)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
+          <footer>
 
   <hr/>
 
