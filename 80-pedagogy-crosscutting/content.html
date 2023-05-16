@@ -53,7 +53,12 @@
 <li class="toctree-l1"><a class="reference internal" href="../25-systems/content.html">Computer Systems 1 (COMP 264)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../30-software-engineering/content.html">Software Engineering (LUC COMP 330)</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Pedagogical Considerations Cutting Across the Curriculum</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#focusing-on-a-high-level-api-vs-lower-level-implementation-working-title">Focusing on a high-level API vs lower-level implementation (working title)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#focusing-on-a-high-level-api-vs-lower-level-implementation-working-title">Focusing on a high-level API vs lower-level implementation (working title)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#chatgpt-3-5">ChatGPT-3.5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#chatgpt-4">ChatGPT-4</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#how-important-is-it-really-that-everyone-know-how-to-implement-the-major-data-structures">How important is it really that everyone know how to <em>implement</em> the major data structures?</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../95-chatgpt-limitations/content.html">Understanding the Limitations of ChatGPT</a></li>
@@ -90,6 +95,8 @@
 <p>In this chapter, we discuss various pedagogical considerations that may apply to more than one specific course.</p>
 <section id="focusing-on-a-high-level-api-vs-lower-level-implementation-working-title">
 <h2>Focusing on a high-level API vs lower-level implementation (working title)<a class="headerlink" href="#focusing-on-a-high-level-api-vs-lower-level-implementation-working-title" title="Permalink to this heading"></a></h2>
+<section id="chatgpt-3-5">
+<h3>ChatGPT-3.5<a class="headerlink" href="#chatgpt-3-5" title="Permalink to this heading"></a></h3>
 <p><em>Let’s take a look at the cool `String.lines()` method. How would you split a string using this method?</em></p>
 <p>To split a string into lines using the <cite>lines()</cite> method, you can follow this approach:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">String</span><span class="w"> </span><span class="n">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello\nWorld!\nWelcome\nto\nJava&quot;</span><span class="p">;</span>
@@ -190,6 +197,134 @@ Java
 <li><p>Resources and Hands-on Practice: Provide students with resources, tutorials, and exercises to reinforce their understanding of the Stream API. Encourage hands-on practice and projects that involve stream-based data manipulation to solidify their knowledge and skills.</p></li>
 </ol>
 <p>Remember that the depth of coverage should be aligned with the course’s overall goals, the students’ prior knowledge, and the time available. It’s crucial to strike a balance between teaching foundational programming concepts and introducing modern features like the Stream API to provide students with a well-rounded understanding of Java programming.</p>
+</section>
+<section id="chatgpt-4">
+<h3>ChatGPT-4<a class="headerlink" href="#chatgpt-4" title="Permalink to this heading"></a></h3>
+<p><em>How would you split a string with embedded line breaks into multiple lines without using Stream?</em></p>
+<p>You can use the <cite>split</cite> method of the <cite>String</cite> class in Java. Here’s an example:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">String</span><span class="w"> </span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello\nWorld\nThis is\nJava&quot;</span><span class="p">;</span>
+<span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">lines</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">text</span><span class="p">.</span><span class="na">split</span><span class="p">(</span><span class="s">&quot;\\n&quot;</span><span class="p">);</span>
+
+<span class="k">for</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">lines</span><span class="p">){</span>
+<span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">line</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In this code:</p>
+<ul class="simple">
+<li><p>We define a string <cite>text</cite> that includes line breaks (<cite>n</cite>).</p></li>
+<li><p>We call <cite>split(”\n”)</cite> on <cite>text</cite>. This splits <cite>text</cite> into an array of strings (<cite>lines</cite>), using the the line break as the delimiter.</p></li>
+</ul>
+<p>If you want to convert the array to a collection (like a <cite>List</cite>), you can do so using <cite>Arrays.asList</cite>:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">linesList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Arrays</span><span class="p">.</span><span class="na">asList</span><span class="p">(</span><span class="n">lines</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>This will give you a <cite>List</cite> where each element is a separate line from the original string.</p>
+<p><em>Rather than printing the resulting lines, how would you return a collection of them instead?</em></p>
+<p>Sure, you can easily convert the array of strings into a List and return that:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Arrays</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.List</span><span class="p">;</span>
+
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Main</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello\nWorld\nThis is\nJava&quot;</span><span class="p">;</span>
+<span class="w">        </span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">lines</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">splitIntoLines</span><span class="p">(</span><span class="n">text</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// now you can process the lines</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">lines</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">line</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">splitIntoLines</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">text</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">Arrays</span><span class="p">.</span><span class="na">asList</span><span class="p">(</span><span class="n">text</span><span class="p">.</span><span class="na">split</span><span class="p">(</span><span class="s">&quot;\\n&quot;</span><span class="p">));</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In this example, the <cite>splitIntoLines</cite> function splits the input string into lines and returns a list of the lines. Then, in the <cite>main</cite> function, we call <cite>splitIntoLines</cite> and print each line.</p>
+<p><em>How would you split a string using the lines() method?</em></p>
+<p>The <cite>lines()</cite> method was added to the <cite>String</cite> class in Java 11. It returns a <cite>Stream&lt;String&gt;</cite>, where each item is a line in the original string. Here’s how you can use it:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.List</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.stream.Collectors</span><span class="p">;</span>
+
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Main</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello\nWorld\nThis is\nJava&quot;</span><span class="p">;</span>
+<span class="w">        </span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">lines</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">splitIntoLines</span><span class="p">(</span><span class="n">text</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// now you can process the lines</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">lines</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">line</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">splitIntoLines</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">text</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">text</span><span class="p">.</span><span class="na">lines</span><span class="p">().</span><span class="na">collect</span><span class="p">(</span><span class="n">Collectors</span><span class="p">.</span><span class="na">toList</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In this example, <cite>splitIntoLines</cite> calls <cite>lines()</cite> on the input string to create a <cite>Stream&lt;String&gt;</cite>, and then uses the <cite>collect</cite> method with <cite>Collectors.toList()</cite> to convert the stream into a list.</p>
+<p><em>For CS2, does the education community recommend using String.split() or String.lines()?</em></p>
+<p>The decision between using <cite>String.split()</cite> and <cite>String.lines()</cite> would often depend on the context of the problem and the specific learning objectives of the course.</p>
+<ul class="simple">
+<li><p><cite>String.split()</cite>: This method is more versatile because you can split a string based on any regular expression, not just line breaks. It’s important for students to understand how to use this method and how to work with regular expressions.</p></li>
+<li><p><cite>String.lines()</cite>: This method, introduced in Java 11, specifically splits a string into lines, using line breaks as delimiters. It returns a Stream, so it can be a good way to introduce students to the Stream API and functional programming concepts in Java.</p></li>
+</ul>
+<p>For a Computer Science 2 (CS2) course, it might be beneficial to teach both methods. <cite>String.split()</cite> could be introduced first, as it’s more general and has been part of Java for a longer time. Then, when covering more advanced topics like streams and functional programming, <cite>String.lines()</cite> could be introduced.</p>
+<p>However, please note that the exact curriculum and order of topics can vary between different institutions, courses, and instructors. It’s always best to follow your specific course guidelines and objectives.</p>
+<p><em>Should I teach my CS2 students split() first and then lines()? Will it fit into one semester?</em></p>
+<p>Teaching <cite>split()</cite> before <cite>lines()</cite> could be a good pedagogical approach. The <cite>split()</cite> method is more general-purpose and has been part of Java for a longer time. Additionally, understanding <cite>split()</cite> can provide a good foundation for understanding how to process strings in Java, which is an essential skill.</p>
+<p>Introducing <cite>lines()</cite> later in the course when covering streams and functional programming makes sense because it provides a practical application of these concepts.</p>
+<p>As for fitting these topics into one semester, it largely depends on the pace of the course, the background of the students, and the other topics you plan to cover. Both <cite>split()</cite> and <cite>lines()</cite> can be covered relatively quickly if the students have a good understanding of strings and basic Java syntax.</p>
+<p>For <cite>split()</cite>, students will need to understand:</p>
+<ul class="simple">
+<li><p>Strings</p></li>
+<li><p>Arrays (since <cite>split()</cite> returns an array)</p></li>
+<li><p>Regular expressions (at a basic level)</p></li>
+</ul>
+<p>For <cite>lines()</cite>, students will need to understand:</p>
+<ul class="simple">
+<li><p>Strings</p></li>
+<li><p>The Java Stream API</p></li>
+<li><p>Functional programming concepts in Java (since streams are often used with lambda expressions)</p></li>
+</ul>
+<p>If your students already have a foundation in these topics, then it should be feasible to cover both <cite>split()</cite> and <cite>lines()</cite> in a single semester of a CS2 course. However, the exact pacing would depend on the specifics of your course and students.</p>
+<p><em>More generally, should CS2 discuss the Java Stream API? If so, at what Bloom level and in how much detail?</em></p>
+<p>The Java Stream API is a significant component of modern Java programming and introduces important concepts about functional programming and data manipulation. Therefore, it’s beneficial to include it in a CS2 course. However, the depth and manner in which you cover it will depend on the overall course objectives and the students’ prior knowledge.</p>
+<p>Here’s a potential breakdown of the Java Stream API according to Bloom’s Taxonomy:</p>
+<ol class="arabic simple">
+<li><p><strong>Remembering</strong>: Students should be able to recall what a Stream is in Java and the basic idea of how it works. They should remember the key methods like <cite>map()</cite>, <cite>filter()</cite>, <cite>reduce()</cite>, <cite>collect()</cite>, etc.</p></li>
+<li><p><strong>Understanding</strong>: Students should understand the benefits of using streams, such as improved readability and the ability to work with large data sets in a more efficient manner. They should understand how streams can be used for tasks like filtering, mapping, and reducing data.</p></li>
+<li><p><strong>Applying</strong>: Students should be able to use the Stream API in code, for instance, to manipulate data in collections. They should be comfortable with creating streams, applying operations on them, and collecting the results.</p></li>
+<li><p><strong>Analyzing</strong>: Students should be able to analyze a problem and determine whether using a Stream would be an appropriate solution. They should understand how to chain together multiple operations and understand the order in which operations are applied.</p></li>
+<li><p><strong>Evaluating</strong>: Students should be able to critique a piece of code that uses streams, and suggest improvements or alternatives. They should understand the trade-offs of using streams, including potential performance implications.</p></li>
+<li><p><strong>Creating</strong>: Students should be able to design and implement a piece of software that effectively uses the Stream API to solve a problem. They should be able to use advanced features of the Stream API and possibly create custom collectors or other components.</p></li>
+</ol>
+<p>As for how much detail to cover, this again depends on the course objectives. At a minimum, students should learn the basic usage of streams and be comfortable with the common operations like <cite>map()</cite>, <cite>filter()</cite>, and <cite>collect()</cite>. More advanced topics, like parallel streams, could be covered if time allows and if it fits with the course objectives.</p>
+<p>Remember that understanding the Stream API also requires a solid understanding of other concepts, like lambda expressions and functional interfaces, so make sure to allocate time to cover these prerequisites if they haven’t been covered already.</p>
+</section>
+</section>
+<section id="how-important-is-it-really-that-everyone-know-how-to-implement-the-major-data-structures">
+<h2>How important is it really that everyone know how to <em>implement</em> the major data structures?<a class="headerlink" href="#how-important-is-it-really-that-everyone-know-how-to-implement-the-major-data-structures" title="Permalink to this heading"></a></h2>
+<p><em>One major question we have about modern data structures courses: Is it really important that everyone know how to implement the major data structures?</em></p>
+<p>Whether students should learn to implement the major data structures themselves is a topic of ongoing debate in computer science education. Here are arguments on both sides:</p>
+<p><strong>Yes, students should learn to implement major data structures:</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Deep Understanding:</strong> Implementing data structures from scratch provides a deep understanding of how they work. This includes understanding their time and space complexity, their trade-offs, and when to use one structure over another.</p></li>
+<li><p><strong>Problem-solving Skills:</strong> Implementing data structures often involves complex problem-solving and algorithmic thinking. These are valuable skills in any area of computer science.</p></li>
+<li><p><strong>Debugging and Analysis:</strong> When students implement their own data structures, they inevitably encounter bugs and challenges. Overcoming these strengthens their debugging skills and their ability to analyze and understand complex code.</p></li>
+<li><p><strong>Preparation for Interviews:</strong> Many tech companies still ask questions that involve the implementation of data structures during technical interviews.</p></li>
+</ol>
+<p><strong>No, students don’t necessarily need to implement major data structures:</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Standard Libraries:</strong> Most modern programming languages come with standard libraries that provide efficient implementations of most common data structures. In most professional settings, developers will use these pre-built structures rather than implementing their own.</p></li>
+<li><p><strong>Conceptual Understanding:</strong> It’s more important for students to understand what a data structure is, what it does, its time and space complexities, and when to use it. They can learn these concepts through working with pre-built data structures.</p></li>
+<li><p><strong>Real-World Relevance:</strong> In many real-world situations, understanding higher-level concepts like system design, databases, web services, etc., is more valuable than being able to implement a low-level data structure.</p></li>
+<li><p><strong>Time Constraints:</strong> Implementing data structures can be time-consuming. This time might be better spent learning other important computer science concepts.</p></li>
+</ol>
+<p>In summary, whether to focus on implementing data structures should depend on the goals of the course and the needs of the students. If the primary goal is to teach students the practical skills they’ll need in the software industry, it might make more sense to focus on using pre-built data structures and learning higher-level concepts. If the goal is to provide a deep understanding of data structures and algorithms, or to prepare students for further study in computer science, implementing the structures could be beneficial.</p>
 </section>
 </section>
 
