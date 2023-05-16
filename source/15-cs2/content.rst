@@ -102,7 +102,7 @@ Here's a version of the list of current topics and learning outcomes of the CS2 
 
 1. Basics of Object-Oriented Programming: Students will be able to create, use, and understand properly constructed OOP classes with public and private members, constructors, accessors, and mutators. They will also learn how to use method overloading appropriately and create classes with proper encapsulation. Additionally, they will be able to use existing classes and access documentation to find and understand components of classes to create new programs.
 
-2. More Object-Oriented Programming: Building on the basics, students will learn how to create solutions with multiple cooperating OOP classes. They will understand and use basic inheritance and interfaces, apply them to problem-solving, and create well-structured solutions. Students will also know how to use overriding of methods, abstract classes and methods, and interfaces. They will be able to implement common methods appropriately (toString, equals, compareTo, hashMap.) and understand and apply the substitution rule in inheritance. Finally, they will be familiar with boxing and unboxing of primitive types.
+2. More Object-Oriented Programming: Building on the basics, students will learn how to create solutions with multiple cooperating OOP classes. They will understand and use basic inheritance and interfaces, apply them to problem-solving, and create well-structured solutions. Students will also know how to use overriding of methods, abstract classes and methods, and interfaces. They will be able to implement common methods appropriately (toString, equals, compareTo, hashCode.) and understand and apply the substitution rule in inheritance. Finally, they will be familiar with boxing and unboxing of primitive types.
 
 3. Sequential Structures: Students will learn to select and use appropriate sequential data structures in problem-solving, including ArrayList, List, Linked List, Queue, Dequeue, and Stack. They will use iterators with sequential data structures, understand how these implementations impact performance (Big-Oh), and learn the implementation of array-based and list-based data structures. They will also be able to create medium scale applications and identify limits when picking appropriate data structures for unfamiliar problems.
 
@@ -222,5 +222,6 @@ While it's important to study specific data structures like arrays, trees, and h
 .. include:: 10-basic-concepts.rst
 .. include:: 20-basic-oop.rst
 .. include:: 30-arrays-arraylists.rst
+.. include:: 35-maps.rst
 
 .. include:: 100-se-principles.rst
