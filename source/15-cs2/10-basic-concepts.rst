@@ -26,8 +26,9 @@ When reviewing basic programming concepts, it's important to cover the following
 Remember that the exact subtopics will depend on what programming language is being used and what the students have covered in their previous courses. The goal is to ensure that all students have a solid understanding of these fundamental concepts before moving on to more advanced topics.
 
 
-Simple example illustrating conditionals, loops, arrays, and unit testing
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Example: conditionals, loops, arrays, and unit testing
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 
 Here is a simple example that incorporates conditionals, loops, arrays, and unit testing in Java. 
 
