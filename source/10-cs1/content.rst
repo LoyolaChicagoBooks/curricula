@@ -1,5 +1,11 @@
-Introduction to CS (CS1 / LUC COMP 170)
-========================================
+Introduction to Computer Science
+================================
+
+Historical Term
+  CS1
+
+Loyola University Chicago
+  `COMP 170 <https://academics.cs.luc.edu/courses/comp170.html>`__
 
 What does CS1 mean with respect to the ACM Computing Curricula?
 -----------------------------------------------------------------

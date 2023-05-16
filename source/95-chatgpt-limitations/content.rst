@@ -1,9 +1,9 @@
 Understanding the Limitations of ChatGPT
 ========================================
 
-In this chapter, we will discuss some of the limitations of large language models such as the one underlying ChatGPT.
-We argue that these limitations are the reason a human with an appropriate level of expertise needs to be kept in the loop for quality control.
+.. note:: In this chapter, we will discuss some of the limitations of large language models such as the one underlying ChatGPT.  We argue that these limitations are the reason a human with an appropriate level of expertise needs to be kept in the loop for quality control. 
 
+.. note:: At a basic level, this is already covered in the initial explorations (ongoing study) by Davis, Lu, and Thiruvathukal. Human-in-the-loop thinking is already part of Chat-GPT3/GPT4.
 
 ChatGPT (GPT-3.5) responds inconsistently despite repeated redirection
 ----------------------------------------------------------------------

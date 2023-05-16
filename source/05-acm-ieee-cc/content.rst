@@ -1,4 +1,4 @@
-Curricular Standards - ACM/IEEE
+ACM/IEEE Curricular Standards
 ===============================
 
 The Association for Computing Machinery (ACM) is a leading international organization for computing professionals, and they periodically release guidelines for computing curricula to help educational institutions design their programs.
