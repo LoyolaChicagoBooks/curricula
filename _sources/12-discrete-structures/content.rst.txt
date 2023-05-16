@@ -1,7 +1,14 @@
-Discrete Structures (LUC COMP 163)
-=====================================
+Discrete Structures
+====================
+
+Historical Term
+   N/A
+
+Loyola University Chicago
+  `COMP 163 <https://academics.cs.luc.edu/courses/comp163.html>`__
 
 These are the top 15 topics in Discrete Structures
+---------------------------------------------------
 
 
 1. Logic and Propositional Calculus

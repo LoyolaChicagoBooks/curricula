@@ -1,97 +1,241 @@
-<!DOCTYPE html>
-<html class="writer-html5" lang="en" >
-<head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
+  <!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Understanding the Limitations of ChatGPT &mdash; CS Curricula 16 May 2023 documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
-    <script src="../_static/js/theme.js"></script>
-    <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Background" href="../98-openai/content.html" />
-    <link rel="prev" title="Pedagogical Considerations Cutting Across the Curriculum" href="../80-pedagogy-crosscutting/content.html" /> 
+  <meta charset="utf-8" />
+  <meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <title>Understanding the Limitations of ChatGPT | CS Curricula v2023-05-16 documentation</title>
+  <link rel="stylesheet" href="../_static/pygments.css" />
+  <link rel="stylesheet" href="../_static/theme.c973b470ab69573097f3.css" />
+  <link rel="search" title="Search" href="../search.html" />
+  <link rel="index" title="Index" href="../genindex.html" />
+  <link rel="next" title="Background" href="../98-openai/content.html" />
+  <link rel="prev" title="Pedagogical Considerations Cutting Across the Curriculum" href="../80-pedagogy-crosscutting/content.html" />
 </head>
 
-<body class="wy-body-for-nav"> 
-  <div class="wy-grid-for-nav">
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search"  style="background: #922247" >
+<body class="antialiased text-gray">
+    <div id="page" data-controller="sidebar search scroll "
+      data-action="keydown@window->search#focus "
+      class="min-h-screen xl:h-screen flex flex-col xl:grid xl:grid-layout print:block print:h-auto"
+    >
+      <a class="block transition -translate-x-full focus:translate-x-0 opacity-0 focus:opacity-100 text-xl bg-white p-4 z-20 absolute top-0 left-0 h-14" href="#understanding-the-limitations-of-chatgpt" title="Skip navigation links">Skip to content</a>
 
-          
-          
-          <a href="../index.html" class="icon icon-home">
-            CS Curricula
-          </a>
-              <div class="version">
-                16 May 2023
-              </div>
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
+    <header class="grid-area-header z-10 h-14 fixed w-full top-0 print:hidden">
+      <div class="bg-gray-dark shadow-md flex items-center h-full xl:px-2 relative"><div class="flex items-center">
+    <button data-action="sidebar#open" data-sidebar-target="hamburger"
+  class="xl:hidden h-14 w-14 leading-14 text-gray-100 hover:bg-gray-700 hover:text-brand focus:outline-none focus:bg-gray-700 focus:text-brand">
+  <span class="sr-only">Open navigation menu</span>
+  <svg aria-hidden="true" class="inline fill-current h-8 w-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+  </svg>
+</button><a class="hover:bg-gray-700 focus:bg-gray-700 focus:outline-none" href="../index.html"
+  title="Back to homepage"><span class="hidden lg:inline-block shrink-0 font-medium text-gray-100 mx-5 leading-14 tracking-wider">CS Curricula v2023-05-16 documentation</span>
+</a></div><div class="flex justify-end items-center flex-1"><form
+  id="searchbox"
+  action="../search.html"
+  data-action="click->search#focusSearchInput"
+  method="get"
+  class="flex print:hidden justify-between items-center leading-14 md:ml-4 bg-gray-dark text-gray-300 focus-within:bg-gray-50 focus-within:text-gray-800 focus-within:absolute focus-within:inset-x-0 focus-within:top-0 md:focus-within:w-full md:focus-within:static z-10">
+
+  <button
+    class="text-inherit h-14 w-14"
+    aria-label="Get search results"
+    tabindex="-1"
+  >
+    <svg aria-hidden="true" class="fill-current stroke-current h-8 w-8" stroke-width="0.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+  </button>
+
+  <input
+    name="q"
+    id="search-input"
+    data-search-target="searchInput"
+    type="search"
+    aria-label="Search the docs"
+    placeholder="Search the docs"
+    class="pr-2 bg-transparent text-inherit focus:outline-none w-0 md:w-auto focus:w-full transition-all duration-100"
+  />
+</form></div>
 </div>
-        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../00-preliminaries/content.html">Preliminaries</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../05-acm-ieee-cc/content.html">Curricular Standards - ACM/IEEE</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../10-cs1/content.html">Introduction to CS (CS1 / LUC COMP 170)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../12-discrete-structures/content.html">Discrete Structures (LUC COMP 163)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../15-cs2/content.html">Data Structures 1 (CS2 / LUC COMP 271)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../20-languages/content.html">Programming Languages (LUC COMP 371)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../25-systems/content.html">Computer Systems 1 (COMP 264)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../30-software-engineering/content.html">Software Engineering (LUC COMP 330)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../80-pedagogy-crosscutting/content.html">Pedagogical Considerations Cutting Across the Curriculum</a></li>
+    </header>
+
+    
+<aside data-sidebar-target="sidebar" class="grid-area-sidebar h-full fixed pt-14 xl:relative inset-y-0 left-0 z-20 xl:z-0 print:hidden overflow-y-auto transition-all transform transform-gpu -translate-x-full opacity-0 duration-300 xl:translate-x-0 xl:opacity-100">
+  <nav
+  role="navigation"
+  class="h-full overflow-y-auto bg-white text-gray-600 pt-8 flex flex-col"
+>
+  <div class="nav-toc flex-1 pl-6"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../00-preliminaries/content.html">Preliminaries</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../00-preliminaries/content.html#build-status">Build Status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../00-preliminaries/content.html#download">Download</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../00-preliminaries/content.html#citation">Citation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../00-preliminaries/content.html#motivation-for-our-work">Motivation for Our Work</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../00-preliminaries/content.html#contributors">Contributors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../00-preliminaries/content.html#acknowledgements">Acknowledgements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../00-preliminaries/content.html#topics">Topics</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../05-acm-ieee-cc/content.html">ACM/IEEE Curricular Standards</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../10-cs1/content.html">Introduction to Computer Science</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../10-cs1/content.html#what-does-cs1-mean-with-respect-to-the-acm-computing-curricula">What does CS1 mean with respect to the ACM Computing Curricula?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10-cs1/content.html#what-are-simple-examples-of-the-most-important-programming-constructs-in-java">What are simple examples of the most important programming constructs in Java?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../10-cs1/content.html#variables-and-data-types">Variables and Data Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../10-cs1/content.html#conditional-statements-if-else">Conditional Statements (if-else)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../10-cs1/content.html#loops-for-and-while">Loops (for and while)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../10-cs1/content.html#functions">Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../10-cs1/content.html#basic-i-o">Basic I/O</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../10-cs1/content.html#arrays">Arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../10-cs1/content.html#classes-and-objects">Classes and Objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../10-cs1/content.html#inheritance">Inheritance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../10-cs1/content.html#interfaces-and-abstract-classes">Interfaces and Abstract Classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../10-cs1/content.html#exceptions-and-error-handling">Exceptions and Error Handling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../10-cs1/content.html#refactor-animal-and-dog-example-with-an-interface-that-has-all-common-methods">Refactor Animal and Dog example with an interface that has all common methods?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../10-cs1/content.html#refactor-animal-not-a-good-name-for-an-interface-use-whatanimalsdo-instead">Refactor: Animal not a good name for an interface. Use WhatAnimalsDo instead.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../10-cs1/content.html#refactor-add-two-other-animals">Refactor: Add two other animals…</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../10-cs1/content.html#how-do-these-java-topics-map-to-the-cs1-curricula-and-acm-ieee">How do these Java topics map to the CS1 curricula and ACM/IEEE?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../12-discrete-structures/content.html">Discrete Structures</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../12-discrete-structures/content.html#these-are-the-top-15-topics-in-discrete-structures">These are the top 15 topics in Discrete Structures</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../15-cs2/content.html">Data Structures 1</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../15-cs2/content.html#top-15-topics-in-cs2-curricula">Top 15 topics in CS2 curricula?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../15-cs2/content.html#top-15-cs2-topics-as-opposed-to-cs7">Top 15 CS2 topics as opposed to CS7</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../15-cs2/content.html#cs2-at-loyola-current-topics-and-learning-outcomes">CS2 at Loyola: Current topics and learning outcomes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../15-cs2/content.html#review-of-basic-programming-concepts">Review of basic programming concepts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../15-cs2/content.html#example-conditionals-loops-arrays-and-unit-testing">Example: conditionals, loops, arrays, and unit testing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../15-cs2/content.html#basic-object-oriented-programming">Basic object-oriented programming</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../15-cs2/content.html#in-the-context-of-cs2-what-are-the-essential-elements-of-oop">In the context of CS2, what are the essential elements of OOP?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../15-cs2/content.html#enums-classes-and-records">Enums, classes, and records</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../15-cs2/content.html#associations-between-classes">Associations between classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../15-cs2/content.html#subtype-polymorphism">Subtype polymorphism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../15-cs2/content.html#subclasses-and-method-overriding">Subclasses and method overriding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../15-cs2/content.html#interfaces">Interfaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../15-cs2/content.html#where-does-subtyping-fit-in">Where does subtyping fit in?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../15-cs2/content.html#where-would-you-put-delegation">Where would you put delegation?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../15-cs2/content.html#in-practice-shouldn-t-delegation-be-on-par-with-inheritance">In practice, shouldn’t delegation be on par with inheritance?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../15-cs2/content.html#where-do-composition-aggregation-and-association-fit-into-this-list">Where do composition, aggregation, and association fit into this list?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../15-cs2/content.html#is-association-related-to-delegation">Is association related to delegation?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../15-cs2/content.html#is-composition-related-to-delegation">Is composition related to delegation?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../15-cs2/content.html#what-s-the-difference-if-any-between-composition-and-aggregation">What’s the difference, if any, between composition and aggregation?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../15-cs2/content.html#only-observable-relationships-matter">Only observable relationships matter</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../15-cs2/content.html#arrays-and-array-based-lists">Arrays and array-based lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../15-cs2/content.html#maps">Maps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../15-cs2/content.html#software-engineering-principles">Software engineering principles</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../15-cs2/content.html#what-does-beautiful-code-look-like-in-the-context-of-a-cs2-course">What does beautiful code look like in the context of a CS2 course?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../20-languages/content.html">Programming Languages</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../20-languages/content.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../20-languages/content.html#overview">Overview</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../25-systems/content.html">Computer Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../30-software-engineering/content.html">Software Engineering</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../30-software-engineering/content.html#design-by-contract-dbc">Design by Contract (DBC)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../30-software-engineering/content.html#what-language-was-the-first-to-support-dbc">What language was the first to support DBC?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../30-software-engineering/content.html#eiffel-language">Eiffel Language</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../30-software-engineering/content.html#rational-numbers-eiffel">Rational Numbers - Eiffel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../30-software-engineering/content.html#eiffel-implementations">Eiffel Implementations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../30-software-engineering/content.html#what-modern-languages-besides-eiffel-support-dbc">What modern languages [besides Eiffel] support DBC?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../30-software-engineering/content.html#python-dbc">Python - DBC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../30-software-engineering/content.html#rust-dbc">Rust - DBC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../30-software-engineering/content.html#scala-s-dbc">Scala’s DBC</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../80-pedagogy-crosscutting/content.html">Pedagogical Considerations Cutting Across the Curriculum</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../80-pedagogy-crosscutting/content.html#focusing-on-a-high-level-api-vs-lower-level-implementation-working-title">Focusing on a high-level API vs lower-level implementation (working title)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../80-pedagogy-crosscutting/content.html#chatgpt-3-5">ChatGPT-3.5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../80-pedagogy-crosscutting/content.html#chatgpt-4">ChatGPT-4</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../80-pedagogy-crosscutting/content.html#how-important-is-it-really-that-everyone-know-how-to-implement-the-major-data-structures">How important is it really that everyone know how to <em>implement</em> the major data structures?</a></li>
+</ul>
+</li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Understanding the Limitations of ChatGPT</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#chatgpt-gpt-3-5-responds-inconsistently-despite-repeated-redirection">ChatGPT (GPT-3.5) responds inconsistently despite repeated redirection</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#chatgpt-gpt-4-gets-it-right-the-first-time">ChatGPT (GPT-4) gets it right the first time</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../98-openai/content.html">Background</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../99-sandbox/content.html">Issues</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../98-openai/content.html">Background</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../98-openai/content.html#when-was-the-first-computer-science-program-created">When was the first computer science program created?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../98-openai/content.html#when-were-the-first-curricular-guidelines-for-computer-science-degrees-established">When were the first curricular guidelines for computer science degrees established?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../98-openai/content.html#is-there-a-url-for-this-that-is-on-acm-and-not-on-some-random-site">Is there a URL for this that is on ACM and not on some random site?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../98-openai/content.html#great-can-you-give-me-a-list-of-all-versions-of-acm-and-ieee-computing-curricular-guidelines">Great, can you give me a list of all versions of ACM and IEEE computing curricular guidelines?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../98-openai/content.html#which-of-the-curricla-reference-cs1-and-cs2-is-this-terminology-still-relevant">Which of the curricla reference CS1 and CS2. Is this terminology still relevant?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../98-openai/content.html#what-are-the-most-common-1st-2nd-and-3rd-year-courses-in-computer-science">What are the most common 1st, 2nd, and 3rd year courses in computer science?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../98-openai/content.html#first-year">First Year</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../98-openai/content.html#second-year">Second Year</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../98-openai/content.html#third-year">Third Year</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../98-openai/content.html#evidence">Evidence</a></li>
 </ul>
-
-        </div>
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #922247" >
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">CS Curricula</a>
-      </nav>
-
-      <div class="wy-nav-content">
-        <div class="rst-content style-external-links">
-          <div role="navigation" aria-label="Page navigation">
-  <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Understanding the Limitations of ChatGPT</li>
-      <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/95-chatgpt-limitations/content.rst.txt" rel="nofollow"> View page source</a>
-      </li>
-  </ul>
-  <hr/>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../98-openai/content.html#how-much-math-is-absolutely-required-for-a-cs-degree-focusing-on-the-acm-guidelines">How much math is absolutely required for a CS degree, focusing on the ACM guidelines?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../98-openai/content.html#are-these-same-math-classes-always-needed-for-other-acm-ieee-curricula-e-g-se-and-it">Are these same math classes always needed for other ACM/IEEE curricula, e.g. SE and IT?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../98-openai/content.html#how-about-cybersecurity">How about Cybersecurity?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../98-openai/content.html#i-know-there-are-no-guidelines-for-minors-in-cs-and-related-fields-but-what-courses-should-a-non-major-take-to-be-best-positioned-for-careers-in-cs">I know there are no guidelines for minors in CS and related fields, but what courses should a non-major take to be best positioned for careers in CS?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../98-openai/content.html#ok-but-what-are-the-top-six-since-most-majors-can-only-be-6-courses">Ok, but what are the top six, since most majors can only be 6 courses?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../99-sandbox/content.html">Issues</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../99-sandbox/content.html#heading">Heading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../99-sandbox/content.html#examples">Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../99-sandbox/content.html#illustration">Illustration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../99-sandbox/content.html#use-of-notes-and-warnings">Use of notes and warnings</a></li>
+</ul>
+</li>
+</ul>
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-             
+
+  <button
+      data-action="sidebar#close"
+      title="Close navigation menu"
+      class="text-4xl text-gray-800 p-4 bottom-0 hover:text-brand xl:hidden focus:text-brand self-center">
+    <span class="sr-only">Close navigation menu</span>
+    <svg aria-hidden="true" class="fill-current stroke-current h-6 w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+  </button>
+</nav>
+</aside>
+
+<main
+  class="px-4 pt-14 xl:ml-fluid grid-area-main overflow-y-auto flex flex-col flex-1 h-full mx-0 md:mx-auto xl:mr-0"
+><nav role="navigation"
+     aria-label="breadcrumbs"
+     class="print:hidden mt-12 text-sm text-gray-light">
+  <a class="text-gray-light text-sm hover:text-gray-dark font-medium focus:text-gray-dark" href="../index.html">CS Curricula v2023-05-16 documentation</a>
+  <span class="mr-1">/</span><span aria-current="page">Understanding the Limitations of ChatGPT</span>
+</nav>
+
+  <article role="main" class="flex-1 prose">
+    
   <section id="understanding-the-limitations-of-chatgpt">
-<h1>Understanding the Limitations of ChatGPT<a class="headerlink" href="#understanding-the-limitations-of-chatgpt" title="Permalink to this heading"></a></h1>
-<p>In this chapter, we will discuss some of the limitations of large language models such as the one underlying ChatGPT.
-We argue that these limitations are the reason a human with an appropriate level of expertise needs to be kept in the loop for quality control.</p>
+<h1>Understanding the Limitations of ChatGPT<a class="headerlink" href="#understanding-the-limitations-of-chatgpt" title="Permalink to this heading">¶</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In this chapter, we will discuss some of the limitations of large language models such as the one underlying ChatGPT.  We argue that these limitations are the reason a human with an appropriate level of expertise needs to be kept in the loop for quality control.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>At a basic level, this is already covered in the initial explorations (ongoing study) by Davis, Lu, and Thiruvathukal. Human-in-the-loop thinking is already part of Chat-GPT3/GPT4.</p>
+</div>
 <section id="chatgpt-gpt-3-5-responds-inconsistently-despite-repeated-redirection">
-<h2>ChatGPT (GPT-3.5) responds inconsistently despite repeated redirection<a class="headerlink" href="#chatgpt-gpt-3-5-responds-inconsistently-despite-repeated-redirection" title="Permalink to this heading"></a></h2>
+<h2>ChatGPT (GPT-3.5) responds inconsistently despite repeated redirection<a class="headerlink" href="#chatgpt-gpt-3-5-responds-inconsistently-despite-repeated-redirection" title="Permalink to this heading">¶</a></h2>
 <p>The following ChatGPT 3.5 session is intended to illustrate this observation:</p>
 <p><em>As of Java 17, which widely used classes in java.lang depend on java.util.Stream?</em></p>
 <p>As of Java 17, there are no widely used classes in <cite>java.lang</cite> that directly depend on <cite>java.util.Stream</cite>. The <cite>java.lang</cite> package contains fundamental classes and interfaces that are part of the Java core libraries and do not have direct dependencies on higher-level APIs like <cite>java.util.Stream</cite>.</p>
@@ -181,7 +325,7 @@ We argue that these limitations are the reason a human with an appropriate level
 <p>If you have any specific questions or need assistance with any particular topic within the Java API, feel free to ask. I’m here to help clarify any doubts and provide guidance.</p>
 </section>
 <section id="chatgpt-gpt-4-gets-it-right-the-first-time">
-<h2>ChatGPT (GPT-4) gets it right the first time<a class="headerlink" href="#chatgpt-gpt-4-gets-it-right-the-first-time" title="Permalink to this heading"></a></h2>
+<h2>ChatGPT (GPT-4) gets it right the first time<a class="headerlink" href="#chatgpt-gpt-4-gets-it-right-the-first-time" title="Permalink to this heading">¶</a></h2>
 <p><em>As of Java 17, which widely used classes in java.lang depend on java.util.Stream?</em></p>
 <p>As of my knowledge cutoff in September 2021, Java’s <cite>java.lang</cite> package does not have any classes that directly depend on <cite>java.util.stream.Stream</cite>.</p>
 <p>However, there is an indirect dependency through some methods in <cite>java.lang</cite> classes that use <cite>java.util.stream.Stream</cite> or its related classes in their method signatures. Here are a few examples:</p>
@@ -195,34 +339,31 @@ We argue that these limitations are the reason a human with an appropriate level
 </section>
 
 
-           </div>
-          </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../80-pedagogy-crosscutting/content.html" class="btn btn-neutral float-left" title="Pedagogical Considerations Cutting Across the Curriculum" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../98-openai/content.html" class="btn btn-neutral float-right" title="Background" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
+  </article>
 
-  <hr/>
+  <footer><div class="mt-20 mb-4 text-sm text-gray-700 print:mt-4">&copy; 2023-, Software Systems Laboratory&nbsp;Made with <a class="text-link hover:text-brand focus:text-brand hover:underline focus:underline" href="https://www.sphinx-doc.org">Sphinx 6.2.1</a></div>
+  </footer></main>
 
-  <div role="contentinfo">
-    <p>&#169; Copyright 2023-, Software Systems Laboratory.</p>
+
+    <button
+  data-search-target="snackbar"
+  data-action="search#hideSnackbar"
+  class="fixed bottom-0 right-0 z-20 opacity-0 p-4 m-4 tracking-wide bg-gray-900 text-gray-100 transition transform transform-gpu duration-500 translate-y-full"
+>
+  Clear highlights
+</button><div
+  data-sidebar-target="screen"
+  data-action="click->sidebar#close"
+  class="fixed hidden inset-0 bg-black bg-opacity-50">
+</div>
   </div>
-
-  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    provided by <a href="https://readthedocs.org">Read the Docs</a>.
-   
-
-</footer>
-        </div>
-      </div>
-    </section>
-  </div>
-  <script>
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script> 
-
+  
+  
+<script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+<script src="../_static/doctools.js"></script>
+<script src="../_static/sphinx_highlight.js"></script>
+<script src="../_static/theme.c8991bd7bb6e57cbeea8.js"></script>
+  
 </body>
+
 </html>
