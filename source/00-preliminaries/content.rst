@@ -36,7 +36,16 @@ Source Code
 Citation
 ---------
 
-TBA
+.. code-block:: bibtex
+
+   @article{thiruvathukal_laufer_2023,
+      title={LoyolaChicagoBooks/curricula},
+      DOI={10.5281/zenodo.7911652},
+      publisher={Zenodo},
+      author={Thiruvathukal, George K. and Läufer, Konstantin},
+      year={2023},
+      month={May}
+    }
 
 Motivation for Our Work
 -------------------------

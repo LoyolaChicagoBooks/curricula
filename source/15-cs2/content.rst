@@ -1,5 +1,11 @@
-Data Structures 1 (CS2 / LUC COMP 271)
-=======================================
+Data Structures 1
+==================
+
+Historical Term
+   CS2
+
+Loyola University Chicago
+  `COMP 271 <https://academics.cs.luc.edu/courses/comp271.html>`__
 
 
 Top 15 topics in CS2 curricula?

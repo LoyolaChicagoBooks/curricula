@@ -1,5 +1,11 @@
-Software Engineering (LUC COMP 330)
-====================================
+Software Engineering
+======================
+
+Historical Term
+   Software Engineering
+
+Loyola University Chicago
+   COMP 330
 
 .. note:: GPT-4 + Insights
 
