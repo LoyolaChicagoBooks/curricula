@@ -1,231 +1,116 @@
+<!DOCTYPE html>
 
-  <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
-
+<html :class="{'dark': darkMode === 'dark' || (darkMode === 'system' &amp;&amp; window.matchMedia('(prefers-color-scheme: dark)').matches)}" class="scroll-smooth" lang="en" x-data="{ darkMode: localStorage.getItem('darkMode') || localStorage.setItem('darkMode', 'system'), activeSection: '' }" x-init="$watch('darkMode', val =&gt; localStorage.setItem('darkMode', val))">
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
-
-  <title>Basic object-oriented programming | CS Curricula v2023-05-16 documentation</title>
-  <link rel="stylesheet" href="../_static/pygments.css" />
-  <link rel="stylesheet" href="../_static/theme.c973b470ab69573097f3.css" />
-  <link rel="search" title="Search" href="../search.html" />
-  <link rel="index" title="Index" href="../genindex.html" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta charset="utf-8"/>
+<meta content="white" media="(prefers-color-scheme: light)" name="theme-color"/>
+<meta content="black" metia="(prefers-color-scheme: dark)" name="theme-color"/>
+<meta content="Docutils 0.18.1: http://docutils.sourceforge.net/" name="generator"/>
+<title>Basic object-oriented programming | CS Curricula v2023-05-16 documentation</title>
+<meta content="Basic object-oriented programming | CS Curricula v2023-05-16 documentation" property="og:title"/>
+<meta content="Basic object-oriented programming | CS Curricula v2023-05-16 documentation" name="twitter:title"/>
+<link href="../_static/pygments.css" rel="stylesheet"/>
+<link href="../_static/theme.a16405b310edf0713aee.css" rel="stylesheet"/>
+<link href="../search.html" rel="search" title="Search"/>
+<link href="../genindex.html" rel="index" title="Index"/>
+<script>
+    <!-- Prevent Flash of wrong theme -->
+      const userPreference = localStorage.getItem('darkMode');
+      let mode;
+      if (userPreference === 'dark' || window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        mode = 'dark';
+        document.documentElement.classList.add('dark');
+      } else {
+        mode = 'light';
+      }
+      if (!userPreference) {localStorage.setItem('darkMode', mode)}
+    </script>
+<script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+<script src="../_static/doctools.js"></script>
+<script src="../_static/sphinx_highlight.js"></script>
+<script defer="" src="../_static/theme.ad172c0f1249198ea036.js"></script>
 </head>
-
-<body class="antialiased text-gray">
-    <div id="page" data-controller="sidebar search scroll "
-      data-action="keydown@window->search#focus "
-      class="min-h-screen xl:h-screen flex flex-col xl:grid xl:grid-layout print:block print:h-auto"
-    >
-      <a class="block transition -translate-x-full focus:translate-x-0 opacity-0 focus:opacity-100 text-xl bg-white p-4 z-20 absolute top-0 left-0 h-14" href="#basic-object-oriented-programming" title="Skip navigation links">Skip to content</a>
-
-    <header class="grid-area-header z-10 h-14 fixed w-full top-0 print:hidden">
-      <div class="bg-gray-dark shadow-md flex items-center h-full xl:px-2 relative"><div class="flex items-center">
-    <button data-action="sidebar#open" data-sidebar-target="hamburger"
-  class="xl:hidden h-14 w-14 leading-14 text-gray-100 hover:bg-gray-700 hover:text-brand focus:outline-none focus:bg-gray-700 focus:text-brand">
-  <span class="sr-only">Open navigation menu</span>
-  <svg aria-hidden="true" class="inline fill-current h-8 w-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-    <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
-  </svg>
-</button><a class="hover:bg-gray-700 focus:bg-gray-700 focus:outline-none" href="../index.html"
-  title="Back to homepage"><span class="hidden lg:inline-block shrink-0 font-medium text-gray-100 mx-5 leading-14 tracking-wider">CS Curricula v2023-05-16 documentation</span>
-</a></div><div class="flex justify-end items-center flex-1"><form
-  id="searchbox"
-  action="../search.html"
-  data-action="click->search#focusSearchInput"
-  method="get"
-  class="flex print:hidden justify-between items-center leading-14 md:ml-4 bg-gray-dark text-gray-300 focus-within:bg-gray-50 focus-within:text-gray-800 focus-within:absolute focus-within:inset-x-0 focus-within:top-0 md:focus-within:w-full md:focus-within:static z-10">
-
-  <button
-    class="text-inherit h-14 w-14"
-    aria-label="Get search results"
-    tabindex="-1"
-  >
-    <svg aria-hidden="true" class="fill-current stroke-current h-8 w-8" stroke-width="0.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
-  </button>
-
-  <input
-    name="q"
-    id="search-input"
-    data-search-target="searchInput"
-    type="search"
-    aria-label="Search the docs"
-    placeholder="Search the docs"
-    class="pr-2 bg-transparent text-inherit focus:outline-none w-0 md:w-auto focus:w-full transition-all duration-100"
-  />
-</form></div>
+<body :class="{ 'overflow-hidden': showSidebar }" class="min-h-screen font-sans antialiased bg-background text-foreground" x-data="{ showSidebar: false }">
+<div @click.self="showSidebar = false" class="fixed inset-0 z-50 overflow-hidden bg-background/80 backdrop-blur-sm" x-cloak="" x-show="showSidebar"></div><div class="relative flex flex-col min-h-screen" id="page"><a class="absolute top-0 left-0 z-[100] block bg-background p-4 text-xl transition -translate-x-full opacity-0 focus:translate-x-0 focus:opacity-100" href="#content">
+      Skip to content
+    </a>
+<header class="sticky top-0 z-40 w-full border-b shadow-sm border-border supports-backdrop-blur:bg-background/60 bg-background/95 backdrop-blur"><div class="container flex items-center h-14">
+<div class="hidden mr-4 md:flex">
+<a class="flex items-center mr-6" href="../index.html"><span class="hidden font-bold sm:inline-block text-clip whitespace-nowrap">CS Curricula v2023-05-16 documentation</span>
+</a></div><button @click="showSidebar = true" class="inline-flex items-center justify-center h-10 px-0 py-2 mr-2 text-base font-medium transition-colors rounded-md hover:text-accent-foreground hover:bg-transparent md:hidden" type="button">
+<svg aria-hidden="true" fill="currentColor" height="24" viewbox="0 96 960 960" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M152.587 825.087q-19.152 0-32.326-13.174t-13.174-32.326q0-19.152 13.174-32.326t32.326-13.174h440q19.152 0 32.326 13.174t13.174 32.326q0 19.152-13.174 32.326t-32.326 13.174h-440Zm0-203.587q-19.152 0-32.326-13.174T107.087 576q0-19.152 13.174-32.326t32.326-13.174h320q19.152 0 32.326 13.174T518.087 576q0 19.152-13.174 32.326T472.587 621.5h-320Zm0-203.587q-19.152 0-32.326-13.174t-13.174-32.326q0-19.152 13.174-32.326t32.326-13.174h440q19.152 0 32.326 13.174t13.174 32.326q0 19.152-13.174 32.326t-32.326 13.174h-440ZM708.913 576l112.174 112.174q12.674 12.674 12.674 31.826t-12.674 31.826Q808.413 764.5 789.261 764.5t-31.826-12.674l-144-144Q600 594.391 600 576t13.435-31.826l144-144q12.674-12.674 31.826-12.674t31.826 12.674q12.674 12.674 12.674 31.826t-12.674 31.826L708.913 576Z"></path>
+</svg>
+<span class="sr-only">Toggle navigation menu</span>
+</button>
+<div class="flex items-center justify-between flex-1 space-x-2 sm:space-x-4 md:justify-end">
+<div class="flex-1 w-full md:w-auto md:flex-none">
+<form @keydown.k.window.meta="$refs.search.focus()" action="../search.html" class="relative flex items-center group" id="searchbox" method="get">
+<input aria-label="Search the docs" class="inline-flex items-center font-medium transition-colors bg-transparent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background border border-input hover:bg-accent focus:bg-accent hover:text-accent-foreground focus:text-accent-foreground hover:placeholder-accent-foreground py-2 px-4 relative h-9 w-full justify-start rounded-[0.5rem] text-sm text-muted-foreground sm:pr-12 md:w-40 lg:w-64" id="search-input" name="q" placeholder="Search ..." type="search" x-ref="search"/>
+<kbd class="pointer-events-none absolute right-1.5 top-2 hidden h-5 select-none text-muted-foreground items-center gap-1 rounded border border-border bg-muted px-1.5 font-mono text-[10px] font-medium opacity-100 sm:flex group-hover:bg-accent group-hover:text-accent-foreground">
+<span class="text-xs">⌘</span>
+      K
+    </kbd>
+</form>
 </div>
-    </header>
-
-    
-<aside data-sidebar-target="sidebar" class="grid-area-sidebar h-full fixed pt-14 xl:relative inset-y-0 left-0 z-20 xl:z-0 print:hidden overflow-y-auto transition-all transform transform-gpu -translate-x-full opacity-0 duration-300 xl:translate-x-0 xl:opacity-100">
-  <nav
-  role="navigation"
-  class="h-full overflow-y-auto bg-white text-gray-600 pt-8 flex flex-col"
->
-  <div class="nav-toc flex-1 pl-6"><ul>
-<li class="toctree-l1"><a class="reference internal" href="../00-preliminaries/content.html">Preliminaries</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../00-preliminaries/content.html#build-status">Build Status</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../00-preliminaries/content.html#download">Download</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../00-preliminaries/content.html#citation">Citation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../00-preliminaries/content.html#motivation-for-our-work">Motivation for Our Work</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../00-preliminaries/content.html#contributors">Contributors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../00-preliminaries/content.html#acknowledgements">Acknowledgements</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../00-preliminaries/content.html#topics">Topics</a></li>
-</ul>
-</li>
+<nav class="flex items-center space-x-1">
+<button @click="darkMode = darkMode === 'light' ? 'dark' : 'light'" class="relative inline-flex items-center justify-center px-0 text-sm font-medium transition-colors rounded-md hover:bg-accent hover:text-accent-foreground h-9 w-9" type="button">
+<svg class="absolute transition-all scale-100 rotate-0 dark:-rotate-90 dark:scale-0" fill="currentColor" height="24" viewbox="0 96 960 960" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M480 685q45.456 0 77.228-31.772Q589 621.456 589 576q0-45.456-31.772-77.228Q525.456 467 480 467q-45.456 0-77.228 31.772Q371 530.544 371 576q0 45.456 31.772 77.228Q434.544 685 480 685Zm0 91q-83 0-141.5-58.5T280 576q0-83 58.5-141.5T480 376q83 0 141.5 58.5T680 576q0 83-58.5 141.5T480 776ZM80 621.5q-19.152 0-32.326-13.174T34.5 576q0-19.152 13.174-32.326T80 530.5h80q19.152 0 32.326 13.174T205.5 576q0 19.152-13.174 32.326T160 621.5H80Zm720 0q-19.152 0-32.326-13.174T754.5 576q0-19.152 13.174-32.326T800 530.5h80q19.152 0 32.326 13.174T925.5 576q0 19.152-13.174 32.326T880 621.5h-80Zm-320-320q-19.152 0-32.326-13.174T434.5 256v-80q0-19.152 13.174-32.326T480 130.5q19.152 0 32.326 13.174T525.5 176v80q0 19.152-13.174 32.326T480 301.5Zm0 720q-19.152 0-32.326-13.17Q434.5 995.152 434.5 976v-80q0-19.152 13.174-32.326T480 850.5q19.152 0 32.326 13.174T525.5 896v80q0 19.152-13.174 32.33-13.174 13.17-32.326 13.17ZM222.174 382.065l-43-42Q165.5 327.391 166 308.239t13.174-33.065q13.435-13.674 32.587-13.674t32.065 13.674l42.239 43q12.674 13.435 12.555 31.706-.12 18.272-12.555 31.946-12.674 13.674-31.445 13.413-18.772-.261-32.446-13.174Zm494 494.761-42.239-43q-12.674-13.435-12.674-32.087t12.674-31.565Q686.609 756.5 705.38 757q18.772.5 32.446 13.174l43 41.761Q794.5 824.609 794 843.761t-13.174 33.065Q767.391 890.5 748.239 890.5t-32.065-13.674Zm-42-494.761Q660.5 369.391 661 350.62q.5-18.772 13.174-32.446l41.761-43Q728.609 261.5 747.761 262t33.065 13.174q13.674 13.435 13.674 32.587t-13.674 32.065l-43 42.239q-13.435 12.674-31.706 12.555-18.272-.12-31.946-12.555Zm-495 494.761Q165.5 863.391 165.5 844.239t13.674-32.065l43-42.239q13.435-12.674 32.087-12.674t31.565 12.674Q299.5 782.609 299 801.38q-.5 18.772-13.174 32.446l-41.761 43Q231.391 890.5 212.239 890t-33.065-13.174ZM480 576Z"></path>
+</svg>
+<svg class="absolute transition-all scale-0 rotate-90 dark:rotate-0 dark:scale-100" fill="currentColor" height="24" viewbox="0 96 960 960" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M480 936q-151 0-255.5-104.5T120 576q0-138 90-239.5T440 218q25-3 39 18t-1 44q-17 26-25.5 55t-8.5 61q0 90 63 153t153 63q31 0 61.5-9t54.5-25q21-14 43-1.5t19 39.5q-14 138-117.5 229T480 936Zm0-80q88 0 158-48.5T740 681q-20 5-40 8t-40 3q-123 0-209.5-86.5T364 396q0-20 3-40t8-40q-78 32-126.5 102T200 576q0 116 82 198t198 82Zm-10-270Z"></path>
+</svg>
+</button>
+</nav>
+</div>
+</div>
+</header>
+<div class="flex-1"><div class="container flex-1 items-start md:grid md:grid-cols-[220px_minmax(0,1fr)] md:gap-6 lg:grid-cols-[240px_minmax(0,1fr)] lg:gap-10"><aside :aria-hidden="!showSidebar" :class="{ 'translate-x-0': showSidebar }" class="fixed inset-y-0 left-0 md:top-14 z-50 md:z-30 bg-background md:bg-transparent transition-all duration-100 -translate-x-full md:translate-x-0 ml-0 p-6 md:p-0 md:-ml-2 md:h-[calc(100vh-3.5rem)] w-5/6 md:w-full shrink-0 overflow-y-auto border-r border-border md:sticky" id="left-sidebar">
+<a class="!justify-start text-sm md:!hidden bg-background" href="../index.html"><span class="font-bold text-clip whitespace-nowrap">CS Curricula v2023-05-16 documentation</span>
+</a>
+<div class="relative overflow-hidden md:overflow-auto my-4 md:my-0 h-[calc(100vh-8rem)] md:h-auto">
+<div class="overflow-y-auto h-full w-full relative pr-6"><nav class="table w-full min-w-full my-6 lg:my-8">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../00-preliminaries/content.html">Preliminaries</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../05-acm-ieee-cc/content.html">ACM/IEEE Curricular Standards</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../10-cs1/content.html">Introduction to Computer Science</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../10-cs1/content.html#what-does-cs1-mean-with-respect-to-the-acm-computing-curricula">What does CS1 mean with respect to the ACM Computing Curricula?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../10-cs1/content.html#what-are-simple-examples-of-the-most-important-programming-constructs-in-java">What are simple examples of the most important programming constructs in Java?</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../10-cs1/content.html#variables-and-data-types">Variables and Data Types</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../10-cs1/content.html#conditional-statements-if-else">Conditional Statements (if-else)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../10-cs1/content.html#loops-for-and-while">Loops (for and while)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../10-cs1/content.html#functions">Functions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../10-cs1/content.html#basic-i-o">Basic I/O</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../10-cs1/content.html#arrays">Arrays</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../10-cs1/content.html#classes-and-objects">Classes and Objects</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../10-cs1/content.html#inheritance">Inheritance</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../10-cs1/content.html#interfaces-and-abstract-classes">Interfaces and Abstract Classes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../10-cs1/content.html#exceptions-and-error-handling">Exceptions and Error Handling</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../10-cs1/content.html#refactor-animal-and-dog-example-with-an-interface-that-has-all-common-methods">Refactor Animal and Dog example with an interface that has all common methods?</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../10-cs1/content.html#refactor-animal-not-a-good-name-for-an-interface-use-whatanimalsdo-instead">Refactor: Animal not a good name for an interface. Use WhatAnimalsDo instead.</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../10-cs1/content.html#refactor-add-two-other-animals">Refactor: Add two other animals…</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../10-cs1/content.html#how-do-these-java-topics-map-to-the-cs1-curricula-and-acm-ieee">How do these Java topics map to the CS1 curricula and ACM/IEEE?</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../12-discrete-structures/content.html">Discrete Structures</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../12-discrete-structures/content.html#these-are-the-top-15-topics-in-discrete-structures">These are the top 15 topics in Discrete Structures</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="content.html">Data Structures 1</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="content.html#top-15-topics-in-cs2-curricula">Top 15 topics in CS2 curricula?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="content.html#top-15-cs2-topics-as-opposed-to-cs7">Top 15 CS2 topics as opposed to CS7</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="content.html#cs2-at-loyola-current-topics-and-learning-outcomes">CS2 at Loyola: Current topics and learning outcomes</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="content.html#review-of-basic-programming-concepts">Review of basic programming concepts</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="content.html#example-conditionals-loops-arrays-and-unit-testing">Example: conditionals, loops, arrays, and unit testing</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="content.html#basic-object-oriented-programming">Basic object-oriented programming</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="content.html#in-the-context-of-cs2-what-are-the-essential-elements-of-oop">In the context of CS2, what are the essential elements of OOP?</a></li>
-<li class="toctree-l3"><a class="reference internal" href="content.html#enums-classes-and-records">Enums, classes, and records</a></li>
-<li class="toctree-l3"><a class="reference internal" href="content.html#associations-between-classes">Associations between classes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="content.html#subtype-polymorphism">Subtype polymorphism</a></li>
-<li class="toctree-l3"><a class="reference internal" href="content.html#subclasses-and-method-overriding">Subclasses and method overriding</a></li>
-<li class="toctree-l3"><a class="reference internal" href="content.html#interfaces">Interfaces</a></li>
-<li class="toctree-l3"><a class="reference internal" href="content.html#where-does-subtyping-fit-in">Where does subtyping fit in?</a></li>
-<li class="toctree-l3"><a class="reference internal" href="content.html#where-would-you-put-delegation">Where would you put delegation?</a></li>
-<li class="toctree-l3"><a class="reference internal" href="content.html#in-practice-shouldn-t-delegation-be-on-par-with-inheritance">In practice, shouldn’t delegation be on par with inheritance?</a></li>
-<li class="toctree-l3"><a class="reference internal" href="content.html#where-do-composition-aggregation-and-association-fit-into-this-list">Where do composition, aggregation, and association fit into this list?</a></li>
-<li class="toctree-l3"><a class="reference internal" href="content.html#is-association-related-to-delegation">Is association related to delegation?</a></li>
-<li class="toctree-l3"><a class="reference internal" href="content.html#is-composition-related-to-delegation">Is composition related to delegation?</a></li>
-<li class="toctree-l3"><a class="reference internal" href="content.html#what-s-the-difference-if-any-between-composition-and-aggregation">What’s the difference, if any, between composition and aggregation?</a></li>
-<li class="toctree-l3"><a class="reference internal" href="content.html#only-observable-relationships-matter">Only observable relationships matter</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="content.html#arrays-and-array-based-lists">Arrays and array-based lists</a></li>
-<li class="toctree-l2"><a class="reference internal" href="content.html#maps">Maps</a></li>
-<li class="toctree-l2"><a class="reference internal" href="content.html#software-engineering-principles">Software engineering principles</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="content.html#what-does-beautiful-code-look-like-in-the-context-of-a-cs2-course">What does beautiful code look like in the context of a CS2 course?</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../20-languages/content.html">Programming Languages</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../20-languages/content.html#prerequisites">Prerequisites</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../20-languages/content.html#overview">Overview</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../10-cs1/content.html">Introduction to Computer Science</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../12-discrete-structures/content.html">Discrete Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content.html">Data Structures 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../20-languages/content.html">Programming Languages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../25-systems/content.html">Computer Systems</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../30-software-engineering/content.html">Software Engineering</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../30-software-engineering/content.html#design-by-contract-dbc">Design by Contract (DBC)</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../30-software-engineering/content.html#what-language-was-the-first-to-support-dbc">What language was the first to support DBC?</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../30-software-engineering/content.html#eiffel-language">Eiffel Language</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../30-software-engineering/content.html#rational-numbers-eiffel">Rational Numbers - Eiffel</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../30-software-engineering/content.html#eiffel-implementations">Eiffel Implementations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../30-software-engineering/content.html#what-modern-languages-besides-eiffel-support-dbc">What modern languages [besides Eiffel] support DBC?</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../30-software-engineering/content.html#python-dbc">Python - DBC</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../30-software-engineering/content.html#rust-dbc">Rust - DBC</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../30-software-engineering/content.html#scala-s-dbc">Scala’s DBC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../30-software-engineering/content.html">Software Engineering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../80-pedagogy-crosscutting/content.html">Pedagogical Considerations Cutting Across the Curriculum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../95-chatgpt-limitations/content.html">Understanding the Limitations of ChatGPT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../98-openai/content.html">Background</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../99-sandbox/content.html">Issues</a></li>
 </ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../80-pedagogy-crosscutting/content.html">Pedagogical Considerations Cutting Across the Curriculum</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../80-pedagogy-crosscutting/content.html#focusing-on-a-high-level-api-vs-lower-level-implementation-working-title">Focusing on a high-level API vs lower-level implementation (working title)</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../80-pedagogy-crosscutting/content.html#chatgpt-3-5">ChatGPT-3.5</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../80-pedagogy-crosscutting/content.html#chatgpt-4">ChatGPT-4</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../80-pedagogy-crosscutting/content.html#how-important-is-it-really-that-everyone-know-how-to-implement-the-major-data-structures">How important is it really that everyone know how to <em>implement</em> the major data structures?</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../95-chatgpt-limitations/content.html">Understanding the Limitations of ChatGPT</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../95-chatgpt-limitations/content.html#chatgpt-gpt-3-5-responds-inconsistently-despite-repeated-redirection">ChatGPT (GPT-3.5) responds inconsistently despite repeated redirection</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../95-chatgpt-limitations/content.html#chatgpt-gpt-4-gets-it-right-the-first-time">ChatGPT (GPT-4) gets it right the first time</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../98-openai/content.html">Background</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../98-openai/content.html#when-was-the-first-computer-science-program-created">When was the first computer science program created?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../98-openai/content.html#when-were-the-first-curricular-guidelines-for-computer-science-degrees-established">When were the first curricular guidelines for computer science degrees established?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../98-openai/content.html#is-there-a-url-for-this-that-is-on-acm-and-not-on-some-random-site">Is there a URL for this that is on ACM and not on some random site?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../98-openai/content.html#great-can-you-give-me-a-list-of-all-versions-of-acm-and-ieee-computing-curricular-guidelines">Great, can you give me a list of all versions of ACM and IEEE computing curricular guidelines?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../98-openai/content.html#which-of-the-curricla-reference-cs1-and-cs2-is-this-terminology-still-relevant">Which of the curricla reference CS1 and CS2. Is this terminology still relevant?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../98-openai/content.html#what-are-the-most-common-1st-2nd-and-3rd-year-courses-in-computer-science">What are the most common 1st, 2nd, and 3rd year courses in computer science?</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../98-openai/content.html#first-year">First Year</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../98-openai/content.html#second-year">Second Year</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../98-openai/content.html#third-year">Third Year</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../98-openai/content.html#evidence">Evidence</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../98-openai/content.html#how-much-math-is-absolutely-required-for-a-cs-degree-focusing-on-the-acm-guidelines">How much math is absolutely required for a CS degree, focusing on the ACM guidelines?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../98-openai/content.html#are-these-same-math-classes-always-needed-for-other-acm-ieee-curricula-e-g-se-and-it">Are these same math classes always needed for other ACM/IEEE curricula, e.g. SE and IT?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../98-openai/content.html#how-about-cybersecurity">How about Cybersecurity?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../98-openai/content.html#i-know-there-are-no-guidelines-for-minors-in-cs-and-related-fields-but-what-courses-should-a-non-major-take-to-be-best-positioned-for-careers-in-cs">I know there are no guidelines for minors in CS and related fields, but what courses should a non-major take to be best positioned for careers in CS?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../98-openai/content.html#ok-but-what-are-the-top-six-since-most-majors-can-only-be-6-courses">Ok, but what are the top six, since most majors can only be 6 courses?</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../99-sandbox/content.html">Issues</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../99-sandbox/content.html#heading">Heading</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../99-sandbox/content.html#examples">Examples</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../99-sandbox/content.html#illustration">Illustration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../99-sandbox/content.html#use-of-notes-and-warnings">Use of notes and warnings</a></li>
-</ul>
-</li>
-</ul>
+</nav>
 </div>
-
-  <button
-      data-action="sidebar#close"
-      title="Close navigation menu"
-      class="text-4xl text-gray-800 p-4 bottom-0 hover:text-brand xl:hidden focus:text-brand self-center">
-    <span class="sr-only">Close navigation menu</span>
-    <svg aria-hidden="true" class="fill-current stroke-current h-6 w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
-  </button>
-</nav>
+</div>
+<button @click="showSidebar = false" class="absolute md:hidden right-4 top-4 rounded-sm opacity-70 transition-opacity hover:opacity-100" type="button">
+<svg class="h-4 w-4" fill="currentColor" height="24" stroke="none" viewbox="0 96 960 960" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M480 632 284 828q-11 11-28 11t-28-11q-11-11-11-28t11-28l196-196-196-196q-11-11-11-28t11-28q11-11 28-11t28 11l196 196 196-196q11-11 28-11t28 11q11 11 11 28t-11 28L536 576l196 196q11 11 11 28t-11 28q-11 11-28 11t-28-11L480 632Z"></path>
+</svg>
+</button>
 </aside>
-
-<main
-  class="px-4 pt-14 xl:ml-fluid grid-area-main overflow-y-auto flex flex-col flex-1 h-full mx-0 md:mx-auto xl:mr-0"
-><nav role="navigation"
-     aria-label="breadcrumbs"
-     class="print:hidden mt-12 text-sm text-gray-light">
-  <a class="text-gray-light text-sm hover:text-gray-dark font-medium focus:text-gray-dark" href="../index.html">CS Curricula v2023-05-16 documentation</a>
-  <span class="mr-1">/</span><span aria-current="page">Basic object-oriented programming</span>
+<main class="relative py-6 lg:gap-10 lg:py-8 xl:grid xl:grid-cols-[1fr_300px]">
+<div class="w-full min-w-0 mx-auto">
+<nav aria-label="breadcrumbs" class="flex items-center mb-4 space-x-1 text-sm text-muted-foreground">
+<a class="overflow-hidden text-ellipsis whitespace-nowrap hover:text-foreground" href="../index.html">
+<span class="hidden md:inline">CS Curricula v2023-05-16 documentation</span>
+<svg aria-label="Home" class="md:hidden" fill="currentColor" height="18" stroke="none" viewbox="0 96 960 960" width="18" xmlns="http://www.w3.org/2000/svg">
+<path d="M240 856h120V616h240v240h120V496L480 316 240 496v360Zm-80 80V456l320-240 320 240v480H520V696h-80v240H160Zm320-350Z"></path>
+</svg>
+</a>
+<div class="mr-1">/</div><span aria-current="page" class="font-medium text-foreground overflow-hidden text-ellipsis whitespace-nowrap">Basic object-oriented programming</span>
 </nav>
-
-  <article role="main" class="flex-1 prose">
-    
-  <section id="basic-object-oriented-programming">
+<div id="content" role="main">
+<section id="basic-object-oriented-programming">
 <h1>Basic object-oriented programming<a class="headerlink" href="#basic-object-oriented-programming" title="Permalink to this heading">¶</a></h1>
 <section id="in-the-context-of-cs2-what-are-the-essential-elements-of-oop">
-<h2>In the context of CS2, what are the essential elements of OOP?<a class="headerlink" href="#in-the-context-of-cs2-what-are-the-essential-elements-of-oop" title="Permalink to this heading">¶</a></h2>
+<h2>In the context of CS2, what are the essential elements of OOP?<a class="headerlink" href="#in-the-context-of-cs2-what-are-the-essential-elements-of-oop" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#in-the-context-of-cs2-what-are-the-essential-elements-of-oop'">¶</a></h2>
 <p>In the context of CS2 (second course in computer science), the essential elements of Object-Oriented Programming (OOP) include the following:</p>
 <ol class="arabic simple">
 <li><p>Classes: Classes are the fundamental building blocks of object-oriented programming. They define the blueprint or template for creating objects. A class encapsulates data (attributes) and behavior (methods) related to a specific concept or entity.</p></li>
@@ -238,7 +123,7 @@
 </ol>
 </section>
 <section id="enums-classes-and-records">
-<h2>Enums, classes, and records<a class="headerlink" href="#enums-classes-and-records" title="Permalink to this heading">¶</a></h2>
+<h2>Enums, classes, and records<a class="headerlink" href="#enums-classes-and-records" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#enums-classes-and-records'">¶</a></h2>
 <p>Here is a simple example in Java that covers classes, records (introduced in Java 14), enums, constructors, accessors, mutators, and the use of <cite>public</cite> and <cite>private</cite> members:</p>
 <p>First, we’ll create an <cite>enum</cite> to represent a type of a pet:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">enum</span><span class="w"> </span><span class="n">PetType</span><span class="w"> </span><span class="p">{</span>
@@ -276,10 +161,10 @@
 
 <span class="w">    </span><span class="nd">@Override</span>
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">toString</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;Pet{&quot;</span><span class="w"> </span><span class="o">+</span>
-<span class="w">                </span><span class="s">&quot;name=&#39;&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="sc">&#39;\&#39;&#39;</span><span class="w"> </span><span class="o">+</span>
-<span class="w">                </span><span class="s">&quot;, type=&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="o">+</span>
-<span class="w">                </span><span class="sc">&#39;}&#39;</span><span class="p">;</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">"Pet{"</span><span class="w"> </span><span class="o">+</span>
+<span class="w">                </span><span class="s">"name='"</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="sc">'\''</span><span class="w"> </span><span class="o">+</span>
+<span class="w">                </span><span class="s">", type="</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="o">+</span>
+<span class="w">                </span><span class="sc">'}'</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -291,13 +176,13 @@
 <p>Finally, we can create instances of our classes and manipulate them:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Main</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">pet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Pet</span><span class="p">(</span><span class="s">&quot;Fido&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">PetType</span><span class="p">.</span><span class="na">DOG</span><span class="p">);</span>
-<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">owner</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Owner</span><span class="p">(</span><span class="s">&quot;John Doe&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;123 Main St&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">pet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Pet</span><span class="p">(</span><span class="s">"Fido"</span><span class="p">,</span><span class="w"> </span><span class="n">PetType</span><span class="p">.</span><span class="na">DOG</span><span class="p">);</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">owner</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Owner</span><span class="p">(</span><span class="s">"John Doe"</span><span class="p">,</span><span class="w"> </span><span class="s">"123 Main St"</span><span class="p">);</span>
 
 <span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">pet</span><span class="p">);</span>
 <span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">owner</span><span class="p">);</span>
 
-<span class="w">        </span><span class="n">pet</span><span class="p">.</span><span class="na">setName</span><span class="p">(</span><span class="s">&quot;Spot&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">pet</span><span class="p">.</span><span class="na">setName</span><span class="p">(</span><span class="s">"Spot"</span><span class="p">);</span>
 <span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">pet</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
@@ -330,10 +215,10 @@
 
 <span class="w">    </span><span class="nd">@Override</span>
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">toString</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;Pet{&quot;</span><span class="w"> </span><span class="o">+</span>
-<span class="w">                </span><span class="s">&quot;name=&#39;&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="sc">&#39;\&#39;&#39;</span><span class="w"> </span><span class="o">+</span>
-<span class="w">                </span><span class="s">&quot;, type=&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="o">+</span>
-<span class="w">                </span><span class="sc">&#39;}&#39;</span><span class="p">;</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">"Pet{"</span><span class="w"> </span><span class="o">+</span>
+<span class="w">                </span><span class="s">"name='"</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="sc">'\''</span><span class="w"> </span><span class="o">+</span>
+<span class="w">                </span><span class="s">", type="</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="o">+</span>
+<span class="w">                </span><span class="sc">'}'</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -341,7 +226,7 @@
 <p>Now the <cite>type</cite> is marked as <cite>final</cite> and there’s no <cite>setType</cite> method, meaning the <cite>type</cite> can’t be changed after a <cite>Pet</cite> object is created. If you want to create a pet of a different type, you would need to create a new <cite>Pet</cite> object. This is more representative of the real world, where a pet’s species can’t change.</p>
 </section>
 <section id="associations-between-classes">
-<h2>Associations between classes<a class="headerlink" href="#associations-between-classes" title="Permalink to this heading">¶</a></h2>
+<h2>Associations between classes<a class="headerlink" href="#associations-between-classes" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#associations-between-classes'">¶</a></h2>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Ran out of GPT-4 queries here.</p>
@@ -364,11 +249,11 @@
 
 <span class="w">    </span><span class="nd">@Override</span>
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">toString</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;Pet{&quot;</span><span class="w"> </span><span class="o">+</span>
-<span class="w">                </span><span class="s">&quot;name=&#39;&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="sc">&#39;\&#39;&#39;</span><span class="w"> </span><span class="o">+</span>
-<span class="w">                </span><span class="s">&quot;, type=&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="o">+</span>
-<span class="w">                </span><span class="s">&quot;, owner=&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">owner</span><span class="w"> </span><span class="o">+</span>
-<span class="w">                </span><span class="sc">&#39;}&#39;</span><span class="p">;</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">"Pet{"</span><span class="w"> </span><span class="o">+</span>
+<span class="w">                </span><span class="s">"name='"</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="sc">'\''</span><span class="w"> </span><span class="o">+</span>
+<span class="w">                </span><span class="s">", type="</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="o">+</span>
+<span class="w">                </span><span class="s">", owner="</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">owner</span><span class="w"> </span><span class="o">+</span>
+<span class="w">                </span><span class="sc">'}'</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 
@@ -380,10 +265,10 @@
 <p>With this association, you can now create <cite>Pet</cite> objects and assign them to an <cite>Owner</cite>. Here’s an example:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Main</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">owner</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Owner</span><span class="p">(</span><span class="s">&quot;John Doe&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;123 Main St&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">owner</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Owner</span><span class="p">(</span><span class="s">"John Doe"</span><span class="p">,</span><span class="w"> </span><span class="s">"123 Main St"</span><span class="p">);</span>
 
-<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">pet1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Pet</span><span class="p">(</span><span class="s">&quot;Fido&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">PetType</span><span class="p">.</span><span class="na">DOG</span><span class="p">,</span><span class="w"> </span><span class="n">owner</span><span class="p">);</span>
-<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">pet2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Pet</span><span class="p">(</span><span class="s">&quot;Whiskers&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">PetType</span><span class="p">.</span><span class="na">CAT</span><span class="p">,</span><span class="w"> </span><span class="n">owner</span><span class="p">);</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">pet1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Pet</span><span class="p">(</span><span class="s">"Fido"</span><span class="p">,</span><span class="w"> </span><span class="n">PetType</span><span class="p">.</span><span class="na">DOG</span><span class="p">,</span><span class="w"> </span><span class="n">owner</span><span class="p">);</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">pet2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Pet</span><span class="p">(</span><span class="s">"Whiskers"</span><span class="p">,</span><span class="w"> </span><span class="n">PetType</span><span class="p">.</span><span class="na">CAT</span><span class="p">,</span><span class="w"> </span><span class="n">owner</span><span class="p">);</span>
 
 <span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">pet1</span><span class="p">);</span>
 <span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">pet2</span><span class="p">);</span>
@@ -392,15 +277,15 @@
 </pre></div>
 </div>
 <p>This will output:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Pet</span><span class="p">{</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Fido&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">DOG</span><span class="p">,</span> <span class="n">owner</span><span class="o">=</span><span class="n">Owner</span><span class="p">[</span><span class="n">name</span><span class="o">=</span><span class="n">John</span> <span class="n">Doe</span><span class="p">,</span> <span class="n">address</span><span class="o">=</span><span class="mi">123</span> <span class="n">Main</span> <span class="n">St</span><span class="p">]}</span>
-<span class="n">Pet</span><span class="p">{</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Whiskers&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">CAT</span><span class="p">,</span> <span class="n">owner</span><span class="o">=</span><span class="n">Owner</span><span class="p">[</span><span class="n">name</span><span class="o">=</span><span class="n">John</span> <span class="n">Doe</span><span class="p">,</span> <span class="n">address</span><span class="o">=</span><span class="mi">123</span> <span class="n">Main</span> <span class="n">St</span><span class="p">]}</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Pet</span><span class="p">{</span><span class="n">name</span><span class="o">=</span><span class="s1">'Fido'</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">DOG</span><span class="p">,</span> <span class="n">owner</span><span class="o">=</span><span class="n">Owner</span><span class="p">[</span><span class="n">name</span><span class="o">=</span><span class="n">John</span> <span class="n">Doe</span><span class="p">,</span> <span class="n">address</span><span class="o">=</span><span class="mi">123</span> <span class="n">Main</span> <span class="n">St</span><span class="p">]}</span>
+<span class="n">Pet</span><span class="p">{</span><span class="n">name</span><span class="o">=</span><span class="s1">'Whiskers'</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">CAT</span><span class="p">,</span> <span class="n">owner</span><span class="o">=</span><span class="n">Owner</span><span class="p">[</span><span class="n">name</span><span class="o">=</span><span class="n">John</span> <span class="n">Doe</span><span class="p">,</span> <span class="n">address</span><span class="o">=</span><span class="mi">123</span> <span class="n">Main</span> <span class="n">St</span><span class="p">]}</span>
 </pre></div>
 </div>
 <p>Now, each <cite>Pet</cite> object has a reference to its respective <cite>Owner</cite>. This allows you to establish the relationship between pets and owners and retrieve the owner information when needed.</p>
 <p>It’s important to note that this example illustrates a simplified association relationship. In more complex scenarios, you might encounter different types of relationships like composition or bidirectional associations. The choice of the appropriate relationship type depends on the specific requirements and design of the system.</p>
 </section>
 <section id="subtype-polymorphism">
-<h2>Subtype polymorphism<a class="headerlink" href="#subtype-polymorphism" title="Permalink to this heading">¶</a></h2>
+<h2>Subtype polymorphism<a class="headerlink" href="#subtype-polymorphism" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#subtype-polymorphism'">¶</a></h2>
 <p><em>For this Pet class, how would you define behaviors that are specific to a type of pet, such as a dog barking and a cat meowing?</em></p>
 <p>To represent behaviors specific to different types of pets, you can use polymorphism and inheritance in object-oriented programming. You could define a base class or interface <cite>Pet</cite> and then create subclasses for each specific type of pet. Each subclass can then implement its own version of the behavior methods. Here’s an example:</p>
 <p>First, we’ll define the base class <cite>Pet</cite>:</p>
@@ -432,7 +317,7 @@
 
 <span class="w">    </span><span class="nd">@Override</span>
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">makeSound</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;Bark!&quot;</span><span class="p">;</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">"Bark!"</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 
@@ -443,7 +328,7 @@
 
 <span class="w">    </span><span class="nd">@Override</span>
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">makeSound</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;Meow!&quot;</span><span class="p">;</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">"Meow!"</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -451,11 +336,11 @@
 <p>Finally, we can create <cite>Dog</cite> and <cite>Cat</cite> objects and call their <cite>makeSound</cite> methods:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Main</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">dog</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Dog</span><span class="p">(</span><span class="s">&quot;Fido&quot;</span><span class="p">);</span>
-<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">cat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Cat</span><span class="p">(</span><span class="s">&quot;Whiskers&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">dog</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Dog</span><span class="p">(</span><span class="s">"Fido"</span><span class="p">);</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">cat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Cat</span><span class="p">(</span><span class="s">"Whiskers"</span><span class="p">);</span>
 
-<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">dog</span><span class="p">.</span><span class="na">getName</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; says: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">dog</span><span class="p">.</span><span class="na">makeSound</span><span class="p">());</span>
-<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">cat</span><span class="p">.</span><span class="na">getName</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; says: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">cat</span><span class="p">.</span><span class="na">makeSound</span><span class="p">());</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">dog</span><span class="p">.</span><span class="na">getName</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">" says: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">dog</span><span class="p">.</span><span class="na">makeSound</span><span class="p">());</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">cat</span><span class="p">.</span><span class="na">getName</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">" says: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">cat</span><span class="p">.</span><span class="na">makeSound</span><span class="p">());</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -468,7 +353,7 @@ Whiskers says: Meow!
 <p>In this way, we’ve represented behaviors specific to different types of pets. Each type of pet can have its own unique behaviors, while still sharing common attributes and behaviors through the <cite>Pet</cite> base class.</p>
 </section>
 <section id="subclasses-and-method-overriding">
-<h2>Subclasses and method overriding<a class="headerlink" href="#subclasses-and-method-overriding" title="Permalink to this heading">¶</a></h2>
+<h2>Subclasses and method overriding<a class="headerlink" href="#subclasses-and-method-overriding" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#subclasses-and-method-overriding'">¶</a></h2>
 <p><em>Aren’t there some dogs that howl rather than bark? Can we enhance our class hierarchy accordingly?</em></p>
 <p>To handle this, we can introduce another layer in our class hierarchy. Let’s create a <cite>Dog</cite> subclass called <cite>Husky</cite>, which overrides the <cite>makeSound</cite> method to return “Howl!” instead of “Bark!”. Here’s how you can do it:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Husky</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Dog</span><span class="w"> </span><span class="p">{</span>
@@ -478,7 +363,7 @@ Whiskers says: Meow!
 
 <span class="w">    </span><span class="nd">@Override</span>
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">makeSound</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;Howl!&quot;</span><span class="p">;</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">"Howl!"</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -488,13 +373,13 @@ Whiskers says: Meow!
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="c1">// Create a list of pets</span>
 <span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">pets</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Pet</span><span class="o">&gt;</span><span class="p">();</span>
-<span class="w">        </span><span class="n">pets</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Dog</span><span class="p">(</span><span class="s">&quot;Fido&quot;</span><span class="p">));</span>
-<span class="w">        </span><span class="n">pets</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Cat</span><span class="p">(</span><span class="s">&quot;Whiskers&quot;</span><span class="p">));</span>
-<span class="w">        </span><span class="n">pets</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Husky</span><span class="p">(</span><span class="s">&quot;Balto&quot;</span><span class="p">));</span>
+<span class="w">        </span><span class="n">pets</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Dog</span><span class="p">(</span><span class="s">"Fido"</span><span class="p">));</span>
+<span class="w">        </span><span class="n">pets</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Cat</span><span class="p">(</span><span class="s">"Whiskers"</span><span class="p">));</span>
+<span class="w">        </span><span class="n">pets</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Husky</span><span class="p">(</span><span class="s">"Balto"</span><span class="p">));</span>
 
 <span class="w">        </span><span class="c1">// Make each pet make its sound</span>
 <span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">pet</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">pets</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">pet</span><span class="p">.</span><span class="na">getName</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; says: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">pet</span><span class="p">.</span><span class="na">makeSound</span><span class="p">());</span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">pet</span><span class="p">.</span><span class="na">getName</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">" says: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">pet</span><span class="p">.</span><span class="na">makeSound</span><span class="p">());</span>
 <span class="w">        </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
@@ -509,7 +394,7 @@ Balto says: Howl!
 <p>This demonstrates the flexibility of object-oriented programming. By creating a subclass and overriding methods, you can create variations of a base class that behave differently. And thanks to polymorphism, you can handle objects of the base class and its subclasses in a unified way.</p>
 </section>
 <section id="interfaces">
-<h2>Interfaces<a class="headerlink" href="#interfaces" title="Permalink to this heading">¶</a></h2>
+<h2>Interfaces<a class="headerlink" href="#interfaces" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#interfaces'">¶</a></h2>
 <p>Interfaces provide a way to define common behavior and can be utilized in this example to further enhance the design. Let’s introduce an interface called <cite>Soundable</cite> to represent pets that can make sounds. Here’s an updated version that incorporates interfaces:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.ArrayList</span><span class="p">;</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">java.util.List</span><span class="p">;</span>
@@ -541,10 +426,10 @@ Balto says: Howl!
 
 <span class="w">    </span><span class="nd">@Override</span>
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">toString</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;Pet{&quot;</span><span class="w"> </span><span class="o">+</span>
-<span class="w">                </span><span class="s">&quot;name=&#39;&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="sc">&#39;\&#39;&#39;</span><span class="w"> </span><span class="o">+</span>
-<span class="w">                </span><span class="s">&quot;, owner=&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">owner</span><span class="w"> </span><span class="o">+</span>
-<span class="w">                </span><span class="sc">&#39;}&#39;</span><span class="p">;</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">"Pet{"</span><span class="w"> </span><span class="o">+</span>
+<span class="w">                </span><span class="s">"name='"</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="sc">'\''</span><span class="w"> </span><span class="o">+</span>
+<span class="w">                </span><span class="s">", owner="</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">owner</span><span class="w"> </span><span class="o">+</span>
+<span class="w">                </span><span class="sc">'}'</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 
@@ -555,7 +440,7 @@ Balto says: Howl!
 
 <span class="w">    </span><span class="nd">@Override</span>
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">makeSound</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;Bark!&quot;</span><span class="p">;</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">"Bark!"</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 
@@ -566,7 +451,7 @@ Balto says: Howl!
 
 <span class="w">    </span><span class="nd">@Override</span>
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">makeSound</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;Meow!&quot;</span><span class="p">;</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">"Meow!"</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 
@@ -575,14 +460,14 @@ Balto says: Howl!
 
 <span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Main</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">owner</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Owner</span><span class="p">(</span><span class="s">&quot;John Doe&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;123 Main St&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">owner</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Owner</span><span class="p">(</span><span class="s">"John Doe"</span><span class="p">,</span><span class="w"> </span><span class="s">"123 Main St"</span><span class="p">);</span>
 
 <span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">pets</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Soundable</span><span class="o">&gt;</span><span class="p">();</span>
-<span class="w">        </span><span class="n">pets</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Dog</span><span class="p">(</span><span class="s">&quot;Fido&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">owner</span><span class="p">));</span>
-<span class="w">        </span><span class="n">pets</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Cat</span><span class="p">(</span><span class="s">&quot;Whiskers&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">owner</span><span class="p">));</span>
+<span class="w">        </span><span class="n">pets</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Dog</span><span class="p">(</span><span class="s">"Fido"</span><span class="p">,</span><span class="w"> </span><span class="n">owner</span><span class="p">));</span>
+<span class="w">        </span><span class="n">pets</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Cat</span><span class="p">(</span><span class="s">"Whiskers"</span><span class="p">,</span><span class="w"> </span><span class="n">owner</span><span class="p">));</span>
 
 <span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">pet</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">pets</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">pet</span><span class="p">.</span><span class="na">getName</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; says: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">pet</span><span class="p">.</span><span class="na">makeSound</span><span class="p">());</span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">pet</span><span class="p">.</span><span class="na">getName</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">" says: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">pet</span><span class="p">.</span><span class="na">makeSound</span><span class="p">());</span>
 <span class="w">        </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
@@ -629,10 +514,10 @@ Whiskers says: Meow!
 
 <span class="w">    </span><span class="nd">@Override</span>
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">toString</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;Pet{&quot;</span><span class="w"> </span><span class="o">+</span>
-<span class="w">                </span><span class="s">&quot;name=&#39;&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="sc">&#39;\&#39;&#39;</span><span class="w"> </span><span class="o">+</span>
-<span class="w">                </span><span class="s">&quot;, owner=&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">owner</span><span class="w"> </span><span class="o">+</span>
-<span class="w">                </span><span class="sc">&#39;}&#39;</span><span class="p">;</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">"Pet{"</span><span class="w"> </span><span class="o">+</span>
+<span class="w">                </span><span class="s">"name='"</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="sc">'\''</span><span class="w"> </span><span class="o">+</span>
+<span class="w">                </span><span class="s">", owner="</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">owner</span><span class="w"> </span><span class="o">+</span>
+<span class="w">                </span><span class="sc">'}'</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 
@@ -643,7 +528,7 @@ Whiskers says: Meow!
 
 <span class="w">    </span><span class="nd">@Override</span>
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">makeSound</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;Bark!&quot;</span><span class="p">;</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">"Bark!"</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 
@@ -654,7 +539,7 @@ Whiskers says: Meow!
 
 <span class="w">    </span><span class="nd">@Override</span>
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">makeSound</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;Meow!&quot;</span><span class="p">;</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">"Meow!"</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 
@@ -665,7 +550,7 @@ Whiskers says: Meow!
 
 <span class="w">    </span><span class="nd">@Override</span>
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">makeSound</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;Howl!&quot;</span><span class="p">;</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">"Howl!"</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 
@@ -674,15 +559,15 @@ Whiskers says: Meow!
 
 <span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Main</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">owner</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Owner</span><span class="p">(</span><span class="s">&quot;John Doe&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;123 Main St&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">owner</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Owner</span><span class="p">(</span><span class="s">"John Doe"</span><span class="p">,</span><span class="w"> </span><span class="s">"123 Main St"</span><span class="p">);</span>
 
 <span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">pets</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Soundable</span><span class="o">&gt;</span><span class="p">();</span>
-<span class="w">        </span><span class="n">pets</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Dog</span><span class="p">(</span><span class="s">&quot;Fido&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">owner</span><span class="p">));</span>
-<span class="w">        </span><span class="n">pets</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Cat</span><span class="p">(</span><span class="s">&quot;Whiskers&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">owner</span><span class="p">));</span>
-<span class="w">        </span><span class="n">pets</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Husky</span><span class="p">(</span><span class="s">&quot;Balto&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">owner</span><span class="p">));</span>
+<span class="w">        </span><span class="n">pets</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Dog</span><span class="p">(</span><span class="s">"Fido"</span><span class="p">,</span><span class="w"> </span><span class="n">owner</span><span class="p">));</span>
+<span class="w">        </span><span class="n">pets</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Cat</span><span class="p">(</span><span class="s">"Whiskers"</span><span class="p">,</span><span class="w"> </span><span class="n">owner</span><span class="p">));</span>
+<span class="w">        </span><span class="n">pets</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Husky</span><span class="p">(</span><span class="s">"Balto"</span><span class="p">,</span><span class="w"> </span><span class="n">owner</span><span class="p">));</span>
 
 <span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">pet</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">pets</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">pet</span><span class="p">.</span><span class="na">getName</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; says: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">pet</span><span class="p">.</span><span class="na">makeSound</span><span class="p">());</span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">pet</span><span class="p">.</span><span class="na">getName</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">" says: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">pet</span><span class="p">.</span><span class="na">makeSound</span><span class="p">());</span>
 <span class="w">        </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
@@ -700,16 +585,16 @@ Balto says: Howl!
 <p>This updated version demonstrates the utilization of interfaces, inheritance, and polymorphism to handle different types of pets with varying behaviors in a unified way.</p>
 </section>
 <section id="where-does-subtyping-fit-in">
-<h2>Where does subtyping fit in?<a class="headerlink" href="#where-does-subtyping-fit-in" title="Permalink to this heading">¶</a></h2>
+<h2>Where does subtyping fit in?<a class="headerlink" href="#where-does-subtyping-fit-in" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#where-does-subtyping-fit-in'">¶</a></h2>
 <p>Subtyping is an important concept in object-oriented programming and is closely related to inheritance. It allows for the substitution of objects of one class with objects of another class that is derived from or related to the former class.</p>
 <p>Subtyping enables polymorphism and supports the “is-a” relationship between classes. It allows objects of a derived class to be treated as objects of their parent class, providing flexibility and extensibility in program design. By leveraging subtyping, code can be written in a way that is more generic and adaptable to different types of objects.</p>
 <p>In the context of CS2, subtyping is a significant aspect of understanding inheritance and polymorphism. It enables students to create class hierarchies, define relationships between classes, and utilize the principles of code reuse and abstraction. By grasping the concept of subtyping, students can effectively design and implement object-oriented programs that utilize inheritance and polymorphism to their full potential.</p>
 <table class="docutils align-default" id="id1">
 <caption><span class="caption-text">Comparison between type hierarchy relationships</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
 <colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
+<col style="width: 33%"/>
+<col style="width: 33%"/>
+<col style="width: 33%"/>
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Feature</p></th>
@@ -758,7 +643,7 @@ Balto says: Howl!
 </table>
 </section>
 <section id="where-would-you-put-delegation">
-<h2>Where would you put delegation?<a class="headerlink" href="#where-would-you-put-delegation" title="Permalink to this heading">¶</a></h2>
+<h2>Where would you put delegation?<a class="headerlink" href="#where-would-you-put-delegation" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#where-would-you-put-delegation'">¶</a></h2>
 <p>Delegation is a concept that can be closely related to both composition and inheritance in object-oriented programming. It involves one object (delegate) handing off a specific task or responsibility to another object (delegator).</p>
 <p>In terms of its placement, delegation can be seen as a design pattern or technique that can be applied in various parts of an object-oriented program. It is not necessarily a core element of OOP like classes, objects, inheritance, or polymorphism, but rather a flexible approach to achieve code reuse and modularity.</p>
 <p>Delegation can be utilized within the methods or behaviors of a class, where a specific task or functionality is delegated to another object responsible for performing that task. This allows the delegator object to rely on the expertise or specialized behavior of the delegate object without inheriting from it.</p>
@@ -769,7 +654,7 @@ Balto says: Howl!
 </ol>
 </section>
 <section id="in-practice-shouldn-t-delegation-be-on-par-with-inheritance">
-<h2>In practice, shouldn’t delegation be on par with inheritance?<a class="headerlink" href="#in-practice-shouldn-t-delegation-be-on-par-with-inheritance" title="Permalink to this heading">¶</a></h2>
+<h2>In practice, shouldn’t delegation be on par with inheritance?<a class="headerlink" href="#in-practice-shouldn-t-delegation-be-on-par-with-inheritance" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#in-practice-shouldn-t-delegation-be-on-par-with-inheritance'">¶</a></h2>
 <p>In practice, both delegation and inheritance are important concepts in object-oriented programming, but they serve different purposes and have distinct advantages and use cases. While inheritance is a mechanism for creating class hierarchies and sharing behavior and attributes between classes, delegation is a technique for achieving code reuse and modularity by handing off specific tasks or responsibilities to other objects.</p>
 <p>The choice between delegation and inheritance depends on the specific requirements and design goals of the program. In some cases, inheritance may be more appropriate when there is a clear “is-a” relationship between classes and a need to share common behavior and attributes. Inheritance can provide a convenient way to define and organize class hierarchies, promote code reuse, and enable polymorphism.</p>
 <p>On the other hand, delegation can be preferred when there is a need for more flexible and modular design. Delegation allows objects to delegate specific tasks to other objects that specialize in those tasks, enabling composition and separation of concerns. It promotes code reuse without requiring a rigid class hierarchy and allows objects to rely on the behavior of other objects without inheriting from them directly.</p>
@@ -777,7 +662,7 @@ Balto says: Howl!
 <p>So, while delegation is indeed an important technique in practice and can be used on par with inheritance in certain scenarios, it’s important to consider the specific requirements and design goals to determine the most appropriate approach for a given situation.</p>
 </section>
 <section id="where-do-composition-aggregation-and-association-fit-into-this-list">
-<h2>Where do composition, aggregation, and association fit into this list?<a class="headerlink" href="#where-do-composition-aggregation-and-association-fit-into-this-list" title="Permalink to this heading">¶</a></h2>
+<h2>Where do composition, aggregation, and association fit into this list?<a class="headerlink" href="#where-do-composition-aggregation-and-association-fit-into-this-list" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#where-do-composition-aggregation-and-association-fit-into-this-list'">¶</a></h2>
 <ol class="arabic simple" start="9">
 <li><p>Composition: Composition is a strong “whole-part” relationship where the lifetime of the parts is tightly coupled with the lifetime of the whole. The whole object is responsible for creating and managing its component objects. If the whole object is destroyed, its parts are also destroyed. Composition is often represented by a class having one or more member variables of another class type.</p></li>
 <li><p>Aggregation: Aggregation is a weaker form of composition, representing a relationship where one object (the aggregate) contains or is associated with other objects (the components). The components can exist independently of the aggregate, and their lifetimes are not necessarily tied to the aggregate’s lifetime. Aggregation is often represented by a class having member variables that are references or pointers to other objects.</p></li>
@@ -788,7 +673,7 @@ Balto says: Howl!
 <p>By understanding and utilizing composition, aggregation, and association, students in CS2 can create more expressive and accurate models of real-world systems, enabling them to design and implement object-oriented programs that accurately reflect the relationships and interactions between objects.</p>
 </section>
 <section id="is-association-related-to-delegation">
-<h2>Is association related to delegation?<a class="headerlink" href="#is-association-related-to-delegation" title="Permalink to this heading">¶</a></h2>
+<h2>Is association related to delegation?<a class="headerlink" href="#is-association-related-to-delegation" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#is-association-related-to-delegation'">¶</a></h2>
 <p>Association and delegation are distinct concepts in object-oriented programming, but they can be related in certain scenarios.</p>
 <p>Association represents a relationship between two or more objects, indicating that they are somehow connected or interact with each other. It captures the concept of objects being aware of each other and potentially collaborating, but it does not imply any specific behavior or responsibility transfer.</p>
 <p>Delegation, on the other hand, is a technique where one object (delegator) hands off a specific task or responsibility to another object (delegate). It involves one object relying on the specialized behavior of another object to fulfill a specific aspect of its functionality.</p>
@@ -797,7 +682,7 @@ Balto says: Howl!
 <p>In summary, association and delegation are related in the sense that delegation can occur within the context of an association. The association provides the linkage between objects, and the delegation allows one object to delegate specific responsibilities to another object, leveraging their specialized behavior.</p>
 </section>
 <section id="is-composition-related-to-delegation">
-<h2>Is composition related to delegation?<a class="headerlink" href="#is-composition-related-to-delegation" title="Permalink to this heading">¶</a></h2>
+<h2>Is composition related to delegation?<a class="headerlink" href="#is-composition-related-to-delegation" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#is-composition-related-to-delegation'">¶</a></h2>
 <p>Composition and delegation are distinct concepts in object-oriented programming, but they can be related and often coexist in system design.</p>
 <p>Composition refers to a strong “whole-part” relationship between objects, where the lifetime of the parts is tightly coupled with the lifetime of the whole. In composition, an object is composed of one or more component objects, and the components cannot exist independently outside of the composite object. The composite object takes responsibility for creating, managing, and coordinating the behavior of its component objects.</p>
 <p>Delegation, on the other hand, is a technique where an object (delegator) hands off a specific task or responsibility to another object (delegate). The delegating object relies on the specialized behavior of the delegate object to perform that task.</p>
@@ -807,7 +692,7 @@ Balto says: Howl!
 <p>In summary, composition and delegation are related in the sense that delegation can occur within the context of composition. Composition establishes the strong whole-part relationship between objects, while delegation allows the composite object to delegate specific responsibilities to its component objects to achieve modular and specialized behavior.</p>
 </section>
 <section id="what-s-the-difference-if-any-between-composition-and-aggregation">
-<h2>What’s the difference, if any, between composition and aggregation?<a class="headerlink" href="#what-s-the-difference-if-any-between-composition-and-aggregation" title="Permalink to this heading">¶</a></h2>
+<h2>What’s the difference, if any, between composition and aggregation?<a class="headerlink" href="#what-s-the-difference-if-any-between-composition-and-aggregation" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#what-s-the-difference-if-any-between-composition-and-aggregation'">¶</a></h2>
 <p>Composition and aggregation are both forms of object relationships in object-oriented programming, but they differ in terms of the strength of the relationship and the lifecycle dependency between the objects involved. Here’s a breakdown of the differences:</p>
 <p>Composition:</p>
 <ol class="arabic simple">
@@ -863,19 +748,19 @@ Balto says: Howl!
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Engine</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">start</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="c1">// Code to start the engine</span>
-<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Engine started.&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Engine started."</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
 
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">stop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="c1">// Code to stop the engine</span>
-<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Engine stopped.&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Engine stopped."</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 
 <span class="kd">public</span><span class="w"> </span><span class="kd">record</span> <span class="nc">Wheel</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">rotate</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="c1">// Code to rotate the wheel</span>
-<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Wheel rotating.&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Wheel rotating."</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 
@@ -890,19 +775,19 @@ Balto says: Howl!
 
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">startCar</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="n">engine</span><span class="p">.</span><span class="na">start</span><span class="p">();</span>
-<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Car started.&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Car started."</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
 
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">stopCar</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="n">engine</span><span class="p">.</span><span class="na">stop</span><span class="p">();</span>
-<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Car stopped.&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Car stopped."</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
 
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">drive</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">wheel</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">wheels</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">            </span><span class="n">wheel</span><span class="p">.</span><span class="na">rotate</span><span class="p">();</span>
 <span class="w">        </span><span class="p">}</span>
-<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Car is driving.&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Car is driving."</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 
@@ -935,10 +820,10 @@ Balto says: Howl!
 <table class="docutils align-default" id="id2">
 <caption><span class="caption-text">Comparison among object relationships</span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
 <colgroup>
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
+<col style="width: 25%"/>
+<col style="width: 25%"/>
+<col style="width: 25%"/>
+<col style="width: 25%"/>
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Feature</p></th>
@@ -997,11 +882,11 @@ Balto says: Howl!
 </table>
 <table class="docutils align-default">
 <colgroup>
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
-<col style="width: 20%" />
+<col style="width: 20%"/>
+<col style="width: 20%"/>
+<col style="width: 20%"/>
+<col style="width: 20%"/>
+<col style="width: 20%"/>
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Feature</p></th>
@@ -1076,7 +961,7 @@ Balto says: Howl!
 </table>
 </section>
 <section id="only-observable-relationships-matter">
-<h2>Only observable relationships matter<a class="headerlink" href="#only-observable-relationships-matter" title="Permalink to this heading">¶</a></h2>
+<h2>Only observable relationships matter<a class="headerlink" href="#only-observable-relationships-matter" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#only-observable-relationships-matter'">¶</a></h2>
 <p><em>If a relationship between class and another class is purely internal, without public members to observe the relationship, it’s as if it didn’t exist, right? For example, if class A has a private field of class B but class B doesn’t occur in any constructor or method parameters or return types, we shouldn’t say A has-a B, should we?</em></p>
 <p>Yes, you are correct. If a relationship between two classes is purely internal and not observable from outside the class, it can be considered as if it doesn’t exist in terms of the class’s public interface. In the scenario you described, where class A has a private field of class B but class B doesn’t occur in any constructor or method parameters or return types, we wouldn’t typically say that class A “has-a” relationship with class B.</p>
 <p>The concept of “has-a” relationship usually implies that a class directly incorporates or contains another class as a part of its public interface, visible to external entities. It signifies a stronger association where the presence of the associated class is observable and relevant to the class’s behavior and interactions.</p>
@@ -1086,33 +971,35 @@ Balto says: Howl!
 <p>If you have any further questions or need additional clarification, please let me know!</p>
 </section>
 </section>
-
-
-  </article>
-
-  <footer><div class="mt-20 mb-4 text-sm text-gray-700 print:mt-4">&copy; 2023-, Software Systems Laboratory&nbsp;Made with <a class="text-link hover:text-brand focus:text-brand hover:underline focus:underline" href="https://www.sphinx-doc.org">Sphinx 6.2.1</a></div>
-  </footer></main>
-
-
-    <button
-  data-search-target="snackbar"
-  data-action="search#hideSnackbar"
-  class="fixed bottom-0 right-0 z-20 opacity-0 p-4 m-4 tracking-wide bg-gray-900 text-gray-100 transition transform transform-gpu duration-500 translate-y-full"
->
-  Clear highlights
-</button><div
-  data-sidebar-target="screen"
-  data-action="click->sidebar#close"
-  class="fixed hidden inset-0 bg-black bg-opacity-50">
+</div></div><aside class="hidden text-sm xl:block" id="right-sidebar">
+<div class="sticky top-16 -mt-10 max-h-[calc(var(--vh)-4rem)] overflow-y-auto pt-6 space-y-2"><p class="font-medium">On this page</p>
+<ul>
+<li><a :data-current="activeSection === '#in-the-context-of-cs2-what-are-the-essential-elements-of-oop'" class="reference internal" href="#in-the-context-of-cs2-what-are-the-essential-elements-of-oop">In the context of CS2, what are the essential elements of OOP?</a></li>
+<li><a :data-current="activeSection === '#enums-classes-and-records'" class="reference internal" href="#enums-classes-and-records">Enums, classes, and records</a></li>
+<li><a :data-current="activeSection === '#associations-between-classes'" class="reference internal" href="#associations-between-classes">Associations between classes</a></li>
+<li><a :data-current="activeSection === '#subtype-polymorphism'" class="reference internal" href="#subtype-polymorphism">Subtype polymorphism</a></li>
+<li><a :data-current="activeSection === '#subclasses-and-method-overriding'" class="reference internal" href="#subclasses-and-method-overriding">Subclasses and method overriding</a></li>
+<li><a :data-current="activeSection === '#interfaces'" class="reference internal" href="#interfaces">Interfaces</a></li>
+<li><a :data-current="activeSection === '#where-does-subtyping-fit-in'" class="reference internal" href="#where-does-subtyping-fit-in">Where does subtyping fit in?</a></li>
+<li><a :data-current="activeSection === '#where-would-you-put-delegation'" class="reference internal" href="#where-would-you-put-delegation">Where would you put delegation?</a></li>
+<li><a :data-current="activeSection === '#in-practice-shouldn-t-delegation-be-on-par-with-inheritance'" class="reference internal" href="#in-practice-shouldn-t-delegation-be-on-par-with-inheritance">In practice, shouldn’t delegation be on par with inheritance?</a></li>
+<li><a :data-current="activeSection === '#where-do-composition-aggregation-and-association-fit-into-this-list'" class="reference internal" href="#where-do-composition-aggregation-and-association-fit-into-this-list">Where do composition, aggregation, and association fit into this list?</a></li>
+<li><a :data-current="activeSection === '#is-association-related-to-delegation'" class="reference internal" href="#is-association-related-to-delegation">Is association related to delegation?</a></li>
+<li><a :data-current="activeSection === '#is-composition-related-to-delegation'" class="reference internal" href="#is-composition-related-to-delegation">Is composition related to delegation?</a></li>
+<li><a :data-current="activeSection === '#what-s-the-difference-if-any-between-composition-and-aggregation'" class="reference internal" href="#what-s-the-difference-if-any-between-composition-and-aggregation">What’s the difference, if any, between composition and aggregation?</a></li>
+<li><a :data-current="activeSection === '#only-observable-relationships-matter'" class="reference internal" href="#only-observable-relationships-matter">Only observable relationships matter</a></li>
+</ul>
 </div>
-  </div>
-  
-  
-<script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-<script src="../_static/doctools.js"></script>
-<script src="../_static/sphinx_highlight.js"></script>
-<script src="../_static/theme.c8991bd7bb6e57cbeea8.js"></script>
-  
+</aside>
+</main>
+</div>
+</div><footer class="py-6 border-t border-border md:py-0">
+<div class="container flex flex-col items-center justify-between gap-4 md:h-24 md:flex-row">
+<div class="flex flex-col items-center gap-4 px-8 md:flex-row md:gap-2 md:px-0">
+<p class="text-sm leading-loose text-center text-muted-foreground md:text-left">© 2023-, Software Systems Laboratory Built with <a class="font-medium underline underline-offset-4" href="https://www.sphinx-doc.org" rel="noreferrer">Sphinx 6.2.1</a></p>
+</div>
+</div>
+</footer>
+</div>
 </body>
-
 </html>
