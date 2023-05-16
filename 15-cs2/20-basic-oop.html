@@ -995,6 +995,85 @@ Balto says: Howl!
 </tr>
 </tbody>
 </table>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Feature</p></th>
+<th class="head"><p>Composition</p></th>
+<th class="head"><p>Aggregation</p></th>
+<th class="head"><p>Association</p></th>
+<th class="head"><p>Method Parameter Dependency</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Relationship</p></td>
+<td><p>Strong ‘whole-part’ relationship</p></td>
+<td><p>Weak ‘whole-part’ relationship</p></td>
+<td><p>Semantically related but independent</p></td>
+<td><p>Method relies on objects passed as parameters</p></td>
+</tr>
+<tr class="row-odd"><td><p>Common Name</p></td>
+<td><p>Contains relationship</p></td>
+<td><p>Uses relationship</p></td>
+<td><p>Related-to relationship</p></td>
+<td><p>Parameter dependency</p></td>
+</tr>
+<tr class="row-even"><td><p>Dependency</p></td>
+<td><p>Strong</p></td>
+<td><p>Weak</p></td>
+<td><p>Weak</p></td>
+<td><p>Strong</p></td>
+</tr>
+<tr class="row-odd"><td><p>Lifespan</p></td>
+<td><p>Contained object depends on the container object</p></td>
+<td><p>Independent object can exist independently</p></td>
+<td><p>Independent object can exist independently</p></td>
+<td><p>Dependent on parameter objects</p></td>
+</tr>
+<tr class="row-even"><td><p>Navigation</p></td>
+<td><p>Unidirectional (one-way)</p></td>
+<td><p>Unidirectional (one-way)</p></td>
+<td><p>Bidirectional (two-way)</p></td>
+<td><p>Unidirectional (one-way)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Ownership</p></td>
+<td><p>Owner has full ownership of the contained objects</p></td>
+<td><p>No ownership relationship, objects can exist independently</p></td>
+<td><p>No ownership relationship, objects can exist independently</p></td>
+<td><p>No ownership relationship, objects can exist independently</p></td>
+</tr>
+<tr class="row-even"><td><p>Responsibility</p></td>
+<td><p>Owner is responsible for the existence and behavior of the contained objects</p></td>
+<td><p>No specific responsibility for the lifecycle of the aggregated objects</p></td>
+<td><p>No specific responsibility for the associated objects</p></td>
+<td><p>Method has responsibility for handling the parameter objects</p></td>
+</tr>
+<tr class="row-odd"><td><p>Encapsulation</p></td>
+<td><p>Strong encapsulation, contained objects are encapsulated within the owner</p></td>
+<td><p>Loose encapsulation, aggregated objects are not encapsulated within the owner</p></td>
+<td><p>Loose encapsulation, associated objects are not encapsulated within each other</p></td>
+<td><p>No encapsulation relationship</p></td>
+</tr>
+<tr class="row-even"><td><p>Cardinality</p></td>
+<td><p>Typically one-to-one or one-to-many</p></td>
+<td><p>Typically one-to-many or many-to-many</p></td>
+<td><p>Can be one-to-one, one-to-many, or many-to-many</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p>Example</p></td>
+<td><p>Car and Engine</p></td>
+<td><p>University and Student</p></td>
+<td><p>Teacher and Student</p></td>
+<td><p>Method that calculates the sum of numbers</p></td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="only-observable-relationships-matter">
 <h2>Only observable relationships matter<a class="headerlink" href="#only-observable-relationships-matter" title="Permalink to this heading">¶</a></h2>

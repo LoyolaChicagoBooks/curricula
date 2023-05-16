@@ -840,6 +840,23 @@ This example demonstrates how the `Car` object composes the `Engine` and `Wheel`
     "Example", "Car and Engine", "University and Student", "Teacher and Student"
 
 
+
+.. csv-table::
+   :header: "Feature", "Composition", "Aggregation", "Association", "Method Parameter Dependency"
+   :widths: 25, 25, 25, 25, 25
+
+   "Relationship", "Strong 'whole-part' relationship", "Weak 'whole-part' relationship", "Semantically related but independent", "Method relies on objects passed as parameters"
+   "Common Name", "Contains relationship", "Uses relationship", "Related-to relationship", "Parameter dependency"
+   "Dependency", "Strong", "Weak", "Weak", "Strong"
+   "Lifespan", "Contained object depends on the container object", "Independent object can exist independently", "Independent object can exist independently", "Dependent on parameter objects"
+   "Navigation", "Unidirectional (one-way)", "Unidirectional (one-way)", "Bidirectional (two-way)", "Unidirectional (one-way)"
+   "Ownership", "Owner has full ownership of the contained objects", "No ownership relationship, objects can exist independently", "No ownership relationship, objects can exist independently", "No ownership relationship, objects can exist independently"
+   "Responsibility", "Owner is responsible for the existence and behavior of the contained objects", "No specific responsibility for the lifecycle of the aggregated objects", "No specific responsibility for the associated objects", "Method has responsibility for handling the parameter objects"
+   "Encapsulation", "Strong encapsulation, contained objects are encapsulated within the owner", "Loose encapsulation, aggregated objects are not encapsulated within the owner", "Loose encapsulation, associated objects are not encapsulated within each other", "No encapsulation relationship"
+   "Cardinality", "Typically one-to-one or one-to-many", "Typically one-to-many or many-to-many", "Can be one-to-one, one-to-many, or many-to-many", "N/A"
+   "Example", "Car and Engine", "University and Student", "Teacher and Student", "Method that calculates the sum of numbers"
+
+
 .. You can copy this ReST table code and include it in your Sphinx document. Feel free to adjust the table headers, widths, or content as needed.
 
 Only observable relationships matter
