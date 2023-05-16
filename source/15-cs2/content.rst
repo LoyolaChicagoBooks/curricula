@@ -125,6 +125,9 @@ Here's a version of the list of current topics and learning outcomes of the CS2 
 9. Introduction to Non-Linear Data Structures: Students will gain an introduction to advanced data structures, including trees, binary trees, and graphs. They will be able to compare these data structures with linear data structures and understand when they may be useful in implementations.
 
 
+.. warning:: Our list is missing Map and Set, and so are ChatGPT's recommendations.
+
+
 *How would you reconcile your earlier list with our own current set of topics and learning outcomes?*
 
 The list you provided for Loyola's COMP 271 is quite comprehensive and aligns well with the general introductory data structures course topics I initially suggested. I'll try to reconcile the two lists by mapping the suggested topics to your current ones and identifying potential areas of expansion.
