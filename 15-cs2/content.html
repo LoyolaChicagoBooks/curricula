@@ -216,8 +216,43 @@
 </ul>
 <p>Note: This code uses JUnit 5 for unit testing. If you’re using a different version of JUnit or a different testing framework, the code for the test may need to be adjusted accordingly. Also, remember that <cite>var</cite> can’t be used with array in Java, as the language doesn’t support this style yet.</p>
 </section>
-<section id="defining-new-finite-enumerated-types">
-<h2>Defining new finite enumerated types<a class="headerlink" href="#defining-new-finite-enumerated-types" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#defining-new-finite-enumerated-types'">¶</a></h2>
+<section id="limitations-of-primitive-types">
+<h2>Limitations of primitive types<a class="headerlink" href="#limitations-of-primitive-types" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#limitations-of-primitive-types'">¶</a></h2>
+<p>So far, we have developed some familiarity with primitive types, such as <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code>, <code class="docutils literal notranslate"><span class="pre">boolean</span></code>, etc.
+In addition, we’ve used <code class="docutils literal notranslate"><span class="pre">String</span></code>, which is not technically a primitive type but is a predefined type we mostly think of as a primitive.
+These types are useful in solving a great variety of problems but do not reflect specific problem domains for which we may want to develop software.</p>
+<p>If you were to represent cardinal directions using primitive types in Java, one approach might be to use integer constants. Here is a simple example:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kd">class</span> <span class="nc">CardinalDirection</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">NORTH</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">EAST</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">SOUTH</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">WEST</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Then, you could define the operations on these directions in a utility class, similarly to the enum example:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kd">class</span> <span class="nc">CardinalDirectionOperations</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">turnRight</span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">direction</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">direction</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">turnLeft</span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">direction</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">direction</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span><span class="w">  </span><span class="c1">// +3 is equivalent to -1 in modulo 4 arithmetic</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">opposite</span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">direction</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">direction</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This approach works, but it has several disadvantages compared to the alternative we are about to discuss.
+In particular, it’s not clear without looking at the documentation or the implementation what kinds of values are expected.
+Also, if you need to add a new direction (like northeast, for example), you would need to update every switch statement or if-else chain that operates on directions.</p>
+</section>
+<section id="defining-new-enumerated-scalar-types">
+<h2>Defining new enumerated scalar types<a class="headerlink" href="#defining-new-enumerated-scalar-types" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#defining-new-enumerated-scalar-types'">¶</a></h2>
 <p>Many programming languages have the abililty to define new types to help us model our specific domain problems more effectively.
 For example, we might want to model the cardinal directions (North, East, South, West).
 In Java, we can define a new <code class="docutils literal notranslate"><span class="pre">enum</span></code> type for this purpose.</p>
@@ -306,6 +341,7 @@ Therefore, object-oriented languages, such as Java, allow us to declare and impl
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Main</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="n">direction</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CardinalDirection</span><span class="p">.</span><span class="na">NORTH</span><span class="p">;</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"The opposite of "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">direction</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">" is "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">direction</span><span class="p">.</span><span class="na">opposite</span><span class="p">());</span>
 <span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Turn right from "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">direction</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">" to get "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">direction</span><span class="p">.</span><span class="na">turnRight</span><span class="p">());</span>
 <span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Turn left from "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">direction</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">" to get "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">direction</span><span class="p">.</span><span class="na">turnLeft</span><span class="p">());</span>
 <span class="w">    </span><span class="p">}</span>
@@ -314,7 +350,119 @@ Therefore, object-oriented languages, such as Java, allow us to declare and impl
 </div>
 <p>This demonstrates how enums in Java can be used to represent a set of related constants, and how they can also include behavior.
 This makes them a powerful tool for writing more expressive and self-documenting code.</p>
-<p><em>CONTENT BELOW HERE TO BE ORGANIZED LATER</em></p>
+<p>Java <cite>enum</cite> types provide several advantages over using <cite>int</cite> constants:</p>
+<ol class="arabic simple">
+<li><p><strong>Type Safety</strong>: Enums provide compile-time type safety. If you try to assign or pass an invalid value, the compiler will give an error. This is not the case with <cite>int</cite> constants, where any integer value is valid from the compiler’s perspective.</p></li>
+<li><p><strong>Code Clarity</strong>: Enum values have meaningful names, which makes your code easier to read and understand. With <cite>int</cite> constants, you need to remember what each integer value represents.</p></li>
+<li><p><strong>Enumerated Values</strong>: The <cite>values()</cite> method on an enum type returns an array of its values in the order they’re declared. This can be useful in many situations, such as looping over all possible values.</p></li>
+<li><p><strong>Methods and Fields</strong>: Enums in Java are more powerful than in many other languages. You can define methods and fields on an enum type, which can provide functionality related to each enum value.</p></li>
+<li><p><strong>Singleton</strong>: Each enum value is a singleton, meaning there is only one instance of that value in the JVM. This can be useful in certain design scenarios.</p></li>
+<li><p><strong>Use in Switch Statements</strong>: Enum values can be used in <cite>switch</cite> statements, providing a more readable alternative to <cite>if-else</cite> chains.</p></li>
+<li><p><strong>Built-in Methods</strong>: Java provides automatic implementations of <cite>equals()</cite>, <cite>hashCode()</cite>, and <cite>toString()</cite> for enum types, as well as a <cite>valueOf(String)</cite> method that converts a string to an enum value.</p></li>
+<li><p><strong>Support in Java Libraries</strong>: Many Java libraries and features have built-in support for enums. For example, the <cite>java.util.EnumSet</cite> and <cite>java.util.EnumMap</cite> classes provide high-performance, enum-based set and map implementations.</p></li>
+</ol>
+<p>Overall, while <cite>int</cite> constants can be simpler and use less memory, enums provide many powerful features that make your code safer, more readable, and easier to maintain.</p>
+</section>
+<section id="defining-new-types-by-aggregating-existing-types">
+<h2>Defining new types by aggregating existing types<a class="headerlink" href="#defining-new-types-by-aggregating-existing-types" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#defining-new-types-by-aggregating-existing-types'">¶</a></h2>
+<p>Most of the types we’ve worked with so far represent single values.
+As we are solving increasingly complex problems, we’ll want to define types to represent bigger things we build from smaller ones, starting with single values.
+Java’s <code class="docutils literal notranslate"><span class="pre">record</span></code> types will help us to do exactly that.</p>
+<p>For example, Turtle graphics is a popular way of introducing programming to kids. It was part of the original Logo programming language, which was developed by Wally Feurzeig, Seymour Papert, and Cynthia Solomon in 1967.</p>
+<p>The idea is simple and based on a metaphor of a turtle moving around in a 2D space. The turtle holds a pen in one of two positions, up or down. When the pen is down, the turtle draws a line on the plane as it moves. When the pen is up, the turtle moves but doesn’t draw anything.</p>
+<p>Here are the basic commands in turtle graphics:</p>
+<ol class="arabic simple">
+<li><p><cite>FORWARD x</cite> (or <cite>FD x</cite>): Moves the turtle forward in the direction it is currently facing by <cite>x</cite> units.</p></li>
+<li><p><cite>BACKWARD x</cite> (or <cite>BK x</cite>): Moves the turtle backward (opposite to the direction it is currently facing) by <cite>x</cite> units.</p></li>
+<li><p><cite>RIGHT x</cite> (or <cite>RT x</cite>): Rotates the turtle clockwise by <cite>x</cite> degrees.</p></li>
+<li><p><cite>LEFT x</cite> (or <cite>LT x</cite>): Rotates the turtle counterclockwise by <cite>x</cite> degrees.</p></li>
+<li><p><cite>PENDOWN</cite> (or <cite>PD</cite>): Puts the pen down so that the turtle will draw as it moves.</p></li>
+<li><p><cite>PENUP</cite> (or <cite>PU</cite>): Lifts the pen up so that the turtle will move without drawing.</p></li>
+<li><p><cite>SETPOS x y</cite>: Moves the turtle to the specified coordinates.</p></li>
+<li><p><cite>SETPENCOLOR x</cite>: Sets the pen color.</p></li>
+</ol>
+<p>The turtle has a position on a plane and an orientation (the direction it is facing). By combining these basic commands, you can create complex drawings. It’s a great way to understand the basics of programming, geometry, and the Cartesian coordinate system.</p>
+<p><em>To explore turtle graphics in modern Java, can you define the relevant enum and record types to represent the position of the turtle?</em></p>
+<p>We can create a <cite>Position</cite> record to represent the coordinates of the turtle on the plane and a <cite>Direction</cite> enum to represent the direction the turtle is facing. Let’s also create a <cite>Turtle</cite> record which has a position and a direction.</p>
+<p>Here’s how you might do that:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">record</span> <span class="nc">Position</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+
+<span class="kd">public</span><span class="w"> </span><span class="kd">record</span> <span class="nc">Turtle</span><span class="p">(</span><span class="n">Position</span><span class="w"> </span><span class="n">position</span><span class="p">,</span><span class="w"> </span><span class="n">Direction</span><span class="w"> </span><span class="n">direction</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+</pre></div>
+</div>
+<p>This is a simple setup. The <cite>Turtle</cite> has a <cite>Position</cite> and a <cite>Direction</cite>. The <cite>Direction</cite> enum has <cite>turnRight()</cite> and <cite>turnLeft()</cite> methods which return a new <cite>Direction</cite> representing a 90-degree turn in the respective direction.</p>
+<p>To move the turtle around the plane, you would create methods that create a new <cite>Position</cite> based on the current <cite>Position</cite> and <cite>Direction</cite>. You would also create methods to turn the turtle by changing its <cite>Direction</cite>. This would maintain the immutability of <cite>Position</cite>, <cite>Direction</cite>, and <cite>Turtle</cite> instances.</p>
+<p>We can also add enums to represent pen color and pen state (up/down) to our <cite>Turtle</cite> record:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">enum</span><span class="w"> </span><span class="n">PenColor</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">BLACK</span><span class="p">,</span><span class="w"> </span><span class="n">RED</span><span class="p">,</span><span class="w"> </span><span class="n">GREEN</span><span class="p">,</span><span class="w"> </span><span class="n">BLUE</span><span class="p">,</span><span class="w"> </span><span class="n">YELLOW</span><span class="p">,</span><span class="w"> </span><span class="n">PURPLE</span><span class="p">;</span><span class="w">  </span><span class="c1">// Add more as necessary.</span>
+<span class="p">}</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">enum</span><span class="w"> </span><span class="n">PenState</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">UP</span><span class="p">,</span><span class="w"> </span><span class="n">DOWN</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Now we can add these to our <cite>Turtle</cite> record:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">record</span> <span class="nc">Turtle</span><span class="p">(</span><span class="n">Position</span><span class="w"> </span><span class="n">position</span><span class="p">,</span><span class="w"> </span><span class="n">Direction</span><span class="w"> </span><span class="n">direction</span><span class="p">,</span><span class="w"> </span><span class="n">PenColor</span><span class="w"> </span><span class="n">penColor</span><span class="p">,</span><span class="w"> </span><span class="n">PenState</span><span class="w"> </span><span class="n">penState</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+</pre></div>
+</div>
+<p>This <cite>Turtle</cite> record now contains all necessary information to represent the state of a turtle in a turtle graphics system: its position, the direction it’s facing, the color of its pen, and whether the pen is up or down.</p>
+<p>Remember that records in Java are immutable, which means that when you want to change the state of the turtle, you’ll need to create a new <cite>Turtle</cite> instance with the updated state. This might seem a bit unusual if you’re used to working with mutable objects, but it can help make your programs easier to reason about, since you don’t have to worry about the state of an object changing over time.</p>
+<p>To summarize, Java records are designed to be simple, transparent carriers for immutable data. This is accomplished in the following ways:</p>
+<ol class="arabic simple">
+<li><p><strong>Final by Default</strong>: A record class is implicitly final, meaning it cannot be subclassed.</p></li>
+<li><p><strong>Final Fields</strong>: All fields in a record class are implicitly final. When a record is constructed, its fields are set, and they cannot be changed afterwards.</p></li>
+<li><p><strong>No Mutable Methods</strong>: There is no way to add methods to a record class that modify its fields, because all fields are final.</p></li>
+<li><p><strong>Automatic Accessors</strong>: The compiler automatically generates public accessor methods for all fields in a record. These methods simply return the value of the field; they do not allow the field to be changed.</p></li>
+</ol>
+<p>This design makes records a good fit for use cases where you need a class to simply hold a set of values and don’t need to change them after the object is created. They are particularly useful in “data-centric” applications where classes often serve as simple data containers.</p>
+<p>It’s worth noting that while the fields of a record are immutable, if the fields are references to mutable objects, those objects themselves can still be mutated. This is a common pitfall when dealing with immutability in Java. To avoid this, you might need to make defensive copies of mutable objects, or use immutable objects whenever possible.</p>
+</section>
+<section id="defining-classes-to-represent-more-complex-objects-with-mutable-state">
+<h2>Defining classes to represent more complex objects with mutable state<a class="headerlink" href="#defining-classes-to-represent-more-complex-objects-with-mutable-state" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#defining-classes-to-represent-more-complex-objects-with-mutable-state'">¶</a></h2>
+<p>Java records are indeed a powerful feature that help reduce boilerplate code when defining classes that are meant to be simple “data carriers”. However, there are certain situations where using traditional classes can be more appropriate:</p>
+<ol class="arabic simple">
+<li><p><strong>Mutable State</strong>: Records are implicitly final and all their fields are final too, meaning once a record is created, it cannot be changed. This immutability is great for many scenarios, but there are situations where mutable state is necessary or more efficient. In such cases, a traditional class would be more suitable.</p></li>
+<li><p><strong>Inheritance</strong>: Records cannot extend other classes, although they can implement interfaces. If you need inheritance, you’ll need to use a traditional class.</p></li>
+<li><p><strong>Complex Behavior</strong>: If a class needs to encapsulate complex behavior and not just data, a traditional class could be a better fit. The purpose of a record is to be a simple, transparent holder for its data, and to derive all of its semantics directly from that data.</p></li>
+<li><p><strong>Customization</strong>: Records come with automatically derived implementations of <cite>equals()</cite>, <cite>hashCode()</cite>, and <cite>toString()</cite>. If you need to provide a custom implementation of these methods, you might consider using a traditional class. However, note that you can still customize these methods in a record; the automatically derived implementations are just defaults.</p></li>
+<li><p><strong>Encapsulation</strong>: If you need to enforce strict control over the access and/or mutation of your class’s fields beyond what public, private, and protected access modifiers provide, a traditional class can provide this. Records expose their state as public final fields.</p></li>
+</ol>
+<p>Remember that while records are a great feature, they aren’t designed to replace traditional classes in all situations. They are another tool in your toolbox, to be used where they make the most sense.</p>
+<p><em>How would we represent the 2d draw(r)ing area for the turtle?</em></p>
+<p>In turtle graphics, the 2D drawing area is often referred to as a “canvas”. The canvas can be represented as a 2D array of pixels. Each pixel can have a color, which would be set when the turtle moves with its pen down.</p>
+<p>First, we can define a <cite>Pixel</cite> record to represent a pixel on the canvas:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">record</span> <span class="nc">Pixel</span><span class="p">(</span><span class="n">PenColor</span><span class="w"> </span><span class="n">color</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+</pre></div>
+</div>
+<p>A pixel has a color, which can be set by the turtle’s pen. If the pixel has not been drawn on, its color could be <cite>null</cite> or some default color like <cite>WHITE</cite>.</p>
+<p>Then, we can define a <cite>Canvas</cite> class to represent the 2D drawing area:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Canvas</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Pixel</span><span class="o">[][]</span><span class="w"> </span><span class="n">pixels</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">Canvas</span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">width</span><span class="p">,</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">height</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">pixels</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Pixel</span><span class="o">[</span><span class="n">height</span><span class="o">][</span><span class="n">width</span><span class="o">]</span><span class="p">;</span>
+<span class="w">        </span><span class="c1">// Initialize all pixels to white.</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="n">Pixel</span><span class="o">[]</span><span class="w"> </span><span class="n">row</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">pixels</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">Arrays</span><span class="p">.</span><span class="na">fill</span><span class="p">(</span><span class="n">row</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Pixel</span><span class="p">(</span><span class="n">PenColor</span><span class="p">.</span><span class="na">WHITE</span><span class="p">));</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Pixel</span><span class="w"> </span><span class="nf">getPixel</span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">pixels</span><span class="o">[</span><span class="n">y</span><span class="o">][</span><span class="n">x</span><span class="o">]</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setPixel</span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Pixel</span><span class="w"> </span><span class="n">pixel</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">pixels</span><span class="o">[</span><span class="n">y</span><span class="o">][</span><span class="n">x</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pixel</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The <cite>Canvas</cite> class contains a 2D array of <cite>Pixel</cite> objects. The <cite>getPixel</cite> method returns the <cite>Pixel</cite> at a specific position, and the <cite>setPixel</cite> method sets the <cite>Pixel</cite> at a specific position.</p>
+<p>This is a very basic representation of a canvas for turtle graphics. In a real implementation, you would likely want to add more features and error-checking. For example, you might want to add methods to draw lines or shapes, check if a position is within the bounds of the canvas, etc.</p>
+<hr class="docutils"/>
+<section id="content-below-here-to-be-organized-later">
+<h3><em>CONTENT BELOW HERE TO BE ORGANIZED LATER</em><a class="headerlink" href="#content-below-here-to-be-organized-later" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#content-below-here-to-be-organized-later'">¶</a></h3>
+</section>
 </section>
 <section id="top-15-cs2-topics-as-opposed-to-cs7">
 <h2>Top 15 CS2 topics as opposed to CS7<a class="headerlink" href="#top-15-cs2-topics-as-opposed-to-cs7" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#top-15-cs2-topics-as-opposed-to-cs7'">¶</a></h2>
@@ -343,8 +491,6 @@ This makes them a powerful tool for writing more expressive and self-documenting
 <li><p><strong>Software Engineering Principles:</strong> Introduction to basic principles such as code readability, modularity, and debugging techniques.</p></li>
 </ol>
 <p>The exact order and selection of these topics may vary depending on the specific course and curriculum guidelines. Also, real-life examples and problem-solving exercises should be included to apply these data structures and concepts. The complexity and depth of these topics will increase when students move on to more advanced courses like CS7.</p>
-<section id="cs2-at-loyola-current-topics-and-learning-outcomes">
-<h3>CS2 at Loyola: Current topics and learning outcomes<a class="headerlink" href="#cs2-at-loyola-current-topics-and-learning-outcomes" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#cs2-at-loyola-current-topics-and-learning-outcomes'">¶</a></h3>
 <div class="admonition-todo admonition" id="id1">
 <p class="admonition-title">Todo</p>
 <p>Update as needed.</p>
@@ -437,11 +583,8 @@ This makes them a powerful tool for writing more expressive and self-documenting
 </ol>
 <p>Remember that the exact subtopics will depend on what programming language is being used and what the students have covered in their previous courses. The goal is to ensure that all students have a solid understanding of these fundamental concepts before moving on to more advanced topics.</p>
 </section>
-</section>
 <section id="basic-object-oriented-programming">
 <h2>Basic object-oriented programming<a class="headerlink" href="#basic-object-oriented-programming" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#basic-object-oriented-programming'">¶</a></h2>
-<section id="in-the-context-of-cs2-what-are-the-essential-elements-of-oop">
-<h3>In the context of CS2, what are the essential elements of OOP?<a class="headerlink" href="#in-the-context-of-cs2-what-are-the-essential-elements-of-oop" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#in-the-context-of-cs2-what-are-the-essential-elements-of-oop'">¶</a></h3>
 <p>In the context of CS2 (second course in computer science), the essential elements of Object-Oriented Programming (OOP) include the following:</p>
 <ol class="arabic simple">
 <li><p>Classes: Classes are the fundamental building blocks of object-oriented programming. They define the blueprint or template for creating objects. A class encapsulates data (attributes) and behavior (methods) related to a specific concept or entity.</p></li>
@@ -452,9 +595,6 @@ This makes them a powerful tool for writing more expressive and self-documenting
 <li><p>Abstraction: Abstraction involves representing essential features and behaviors of a concept while hiding unnecessary details. It allows for the creation of abstract classes and interfaces that define common characteristics and behaviors shared by multiple classes.</p></li>
 <li><p>Modularity: Modularity emphasizes organizing code into separate, self-contained modules (classes) that focus on specific aspects of the problem domain. It promotes code organization, reusability, and maintainability.</p></li>
 </ol>
-</section>
-<section id="enums-classes-and-records">
-<h3>Enums, classes, and records<a class="headerlink" href="#enums-classes-and-records" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#enums-classes-and-records'">¶</a></h3>
 <p>Here is a simple example in Java that covers classes, records (introduced in Java 14), enums, constructors, accessors, mutators, and the use of <cite>public</cite> and <cite>private</cite> members:</p>
 <p>First, we’ll create an <cite>enum</cite> to represent a type of a pet:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">enum</span><span class="w"> </span><span class="n">PetType</span><span class="w"> </span><span class="p">{</span>
@@ -555,9 +695,6 @@ This makes them a powerful tool for writing more expressive and self-documenting
 </pre></div>
 </div>
 <p>Now the <cite>type</cite> is marked as <cite>final</cite> and there’s no <cite>setType</cite> method, meaning the <cite>type</cite> can’t be changed after a <cite>Pet</cite> object is created. If you want to create a pet of a different type, you would need to create a new <cite>Pet</cite> object. This is more representative of the real world, where a pet’s species can’t change.</p>
-</section>
-<section id="associations-between-classes">
-<h3>Associations between classes<a class="headerlink" href="#associations-between-classes" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#associations-between-classes'">¶</a></h3>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Ran out of GPT-4 queries here.</p>
@@ -614,9 +751,6 @@ This makes them a powerful tool for writing more expressive and self-documenting
 </div>
 <p>Now, each <cite>Pet</cite> object has a reference to its respective <cite>Owner</cite>. This allows you to establish the relationship between pets and owners and retrieve the owner information when needed.</p>
 <p>It’s important to note that this example illustrates a simplified association relationship. In more complex scenarios, you might encounter different types of relationships like composition or bidirectional associations. The choice of the appropriate relationship type depends on the specific requirements and design of the system.</p>
-</section>
-<section id="subtype-polymorphism">
-<h3>Subtype polymorphism<a class="headerlink" href="#subtype-polymorphism" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#subtype-polymorphism'">¶</a></h3>
 <p><em>For this Pet class, how would you define behaviors that are specific to a type of pet, such as a dog barking and a cat meowing?</em></p>
 <p>To represent behaviors specific to different types of pets, you can use polymorphism and inheritance in object-oriented programming. You could define a base class or interface <cite>Pet</cite> and then create subclasses for each specific type of pet. Each subclass can then implement its own version of the behavior methods. Here’s an example:</p>
 <p>First, we’ll define the base class <cite>Pet</cite>:</p>
@@ -682,9 +816,6 @@ Whiskers says: Meow!
 </pre></div>
 </div>
 <p>In this way, we’ve represented behaviors specific to different types of pets. Each type of pet can have its own unique behaviors, while still sharing common attributes and behaviors through the <cite>Pet</cite> base class.</p>
-</section>
-<section id="subclasses-and-method-overriding">
-<h3>Subclasses and method overriding<a class="headerlink" href="#subclasses-and-method-overriding" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#subclasses-and-method-overriding'">¶</a></h3>
 <p><em>Aren’t there some dogs that howl rather than bark? Can we enhance our class hierarchy accordingly?</em></p>
 <p>To handle this, we can introduce another layer in our class hierarchy. Let’s create a <cite>Dog</cite> subclass called <cite>Husky</cite>, which overrides the <cite>makeSound</cite> method to return “Howl!” instead of “Bark!”. Here’s how you can do it:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Husky</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Dog</span><span class="w"> </span><span class="p">{</span>
@@ -723,9 +854,6 @@ Balto says: Howl!
 </pre></div>
 </div>
 <p>This demonstrates the flexibility of object-oriented programming. By creating a subclass and overriding methods, you can create variations of a base class that behave differently. And thanks to polymorphism, you can handle objects of the base class and its subclasses in a unified way.</p>
-</section>
-<section id="interfaces">
-<h3>Interfaces<a class="headerlink" href="#interfaces" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#interfaces'">¶</a></h3>
 <p>Interfaces provide a way to define common behavior and can be utilized in this example to further enhance the design. Let’s introduce an interface called <cite>Soundable</cite> to represent pets that can make sounds. Here’s an updated version that incorporates interfaces:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.ArrayList</span><span class="p">;</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">java.util.List</span><span class="p">;</span>
@@ -914,9 +1042,6 @@ Balto says: Howl!
 </pre></div>
 </div>
 <p>This updated version demonstrates the utilization of interfaces, inheritance, and polymorphism to handle different types of pets with varying behaviors in a unified way.</p>
-</section>
-<section id="where-does-subtyping-fit-in">
-<h3>Where does subtyping fit in?<a class="headerlink" href="#where-does-subtyping-fit-in" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#where-does-subtyping-fit-in'">¶</a></h3>
 <p>Subtyping is an important concept in object-oriented programming and is closely related to inheritance. It allows for the substitution of objects of one class with objects of another class that is derived from or related to the former class.</p>
 <p>Subtyping enables polymorphism and supports the “is-a” relationship between classes. It allows objects of a derived class to be treated as objects of their parent class, providing flexibility and extensibility in program design. By leveraging subtyping, code can be written in a way that is more generic and adaptable to different types of objects.</p>
 <p>In the context of CS2, subtyping is a significant aspect of understanding inheritance and polymorphism. It enables students to create class hierarchies, define relationships between classes, and utilize the principles of code reuse and abstraction. By grasping the concept of subtyping, students can effectively design and implement object-oriented programs that utilize inheritance and polymorphism to their full potential.</p>
@@ -972,9 +1097,6 @@ Balto says: Howl!
 </tr>
 </tbody>
 </table>
-</section>
-<section id="where-would-you-put-delegation">
-<h3>Where would you put delegation?<a class="headerlink" href="#where-would-you-put-delegation" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#where-would-you-put-delegation'">¶</a></h3>
 <p>Delegation is a concept that can be closely related to both composition and inheritance in object-oriented programming. It involves one object (delegate) handing off a specific task or responsibility to another object (delegator).</p>
 <p>In terms of its placement, delegation can be seen as a design pattern or technique that can be applied in various parts of an object-oriented program. It is not necessarily a core element of OOP like classes, objects, inheritance, or polymorphism, but rather a flexible approach to achieve code reuse and modularity.</p>
 <p>Delegation can be utilized within the methods or behaviors of a class, where a specific task or functionality is delegated to another object responsible for performing that task. This allows the delegator object to rely on the expertise or specialized behavior of the delegate object without inheriting from it.</p>
@@ -983,17 +1105,11 @@ Balto says: Howl!
 <ol class="arabic simple" start="8">
 <li><p>Delegation: Delegation is a technique where one object (delegator) hands off a specific task or responsibility to another object (delegate). It allows objects to rely on the specialized behavior of other objects without directly inheriting from them, promoting code reuse and modular design.</p></li>
 </ol>
-</section>
-<section id="in-practice-shouldn-t-delegation-be-on-par-with-inheritance">
-<h3>In practice, shouldn’t delegation be on par with inheritance?<a class="headerlink" href="#in-practice-shouldn-t-delegation-be-on-par-with-inheritance" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#in-practice-shouldn-t-delegation-be-on-par-with-inheritance'">¶</a></h3>
 <p>In practice, both delegation and inheritance are important concepts in object-oriented programming, but they serve different purposes and have distinct advantages and use cases. While inheritance is a mechanism for creating class hierarchies and sharing behavior and attributes between classes, delegation is a technique for achieving code reuse and modularity by handing off specific tasks or responsibilities to other objects.</p>
 <p>The choice between delegation and inheritance depends on the specific requirements and design goals of the program. In some cases, inheritance may be more appropriate when there is a clear “is-a” relationship between classes and a need to share common behavior and attributes. Inheritance can provide a convenient way to define and organize class hierarchies, promote code reuse, and enable polymorphism.</p>
 <p>On the other hand, delegation can be preferred when there is a need for more flexible and modular design. Delegation allows objects to delegate specific tasks to other objects that specialize in those tasks, enabling composition and separation of concerns. It promotes code reuse without requiring a rigid class hierarchy and allows objects to rely on the behavior of other objects without inheriting from them directly.</p>
 <p>In practice, both inheritance and delegation are used together or in combination to achieve desired design goals. They are not mutually exclusive, and the choice between them often depends on the specific problem domain, the relationships between objects, and the desired flexibility and extensibility of the system.</p>
 <p>So, while delegation is indeed an important technique in practice and can be used on par with inheritance in certain scenarios, it’s important to consider the specific requirements and design goals to determine the most appropriate approach for a given situation.</p>
-</section>
-<section id="where-do-composition-aggregation-and-association-fit-into-this-list">
-<h3>Where do composition, aggregation, and association fit into this list?<a class="headerlink" href="#where-do-composition-aggregation-and-association-fit-into-this-list" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#where-do-composition-aggregation-and-association-fit-into-this-list'">¶</a></h3>
 <ol class="arabic simple" start="9">
 <li><p>Composition: Composition is a strong “whole-part” relationship where the lifetime of the parts is tightly coupled with the lifetime of the whole. The whole object is responsible for creating and managing its component objects. If the whole object is destroyed, its parts are also destroyed. Composition is often represented by a class having one or more member variables of another class type.</p></li>
 <li><p>Aggregation: Aggregation is a weaker form of composition, representing a relationship where one object (the aggregate) contains or is associated with other objects (the components). The components can exist independently of the aggregate, and their lifetimes are not necessarily tied to the aggregate’s lifetime. Aggregation is often represented by a class having member variables that are references or pointers to other objects.</p></li>
@@ -1002,18 +1118,12 @@ Balto says: Howl!
 <p>By understanding and effectively utilizing these essential elements of OOP, including delegation, students in CS2 can develop a strong foundation in object-oriented programming principles and apply them to create robust, maintainable, and flexible software solutions.</p>
 <p>Composition, aggregation, and association are relationship types that expand the ways in which objects can interact and collaborate in an object-oriented system. They provide additional flexibility in designing object relationships, capturing different levels of ownership and dependency.</p>
 <p>By understanding and utilizing composition, aggregation, and association, students in CS2 can create more expressive and accurate models of real-world systems, enabling them to design and implement object-oriented programs that accurately reflect the relationships and interactions between objects.</p>
-</section>
-<section id="is-association-related-to-delegation">
-<h3>Is association related to delegation?<a class="headerlink" href="#is-association-related-to-delegation" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#is-association-related-to-delegation'">¶</a></h3>
 <p>Association and delegation are distinct concepts in object-oriented programming, but they can be related in certain scenarios.</p>
 <p>Association represents a relationship between two or more objects, indicating that they are somehow connected or interact with each other. It captures the concept of objects being aware of each other and potentially collaborating, but it does not imply any specific behavior or responsibility transfer.</p>
 <p>Delegation, on the other hand, is a technique where one object (delegator) hands off a specific task or responsibility to another object (delegate). It involves one object relying on the specialized behavior of another object to fulfill a specific aspect of its functionality.</p>
 <p>While association and delegation are separate concepts, they can coexist in a system. In some cases, an object involved in an association may delegate a specific task to another object. The object responsible for the delegated task can be considered the delegate in the context of delegation, even though there is an association between the delegator and the delegate.</p>
 <p>The association between objects can provide the context or mechanism through which delegation occurs. The delegating object can access and interact with the delegate through the association. The association relationship can establish the connection necessary for delegation to take place.</p>
 <p>In summary, association and delegation are related in the sense that delegation can occur within the context of an association. The association provides the linkage between objects, and the delegation allows one object to delegate specific responsibilities to another object, leveraging their specialized behavior.</p>
-</section>
-<section id="is-composition-related-to-delegation">
-<h3>Is composition related to delegation?<a class="headerlink" href="#is-composition-related-to-delegation" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#is-composition-related-to-delegation'">¶</a></h3>
 <p>Composition and delegation are distinct concepts in object-oriented programming, but they can be related and often coexist in system design.</p>
 <p>Composition refers to a strong “whole-part” relationship between objects, where the lifetime of the parts is tightly coupled with the lifetime of the whole. In composition, an object is composed of one or more component objects, and the components cannot exist independently outside of the composite object. The composite object takes responsibility for creating, managing, and coordinating the behavior of its component objects.</p>
 <p>Delegation, on the other hand, is a technique where an object (delegator) hands off a specific task or responsibility to another object (delegate). The delegating object relies on the specialized behavior of the delegate object to perform that task.</p>
@@ -1021,9 +1131,6 @@ Balto says: Howl!
 <p>By combining composition and delegation, complex behaviors can be achieved through a hierarchical organization of objects, where a composite object delegates tasks to its component objects, each responsible for a specific aspect of functionality.</p>
 <p>For example, consider a composite object representing a car. The car object may internally contain component objects such as an engine, wheels, and a steering system. The car object, acting as the delegator, can delegate tasks like accelerating, turning, or braking to its component objects (delegate), which are specialized to handle those specific tasks. The delegation allows the car object to coordinate the overall behavior of the car while leveraging the specific functionalities provided by its components.</p>
 <p>In summary, composition and delegation are related in the sense that delegation can occur within the context of composition. Composition establishes the strong whole-part relationship between objects, while delegation allows the composite object to delegate specific responsibilities to its component objects to achieve modular and specialized behavior.</p>
-</section>
-<section id="what-s-the-difference-if-any-between-composition-and-aggregation">
-<h3>What’s the difference, if any, between composition and aggregation?<a class="headerlink" href="#what-s-the-difference-if-any-between-composition-and-aggregation" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#what-s-the-difference-if-any-between-composition-and-aggregation'">¶</a></h3>
 <p>Composition and aggregation are both forms of object relationships in object-oriented programming, but they differ in terms of the strength of the relationship and the lifecycle dependency between the objects involved. Here’s a breakdown of the differences:</p>
 <p>Composition:</p>
 <ol class="arabic simple">
@@ -1290,9 +1397,6 @@ Balto says: Howl!
 </tr>
 </tbody>
 </table>
-</section>
-<section id="only-observable-relationships-matter">
-<h3>Only observable relationships matter<a class="headerlink" href="#only-observable-relationships-matter" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#only-observable-relationships-matter'">¶</a></h3>
 <p><em>If a relationship between class and another class is purely internal, without public members to observe the relationship, it’s as if it didn’t exist, right? For example, if class A has a private field of class B but class B doesn’t occur in any constructor or method parameters or return types, we shouldn’t say A has-a B, should we?</em></p>
 <p>Yes, you are correct. If a relationship between two classes is purely internal and not observable from outside the class, it can be considered as if it doesn’t exist in terms of the class’s public interface. In the scenario you described, where class A has a private field of class B but class B doesn’t occur in any constructor or method parameters or return types, we wouldn’t typically say that class A “has-a” relationship with class B.</p>
 <p>The concept of “has-a” relationship usually implies that a class directly incorporates or contains another class as a part of its public interface, visible to external entities. It signifies a stronger association where the presence of the associated class is observable and relevant to the class’s behavior and interactions.</p>
@@ -1390,11 +1494,8 @@ Maps
 <p>By utilizing maps, you can store and access values based on a wide range of key types, offering greater flexibility and generality compared to structures like arrays or lists.</p>
 <p>If you have any further questions or need additional information, feel free to ask!</p>
 </section>
-</section>
 <section id="software-engineering-principles">
 <h2>Software engineering principles<a class="headerlink" href="#software-engineering-principles" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#software-engineering-principles'">¶</a></h2>
-<section id="what-does-beautiful-code-look-like-in-the-context-of-a-cs2-course">
-<h3>What does beautiful code look like in the context of a CS2 course?<a class="headerlink" href="#what-does-beautiful-code-look-like-in-the-context-of-a-cs2-course" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#what-does-beautiful-code-look-like-in-the-context-of-a-cs2-course'">¶</a></h3>
 <p>Beautiful code in the context of a CS2 course can be described as code that is well-organized, easy to read, and easy to understand. Here are a few characteristics of beautiful code:</p>
 <ol class="arabic simple">
 <li><p>Clarity: Beautiful code should be easy to understand and should clearly convey its purpose and functionality. This includes using meaningful variable and function names, writing comments when necessary, and organizing the code into logical blocks.</p></li>
@@ -1407,38 +1508,21 @@ Maps
 <p>Overall, beautiful code in the context of a CS2 course should prioritize readability, simplicity, modularity, consistency, efficiency, and error-handling. By following these principles, students can create code that is not only functional, but also aesthetically pleasing and easy to work with.</p>
 </section>
 </section>
-</section>
 </div></div><aside class="hidden text-sm xl:block" id="right-sidebar">
 <div class="sticky top-16 -mt-10 max-h-[calc(var(--vh)-4rem)] overflow-y-auto pt-6 space-y-2"><p class="font-medium">On this page</p>
 <ul>
 <li><a :data-current="activeSection === '#top-15-topics-in-cs2-curricula'" class="reference internal" href="#top-15-topics-in-cs2-curricula">Top 15 topics in CS2 curricula?</a></li>
 <li><a :data-current="activeSection === '#warmup-conditionals-loops-arrays-and-unit-testing'" class="reference internal" href="#warmup-conditionals-loops-arrays-and-unit-testing">Warmup: conditionals, loops, arrays, and unit testing</a></li>
-<li><a :data-current="activeSection === '#defining-new-finite-enumerated-types'" class="reference internal" href="#defining-new-finite-enumerated-types">Defining new finite enumerated types</a></li>
-<li><a :data-current="activeSection === '#top-15-cs2-topics-as-opposed-to-cs7'" class="reference internal" href="#top-15-cs2-topics-as-opposed-to-cs7">Top 15 CS2 topics as opposed to CS7</a><ul>
-<li><a :data-current="activeSection === '#cs2-at-loyola-current-topics-and-learning-outcomes'" class="reference internal" href="#cs2-at-loyola-current-topics-and-learning-outcomes">CS2 at Loyola: Current topics and learning outcomes</a></li>
+<li><a :data-current="activeSection === '#limitations-of-primitive-types'" class="reference internal" href="#limitations-of-primitive-types">Limitations of primitive types</a></li>
+<li><a :data-current="activeSection === '#defining-new-enumerated-scalar-types'" class="reference internal" href="#defining-new-enumerated-scalar-types">Defining new enumerated scalar types</a></li>
+<li><a :data-current="activeSection === '#defining-new-types-by-aggregating-existing-types'" class="reference internal" href="#defining-new-types-by-aggregating-existing-types">Defining new types by aggregating existing types</a></li>
+<li><a :data-current="activeSection === '#defining-classes-to-represent-more-complex-objects-with-mutable-state'" class="reference internal" href="#defining-classes-to-represent-more-complex-objects-with-mutable-state">Defining classes to represent more complex objects with mutable state</a><ul>
+<li><a :data-current="activeSection === '#content-below-here-to-be-organized-later'" class="reference internal" href="#content-below-here-to-be-organized-later"><em>CONTENT BELOW HERE TO BE ORGANIZED LATER</em></a></li>
 </ul>
 </li>
-<li><a :data-current="activeSection === '#basic-object-oriented-programming'" class="reference internal" href="#basic-object-oriented-programming">Basic object-oriented programming</a><ul>
-<li><a :data-current="activeSection === '#in-the-context-of-cs2-what-are-the-essential-elements-of-oop'" class="reference internal" href="#in-the-context-of-cs2-what-are-the-essential-elements-of-oop">In the context of CS2, what are the essential elements of OOP?</a></li>
-<li><a :data-current="activeSection === '#enums-classes-and-records'" class="reference internal" href="#enums-classes-and-records">Enums, classes, and records</a></li>
-<li><a :data-current="activeSection === '#associations-between-classes'" class="reference internal" href="#associations-between-classes">Associations between classes</a></li>
-<li><a :data-current="activeSection === '#subtype-polymorphism'" class="reference internal" href="#subtype-polymorphism">Subtype polymorphism</a></li>
-<li><a :data-current="activeSection === '#subclasses-and-method-overriding'" class="reference internal" href="#subclasses-and-method-overriding">Subclasses and method overriding</a></li>
-<li><a :data-current="activeSection === '#interfaces'" class="reference internal" href="#interfaces">Interfaces</a></li>
-<li><a :data-current="activeSection === '#where-does-subtyping-fit-in'" class="reference internal" href="#where-does-subtyping-fit-in">Where does subtyping fit in?</a></li>
-<li><a :data-current="activeSection === '#where-would-you-put-delegation'" class="reference internal" href="#where-would-you-put-delegation">Where would you put delegation?</a></li>
-<li><a :data-current="activeSection === '#in-practice-shouldn-t-delegation-be-on-par-with-inheritance'" class="reference internal" href="#in-practice-shouldn-t-delegation-be-on-par-with-inheritance">In practice, shouldn’t delegation be on par with inheritance?</a></li>
-<li><a :data-current="activeSection === '#where-do-composition-aggregation-and-association-fit-into-this-list'" class="reference internal" href="#where-do-composition-aggregation-and-association-fit-into-this-list">Where do composition, aggregation, and association fit into this list?</a></li>
-<li><a :data-current="activeSection === '#is-association-related-to-delegation'" class="reference internal" href="#is-association-related-to-delegation">Is association related to delegation?</a></li>
-<li><a :data-current="activeSection === '#is-composition-related-to-delegation'" class="reference internal" href="#is-composition-related-to-delegation">Is composition related to delegation?</a></li>
-<li><a :data-current="activeSection === '#what-s-the-difference-if-any-between-composition-and-aggregation'" class="reference internal" href="#what-s-the-difference-if-any-between-composition-and-aggregation">What’s the difference, if any, between composition and aggregation?</a></li>
-<li><a :data-current="activeSection === '#only-observable-relationships-matter'" class="reference internal" href="#only-observable-relationships-matter">Only observable relationships matter</a></li>
-</ul>
-</li>
-<li><a :data-current="activeSection === '#software-engineering-principles'" class="reference internal" href="#software-engineering-principles">Software engineering principles</a><ul>
-<li><a :data-current="activeSection === '#what-does-beautiful-code-look-like-in-the-context-of-a-cs2-course'" class="reference internal" href="#what-does-beautiful-code-look-like-in-the-context-of-a-cs2-course">What does beautiful code look like in the context of a CS2 course?</a></li>
-</ul>
-</li>
+<li><a :data-current="activeSection === '#top-15-cs2-topics-as-opposed-to-cs7'" class="reference internal" href="#top-15-cs2-topics-as-opposed-to-cs7">Top 15 CS2 topics as opposed to CS7</a></li>
+<li><a :data-current="activeSection === '#basic-object-oriented-programming'" class="reference internal" href="#basic-object-oriented-programming">Basic object-oriented programming</a></li>
+<li><a :data-current="activeSection === '#software-engineering-principles'" class="reference internal" href="#software-engineering-principles">Software engineering principles</a></li>
 </ul>
 </div>
 </aside>

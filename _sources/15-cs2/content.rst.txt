@@ -11,7 +11,6 @@ Loyola University Chicago
 Top 15 topics in CS2 curricula?
 -------------------------------
 
-
 In a typical CS2 course, you may expect to find the following topics covered, although the order and emphasis may vary depending on the particular curriculum and instructor:
 
 - Data Structures
@@ -57,7 +56,6 @@ Please note that this list is not exhaustive, and the topics covered in a specif
 
 Warmup: conditionals, loops, arrays, and unit testing
 -----------------------------------------------------
-
 
 Here is a simple example that incorporates conditionals, loops, arrays, and unit testing in Java. 
 
@@ -113,8 +111,51 @@ Here's how the code works:
 Note: This code uses JUnit 5 for unit testing. If you're using a different version of JUnit or a different testing framework, the code for the test may need to be adjusted accordingly. Also, remember that `var` can't be used with array in Java, as the language doesn't support this style yet.
 
 
+Limitations of primitive types
+------------------------------
 
-Defining new finite enumerated types
+So far, we have developed some familiarity with primitive types, such as ``int``, ``float``, ``boolean``, etc.
+In addition, we've used ``String``, which is not technically a primitive type but is a predefined type we mostly think of as a primitive.
+These types are useful in solving a great variety of problems but do not reflect specific problem domains for which we may want to develop software.
+
+If you were to represent cardinal directions using primitive types in Java, one approach might be to use integer constants. Here is a simple example:
+
+.. code-block:: java
+
+    public final class CardinalDirection {
+        public static final int NORTH = 0;
+        public static final int EAST = 1;
+        public static final int SOUTH = 2;
+        public static final int WEST = 3;
+    }
+
+
+Then, you could define the operations on these directions in a utility class, similarly to the enum example:
+
+.. code-block:: java
+
+    public final class CardinalDirectionOperations {
+
+        public static int turnRight(final int direction) {
+            return (direction + 1) % 4;
+        }
+
+        public static int turnLeft(final int direction) {
+            return (direction + 3) % 4;  // +3 is equivalent to -1 in modulo 4 arithmetic
+        }
+
+        public static int opposite(final int direction) {
+            return (direction + 2) % 4;
+        }
+    }
+
+
+This approach works, but it has several disadvantages compared to the alternative we are about to discuss.
+In particular, it's not clear without looking at the documentation or the implementation what kinds of values are expected.
+Also, if you need to add a new direction (like northeast, for example), you would need to update every switch statement or if-else chain that operates on directions.
+
+
+Defining new enumerated scalar types
 ------------------------------------
 
 Many programming languages have the abililty to define new types to help us model our specific domain problems more effectively. 
@@ -216,6 +257,7 @@ Now, you can use these methods in your code:
     public class Main {
         public static void main(String[] args) {
             var direction = CardinalDirection.NORTH;
+            System.out.println("The opposite of " + direction + " is " + direction.opposite());
             System.out.println("Turn right from " + direction + " to get " + direction.turnRight());
             System.out.println("Turn left from " + direction + " to get " + direction.turnLeft());
         }
@@ -225,8 +267,173 @@ This demonstrates how enums in Java can be used to represent a set of related co
 This makes them a powerful tool for writing more expressive and self-documenting code.
 
 
+Java `enum` types provide several advantages over using `int` constants:
 
+1. **Type Safety**: Enums provide compile-time type safety. If you try to assign or pass an invalid value, the compiler will give an error. This is not the case with `int` constants, where any integer value is valid from the compiler's perspective.
+
+2. **Code Clarity**: Enum values have meaningful names, which makes your code easier to read and understand. With `int` constants, you need to remember what each integer value represents.
+
+3. **Enumerated Values**: The `values()` method on an enum type returns an array of its values in the order they're declared. This can be useful in many situations, such as looping over all possible values.
+
+4. **Methods and Fields**: Enums in Java are more powerful than in many other languages. You can define methods and fields on an enum type, which can provide functionality related to each enum value.
+
+5. **Singleton**: Each enum value is a singleton, meaning there is only one instance of that value in the JVM. This can be useful in certain design scenarios.
+
+6. **Use in Switch Statements**: Enum values can be used in `switch` statements, providing a more readable alternative to `if-else` chains.
+
+7. **Built-in Methods**: Java provides automatic implementations of `equals()`, `hashCode()`, and `toString()` for enum types, as well as a `valueOf(String)` method that converts a string to an enum value.
+
+8. **Support in Java Libraries**: Many Java libraries and features have built-in support for enums. For example, the `java.util.EnumSet` and `java.util.EnumMap` classes provide high-performance, enum-based set and map implementations.
+
+Overall, while `int` constants can be simpler and use less memory, enums provide many powerful features that make your code safer, more readable, and easier to maintain.
+
+
+Defining new types by aggregating existing types
+------------------------------------------------
+
+Most of the types we've worked with so far represent single values.
+As we are solving increasingly complex problems, we'll want to define types to represent bigger things we build from smaller ones, starting with single values.
+Java's ``record`` types will help us to do exactly that. 
+
+For example, Turtle graphics is a popular way of introducing programming to kids. It was part of the original Logo programming language, which was developed by Wally Feurzeig, Seymour Papert, and Cynthia Solomon in 1967.
+
+The idea is simple and based on a metaphor of a turtle moving around in a 2D space. The turtle holds a pen in one of two positions, up or down. When the pen is down, the turtle draws a line on the plane as it moves. When the pen is up, the turtle moves but doesn't draw anything.
+
+Here are the basic commands in turtle graphics:
+
+1. `FORWARD x` (or `FD x`): Moves the turtle forward in the direction it is currently facing by `x` units.
+2. `BACKWARD x` (or `BK x`): Moves the turtle backward (opposite to the direction it is currently facing) by `x` units.
+3. `RIGHT x` (or `RT x`): Rotates the turtle clockwise by `x` degrees.
+4. `LEFT x` (or `LT x`): Rotates the turtle counterclockwise by `x` degrees.
+5. `PENDOWN` (or `PD`): Puts the pen down so that the turtle will draw as it moves.
+6. `PENUP` (or `PU`): Lifts the pen up so that the turtle will move without drawing.
+7. `SETPOS x y`: Moves the turtle to the specified coordinates.
+8. `SETPENCOLOR x`: Sets the pen color.
+
+The turtle has a position on a plane and an orientation (the direction it is facing). By combining these basic commands, you can create complex drawings. It's a great way to understand the basics of programming, geometry, and the Cartesian coordinate system.
+
+*To explore turtle graphics in modern Java, can you define the relevant enum and record types to represent the position of the turtle?*
+
+We can create a `Position` record to represent the coordinates of the turtle on the plane and a `Direction` enum to represent the direction the turtle is facing. Let's also create a `Turtle` record which has a position and a direction.
+
+Here's how you might do that:
+
+.. code-block:: java
+
+    public record Position(int x, int y) {}
+
+    public record Turtle(Position position, Direction direction) {}
+
+
+This is a simple setup. The `Turtle` has a `Position` and a `Direction`. The `Direction` enum has `turnRight()` and `turnLeft()` methods which return a new `Direction` representing a 90-degree turn in the respective direction.
+
+To move the turtle around the plane, you would create methods that create a new `Position` based on the current `Position` and `Direction`. You would also create methods to turn the turtle by changing its `Direction`. This would maintain the immutability of `Position`, `Direction`, and `Turtle` instances.
+
+We can also add enums to represent pen color and pen state (up/down) to our `Turtle` record:
+
+.. code-block:: java
+
+    public enum PenColor {
+        BLACK, RED, GREEN, BLUE, YELLOW, PURPLE;  // Add more as necessary.
+    }
+    public enum PenState {
+        UP, DOWN;
+    }
+
+Now we can add these to our `Turtle` record:
+
+.. code-block:: java
+
+    public record Turtle(Position position, Direction direction, PenColor penColor, PenState penState) {}
+
+
+This `Turtle` record now contains all necessary information to represent the state of a turtle in a turtle graphics system: its position, the direction it's facing, the color of its pen, and whether the pen is up or down.
+
+Remember that records in Java are immutable, which means that when you want to change the state of the turtle, you'll need to create a new `Turtle` instance with the updated state. This might seem a bit unusual if you're used to working with mutable objects, but it can help make your programs easier to reason about, since you don't have to worry about the state of an object changing over time.
+
+To summarize, Java records are designed to be simple, transparent carriers for immutable data. This is accomplished in the following ways:
+
+1. **Final by Default**: A record class is implicitly final, meaning it cannot be subclassed.
+
+2. **Final Fields**: All fields in a record class are implicitly final. When a record is constructed, its fields are set, and they cannot be changed afterwards.
+
+3. **No Mutable Methods**: There is no way to add methods to a record class that modify its fields, because all fields are final.
+
+4. **Automatic Accessors**: The compiler automatically generates public accessor methods for all fields in a record. These methods simply return the value of the field; they do not allow the field to be changed.
+
+This design makes records a good fit for use cases where you need a class to simply hold a set of values and don't need to change them after the object is created. They are particularly useful in "data-centric" applications where classes often serve as simple data containers. 
+
+It's worth noting that while the fields of a record are immutable, if the fields are references to mutable objects, those objects themselves can still be mutated. This is a common pitfall when dealing with immutability in Java. To avoid this, you might need to make defensive copies of mutable objects, or use immutable objects whenever possible.
+
+
+Defining classes to represent more complex objects with mutable state
+---------------------------------------------------------------------
+
+Java records are indeed a powerful feature that help reduce boilerplate code when defining classes that are meant to be simple "data carriers". However, there are certain situations where using traditional classes can be more appropriate:
+
+1. **Mutable State**: Records are implicitly final and all their fields are final too, meaning once a record is created, it cannot be changed. This immutability is great for many scenarios, but there are situations where mutable state is necessary or more efficient. In such cases, a traditional class would be more suitable.
+
+2. **Inheritance**: Records cannot extend other classes, although they can implement interfaces. If you need inheritance, you'll need to use a traditional class.
+
+3. **Complex Behavior**: If a class needs to encapsulate complex behavior and not just data, a traditional class could be a better fit. The purpose of a record is to be a simple, transparent holder for its data, and to derive all of its semantics directly from that data.
+
+4. **Customization**: Records come with automatically derived implementations of `equals()`, `hashCode()`, and `toString()`. If you need to provide a custom implementation of these methods, you might consider using a traditional class. However, note that you can still customize these methods in a record; the automatically derived implementations are just defaults.
+
+5. **Encapsulation**: If you need to enforce strict control over the access and/or mutation of your class's fields beyond what public, private, and protected access modifiers provide, a traditional class can provide this. Records expose their state as public final fields.
+
+Remember that while records are a great feature, they aren't designed to replace traditional classes in all situations. They are another tool in your toolbox, to be used where they make the most sense.
+
+*How would we represent the 2d draw(r)ing area for the turtle?*
+
+In turtle graphics, the 2D drawing area is often referred to as a "canvas". The canvas can be represented as a 2D array of pixels. Each pixel can have a color, which would be set when the turtle moves with its pen down.
+
+First, we can define a `Pixel` record to represent a pixel on the canvas:
+
+.. code-block:: java
+
+    public record Pixel(PenColor color) {}
+
+
+A pixel has a color, which can be set by the turtle's pen. If the pixel has not been drawn on, its color could be `null` or some default color like `WHITE`.
+
+Then, we can define a `Canvas` class to represent the 2D drawing area:
+
+.. code-block:: java
+
+    public final class Canvas {
+        private final Pixel[][] pixels;
+
+        public Canvas(final int width, final int height) {
+            pixels = new Pixel[height][width];
+            // Initialize all pixels to white.
+            for (final Pixel[] row : pixels) {
+                Arrays.fill(row, new Pixel(PenColor.WHITE));
+            }
+        }
+
+        public Pixel getPixel(final int x, final int y) {
+            return pixels[y][x];
+        }
+
+        public void setPixel(final int x, final int y, final Pixel pixel) {
+            pixels[y][x] = pixel;
+        }
+    }
+
+
+The `Canvas` class contains a 2D array of `Pixel` objects. The `getPixel` method returns the `Pixel` at a specific position, and the `setPixel` method sets the `Pixel` at a specific position.
+
+This is a very basic representation of a canvas for turtle graphics. In a real implementation, you would likely want to add more features and error-checking. For example, you might want to add methods to draw lines or shapes, check if a position is within the bounds of the canvas, etc.
+
+
+
+
+******************************************
+
+
+******************************************
 *CONTENT BELOW HERE TO BE ORGANIZED LATER*
+******************************************
 
 
 Top 15 CS2 topics as opposed to CS7
