@@ -7,15 +7,15 @@
 <meta content="white" media="(prefers-color-scheme: light)" name="theme-color"/>
 <meta content="black" metia="(prefers-color-scheme: dark)" name="theme-color"/>
 <meta content="Docutils 0.18.1: http://docutils.sourceforge.net/" name="generator"/>
-<title>Computer Systems | CS Curricula v2023-05-17 documentation</title>
-<meta content="Computer Systems | CS Curricula v2023-05-17 documentation" property="og:title"/>
-<meta content="Computer Systems | CS Curricula v2023-05-17 documentation" name="twitter:title"/>
+<title>Performance/Benchmarking | CS Curricula v2023-05-17 documentation</title>
+<meta content="Performance/Benchmarking | CS Curricula v2023-05-17 documentation" property="og:title"/>
+<meta content="Performance/Benchmarking | CS Curricula v2023-05-17 documentation" name="twitter:title"/>
 <link href="../_static/pygments.css" rel="stylesheet"/>
 <link href="../_static/theme.a16405b310edf0713aee.css" rel="stylesheet"/>
 <link href="../search.html" rel="search" title="Search"/>
 <link href="../genindex.html" rel="index" title="Index"/>
-<link href="../30-software-engineering/content.html" rel="next" title="Software Engineering"/>
-<link href="../20-languages/content.html" rel="prev" title="Programming Languages"/>
+<link href="../80-pedagogy-crosscutting/content.html" rel="next" title="Pedagogical Considerations Cutting Across the Curriculum"/>
+<link href="../30-software-engineering/content.html" rel="prev" title="Software Engineering"/>
 <script>
     <!-- Prevent Flash of wrong theme -->
       const userPreference = localStorage.getItem('darkMode');
@@ -81,9 +81,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../12-discrete-structures/content.html">Discrete Structures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../15-cs2/content.html">Data Structures 1</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../20-languages/content.html">Programming Languages</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Computer Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../25-systems/content.html">Computer Systems</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../30-software-engineering/content.html">Software Engineering</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../40-perf-benchmarks/content.html">Performance/Benchmarking</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Performance/Benchmarking</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../80-pedagogy-crosscutting/content.html">Pedagogical Considerations Cutting Across the Curriculum</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../95-chatgpt-limitations/content.html">Understanding the Limitations of ChatGPT</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../98-openai/content.html">Background</a></li>
@@ -107,23 +107,135 @@
 <path d="M240 856h120V616h240v240h120V496L480 316 240 496v360Zm-80 80V456l320-240 320 240v480H520V696h-80v240H160Zm320-350Z"></path>
 </svg>
 </a>
-<div class="mr-1">/</div><span aria-current="page" class="font-medium text-foreground overflow-hidden text-ellipsis whitespace-nowrap">Computer Systems</span>
+<div class="mr-1">/</div><span aria-current="page" class="font-medium text-foreground overflow-hidden text-ellipsis whitespace-nowrap">Performance/Benchmarking</span>
 </nav>
 <div id="content" role="main">
-<section id="computer-systems">
-<h1>Computer Systems<a class="headerlink" href="#computer-systems" title="Permalink to this heading">¶</a></h1>
-<dl class="simple">
-<dt>Historical Term</dt><dd><p>Computer Organization?</p>
-</dd>
-<dt>Loyola University Chicago</dt><dd><p><a class="reference external" href="https://academics.cs.luc.edu/courses/comp264.html">COMP 264</a></p>
-</dd>
-</dl>
+<section id="performance-benchmarking">
+<h1>Performance/Benchmarking<a class="headerlink" href="#performance-benchmarking" title="Permalink to this heading">¶</a></h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>George</p>
+<p>This section is inspired by my discusions with Isaac Ahlgren, who is working with me and Neil Klingensmith on research in context-based authentication and secure containerization. More to come!</p>
 </div>
+<section id="motivation">
+<h2>Motivation<a class="headerlink" href="#motivation" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#motivation'">¶</a></h2>
+<p>Understanding theoretical running time is greatly emphasized in CS curricula.
+This is vitally important but can be greatly improved by measuring <em>actual</em> performance (empirical/experimental analysis), which is a longstanding tradition in subdisciplines, e.g. high-performance and distributed computing systems.
+This section aims to help students understand the state-of-the-art for measuring CPU, I/O, and Networking (a form of I/O) performance.</p>
 </section>
-</div></div>
+<section id="tools">
+<h2>Tools<a class="headerlink" href="#tools" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#tools'">¶</a></h2>
+<p>The following benchmarks are common for analyzing CPU, I/O, and Network performnance.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20%"/>
+<col style="width: 50%"/>
+<col style="width: 30%"/>
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Title</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>URL</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Cinebench</p></td>
+<td><p>Based on the Cinema 4D software, it tests the performance of CPUs at rendering 3D scenes.</p></td>
+<td><p><a class="reference external" href="https://www.maxon.net/en/cinebench">https://www.maxon.net/en/cinebench</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Geekbench</p></td>
+<td><p>A cross-platform benchmark that measures the CPU and memory subsystem performance through different workloads.</p></td>
+<td><p><a class="reference external" href="https://www.geekbench.com/">https://www.geekbench.com/</a></p></td>
+</tr>
+<tr class="row-even"><td><p>Prime95</p></td>
+<td><p>Although mainly used for stress testing CPUs (especially for overclockers), it’s also used for CPU benchmarking.</p></td>
+<td><p><a class="reference external" href="https://www.mersenne.org/download/">https://www.mersenne.org/download/</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>SPEC CPU</p></td>
+<td><p>The Standard Performance Evaluation Corporation (SPEC) CPU benchmark is a well-respected benchmark for comparing high-performance CPUs in various applications.</p></td>
+<td><p><a class="reference external" href="https://www.spec.org/cpu2017/">https://www.spec.org/cpu2017/</a></p></td>
+</tr>
+<tr class="row-even"><td><p>Linpack / Intel Linpack</p></td>
+<td><p>Linpack is a software library for performing numerical linear algebra on digital computers. The Intel-optimized version is often used for benchmarking high-performance computing systems.</p></td>
+<td><p><a class="reference external" href="https://software.intel.com/content/www/us/en/develop/articles/intel-math-kernel-library-linpack-download.html">https://software.intel.com/content/www/us/en/develop/articles/intel-math-kernel-library-linpack-download.html</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Iometer</p></td>
+<td><p>This is an I/O subsystem measurement and characterization tool for single and clustered systems.</p></td>
+<td><p><a class="reference external" href="http://www.iometer.org/">http://www.iometer.org/</a></p></td>
+</tr>
+<tr class="row-even"><td><p>CrystalDiskMark</p></td>
+<td><p>A disk benchmark software that analyzes the drive’s read and write speeds across multiple data block sizes.</p></td>
+<td><p><a class="reference external" href="https://crystalmark.info/en/software/crystaldiskmark/">https://crystalmark.info/en/software/crystaldiskmark/</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>ATTO Disk Benchmark</p></td>
+<td><p>ATTO Disk Benchmark measures storage systems’ performance with various transfer sizes and test lengths for reads and writes.</p></td>
+<td><p><a class="reference external" href="https://www.atto.com/disk-benchmark/">https://www.atto.com/disk-benchmark/</a></p></td>
+</tr>
+<tr class="row-even"><td><p>fio</p></td>
+<td><p>It is a versatile I/O workload generator that can be used both for benchmarking and for verifying storage subsystems.</p></td>
+<td><p><a class="reference external" href="https://fio.readthedocs.io/en/latest/fio_doc.html">https://fio.readthedocs.io/en/latest/fio_doc.html</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>HD Tune</p></td>
+<td><p>HD Tune is a hard disk / SSD utility that includes various functions like measuring the drive’s performance, scanning for errors, checking the health status.</p></td>
+<td><p><a class="reference external" href="http://www.hdtune.com/">http://www.hdtune.com/</a></p></td>
+</tr>
+<tr class="row-even"><td><p>iPerf / iPerf3</p></td>
+<td><p>iPerf is a widely used network testing tool that can create TCP and UDP data streams and measure the throughput of a network that is carrying them.</p></td>
+<td><p><a class="reference external" href="https://iperf.fr/">https://iperf.fr/</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Netperf</p></td>
+<td><p>Netperf is another benchmark that can be used to measure the performance of different types of networking.</p></td>
+<td><p><a class="reference external" href="https://www.netperf.org/netperf/">https://www.netperf.org/netperf/</a></p></td>
+</tr>
+<tr class="row-even"><td><p>Ping and Traceroute</p></td>
+<td><p>While they are not benchmarks in the traditional sense, ping and traceroute are often used in network diagnostics to measure round-trip time for packets and to trace the route packets take to reach a destination.</p></td>
+<td><p>Built into most operating systems</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cpu-benchmarking">
+<h2>CPU Benchmarking<a class="headerlink" href="#cpu-benchmarking" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#cpu-benchmarking'">¶</a></h2>
+<p>Top CPU-Only Benchmarking Tools</p>
+<ol class="arabic simple">
+<li><p><strong>Cinebench</strong>: Based on the Cinema 4D software, it tests the performance of CPUs at rendering 3D scenes.</p></li>
+<li><p><strong>Geekbench</strong>: A cross-platform benchmark that measures the CPU and memory subsystem performance through different workloads.</p></li>
+<li><p><strong>Prime95</strong>: Although mainly used for stress testing CPUs (especially for overclockers), it’s also used for CPU benchmarking.</p></li>
+<li><p><strong>SPEC CPU</strong>: The Standard Performance Evaluation Corporation (SPEC) CPU benchmark is a well-respected benchmark for comparing high-performance CPUs in various applications, often used in professional and scientific computing contexts.</p></li>
+<li><p><strong>Linpack / Intel Linpack</strong>: Linpack is a software library for performing numerical linear algebra on digital computers. The Intel-optimized version is often used for benchmarking high-performance computing systems, focusing on CPU and memory performance.</p></li>
+</ol>
+</section>
+<section id="i-o-benchmarking">
+<h2>I/O Benchmarking<a class="headerlink" href="#i-o-benchmarking" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#i-o-benchmarking'">¶</a></h2>
+<p>Top I/O Benchmarking Tools</p>
+<ol class="arabic simple">
+<li><p><strong>Iometer</strong>: This is an I/O subsystem measurement and characterization tool for single and clustered systems. It’s widely used by storage vendors and industry analysts to benchmark network and local storage.</p></li>
+<li><p><strong>CrystalDiskMark</strong>: It is a disk benchmark software that analyzes the drive’s read and write speeds across multiple data block sizes.</p></li>
+<li><p><strong>ATTO Disk Benchmark</strong>: ATTO Disk Benchmark measures storage systems’ performance with various transfer sizes and test lengths for reads and writes.</p></li>
+<li><p><strong>fio (Flexible I/O Tester)</strong>: It is a versatile I/O workload generator that can be used both for benchmarking and for verifying storage subsystems.</p></li>
+<li><p><strong>HD Tune</strong>: HD Tune is a hard disk / SSD utility that includes various functions like measuring the drive’s performance, scanning for errors, checking the health status, and securely erasing all data.</p></li>
+</ol>
+</section>
+<section id="network-benchmarking">
+<h2>Network Benchmarking<a class="headerlink" href="#network-benchmarking" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#network-benchmarking'">¶</a></h2>
+<p>Top Network Performance Benchmarking Tools</p>
+<ol class="arabic simple">
+<li><p><strong>iPerf / iPerf3</strong>: iPerf is a widely used network testing tool that can create TCP and UDP data streams and measure the throughput of a network that is carrying them. It’s very effective for testing bandwidth and quality of a network link.</p></li>
+<li><p><strong>Netperf</strong>: Netperf is another benchmark that can be used to measure the performance of different types of networking. It provides a number of predefined tests such as TCP and UDP throughput tests and can provide detailed information about network latency and jitter.</p></li>
+<li><p><strong>Ping and Traceroute</strong>: While they are not benchmarks in the traditional sense, ping and traceroute are often used in network diagnostics to measure round-trip time for packets and to trace the route packets take to reach a destination. They can provide useful information for understanding network latency and routing issues.</p></li>
+</ol>
+</section>
+</section>
+</div></div><aside class="hidden text-sm xl:block" id="right-sidebar">
+<div class="sticky top-16 -mt-10 max-h-[calc(var(--vh)-4rem)] overflow-y-auto pt-6 space-y-2"><p class="font-medium">On this page</p>
+<ul>
+<li><a :data-current="activeSection === '#motivation'" class="reference internal" href="#motivation">Motivation</a></li>
+<li><a :data-current="activeSection === '#tools'" class="reference internal" href="#tools">Tools</a></li>
+<li><a :data-current="activeSection === '#cpu-benchmarking'" class="reference internal" href="#cpu-benchmarking">CPU Benchmarking</a></li>
+<li><a :data-current="activeSection === '#i-o-benchmarking'" class="reference internal" href="#i-o-benchmarking">I/O Benchmarking</a></li>
+<li><a :data-current="activeSection === '#network-benchmarking'" class="reference internal" href="#network-benchmarking">Network Benchmarking</a></li>
+</ul>
+</div>
+</aside>
 </main>
 </div>
 </div><footer class="py-6 border-t border-border md:py-0">
