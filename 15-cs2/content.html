@@ -218,6 +218,102 @@
 </section>
 <section id="defining-new-finite-enumerated-types">
 <h2>Defining new finite enumerated types<a class="headerlink" href="#defining-new-finite-enumerated-types" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#defining-new-finite-enumerated-types'">¶</a></h2>
+<p>Many programming languages have the abililty to define new types to help us model our specific domain problems more effectively.
+For example, we might want to model the cardinal directions (North, East, South, West).
+In Java, we can define a new <code class="docutils literal notranslate"><span class="pre">enum</span></code> type for this purpose.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">enum</span><span class="w"> </span><span class="n">CardinalDirection</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">NORTH</span><span class="p">,</span><span class="w"> </span><span class="n">EAST</span><span class="p">,</span><span class="w"> </span><span class="n">SOUTH</span><span class="p">,</span><span class="w"> </span><span class="n">WEST</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>We can also define behaviors on our new type:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kd">class</span> <span class="nc">CardinalDirectionOperations</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">CardinalDirection</span><span class="w"> </span><span class="nf">opposite</span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="n">CardinalDirection</span><span class="w"> </span><span class="n">direction</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">direction</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="n">NORTH</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">CardinalDirection</span><span class="p">.</span><span class="na">SOUTH</span><span class="p">;</span>
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="n">SOUTH</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">CardinalDirection</span><span class="p">.</span><span class="na">NORTH</span><span class="p">;</span>
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="n">EAST</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">CardinalDirection</span><span class="p">.</span><span class="na">WEST</span><span class="p">;</span>
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="n">WEST</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">CardinalDirection</span><span class="p">.</span><span class="na">EAST</span><span class="p">;</span>
+<span class="w">        </span><span class="p">};</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">CardinalDirection</span><span class="w"> </span><span class="nf">turnRight</span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="n">CardinalDirection</span><span class="w"> </span><span class="n">direction</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">direction</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="n">NORTH</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">CardinalDirection</span><span class="p">.</span><span class="na">EAST</span><span class="p">;</span>
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="n">EAST</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">CardinalDirection</span><span class="p">.</span><span class="na">SOUTH</span><span class="p">;</span>
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="n">SOUTH</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">CardinalDirection</span><span class="p">.</span><span class="na">WEST</span><span class="p">;</span>
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="n">WEST</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">CardinalDirection</span><span class="p">.</span><span class="na">NORTH</span><span class="p">;</span>
+<span class="w">        </span><span class="p">};</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">CardinalDirection</span><span class="w"> </span><span class="nf">turnLeft</span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="n">CardinalDirection</span><span class="w"> </span><span class="n">direction</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">direction</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="n">NORTH</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">CardinalDirection</span><span class="p">.</span><span class="na">WEST</span><span class="p">;</span>
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="n">WEST</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">CardinalDirection</span><span class="p">.</span><span class="na">SOUTH</span><span class="p">;</span>
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="n">SOUTH</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">CardinalDirection</span><span class="p">.</span><span class="na">EAST</span><span class="p">;</span>
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="n">EAST</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">CardinalDirection</span><span class="p">.</span><span class="na">NORTH</span><span class="p">;</span>
+<span class="w">        </span><span class="p">};</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Now, you can use this type and these behaviors in your code:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Main</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="n">direction</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CardinalDirection</span><span class="p">.</span><span class="na">NORTH</span><span class="p">;</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Turn right from "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">direction</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">" to get "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">CardinalDirectionOperations</span><span class="p">.</span><span class="na">turnRight</span><span class="p">(</span><span class="n">direction</span><span class="p">));</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Turn left from "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">direction</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">" to get "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">CardinalDirectionOperations</span><span class="p">.</span><span class="na">turnLeft</span><span class="p">(</span><span class="n">direction</span><span class="p">));</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Alternatively, the object-oriented approach supports the idea that these behaviors are closely associated with the values themselves.
+Therefore, object-oriented languages, such as Java, allow us to declare and implement these behaviors within the definition of the <code class="docutils literal notranslate"><span class="pre">enum</span></code> type:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">enum</span><span class="w"> </span><span class="n">CardinalDirection</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">NORTH</span><span class="p">,</span><span class="w"> </span><span class="n">EAST</span><span class="p">,</span><span class="w"> </span><span class="n">SOUTH</span><span class="p">,</span><span class="w"> </span><span class="n">WEST</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">CardinalDirection</span><span class="w"> </span><span class="nf">opposite</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="n">NORTH</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">SOUTH</span><span class="p">;</span>
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="n">SOUTH</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">NORTH</span><span class="p">;</span>
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="n">EAST</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">WEST</span><span class="p">;</span>
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="n">WEST</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">EAST</span><span class="p">;</span>
+<span class="w">        </span><span class="p">};</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">CardinalDirection</span><span class="w"> </span><span class="nf">turnRight</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="n">NORTH</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">EAST</span><span class="p">;</span>
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="n">EAST</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">SOUTH</span><span class="p">;</span>
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="n">SOUTH</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">WEST</span><span class="p">;</span>
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="n">WEST</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">NORTH</span><span class="p">;</span>
+<span class="w">        </span><span class="p">};</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">CardinalDirection</span><span class="w"> </span><span class="nf">turnLeft</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="n">NORTH</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">WEST</span><span class="p">;</span>
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="n">WEST</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">SOUTH</span><span class="p">;</span>
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="n">SOUTH</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">EAST</span><span class="p">;</span>
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="n">EAST</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">NORTH</span><span class="p">;</span>
+<span class="w">        </span><span class="p">};</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Now, you can use these methods in your code:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Main</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="n">direction</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CardinalDirection</span><span class="p">.</span><span class="na">NORTH</span><span class="p">;</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Turn right from "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">direction</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">" to get "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">direction</span><span class="p">.</span><span class="na">turnRight</span><span class="p">());</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Turn left from "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">direction</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">" to get "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">direction</span><span class="p">.</span><span class="na">turnLeft</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This demonstrates how enums in Java can be used to represent a set of related constants, and how they can also include behavior.
+This makes them a powerful tool for writing more expressive and self-documenting code.</p>
 <p><em>CONTENT BELOW HERE TO BE ORGANIZED LATER</em></p>
 </section>
 <section id="top-15-cs2-topics-as-opposed-to-cs7">
