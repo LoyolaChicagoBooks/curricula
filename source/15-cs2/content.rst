@@ -54,6 +54,22 @@ Please note that this list is not exhaustive, and the topics covered in a specif
 .. note:: Konstantin will take it from here.
 
 
+The curated short list of top 10 topics in order
+------------------------------------------------
+
+0. Transition from CS1
+1. User-defined types
+2. Arrays and array-based lists
+3. Maps and sets
+4. Stacks
+5. Queues
+6. Recursion
+7. Searching
+8. Sorting
+9. Linked lists
+10. Intro to trees and search trees
+
+
 Warmup: conditionals, loops, arrays, and unit testing
 -----------------------------------------------------
 
@@ -108,7 +124,8 @@ Here's how the code works:
 
 - The `testFindMax` method is a unit test for the `findMax` method. It tests the method with an array of positive numbers, an array of negative numbers, an empty array, and `null`. It uses assertions to verify that the method returns the expected results.
 
-Note: This code uses JUnit 5 for unit testing. If you're using a different version of JUnit or a different testing framework, the code for the test may need to be adjusted accordingly. Also, remember that `var` can't be used with array in Java, as the language doesn't support this style yet.
+.. note::
+    This code uses JUnit 5 for unit testing. If you're using a different version of JUnit or a different testing framework, the code for the test may need to be adjusted accordingly. Also, remember that `var` can't be used with array in Java, as the language doesn't support this style yet.
 
 
 Limitations of primitive types
@@ -155,11 +172,14 @@ In particular, it's not clear without looking at the documentation or the implem
 Also, if you need to add a new direction (like northeast, for example), you would need to update every switch statement or if-else chain that operates on directions.
 
 
-Defining new enumerated scalar types
-------------------------------------
+Finite enumeration types
+------------------------
+
+Enumeration types (enums) enable the creation of user-defined data types consisting of a fixed set of named values. Enums provide better type safety and clarity compared to using plain integers or strings to represent a set of related values.
 
 Many programming languages have the abililty to define new types to help us model our specific domain problems more effectively. 
 For example, we might want to model the cardinal directions (North, East, South, West).
+
 In Java, we can define a new ``enum`` type for this purpose.
 
 .. code-block:: java
@@ -288,8 +308,8 @@ Java `enum` types provide several advantages over using `int` constants:
 Overall, while `int` constants can be simpler and use less memory, enums provide many powerful features that make your code safer, more readable, and easier to maintain.
 
 
-Defining new types by aggregating existing types
-------------------------------------------------
+Aggregating values using records
+--------------------------------
 
 Most of the types we've worked with so far represent single values.
 As we are solving increasingly complex problems, we'll want to define types to represent bigger things we build from smaller ones, starting with single values.
@@ -349,7 +369,8 @@ Now we can add these to our `Turtle` record:
 
 This `Turtle` record now contains all necessary information to represent the state of a turtle in a turtle graphics system: its position, the direction it's facing, the color of its pen, and whether the pen is up or down.
 
-Remember that records in Java are immutable, which means that when you want to change the state of the turtle, you'll need to create a new `Turtle` instance with the updated state. This might seem a bit unusual if you're used to working with mutable objects, but it can help make your programs easier to reason about, since you don't have to worry about the state of an object changing over time.
+.. note:: 
+    Remember that records in Java are immutable, which means that when you want to change the state of the turtle, you'll need to create a new `Turtle` instance with the updated state. This might seem a bit unusual if you're used to working with mutable objects, but it can help make your programs easier to reason about, since you don't have to worry about the state of an object changing over time.
 
 To summarize, Java records are designed to be simple, transparent carriers for immutable data. This is accomplished in the following ways:
 
@@ -363,11 +384,12 @@ To summarize, Java records are designed to be simple, transparent carriers for i
 
 This design makes records a good fit for use cases where you need a class to simply hold a set of values and don't need to change them after the object is created. They are particularly useful in "data-centric" applications where classes often serve as simple data containers. 
 
-It's worth noting that while the fields of a record are immutable, if the fields are references to mutable objects, those objects themselves can still be mutated. This is a common pitfall when dealing with immutability in Java. To avoid this, you might need to make defensive copies of mutable objects, or use immutable objects whenever possible.
+.. note:: 
+    It's worth noting that while the fields of a record are immutable, if the fields are references to mutable objects, those objects themselves can still be mutated. This is a common pitfall when dealing with immutability in Java. To avoid this, you might need to make defensive copies of mutable objects, or use immutable objects whenever possible.
 
 
-Defining classes to represent more complex objects with mutable state
----------------------------------------------------------------------
+Classes with mutable state
+--------------------------
 
 Java records are indeed a powerful feature that help reduce boilerplate code when defining classes that are meant to be simple "data carriers". However, there are certain situations where using traditional classes can be more appropriate:
 
@@ -396,6 +418,21 @@ First, we can define a `Pixel` record to represent a pixel on the canvas:
 
 A pixel has a color, which can be set by the turtle's pen. If the pixel has not been drawn on, its color could be `null` or some default color like `WHITE`.
 
+*How important is it to represent Pixel separate from PenColor?*
+
+Pros:
+
+- Flexibility: If you decide to add more properties to a pixel in the future (like transparency, brightness, etc.), it would be easier with a separate Pixel class.
+- Clarity: It makes the code more self-explanatory, as it's clear that the canvas is made up of pixels, not colors.
+- Abstraction: Pixel can encapsulate behavior related to a pixel, such as changing its properties or computing derived properties.
+
+Cons:
+
+- Overhead: It introduces additional complexity into the code, especially if each Pixel instance is its own object.
+- Memory Usage: If there are many Pixel objects, this could take up more memory compared to just storing the PenColor values directly.
+- Performance: Accessing and manipulating Pixel objects could be slower compared to working with PenColor values directly.
+
+
 Then, we can define a `Canvas` class to represent the 2D drawing area:
 
 .. code-block:: java
@@ -406,7 +443,7 @@ Then, we can define a `Canvas` class to represent the 2D drawing area:
         public Canvas(final int width, final int height) {
             pixels = new Pixel[height][width];
             // Initialize all pixels to white.
-            for (final Pixel[] row : pixels) {
+            for (final var row : pixels) {
                 Arrays.fill(row, new Pixel(PenColor.WHITE));
             }
         }
@@ -425,6 +462,270 @@ The `Canvas` class contains a 2D array of `Pixel` objects. The `getPixel` method
 
 This is a very basic representation of a canvas for turtle graphics. In a real implementation, you would likely want to add more features and error-checking. For example, you might want to add methods to draw lines or shapes, check if a position is within the bounds of the canvas, etc.
 
+.. note:: 
+    In Java, final parameters are often used to clarify that an input parameter value will not be changed within the method. This can make the code easier to understand, because it's clear from the method signature that the method does not modify the input parameters.
+
+    The final keyword in the enhanced for loop ensures that the loop variable row cannot be reassigned within the loop. This can help prevent bugs, because it makes it clear that the loop variable is not supposed to change after it has been initialized.
+
+
+To draw letters on the canvas using turtle graphics, we first need to define some movements for our `Turtle` that correspond to drawing each letter. This can get quite complex, so for simplicity, let's define some basic movements that can be used to draw a very simplified version of the letters "L", "U", and "C". We'll use an 8x8 grid for each letter.
+
+Let's assume that we start at the bottom left corner of the 'L', move up to draw the vertical line, then move right to draw the horizontal line. Then we'll lift the pen, move to the starting position for the 'U' and so on.
+
+Here's a very basic main method illustrating this:
+
+.. code-block:: java
+
+    public static void main(final String[] args) {
+        final var canvas = new Canvas(24, 8);
+        final var turtle = new Turtle(new Position(0, 0), CardinalDirection.NORTH, Pen.UP, PenColor.BLACK);
+
+        // Draw 'L'
+        turtle.setPen(Pen.DOWN);
+        turtle.move(6, canvas); // Vertical line
+        turtle.setDirection(CardinalDirection.WEST);
+        turtle.move(6, canvas); // Horizontal line
+
+        // Lift pen and move to start of 'U'
+        turtle.setPen(Pen.UP);
+        turtle.setDirection(CardinalDirection.EAST);
+        turtle.move(8, canvas); // Space between letters
+        turtle.setDirection(CardinalDirection.NORTH);
+        turtle.move(6, canvas); // Move to top of next letter
+
+        // Draw 'U'
+        turtle.setPen(Pen.DOWN);
+        turtle.setDirection(CardinalDirection.SOUTH);
+        turtle.move(6, canvas); // First vertical line
+        turtle.setDirection(CardinalDirection.EAST);
+        turtle.move(6, canvas); // Horizontal line
+        turtle.setDirection(CardinalDirection.NORTH);
+        turtle.move(6, canvas); // Second vertical line
+
+        // Lift pen and move to start of 'C'
+        turtle.setPen(Pen.UP);
+        turtle.setDirection(CardinalDirection.EAST);
+        turtle.move(8, canvas); // Space between letters
+
+        // Draw 'C'
+        turtle.setPen(Pen.DOWN);
+        turtle.setDirection(CardinalDirection.SOUTH);
+        turtle.move(6, canvas); // First vertical line
+        turtle.setDirection(CardinalDirection.EAST);
+        turtle.move(6, canvas); // Horizontal line at the bottom
+        turtle.setDirection(CardinalDirection.NORTH);
+        turtle.move(6, canvas); // Second vertical line
+        turtle.setDirection(CardinalDirection.WEST);
+        turtle.move(6, canvas); // Horizontal line at the top
+
+        // Print the canvas (for demonstration purposes, represent black pixels with 'X' and white pixels with ' ')
+        for (final var row : canvas.getPixels()) {
+            for (final var pixel : row) {
+                System.out.print(pixel.getColor() == PenColor.BLACK ? 'X' : ' ');
+            }
+            System.out.println();
+        }
+    }
+
+
+This is a very simplified example, and the letters won't look very good, especially the 'U' and 'C' which are supposed to have curves. In a real-world turtle graphics system, you would have commands to draw curves and diagonal lines, and you would probably use a much larger grid for better resolution.
+
+
+Arrays and array-based lists
+----------------------------
+
+Let's move on to the next major CS2 topic, Array and ArrayList: Please describe these structures and provide an example of each to help me gain an Understanding of these basic data structures, their uses, and limitations.
+
+Certainly! Let's explore the Array and ArrayList data structures.
+
+**Array:**
+An array is a fixed-size data structure that stores elements of the same type in contiguous memory locations. It provides random access to its elements using indices. Arrays have a predetermined length that is defined at the time of declaration, and this length cannot be changed once the array is created.
+
+Here's an example of creating and using an array in Java:
+
+.. code-block:: java
+
+    final var numbers = new int[5]; // Creating an array of integers with a length of 5
+
+    numbers[0] = 10; // Assigning a value to the first element
+    numbers[1] = 20; // Assigning a value to the second element
+
+    System.out.println(numbers[0]); // Accessing and printing the value of the first element
+    System.out.println(numbers[1]); // Accessing and printing the value of the second element
+
+
+In this example, we create an array called `numbers` with a length of 5. We can assign values to specific elements using index notation (`numbers[index] = value`) and access the values using the same notation (`numbers[index]`). Arrays provide constant-time access to any element, making it efficient to retrieve or modify elements by their index.
+
+Arrays have a fixed size, so adding or removing elements requires creating a new array with the desired size and copying the existing elements. This can be cumbersome and inefficient if the size of the array needs to change frequently.
+
+**ArrayList:**
+The ArrayList is a dynamic data structure provided by the Java Collections Framework. It is implemented as an array internally, but it automatically manages the resizing and reallocation of memory as elements are added or removed. Unlike regular arrays, ArrayLists can grow or shrink dynamically to accommodate the number of elements.
+
+Here's an example of creating and using an ArrayList in Java:
+
+.. code-block:: java
+
+    import java.util.ArrayList;
+
+    final var numbersList = new ArrayList<Integer>(); // Creating an ArrayList of integers
+
+    numbersList.add(10); // Adding an element to the ArrayList
+    numbersList.add(20); // Adding another element to the ArrayList
+
+    System.out.println(numbersList.get(0)); // Accessing and printing the value of the first element
+    System.out.println(numbersList.get(1)); // Accessing and printing the value of the second element
+
+In this example, we create an ArrayList called `numbersList` to store integers. We can add elements to the ArrayList using the `add` method and access the elements using the `get` method. ArrayLists provide similar functionality as arrays but with the added benefit of dynamic resizing.
+
+ArrayLists automatically handle memory allocation and resizing behind the scenes. When the ArrayList reaches its initial capacity, it automatically increases its size by allocating a new array and copying the elements from the old array to the new one. This dynamic resizing makes ArrayLists more flexible than regular arrays when it comes to adding or removing elements.
+
+It's important to note that ArrayLists have a small performance overhead compared to regular arrays due to the dynamic resizing and memory management operations. If you need constant-time access to elements by index and the size of the collection is fixed, arrays may be more suitable. However, if you require a flexible and resizable collection, ArrayLists provide a convenient solution.
+
+Both arrays and ArrayLists have their own use cases and limitations, and the choice between them depends on the specific requirements of the problem you are solving.
+
+While ArrayLists offer flexibility and convenience, there are a few disadvantages to consider:
+
+1. **Memory Overhead**: ArrayLists have a higher memory overhead compared to arrays. In addition to storing the actual elements, ArrayLists also maintain internal bookkeeping information such as the array capacity and size. This extra memory usage can be a concern if memory efficiency is critical in your application.
+
+2. **Insertion and Deletion in the Middle**: Inserting or removing elements in the middle of an ArrayList can be less efficient compared to appending elements at the end. When an element is inserted or removed in the middle, the ArrayList needs to shift subsequent elements, which requires additional time. If you frequently perform operations that involve insertion or deletion in the middle, a different data structure like a linked list may be more suitable.
+
+3. **Primitive Types Boxing/Unboxing**: ArrayLists in Java can only store objects, so when working with primitive types (e.g., `int`, `char`, etc.), they are automatically boxed into their corresponding wrapper classes (e.g., `Integer`, `Character`, etc.). This process of autoboxing and unboxing can lead to a slight performance overhead and increased memory usage.
+
+4. **Synchronized Access**: ArrayLists are not inherently thread-safe. If you need to use ArrayLists in a multi-threaded environment, you must ensure proper synchronization to avoid concurrent modification issues. This can add complexity and potential overhead in terms of performance.
+
+5. **Resizing Impact**: When an ArrayList needs to resize its internal array, it creates a new array with a larger size and copies the elements from the old array to the new one. This resizing operation can be time-consuming, especially if the ArrayList contains a large number of elements. If you know the approximate size requirements in advance, initializing the ArrayList with an initial capacity can help mitigate frequent resizing.
+
+Despite these disadvantages, ArrayLists remain a widely used data structure due to their flexibility, ease of use, and the convenience provided by the Java Collections Framework. Understanding the limitations and trade-offs of ArrayLists can help you make informed decisions when selecting the appropriate data structure for your specific needs.
+
+
+.. todo:: main methods of ArrayList
+
+.. todo:: sample implementation
+
+
+Maps
+----
+
+.. todo:: motivation
+
+.. todo:: example
+
+.. todo:: main methods of ArrayList
+
+.. todo:: sample implementation
+
+
+
+Sets
+----
+
+.. todo:: motivation
+
+.. todo:: example
+
+.. todo:: main methods of ArrayList
+
+.. todo:: sample implementation
+
+
+
+Stacks
+------
+
+.. todo:: motivation
+
+.. todo:: example
+
+.. todo:: main methods
+
+.. todo:: sample implementation
+
+
+In modern Java (Java 17), you can use the `Deque` interface and the `ArrayDeque` class to implement a LIFO stack. 
+
+The `Deque` interface, short for "double-ended queue," provides operations to add and remove elements from both ends of the queue. By using the `push` and `pop` methods of `Deque`, you can achieve LIFO behavior, similar to a stack.
+
+Here's an example of using `Deque` and `ArrayDeque` as a LIFO stack:
+
+.. code-block:: java
+
+    import java.util.*;
+
+    public class Main {
+        public static void main(String[] args) {
+            Deque<Integer> stack = new ArrayDeque<>();
+            stack.push(1);
+            stack.push(2);
+            stack.push(3);
+
+            while (!stack.isEmpty()) {
+                System.out.println(stack.pop()); // Output: 3, 2, 1
+            }
+        }
+    }
+
+
+In this example, we create a `Deque` implementation using `ArrayDeque`. Elements are added to the stack using the `push` method, and they are removed using the `pop` method. The `push` operation adds elements to the top of the stack, and the `pop` operation removes and returns the topmost element.
+
+The output demonstrates the LIFO behavior of the stack, where elements `3`, `2`, and `1` are printed in reverse order.
+
+Using `Deque` with `ArrayDeque` for a LIFO stack provides efficient and convenient operations for adding and removing elements at the top of the stack. The `ArrayDeque` implementation offers good performance characteristics and can dynamically resize as needed to accommodate elements.
+
+It's worth noting that using `Deque` instead of the legacy `Stack` class is recommended, as `Stack` is a subclass of `Vector`, which has certain synchronization overhead and is considered less efficient in modern Java applications.
+
+
+Queues
+------
+
+.. todo:: example
+
+.. todo:: main methods
+
+.. todo:: sample implementation
+
+
+A unified view of restricted-access data structures
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If you specifically want to refer to data structures like stacks and queues which follow particular kinds of insertion and removal patterns (Last-In-First-Out for stacks and First-In-First-Out for queues), a term often used is "Restricted Access Data Structures". These structures restrict access to their elements based on specific rules, unlike arrays or lists which allow access to any element at any time. 
+
+But keep in mind that the term "Restricted Access Data Structures" isn't a widely recognized standard term, and its meaning could vary depending on the context or source. The usage and understanding of these terminologies can differ slightly between different textbooks, resources, or educators.
+
+
+The `Collections.asLifoQueue` method is typically used to adapt a `Deque` (double-ended queue) implementation as a Last-In-First-Out (LIFO) queue. It returns a view of the specified `Deque` as a LIFO queue, which means that elements are accessed in the reverse order of their insertion.
+
+Here's an example usage scenario to illustrate its purpose:
+
+.. code-block:: java
+
+    import java.util.*;
+
+    public class Main {
+        public static void main(String[] args) {
+            Deque<Integer> deque = new ArrayDeque<>();
+            deque.push(1);
+            deque.push(2);
+            deque.push(3);
+
+            Queue<Integer> lifoQueue = Collections.asLifoQueue(deque);
+            System.out.println(lifoQueue.poll()); // Output: 3
+            System.out.println(lifoQueue.poll()); // Output: 2
+            System.out.println(lifoQueue.poll()); // Output: 1
+        }
+    }
+
+
+In this example, we have a `Deque` implementation (`ArrayDeque`) where elements are pushed using the `push` method, which adds elements to the front of the deque. By using `Collections.asLifoQueue`, we adapt the `Deque` as a LIFO queue. The `lifoQueue` variable is now a view of the `deque` object but behaves like a LIFO queue.
+
+By calling `poll` on the `lifoQueue`, we retrieve elements in the reverse order of their insertion. In this case, the elements `3`, `2`, and `1` are retrieved in LIFO order.
+
+The `Collections.asLifoQueue` method is useful when you have an existing `Deque` implementation and need to work with it as a LIFO queue. It provides a convenient way to adapt the `Deque` interface to the `Queue` interface with LIFO behavior. This can be beneficial in scenarios where you need LIFO functionality, such as implementing a stack or handling undo/redo operations.
+
+
+Putting everything together: maze solver
+----------------------------------------
+
+.. todo:: extended example
 
 
 
