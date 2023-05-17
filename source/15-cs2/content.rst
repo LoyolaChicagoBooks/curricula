@@ -117,9 +117,112 @@ Note: This code uses JUnit 5 for unit testing. If you're using a different versi
 Defining new finite enumerated types
 ------------------------------------
 
+Many programming languages have the abililty to define new types to help us model our specific domain problems more effectively. 
+For example, we might want to model the cardinal directions (North, East, South, West).
+In Java, we can define a new ``enum`` type for this purpose.
 
+.. code-block:: java
 
+    public enum CardinalDirection {
+        NORTH, EAST, SOUTH, WEST;
+    }
 
+We can also define behaviors on our new type:
+
+.. code-block:: java
+
+    public final class CardinalDirectionOperations {
+
+        public static CardinalDirection opposite(final CardinalDirection direction) {
+            return switch (direction) {
+                case NORTH -> CardinalDirection.SOUTH;
+                case SOUTH -> CardinalDirection.NORTH;
+                case EAST -> CardinalDirection.WEST;
+                case WEST -> CardinalDirection.EAST;
+            };
+        }
+
+        public static CardinalDirection turnRight(final CardinalDirection direction) {
+            return switch (direction) {
+                case NORTH -> CardinalDirection.EAST;
+                case EAST -> CardinalDirection.SOUTH;
+                case SOUTH -> CardinalDirection.WEST;
+                case WEST -> CardinalDirection.NORTH;
+            };
+        }
+
+        public static CardinalDirection turnLeft(final CardinalDirection direction) {
+            return switch (direction) {
+                case NORTH -> CardinalDirection.WEST;
+                case WEST -> CardinalDirection.SOUTH;
+                case SOUTH -> CardinalDirection.EAST;
+                case EAST -> CardinalDirection.NORTH;
+            };
+        }
+    }
+
+Now, you can use this type and these behaviors in your code:    
+
+.. code-block:: java
+
+    public class Main {
+        public static void main(String[] args) {
+            var direction = CardinalDirection.NORTH;
+            System.out.println("Turn right from " + direction + " to get " + CardinalDirectionOperations.turnRight(direction));
+            System.out.println("Turn left from " + direction + " to get " + CardinalDirectionOperations.turnLeft(direction));
+        }
+    }
+
+Alternatively, the object-oriented approach supports the idea that these behaviors are closely associated with the values themselves.
+Therefore, object-oriented languages, such as Java, allow us to declare and implement these behaviors within the definition of the ``enum`` type:
+
+.. code-block:: java
+
+    public enum CardinalDirection {
+        NORTH, EAST, SOUTH, WEST;
+
+        public CardinalDirection opposite() {
+            return switch (this) {
+                case NORTH -> SOUTH;
+                case SOUTH -> NORTH;
+                case EAST -> WEST;
+                case WEST -> EAST;
+            };
+        }
+
+        public CardinalDirection turnRight() {
+            return switch (this) {
+                case NORTH -> EAST;
+                case EAST -> SOUTH;
+                case SOUTH -> WEST;
+                case WEST -> NORTH;
+            };
+        }
+
+        public CardinalDirection turnLeft() {
+            return switch (this) {
+                case NORTH -> WEST;
+                case WEST -> SOUTH;
+                case SOUTH -> EAST;
+                case EAST -> NORTH;
+            };
+        }
+    }
+
+Now, you can use these methods in your code:
+
+.. code-block:: java
+
+    public class Main {
+        public static void main(String[] args) {
+            var direction = CardinalDirection.NORTH;
+            System.out.println("Turn right from " + direction + " to get " + direction.turnRight());
+            System.out.println("Turn left from " + direction + " to get " + direction.turnLeft());
+        }
+    }
+
+This demonstrates how enums in Java can be used to represent a set of related constants, and how they can also include behavior. 
+This makes them a powerful tool for writing more expressive and self-documenting code.
 
 
 
