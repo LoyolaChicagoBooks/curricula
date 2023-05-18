@@ -57,21 +57,25 @@ Please note that this list is not exhaustive, and the topics covered in a specif
 The curated short list of top 10 topics in order
 ------------------------------------------------
 
-0. Transition from CS1
-1. User-defined types
-2. Arrays and array-based lists
-3. Maps and sets
-4. Stacks
-5. Queues
-6. Recursion
-7. Searching
-8. Sorting
-9. Linked lists
-10. Intro to trees and search trees
+1. Transition from CS1
+2. Programmer-defined types
+3. Array-based lists
+4. Maps
+5. Sets
+6. Stacks
+7. Queues
+8. Recursion
+9. Searching
+10. Sorting
+11. Linked lists
+12. Trees and search trees
+13. Hash tables
+
+.. todo:: separate list cross-cutting topics
 
 
-Warmup: conditionals, loops, arrays, and unit testing
------------------------------------------------------
+Transition from CS1: conditionals, loops, arrays, and unit testing
+------------------------------------------------------------------
 
 Here is a simple example that incorporates conditionals, loops, arrays, and unit testing in Java. 
 
@@ -128,8 +132,11 @@ Here's how the code works:
     This code uses JUnit 5 for unit testing. If you're using a different version of JUnit or a different testing framework, the code for the test may need to be adjusted accordingly. Also, remember that `var` can't be used with array in Java, as the language doesn't support this style yet.
 
 
+Programmer-defined types
+------------------------
+
 Limitations of primitive types
-------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 So far, we have developed some familiarity with primitive types, such as ``int``, ``float``, ``boolean``, etc.
 In addition, we've used ``String``, which is not technically a primitive type but is a predefined type we mostly think of as a primitive.
@@ -173,7 +180,7 @@ Also, if you need to add a new direction (like northeast, for example), you woul
 
 
 Finite enumeration types
-------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 Enumeration types (enums) enable the creation of user-defined data types consisting of a fixed set of named values. Enums provide better type safety and clarity compared to using plain integers or strings to represent a set of related values.
 
@@ -309,7 +316,7 @@ Overall, while `int` constants can be simpler and use less memory, enums provide
 
 
 Aggregating values using records
---------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Most of the types we've worked with so far represent single values.
 As we are solving increasingly complex problems, we'll want to define types to represent bigger things we build from smaller ones, starting with single values.
@@ -389,7 +396,7 @@ This design makes records a good fit for use cases where you need a class to sim
 
 
 Classes with mutable state
---------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Java records are indeed a powerful feature that help reduce boilerplate code when defining classes that are meant to be simple "data carriers". However, there are certain situations where using traditional classes can be more appropriate:
 
@@ -530,9 +537,11 @@ Here's a very basic main method illustrating this:
 
 This is a very simplified example, and the letters won't look very good, especially the 'U' and 'C' which are supposed to have curves. In a real-world turtle graphics system, you would have commands to draw curves and diagonal lines, and you would probably use a much larger grid for better resolution.
 
+.. warning:: Even ChatGPT-4 has real trouble coming up with and/or interpreting the code for drawing the letters. Manual review required!
 
-Arrays and array-based lists
-----------------------------
+
+Array-based lists
+-----------------
 
 Let's move on to the next major CS2 topic, Array and ArrayList: Please describe these structures and provide an example of each to help me gain an Understanding of these basic data structures, their uses, and limitations.
 
@@ -606,14 +615,196 @@ Despite these disadvantages, ArrayLists remain a widely used data structure due 
 Maps
 ----
 
-.. todo:: motivation
+Motivation
+^^^^^^^^^^
 
-.. todo:: example
+A map data structure, also known as a dictionary or associative array, is an extremely useful data structure that allows you to store and retrieve values based on a unique key. Here are a few reasons why you might use a map data structure in the context of a Computer Science 2 (CS2) course:
 
-.. todo:: main methods of ArrayList
+Efficient Lookup: The most compelling reason to use a map is the ability to efficiently look up values using a key. Maps usually provide O(1) lookup time, which means it takes the same amount of time to find a value regardless of the number of items in the map. This is significantly faster than looking up a value in a list or array, which generally requires O(n) time.
 
-.. todo:: sample implementation
+Data Organization: Maps can be very useful for organizing data. You can use the key-value structure of a map to associate related data. For example, if you were creating a program to manage a library, you might use a map to associate book titles with information about each book, such as its author and publication date.
 
+Counting and Grouping: Maps are ideal for counting occurrences of items or grouping items by a certain property. For example, you could use a map to count the number of times each word appears in a document. The words would be the keys and the counts would be the values.
+
+Implementing Abstract Data Types: Maps can be used to implement various abstract data types (ADTs) such as caches, indexes, symbol tables in compilers, or in representing adjacency lists in graphs. These applications are central to many areas of computer science.
+
+Programming Language Support: Many programming languages have built-in support for map data structures, making them a convenient choice for many tasks.
+
+In summary, maps are a powerful tool that can greatly simplify your code and improve its performance. They're an essential part of a computer science student's toolkit, and learning how to use them effectively can greatly benefit your problem-solving abilities.
+
+Example
+^^^^^^^
+
+Sure, I'll use the example of counting the occurrences of words in a sentence. This is a classic problem that maps solve very efficiently. I will use the java.util.Map interface along with its implementing class java.util.HashMap:
+
+.. code-block:: java
+
+    import java.util.HashMap;
+    import java.util.Map;
+
+    public class WordCount {
+        public static void main(final String[] args) {
+            final String sentence = "If it is to be, it is up to me to delegate";
+            final var words = sentence.split("\\s+");
+            final var wordCount = new HashMap<String, Integer>();
+
+            for (final var word : words) {
+                // Compute is a nice method which lets you update a key's value in a map based on its old value.
+                // Here, we're saying "increase the count by 1 if the word is present, otherwise start the count at 1"
+                wordCount.compute(word, (key, oldValue) -> oldValue == null ? 1 : oldValue + 1);
+            }
+
+            // Print the count of each word
+            for (final var entry : wordCount.entrySet()) {
+                System.out.println(entry.getKey() + ": " + entry.getValue());
+            }
+        }
+    }
+
+
+In this program, we start by splitting a sentence into individual words. We then iterate over these words. For each word, we use the Map.compute method to either set its count to 1 if it's not already in the map, or increase its count by 1 if it is.
+
+After counting all the words, we print out the count of each word.
+
+This example shows the core of what makes maps useful: associating one value (the word) with another (its count), and allowing you to quickly and efficiently update that association. It's a simple example, but the principle extends to much more complex and powerful uses.
+
+.. warning:: Discuss whether to include these Map API's higher-order methods
+
+The Java Map API
+^^^^^^^^^^^^^^^^
+
+.. todo:: add thoughts on map as a generalization of array/ArrayList
+
+The `java.util.Map` interface provides many powerful operations for working with key-value data. As of Java 17, here are some of the main methods available:
+
+1. **put(K key, V value):** Inserts a key-value pair into the map. If the map already contains a mapping for the key, the old value is replaced with the specified value.
+
+2. **get(Object key):** Returns the value to which the specified key is mapped, or null if the map contains no mapping for the key.
+
+3. **remove(Object key):** Removes the mapping for a key from this map if it is present.
+
+4. **containsKey(Object key):** Returns true if this map contains a mapping for the specified key.
+
+5. **containsValue(Object value):** Returns true if this map maps one or more keys to the specified value.
+
+6. **keySet():** Returns a `Set` view of the keys contained in this map.
+
+7. **values():** Returns a `Collection` view of the values contained in this map.
+
+8. **entrySet():** Returns a `Set` view of the mappings contained in this map. Each element in the returned set is a `Map.Entry` object.
+
+9. **isEmpty():** Returns true if this map contains no key-value mappings.
+
+10. **size():** Returns the number of key-value mappings in this map.
+
+11. **clear():** Removes all of the mappings from this map.
+
+12. **putAll(Map<? extends K, ? extends V> m):** Copies all of the mappings from the specified map to this map.
+
+13. **getOrDefault(Object key, V defaultValue):** Returns the value to which the specified key is mapped, or defaultValue if this map contains no mapping for the key.
+
+14. **forEach(BiConsumer<? super K, ? super V> action):** Performs the given action for each entry in this map until all entries have been processed or the action throws an exception.
+
+15. **replace(K key, V value):** Replaces the entry for the specified key only if it is currently mapped to some value.
+
+16. **compute(K key, BiFunction<? super K, ? super V, ? extends V> remappingFunction):** Attempts to compute a mapping for the specified key and its current mapped value (or null if there is no current mapping).
+
+17. **computeIfAbsent(K key, Function<? super K, ? extends V> mappingFunction):** If the specified key is not already associated with a value (or is mapped to null), attempts to compute its value using the given mapping function and enters it into this map unless null.
+
+18. **computeIfPresent(K key, BiFunction<? super K, ? super V, ? extends V> remappingFunction):** If the value for the specified key is present and non-null, attempts to compute a new mapping given the key and its current mapped value.
+
+The `Map` interface is a cornerstone of Java's Collections Framework, and its methods provide a wide variety of operations to manipulate and interact with key-value data.
+
+In addition to the methods mentioned previously, the `java.util.Map` interface also provides a few more methods for dealing with optional and default values, as well as methods for dealing with atomic operations:
+
+19. **putIfAbsent(K key, V value):** If the specified key is not already associated with a value (or is mapped to null) associates it with the given value.
+
+20. **remove(Object key, Object value):** Removes the entry for the specified key only if it is currently mapped to the specified value.
+
+21. **replace(K key, V oldValue, V newValue):** Replaces the entry for the specified key only if currently mapped to the specified value.
+
+22. **replaceAll(BiFunction<? super K, ? super V, ? extends V> function):** Replaces each entry's value with the result of invoking the given function on that entry until all entries have been processed or the function throws an exception.
+
+These methods provide more control over how and when entries are added, updated, and removed from the map, and are especially useful in concurrent programming contexts, where they can be used to prevent race conditions.
+
+Moreover, the `java.util.Map` interface has two nested interfaces:
+
+1. **Entry<K,V>:** A map entry (key-value pair). The `Map.entrySet` method returns a collection-view of the map, whose elements are of this class.
+
+2. **Entry<K,V>.comparingByKey():** Returns a comparator that compares `Map.Entry` in natural order on key.
+
+3. **Entry<K,V>.comparingByValue():** Returns a comparator that compares `Map.Entry` in natural order on value.
+
+The `Map.Entry` interface provides methods to access the key and value of an entry, as well as to set the value. Additionally, it has methods to compare entries by key or value, which can be useful for sorting and other operations.
+
+Understanding these methods and how they interact with the `Map` interface can greatly enhance your ability to effectively and efficiently manipulate key-value data in Java.
+
+Sample implementation
+^^^^^^^^^^^^^^^^^^^^^
+
+*Can you show a simple yet modern Java implementation class of the Map interface, pedagogically suitable for a CS2 audience (second computer science course)? The implementation doesn't have to be complete but should include the handful or so of essential methods.*
+
+Absolutely, here's a simple pedagogically-oriented implementation of a Map using a backing array, suitable for a CS2 level audience. Note that this implementation doesn't handle resizing, hashing, or collision resolution - it's essentially a glorified associative list. This example uses local type inference (introduced in Java 10) and other modern Java features as per your request:
+
+.. code-block:: java
+
+    import java.util.Arrays;
+
+    public class SimpleMap<K, V> {
+        private static final int SIZE = 10;
+
+        private static record Entry<K, V>(K key, V value) {}
+
+        private final Entry<K, V>[] entries;
+        private int count = 0;
+
+        public SimpleMap() {
+            @SuppressWarnings("unchecked")
+            final var tmpEntries = (Entry<K, V>[]) new Entry[SIZE];
+            this.entries = tmpEntries;
+        }
+
+        public V get(final K key) {
+            for (final var entry : entries) {
+                if (entry != null && entry.key().equals(key)) {
+                    return entry.value();
+                }
+            }
+            return null;
+        }
+
+        public void put(final K key, final V value) {
+            if (count >= SIZE) {
+                throw new IllegalStateException("Map is full");
+            }
+            for (int i = 0; i < count; i++) {
+                if (entries[i].key().equals(key)) {
+                    entries[i] = new Entry<>(key, value);
+                    return;
+                }
+            }
+            entries[count++] = new Entry<>(key, value);
+        }
+
+        public boolean containsKey(final K key) {
+            for (final var entry : entries) {
+                if (entry != null && entry.key().equals(key)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        @Override
+        public String toString() {
+            return Arrays.toString(entries);
+        }
+    }
+
+
+The `SimpleMap` class maintains an array of `Entry` records, each of which holds a key-value pair. The `put()` method adds a new key-value pair to the map, or updates the value if the key is already present. The `get()` method retrieves a value by its key, and the `containsKey()` method checks if a key is in the map. 
+
+This class provides a simple, tangible implementation of the Map interface, making it a great starting point for CS2 students. They could enhance this implementation by adding methods like `remove()`, `size()`, or `isEmpty()`. Later on, they could learn about more sophisticated implementations using hashing, linked lists (for collision resolution), and dynamic resizing.
 
 
 Sets
@@ -623,10 +814,9 @@ Sets
 
 .. todo:: example
 
-.. todo:: main methods of ArrayList
+.. todo:: main methods
 
 .. todo:: sample implementation
-
 
 
 Stacks
@@ -723,7 +913,7 @@ The `Collections.asLifoQueue` method is useful when you have an existing `Deque`
 
 
 Putting everything together: maze solver
-----------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. todo:: extended example
 
