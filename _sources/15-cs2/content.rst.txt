@@ -54,8 +54,28 @@ Please note that this list is not exhaustive, and the topics covered in a specif
 .. note:: Konstantin will take it from here.
 
 
-Warmup: conditionals, loops, arrays, and unit testing
------------------------------------------------------
+The curated short list of top 10 topics in order
+------------------------------------------------
+
+1. Transition from CS1
+2. Programmer-defined types
+3. Array-based lists
+4. Maps
+5. Sets
+6. Stacks
+7. Queues
+8. Recursion
+9. Searching
+10. Sorting
+11. Linked lists
+12. Trees and search trees
+13. Hash tables
+
+.. todo:: separate list cross-cutting topics
+
+
+Transition from CS1: conditionals, loops, arrays, and unit testing
+------------------------------------------------------------------
 
 Here is a simple example that incorporates conditionals, loops, arrays, and unit testing in Java. 
 
@@ -108,11 +128,15 @@ Here's how the code works:
 
 - The `testFindMax` method is a unit test for the `findMax` method. It tests the method with an array of positive numbers, an array of negative numbers, an empty array, and `null`. It uses assertions to verify that the method returns the expected results.
 
-Note: This code uses JUnit 5 for unit testing. If you're using a different version of JUnit or a different testing framework, the code for the test may need to be adjusted accordingly. Also, remember that `var` can't be used with array in Java, as the language doesn't support this style yet.
+.. note::
+    This code uses JUnit 5 for unit testing. If you're using a different version of JUnit or a different testing framework, the code for the test may need to be adjusted accordingly. Also, remember that `var` can't be used with array in Java, as the language doesn't support this style yet.
 
+
+Programmer-defined types
+------------------------
 
 Limitations of primitive types
-------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 So far, we have developed some familiarity with primitive types, such as ``int``, ``float``, ``boolean``, etc.
 In addition, we've used ``String``, which is not technically a primitive type but is a predefined type we mostly think of as a primitive.
@@ -155,11 +179,14 @@ In particular, it's not clear without looking at the documentation or the implem
 Also, if you need to add a new direction (like northeast, for example), you would need to update every switch statement or if-else chain that operates on directions.
 
 
-Defining new enumerated scalar types
-------------------------------------
+Finite enumeration types
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+Enumeration types (enums) enable the creation of user-defined data types consisting of a fixed set of named values. Enums provide better type safety and clarity compared to using plain integers or strings to represent a set of related values.
 
 Many programming languages have the abililty to define new types to help us model our specific domain problems more effectively. 
 For example, we might want to model the cardinal directions (North, East, South, West).
+
 In Java, we can define a new ``enum`` type for this purpose.
 
 .. code-block:: java
@@ -288,8 +315,8 @@ Java `enum` types provide several advantages over using `int` constants:
 Overall, while `int` constants can be simpler and use less memory, enums provide many powerful features that make your code safer, more readable, and easier to maintain.
 
 
-Defining new types by aggregating existing types
-------------------------------------------------
+Aggregating values using records
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Most of the types we've worked with so far represent single values.
 As we are solving increasingly complex problems, we'll want to define types to represent bigger things we build from smaller ones, starting with single values.
@@ -349,7 +376,8 @@ Now we can add these to our `Turtle` record:
 
 This `Turtle` record now contains all necessary information to represent the state of a turtle in a turtle graphics system: its position, the direction it's facing, the color of its pen, and whether the pen is up or down.
 
-Remember that records in Java are immutable, which means that when you want to change the state of the turtle, you'll need to create a new `Turtle` instance with the updated state. This might seem a bit unusual if you're used to working with mutable objects, but it can help make your programs easier to reason about, since you don't have to worry about the state of an object changing over time.
+.. note:: 
+    Remember that records in Java are immutable, which means that when you want to change the state of the turtle, you'll need to create a new `Turtle` instance with the updated state. This might seem a bit unusual if you're used to working with mutable objects, but it can help make your programs easier to reason about, since you don't have to worry about the state of an object changing over time.
 
 To summarize, Java records are designed to be simple, transparent carriers for immutable data. This is accomplished in the following ways:
 
@@ -363,11 +391,12 @@ To summarize, Java records are designed to be simple, transparent carriers for i
 
 This design makes records a good fit for use cases where you need a class to simply hold a set of values and don't need to change them after the object is created. They are particularly useful in "data-centric" applications where classes often serve as simple data containers. 
 
-It's worth noting that while the fields of a record are immutable, if the fields are references to mutable objects, those objects themselves can still be mutated. This is a common pitfall when dealing with immutability in Java. To avoid this, you might need to make defensive copies of mutable objects, or use immutable objects whenever possible.
+.. note:: 
+    It's worth noting that while the fields of a record are immutable, if the fields are references to mutable objects, those objects themselves can still be mutated. This is a common pitfall when dealing with immutability in Java. To avoid this, you might need to make defensive copies of mutable objects, or use immutable objects whenever possible.
 
 
-Defining classes to represent more complex objects with mutable state
----------------------------------------------------------------------
+Classes with mutable state
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Java records are indeed a powerful feature that help reduce boilerplate code when defining classes that are meant to be simple "data carriers". However, there are certain situations where using traditional classes can be more appropriate:
 
@@ -396,6 +425,21 @@ First, we can define a `Pixel` record to represent a pixel on the canvas:
 
 A pixel has a color, which can be set by the turtle's pen. If the pixel has not been drawn on, its color could be `null` or some default color like `WHITE`.
 
+*How important is it to represent Pixel separate from PenColor?*
+
+Pros:
+
+- Flexibility: If you decide to add more properties to a pixel in the future (like transparency, brightness, etc.), it would be easier with a separate Pixel class.
+- Clarity: It makes the code more self-explanatory, as it's clear that the canvas is made up of pixels, not colors.
+- Abstraction: Pixel can encapsulate behavior related to a pixel, such as changing its properties or computing derived properties.
+
+Cons:
+
+- Overhead: It introduces additional complexity into the code, especially if each Pixel instance is its own object.
+- Memory Usage: If there are many Pixel objects, this could take up more memory compared to just storing the PenColor values directly.
+- Performance: Accessing and manipulating Pixel objects could be slower compared to working with PenColor values directly.
+
+
 Then, we can define a `Canvas` class to represent the 2D drawing area:
 
 .. code-block:: java
@@ -406,7 +450,7 @@ Then, we can define a `Canvas` class to represent the 2D drawing area:
         public Canvas(final int width, final int height) {
             pixels = new Pixel[height][width];
             // Initialize all pixels to white.
-            for (final Pixel[] row : pixels) {
+            for (final var row : pixels) {
                 Arrays.fill(row, new Pixel(PenColor.WHITE));
             }
         }
@@ -425,6 +469,453 @@ The `Canvas` class contains a 2D array of `Pixel` objects. The `getPixel` method
 
 This is a very basic representation of a canvas for turtle graphics. In a real implementation, you would likely want to add more features and error-checking. For example, you might want to add methods to draw lines or shapes, check if a position is within the bounds of the canvas, etc.
 
+.. note:: 
+    In Java, final parameters are often used to clarify that an input parameter value will not be changed within the method. This can make the code easier to understand, because it's clear from the method signature that the method does not modify the input parameters.
+
+    The final keyword in the enhanced for loop ensures that the loop variable row cannot be reassigned within the loop. This can help prevent bugs, because it makes it clear that the loop variable is not supposed to change after it has been initialized.
+
+
+To draw letters on the canvas using turtle graphics, we first need to define some movements for our `Turtle` that correspond to drawing each letter. This can get quite complex, so for simplicity, let's define some basic movements that can be used to draw a very simplified version of the letters "L", "U", and "C". We'll use an 8x8 grid for each letter.
+
+Let's assume that we start at the bottom left corner of the 'L', move up to draw the vertical line, then move right to draw the horizontal line. Then we'll lift the pen, move to the starting position for the 'U' and so on.
+
+Here's a very basic main method illustrating this:
+
+.. code-block:: java
+
+    public static void main(final String[] args) {
+        final var canvas = new Canvas(24, 8);
+        final var turtle = new Turtle(new Position(0, 0), CardinalDirection.NORTH, Pen.UP, PenColor.BLACK);
+
+        // Draw 'L'
+        turtle.setPen(Pen.DOWN);
+        turtle.move(6, canvas); // Vertical line
+        turtle.setDirection(CardinalDirection.WEST);
+        turtle.move(6, canvas); // Horizontal line
+
+        // Lift pen and move to start of 'U'
+        turtle.setPen(Pen.UP);
+        turtle.setDirection(CardinalDirection.EAST);
+        turtle.move(8, canvas); // Space between letters
+        turtle.setDirection(CardinalDirection.NORTH);
+        turtle.move(6, canvas); // Move to top of next letter
+
+        // Draw 'U'
+        turtle.setPen(Pen.DOWN);
+        turtle.setDirection(CardinalDirection.SOUTH);
+        turtle.move(6, canvas); // First vertical line
+        turtle.setDirection(CardinalDirection.EAST);
+        turtle.move(6, canvas); // Horizontal line
+        turtle.setDirection(CardinalDirection.NORTH);
+        turtle.move(6, canvas); // Second vertical line
+
+        // Lift pen and move to start of 'C'
+        turtle.setPen(Pen.UP);
+        turtle.setDirection(CardinalDirection.EAST);
+        turtle.move(8, canvas); // Space between letters
+
+        // Draw 'C'
+        turtle.setPen(Pen.DOWN);
+        turtle.setDirection(CardinalDirection.SOUTH);
+        turtle.move(6, canvas); // First vertical line
+        turtle.setDirection(CardinalDirection.EAST);
+        turtle.move(6, canvas); // Horizontal line at the bottom
+        turtle.setDirection(CardinalDirection.NORTH);
+        turtle.move(6, canvas); // Second vertical line
+        turtle.setDirection(CardinalDirection.WEST);
+        turtle.move(6, canvas); // Horizontal line at the top
+
+        // Print the canvas (for demonstration purposes, represent black pixels with 'X' and white pixels with ' ')
+        for (final var row : canvas.getPixels()) {
+            for (final var pixel : row) {
+                System.out.print(pixel.getColor() == PenColor.BLACK ? 'X' : ' ');
+            }
+            System.out.println();
+        }
+    }
+
+
+This is a very simplified example, and the letters won't look very good, especially the 'U' and 'C' which are supposed to have curves. In a real-world turtle graphics system, you would have commands to draw curves and diagonal lines, and you would probably use a much larger grid for better resolution.
+
+.. warning:: Even ChatGPT-4 has real trouble coming up with and/or interpreting the code for drawing the letters. Manual review required!
+
+
+Array-based lists
+-----------------
+
+Let's move on to the next major CS2 topic, Array and ArrayList: Please describe these structures and provide an example of each to help me gain an Understanding of these basic data structures, their uses, and limitations.
+
+Certainly! Let's explore the Array and ArrayList data structures.
+
+**Array:**
+An array is a fixed-size data structure that stores elements of the same type in contiguous memory locations. It provides random access to its elements using indices. Arrays have a predetermined length that is defined at the time of declaration, and this length cannot be changed once the array is created.
+
+Here's an example of creating and using an array in Java:
+
+.. code-block:: java
+
+    final var numbers = new int[5]; // Creating an array of integers with a length of 5
+
+    numbers[0] = 10; // Assigning a value to the first element
+    numbers[1] = 20; // Assigning a value to the second element
+
+    System.out.println(numbers[0]); // Accessing and printing the value of the first element
+    System.out.println(numbers[1]); // Accessing and printing the value of the second element
+
+
+In this example, we create an array called `numbers` with a length of 5. We can assign values to specific elements using index notation (`numbers[index] = value`) and access the values using the same notation (`numbers[index]`). Arrays provide constant-time access to any element, making it efficient to retrieve or modify elements by their index.
+
+Arrays have a fixed size, so adding or removing elements requires creating a new array with the desired size and copying the existing elements. This can be cumbersome and inefficient if the size of the array needs to change frequently.
+
+**ArrayList:**
+The ArrayList is a dynamic data structure provided by the Java Collections Framework. It is implemented as an array internally, but it automatically manages the resizing and reallocation of memory as elements are added or removed. Unlike regular arrays, ArrayLists can grow or shrink dynamically to accommodate the number of elements.
+
+Here's an example of creating and using an ArrayList in Java:
+
+.. code-block:: java
+
+    import java.util.ArrayList;
+
+    final var numbersList = new ArrayList<Integer>(); // Creating an ArrayList of integers
+
+    numbersList.add(10); // Adding an element to the ArrayList
+    numbersList.add(20); // Adding another element to the ArrayList
+
+    System.out.println(numbersList.get(0)); // Accessing and printing the value of the first element
+    System.out.println(numbersList.get(1)); // Accessing and printing the value of the second element
+
+In this example, we create an ArrayList called `numbersList` to store integers. We can add elements to the ArrayList using the `add` method and access the elements using the `get` method. ArrayLists provide similar functionality as arrays but with the added benefit of dynamic resizing.
+
+ArrayLists automatically handle memory allocation and resizing behind the scenes. When the ArrayList reaches its initial capacity, it automatically increases its size by allocating a new array and copying the elements from the old array to the new one. This dynamic resizing makes ArrayLists more flexible than regular arrays when it comes to adding or removing elements.
+
+It's important to note that ArrayLists have a small performance overhead compared to regular arrays due to the dynamic resizing and memory management operations. If you need constant-time access to elements by index and the size of the collection is fixed, arrays may be more suitable. However, if you require a flexible and resizable collection, ArrayLists provide a convenient solution.
+
+Both arrays and ArrayLists have their own use cases and limitations, and the choice between them depends on the specific requirements of the problem you are solving.
+
+While ArrayLists offer flexibility and convenience, there are a few disadvantages to consider:
+
+1. **Memory Overhead**: ArrayLists have a higher memory overhead compared to arrays. In addition to storing the actual elements, ArrayLists also maintain internal bookkeeping information such as the array capacity and size. This extra memory usage can be a concern if memory efficiency is critical in your application.
+
+2. **Insertion and Deletion in the Middle**: Inserting or removing elements in the middle of an ArrayList can be less efficient compared to appending elements at the end. When an element is inserted or removed in the middle, the ArrayList needs to shift subsequent elements, which requires additional time. If you frequently perform operations that involve insertion or deletion in the middle, a different data structure like a linked list may be more suitable.
+
+3. **Primitive Types Boxing/Unboxing**: ArrayLists in Java can only store objects, so when working with primitive types (e.g., `int`, `char`, etc.), they are automatically boxed into their corresponding wrapper classes (e.g., `Integer`, `Character`, etc.). This process of autoboxing and unboxing can lead to a slight performance overhead and increased memory usage.
+
+4. **Synchronized Access**: ArrayLists are not inherently thread-safe. If you need to use ArrayLists in a multi-threaded environment, you must ensure proper synchronization to avoid concurrent modification issues. This can add complexity and potential overhead in terms of performance.
+
+5. **Resizing Impact**: When an ArrayList needs to resize its internal array, it creates a new array with a larger size and copies the elements from the old array to the new one. This resizing operation can be time-consuming, especially if the ArrayList contains a large number of elements. If you know the approximate size requirements in advance, initializing the ArrayList with an initial capacity can help mitigate frequent resizing.
+
+Despite these disadvantages, ArrayLists remain a widely used data structure due to their flexibility, ease of use, and the convenience provided by the Java Collections Framework. Understanding the limitations and trade-offs of ArrayLists can help you make informed decisions when selecting the appropriate data structure for your specific needs.
+
+
+.. todo:: main methods of ArrayList
+
+.. todo:: sample implementation
+
+
+Maps
+----
+
+Motivation
+^^^^^^^^^^
+
+A map data structure, also known as a dictionary or associative array, is an extremely useful data structure that allows you to store and retrieve values based on a unique key. Here are a few reasons why you might use a map data structure in the context of a Computer Science 2 (CS2) course:
+
+Efficient Lookup: The most compelling reason to use a map is the ability to efficiently look up values using a key. Maps usually provide O(1) lookup time, which means it takes the same amount of time to find a value regardless of the number of items in the map. This is significantly faster than looking up a value in a list or array, which generally requires O(n) time.
+
+Data Organization: Maps can be very useful for organizing data. You can use the key-value structure of a map to associate related data. For example, if you were creating a program to manage a library, you might use a map to associate book titles with information about each book, such as its author and publication date.
+
+Counting and Grouping: Maps are ideal for counting occurrences of items or grouping items by a certain property. For example, you could use a map to count the number of times each word appears in a document. The words would be the keys and the counts would be the values.
+
+Implementing Abstract Data Types: Maps can be used to implement various abstract data types (ADTs) such as caches, indexes, symbol tables in compilers, or in representing adjacency lists in graphs. These applications are central to many areas of computer science.
+
+Programming Language Support: Many programming languages have built-in support for map data structures, making them a convenient choice for many tasks.
+
+In summary, maps are a powerful tool that can greatly simplify your code and improve its performance. They're an essential part of a computer science student's toolkit, and learning how to use them effectively can greatly benefit your problem-solving abilities.
+
+Example
+^^^^^^^
+
+Sure, I'll use the example of counting the occurrences of words in a sentence. This is a classic problem that maps solve very efficiently. I will use the java.util.Map interface along with its implementing class java.util.HashMap:
+
+.. code-block:: java
+
+    import java.util.HashMap;
+    import java.util.Map;
+
+    public class WordCount {
+        public static void main(final String[] args) {
+            final String sentence = "If it is to be, it is up to me to delegate";
+            final var words = sentence.split("\\s+");
+            final var wordCount = new HashMap<String, Integer>();
+
+            for (final var word : words) {
+                // Compute is a nice method which lets you update a key's value in a map based on its old value.
+                // Here, we're saying "increase the count by 1 if the word is present, otherwise start the count at 1"
+                wordCount.compute(word, (key, oldValue) -> oldValue == null ? 1 : oldValue + 1);
+            }
+
+            // Print the count of each word
+            for (final var entry : wordCount.entrySet()) {
+                System.out.println(entry.getKey() + ": " + entry.getValue());
+            }
+        }
+    }
+
+
+In this program, we start by splitting a sentence into individual words. We then iterate over these words. For each word, we use the Map.compute method to either set its count to 1 if it's not already in the map, or increase its count by 1 if it is.
+
+After counting all the words, we print out the count of each word.
+
+This example shows the core of what makes maps useful: associating one value (the word) with another (its count), and allowing you to quickly and efficiently update that association. It's a simple example, but the principle extends to much more complex and powerful uses.
+
+.. warning:: Discuss whether to include these Map API's higher-order methods
+
+The Java Map API
+^^^^^^^^^^^^^^^^
+
+.. todo:: add thoughts on map as a generalization of array/ArrayList
+
+The `java.util.Map` interface provides many powerful operations for working with key-value data. As of Java 17, here are some of the main methods available:
+
+1. **put(K key, V value):** Inserts a key-value pair into the map. If the map already contains a mapping for the key, the old value is replaced with the specified value.
+
+2. **get(Object key):** Returns the value to which the specified key is mapped, or null if the map contains no mapping for the key.
+
+3. **remove(Object key):** Removes the mapping for a key from this map if it is present.
+
+4. **containsKey(Object key):** Returns true if this map contains a mapping for the specified key.
+
+5. **containsValue(Object value):** Returns true if this map maps one or more keys to the specified value.
+
+6. **keySet():** Returns a `Set` view of the keys contained in this map.
+
+7. **values():** Returns a `Collection` view of the values contained in this map.
+
+8. **entrySet():** Returns a `Set` view of the mappings contained in this map. Each element in the returned set is a `Map.Entry` object.
+
+9. **isEmpty():** Returns true if this map contains no key-value mappings.
+
+10. **size():** Returns the number of key-value mappings in this map.
+
+11. **clear():** Removes all of the mappings from this map.
+
+12. **putAll(Map<? extends K, ? extends V> m):** Copies all of the mappings from the specified map to this map.
+
+13. **getOrDefault(Object key, V defaultValue):** Returns the value to which the specified key is mapped, or defaultValue if this map contains no mapping for the key.
+
+14. **forEach(BiConsumer<? super K, ? super V> action):** Performs the given action for each entry in this map until all entries have been processed or the action throws an exception.
+
+15. **replace(K key, V value):** Replaces the entry for the specified key only if it is currently mapped to some value.
+
+16. **compute(K key, BiFunction<? super K, ? super V, ? extends V> remappingFunction):** Attempts to compute a mapping for the specified key and its current mapped value (or null if there is no current mapping).
+
+17. **computeIfAbsent(K key, Function<? super K, ? extends V> mappingFunction):** If the specified key is not already associated with a value (or is mapped to null), attempts to compute its value using the given mapping function and enters it into this map unless null.
+
+18. **computeIfPresent(K key, BiFunction<? super K, ? super V, ? extends V> remappingFunction):** If the value for the specified key is present and non-null, attempts to compute a new mapping given the key and its current mapped value.
+
+The `Map` interface is a cornerstone of Java's Collections Framework, and its methods provide a wide variety of operations to manipulate and interact with key-value data.
+
+In addition to the methods mentioned previously, the `java.util.Map` interface also provides a few more methods for dealing with optional and default values, as well as methods for dealing with atomic operations:
+
+19. **putIfAbsent(K key, V value):** If the specified key is not already associated with a value (or is mapped to null) associates it with the given value.
+
+20. **remove(Object key, Object value):** Removes the entry for the specified key only if it is currently mapped to the specified value.
+
+21. **replace(K key, V oldValue, V newValue):** Replaces the entry for the specified key only if currently mapped to the specified value.
+
+22. **replaceAll(BiFunction<? super K, ? super V, ? extends V> function):** Replaces each entry's value with the result of invoking the given function on that entry until all entries have been processed or the function throws an exception.
+
+These methods provide more control over how and when entries are added, updated, and removed from the map, and are especially useful in concurrent programming contexts, where they can be used to prevent race conditions.
+
+Moreover, the `java.util.Map` interface has two nested interfaces:
+
+1. **Entry<K,V>:** A map entry (key-value pair). The `Map.entrySet` method returns a collection-view of the map, whose elements are of this class.
+
+2. **Entry<K,V>.comparingByKey():** Returns a comparator that compares `Map.Entry` in natural order on key.
+
+3. **Entry<K,V>.comparingByValue():** Returns a comparator that compares `Map.Entry` in natural order on value.
+
+The `Map.Entry` interface provides methods to access the key and value of an entry, as well as to set the value. Additionally, it has methods to compare entries by key or value, which can be useful for sorting and other operations.
+
+Understanding these methods and how they interact with the `Map` interface can greatly enhance your ability to effectively and efficiently manipulate key-value data in Java.
+
+Sample implementation
+^^^^^^^^^^^^^^^^^^^^^
+
+*Can you show a simple yet modern Java implementation class of the Map interface, pedagogically suitable for a CS2 audience (second computer science course)? The implementation doesn't have to be complete but should include the handful or so of essential methods.*
+
+Absolutely, here's a simple pedagogically-oriented implementation of a Map using a backing array, suitable for a CS2 level audience. Note that this implementation doesn't handle resizing, hashing, or collision resolution - it's essentially a glorified associative list. This example uses local type inference (introduced in Java 10) and other modern Java features as per your request:
+
+.. code-block:: java
+
+    import java.util.Arrays;
+
+    public class SimpleMap<K, V> {
+        private static final int SIZE = 10;
+
+        private static record Entry<K, V>(K key, V value) {}
+
+        private final Entry<K, V>[] entries;
+        private int count = 0;
+
+        public SimpleMap() {
+            @SuppressWarnings("unchecked")
+            final var tmpEntries = (Entry<K, V>[]) new Entry[SIZE];
+            this.entries = tmpEntries;
+        }
+
+        public V get(final K key) {
+            for (final var entry : entries) {
+                if (entry != null && entry.key().equals(key)) {
+                    return entry.value();
+                }
+            }
+            return null;
+        }
+
+        public void put(final K key, final V value) {
+            if (count >= SIZE) {
+                throw new IllegalStateException("Map is full");
+            }
+            for (int i = 0; i < count; i++) {
+                if (entries[i].key().equals(key)) {
+                    entries[i] = new Entry<>(key, value);
+                    return;
+                }
+            }
+            entries[count++] = new Entry<>(key, value);
+        }
+
+        public boolean containsKey(final K key) {
+            for (final var entry : entries) {
+                if (entry != null && entry.key().equals(key)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        @Override
+        public String toString() {
+            return Arrays.toString(entries);
+        }
+    }
+
+
+The `SimpleMap` class maintains an array of `Entry` records, each of which holds a key-value pair. The `put()` method adds a new key-value pair to the map, or updates the value if the key is already present. The `get()` method retrieves a value by its key, and the `containsKey()` method checks if a key is in the map. 
+
+This class provides a simple, tangible implementation of the Map interface, making it a great starting point for CS2 students. They could enhance this implementation by adding methods like `remove()`, `size()`, or `isEmpty()`. Later on, they could learn about more sophisticated implementations using hashing, linked lists (for collision resolution), and dynamic resizing.
+
+
+Sets
+----
+
+.. todo:: motivation
+
+.. todo:: example
+
+.. todo:: main methods
+
+.. todo:: sample implementation
+
+
+Stacks
+------
+
+.. todo:: motivation
+
+.. todo:: example
+
+.. todo:: main methods
+
+.. todo:: sample implementation
+
+
+In modern Java (Java 17), you can use the `Deque` interface and the `ArrayDeque` class to implement a LIFO stack. 
+
+The `Deque` interface, short for "double-ended queue," provides operations to add and remove elements from both ends of the queue. By using the `push` and `pop` methods of `Deque`, you can achieve LIFO behavior, similar to a stack.
+
+Here's an example of using `Deque` and `ArrayDeque` as a LIFO stack:
+
+.. code-block:: java
+
+    import java.util.*;
+
+    public class Main {
+        public static void main(String[] args) {
+            Deque<Integer> stack = new ArrayDeque<>();
+            stack.push(1);
+            stack.push(2);
+            stack.push(3);
+
+            while (!stack.isEmpty()) {
+                System.out.println(stack.pop()); // Output: 3, 2, 1
+            }
+        }
+    }
+
+
+In this example, we create a `Deque` implementation using `ArrayDeque`. Elements are added to the stack using the `push` method, and they are removed using the `pop` method. The `push` operation adds elements to the top of the stack, and the `pop` operation removes and returns the topmost element.
+
+The output demonstrates the LIFO behavior of the stack, where elements `3`, `2`, and `1` are printed in reverse order.
+
+Using `Deque` with `ArrayDeque` for a LIFO stack provides efficient and convenient operations for adding and removing elements at the top of the stack. The `ArrayDeque` implementation offers good performance characteristics and can dynamically resize as needed to accommodate elements.
+
+It's worth noting that using `Deque` instead of the legacy `Stack` class is recommended, as `Stack` is a subclass of `Vector`, which has certain synchronization overhead and is considered less efficient in modern Java applications.
+
+
+Queues
+------
+
+.. todo:: example
+
+.. todo:: main methods
+
+.. todo:: sample implementation
+
+
+A unified view of restricted-access data structures
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If you specifically want to refer to data structures like stacks and queues which follow particular kinds of insertion and removal patterns (Last-In-First-Out for stacks and First-In-First-Out for queues), a term often used is "Restricted Access Data Structures". These structures restrict access to their elements based on specific rules, unlike arrays or lists which allow access to any element at any time. 
+
+But keep in mind that the term "Restricted Access Data Structures" isn't a widely recognized standard term, and its meaning could vary depending on the context or source. The usage and understanding of these terminologies can differ slightly between different textbooks, resources, or educators.
+
+
+The `Collections.asLifoQueue` method is typically used to adapt a `Deque` (double-ended queue) implementation as a Last-In-First-Out (LIFO) queue. It returns a view of the specified `Deque` as a LIFO queue, which means that elements are accessed in the reverse order of their insertion.
+
+Here's an example usage scenario to illustrate its purpose:
+
+.. code-block:: java
+
+    import java.util.*;
+
+    public class Main {
+        public static void main(String[] args) {
+            Deque<Integer> deque = new ArrayDeque<>();
+            deque.push(1);
+            deque.push(2);
+            deque.push(3);
+
+            Queue<Integer> lifoQueue = Collections.asLifoQueue(deque);
+            System.out.println(lifoQueue.poll()); // Output: 3
+            System.out.println(lifoQueue.poll()); // Output: 2
+            System.out.println(lifoQueue.poll()); // Output: 1
+        }
+    }
+
+
+In this example, we have a `Deque` implementation (`ArrayDeque`) where elements are pushed using the `push` method, which adds elements to the front of the deque. By using `Collections.asLifoQueue`, we adapt the `Deque` as a LIFO queue. The `lifoQueue` variable is now a view of the `deque` object but behaves like a LIFO queue.
+
+By calling `poll` on the `lifoQueue`, we retrieve elements in the reverse order of their insertion. In this case, the elements `3`, `2`, and `1` are retrieved in LIFO order.
+
+The `Collections.asLifoQueue` method is useful when you have an existing `Deque` implementation and need to work with it as a LIFO queue. It provides a convenient way to adapt the `Deque` interface to the `Queue` interface with LIFO behavior. This can be beneficial in scenarios where you need LIFO functionality, such as implementing a stack or handling undo/redo operations.
+
+
+Putting everything together: maze solver
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. todo:: extended example
 
 
 
