@@ -913,68 +913,68 @@ Sample implementation
 
 Sure, here is a simple pedagogically-oriented implementation of a Set using a backing array. This implementation uses local type inference (introduced in Java 10) and other modern Java features. Please note that this implementation is for learning purposes and doesn't handle resizing, nor does it provide the performance benefits of a true `HashSet` or `TreeSet`:
 
-```java
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.NoSuchElementException;
+.. code-block:: java
 
-public class SimpleSet<E> implements Iterable<E> {
-    private static final int SIZE = 10;
+    import java.util.Arrays;
+    import java.util.Iterator;
+    import java.util.NoSuchElementException;
 
-    private final E[] elements;
-    private int count = 0;
+    public class SimpleSet<E> implements Iterable<E> {
+        private static final int SIZE = 10;
 
-    @SuppressWarnings("unchecked")
-    public SimpleSet() {
-        this.elements = (E[]) new Object[SIZE];
-    }
+        private final E[] elements;
+        private int count = 0;
 
-    public void add(final E e) {
-        if (count >= SIZE) {
-            throw new IllegalStateException("Set is full");
+        @SuppressWarnings("unchecked")
+        public SimpleSet() {
+            this.elements = (E[]) new Object[SIZE];
         }
-        if (contains(e)) {
-            return; // No duplicates allowed in a Set
-        }
-        elements[count++] = e;
-    }
 
-    public boolean contains(final E e) {
-        for (final var element : elements) {
-            if (e.equals(element)) {
-                return true;
+        public void add(final E e) {
+            if (count >= SIZE) {
+                throw new IllegalStateException("Set is full");
             }
-        }
-        return false;
-    }
-
-    @Override
-    public Iterator<E> iterator() {
-        return new Iterator<>() {
-            private int currentIndex = 0;
-
-            @Override
-            public boolean hasNext() {
-                return currentIndex < count;
+            if (contains(e)) {
+                return; // No duplicates allowed in a Set
             }
+            elements[count++] = e;
+        }
 
-            @Override
-            public E next() {
-                if (!hasNext()) {
-                    throw new NoSuchElementException();
+        public boolean contains(final E e) {
+            for (final var element : elements) {
+                if (e.equals(element)) {
+                    return true;
                 }
-                return elements[currentIndex++];
             }
-        };
-    }
+            return false;
+        }
 
-    @Override
-    public String toString() {
-        final var presentElements = Arrays.copyOf(elements, count);
-        return Arrays.toString(presentElements);
+        @Override
+        public Iterator<E> iterator() {
+            return new Iterator<>() {
+                private int currentIndex = 0;
+
+                @Override
+                public boolean hasNext() {
+                    return currentIndex < count;
+                }
+
+                @Override
+                public E next() {
+                    if (!hasNext()) {
+                        throw new NoSuchElementException();
+                    }
+                    return elements[currentIndex++];
+                }
+            };
+        }
+
+        @Override
+        public String toString() {
+            final var presentElements = Arrays.copyOf(elements, count);
+            return Arrays.toString(presentElements);
+        }
     }
-}
-```
 
 The `SimpleSet` class maintains an array of elements. The `add(E e)` method adds a new element to the set only if it is not already present. The `contains(E e)` method checks if an element is present in the set. The class also implements the `Iterable<E>` interface, allowing for enhanced for-loop iteration over the elements. Note the use of the `iterator()` method to provide a custom iterator for the set.
 
