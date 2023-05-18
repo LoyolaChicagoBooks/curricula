@@ -1,12 +1,19 @@
 
-Welcome to the CS Curriculum Systems Modules
-=============================================
+Welcome to the CS Curricular Mapping Initiative
+================================================
 
-.. note::
-   This is totally under construction.
+This is an effort to map our curriculum at Loyola University Chicago to the established international guidelines (ACM and IEEE).
+We are motivated by the following research questions:
+
+- How do our degree requirements for CS, SE, IT, and Cybersecurity majors map to the ACM/IEEE Computing Curricula (and other) guidelines? 
+- What are the actual learning outcomes in our *foundation sequence* courses?
+- Can generative AI large language/coding models help us to *improve* teaching of theoretical and practical (programming) topics?
+- Can we provide more historical/cultural context to CS students (also with the help of generative AI)? 
+
+The following is an outline of the contents of this online book:
 
 .. toctree::
-   :maxdepth: 4
+   :maxdepth: 2
 
    00-preliminaries/content.rst
    05-acm-ieee-cc/content.rst
