@@ -545,6 +545,8 @@ Array-based lists
 
 Let's move on to the next major CS2 topic, Array and ArrayList: Please describe these structures and provide an example of each to help me gain an Understanding of these basic data structures, their uses, and limitations.
 
+.. todo:: add subsection headings
+
 Certainly! Let's explore the Array and ArrayList data structures.
 
 **Array:**
@@ -615,9 +617,6 @@ Despite these disadvantages, ArrayLists remain a widely used data structure due 
 Maps
 ----
 
-Motivation
-^^^^^^^^^^
-
 A map data structure, also known as a dictionary or associative array, is an extremely useful data structure that allows you to store and retrieve values based on a unique key. Here are a few reasons why you might use a map data structure in the context of a Computer Science 2 (CS2) course:
 
 Efficient Lookup: The most compelling reason to use a map is the ability to efficiently look up values using a key. Maps usually provide O(1) lookup time, which means it takes the same amount of time to find a value regardless of the number of items in the map. This is significantly faster than looking up a value in a list or array, which generally requires O(n) time.
@@ -635,7 +634,7 @@ In summary, maps are a powerful tool that can greatly simplify your code and imp
 Example
 ^^^^^^^
 
-Sure, I'll use the example of counting the occurrences of words in a sentence. This is a classic problem that maps solve very efficiently. I will use the java.util.Map interface along with its implementing class java.util.HashMap:
+Here is an example of counting the occurrences of words in a sentence. This is a classic problem that maps solve very efficiently. I will use the java.util.Map interface along with its implementing class java.util.HashMap:
 
 .. code-block:: java
 
@@ -660,7 +659,6 @@ Sure, I'll use the example of counting the occurrences of words in a sentence. T
             }
         }
     }
-
 
 In this program, we start by splitting a sentence into individual words. We then iterate over these words. For each word, we use the Map.compute method to either set its count to 1 if it's not already in the map, or increase its count by 1 if it is.
 
@@ -801,7 +799,6 @@ Absolutely, here's a simple pedagogically-oriented implementation of a Map using
         }
     }
 
-
 The `SimpleMap` class maintains an array of `Entry` records, each of which holds a key-value pair. The `put()` method adds a new key-value pair to the map, or updates the value if the key is already present. The `get()` method retrieves a value by its key, and the `containsKey()` method checks if a key is in the map. 
 
 This class provides a simple, tangible implementation of the Map interface, making it a great starting point for CS2 students. They could enhance this implementation by adding methods like `remove()`, `size()`, or `isEmpty()`. Later on, they could learn about more sophisticated implementations using hashing, linked lists (for collision resolution), and dynamic resizing.
@@ -810,13 +807,223 @@ This class provides a simple, tangible implementation of the Map interface, maki
 Sets
 ----
 
-.. todo:: motivation
+.. In the context of an ACM CS2 course (not including advanced CS7 topics), how would you describe a Set data structure, and what would be the motivation to use one?
 
-.. todo:: example
+A Set is a type of collection that stores unique elements - that is, no duplicates are allowed. It's akin to a mathematical set, which is an unordered collection of distinct objects. In many programming languages, including Java, the `Set` is a standard data structure, often provided as part of the language's standard library.
 
-.. todo:: main methods
+A Set can be used whenever you want to keep track of a group of items, but you don't care about their order, and you don't want any duplicates. This can be useful in a variety of circumstances. For example, imagine you're writing a program to analyze a document, and you want to know which unique words appear in the text. You could use a `Set` to store those words. Every time you encounter a new word, you add it to the `Set`. If the word is already in the `Set`, the `Set` remains unchanged - hence, no duplicates.
 
-.. todo:: sample implementation
+Another common use for a `Set` is to efficiently check for the presence of an item. For instance, you might have a `Set` of banned usernames for a forum, and you want to quickly check if a given username is in that `Set`. Since many Set implementations (like HashSet in Java) can check for the presence of an item in constant time, this operation is very efficient.
+
+Also, a `Set` can be used to perform mathematical set operations, such as union (addition of two sets), intersection (common elements in two sets), and difference (elements present in one set but not the other).
+
+Overall, a `Set` is a very handy data structure, especially when dealing with collections of unique elements where order is not significant.
+
+.. Using modern Java, can you give a simple yet engaging and compelling example of using Set to solve an simple but interesting problem?
+
+Example
+^^^^^^^
+
+Here's an example of how you might use a `Set` in Java to solve a simple problem: finding duplicate words in a sentence. This is an interesting use case because it shows off the unique-element property of the `Set`.
+
+.. code-block:: java
+
+    import java.util.HashSet;
+    import java.util.Set;
+
+    public class DuplicateWordsFinder {
+        public static void main(final String[] args) {
+            final String sentence = "Big big cats and little little dogs are great pets.";
+            final var words = sentence.split("\\s+");
+            final var uniqueWords = new HashSet<String>();
+            final var duplicateWords = new HashSet<String>();
+
+            for (final var word : words) {
+                // Normalize word to ignore case of words while checking duplicates
+                final var lowerCaseWord = word.toLowerCase();
+                if (!uniqueWords.add(lowerCaseWord)) {
+                    duplicateWords.add(lowerCaseWord);
+                }
+            }
+
+            System.out.println("Duplicate words: " + duplicateWords);
+        }
+    }
+
+In this example, we first split a sentence into individual words. We then iterate over these words, attempting to add each to the `uniqueWords` set. The `Set.add()` method returns `false` if the element was already in the set. Thus, if `add()` returns `false`, we know we've found a duplicate, and we add the word to the `duplicateWords` set. Finally, we print out the set of duplicate words.
+
+The key advantage of using a `Set` in this situation is that it automatically handles the task of checking for duplicates. We don't need to write any code to compare each word to every other word - the `Set` does that for us. This makes the code simpler and more efficient.
+
+The Java Set API
+^^^^^^^^^^^^^^^^
+.. What are the main methods of the Set interface in the Java API (version 17)?
+
+The `java.util.Set` interface in Java provides a number of methods for working with collections of unique elements. As of Java 17, here are some of the key methods available:
+
+1. **add(E e):** Adds the specified element to this set if it is not already present.
+
+2. **remove(Object o):** Removes the specified element from this set if it is present.
+
+3. **contains(Object o):** Returns true if this set contains the specified element.
+
+4. **isEmpty():** Returns true if this set contains no elements.
+
+5. **size():** Returns the number of elements in this set.
+
+6. **clear():** Removes all of the elements from this set.
+
+7. **iterator():** Returns an iterator over the elements in this set.
+
+8. **toArray():** Returns an array containing all of the elements in this set.
+
+9. **containsAll(Collection<?> c):** Returns true if this set contains all of the elements of the specified collection.
+
+10. **addAll(Collection<? extends E> c):** Adds all of the elements in the specified collection to this set.
+
+11. **removeAll(Collection<?> c):** Removes from this set all of its elements that are contained in the specified collection.
+
+12. **retainAll(Collection<?> c):** Retains only the elements in this set that are contained in the specified collection.
+
+In addition to these, the `Set` interface also inherits methods from the `Collection` interface, such as `stream()`, which returns a sequential `Stream` with this collection as its source, and `forEach(Consumer<? super E> action)`, which performs the given action for each element of the `Iterable` until all elements have been processed or the action throws an exception.
+
+These methods provide a variety of ways to manipulate and interact with sets of unique data in Java, and understanding them is essential for effective use of the `Set` interface.
+
+In addition to the methods previously described, `java.util.Set` inherits some important methods from the `java.util.Collection` interface, which include:
+
+13. **equals(Object o):** Compares the specified object with this collection for equality. In other words, two sets are defined to be equal if they contain the same elements.
+
+14. **hashCode():** Returns the hash code value for this collection. The hash code of a set is defined to be the sum of the hash codes of the elements in the set.
+
+15. **removeIf(Predicate<? super E> filter):** Removes all of the elements of this collection that satisfy the given predicate. This can be used to remove elements based on a condition.
+
+16. **parallelStream():** Returns a possibly parallel Stream with this collection as its source. This can be used for operations that can be executed concurrently to improve performance.
+
+17. **spliterator():** Creates a Spliterator over the elements in this collection. A Spliterator can be used to partition off some of its elements as another Spliterator, supporting efficient parallel operations.
+
+The `Set` interface doesn't have any methods specifically for accessing elements based on their position in the set because sets, unlike lists, are not inherently ordered collections. 
+
+Some implementations, like `LinkedHashSet`, do maintain an order (insertion-order in this case), but this is not a contractual characteristic of the `Set` interface itself.
+
+Also, the Set interface has three main implementation classes in the Java Collections Framework: `HashSet`, `LinkedHashSet`, and `TreeSet`, each with its own characteristics in terms of order, performance and allowing null elements.
+
+Sample implementation
+^^^^^^^^^^^^^^^^^^^^^
+
+.. Can you show a simple yet modern Java implementation class of the Map interface, pedagogically suitable for a CS2 audience (second computer science course)? The implementation doesn't have to be complete but should include the handful or so of essential methods.
+
+Sure, here is a simple pedagogically-oriented implementation of a Set using a backing array. This implementation uses local type inference (introduced in Java 10) and other modern Java features. Please note that this implementation is for learning purposes and doesn't handle resizing, nor does it provide the performance benefits of a true `HashSet` or `TreeSet`:
+
+```java
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+
+public class SimpleSet<E> implements Iterable<E> {
+    private static final int SIZE = 10;
+
+    private final E[] elements;
+    private int count = 0;
+
+    @SuppressWarnings("unchecked")
+    public SimpleSet() {
+        this.elements = (E[]) new Object[SIZE];
+    }
+
+    public void add(final E e) {
+        if (count >= SIZE) {
+            throw new IllegalStateException("Set is full");
+        }
+        if (contains(e)) {
+            return; // No duplicates allowed in a Set
+        }
+        elements[count++] = e;
+    }
+
+    public boolean contains(final E e) {
+        for (final var element : elements) {
+            if (e.equals(element)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    @Override
+    public Iterator<E> iterator() {
+        return new Iterator<>() {
+            private int currentIndex = 0;
+
+            @Override
+            public boolean hasNext() {
+                return currentIndex < count;
+            }
+
+            @Override
+            public E next() {
+                if (!hasNext()) {
+                    throw new NoSuchElementException();
+                }
+                return elements[currentIndex++];
+            }
+        };
+    }
+
+    @Override
+    public String toString() {
+        final var presentElements = Arrays.copyOf(elements, count);
+        return Arrays.toString(presentElements);
+    }
+}
+```
+
+The `SimpleSet` class maintains an array of elements. The `add(E e)` method adds a new element to the set only if it is not already present. The `contains(E e)` method checks if an element is present in the set. The class also implements the `Iterable<E>` interface, allowing for enhanced for-loop iteration over the elements. Note the use of the `iterator()` method to provide a custom iterator for the set.
+
+While useful for pedagogical purposes, this implementation lacks the performance characteristics of the standard Java Set implementations (e.g., `HashSet` and `TreeSet`). As the collection grows, operations can become slower because each operation needs to iterate over every element in the array. A more complex data structure, such as a hash table or a tree, can provide better performance by organizing the data in a way that allows operations to complete more quickly.
+
+Bitsets
+^^^^^^^
+
+.. In a way that is suitable for a CS2 audience, please describe and motivate the use of Java 17's BitSet, provide a simple example, and briefly describe the essential elements of its implementation.
+
+A `BitSet` in Java is a special kind of array that holds bit values. That is, each element in a `BitSet` is either a 0 or a 1. This can be incredibly useful and efficient when you need to store large sets of boolean values because a `BitSet` is more memory-efficient than other data structures, such as arrays or `ArrayList<Boolean>`, for instance.
+
+`BitSet` is also useful when you need to perform bitwise operations (AND, OR, XOR, etc.) on a set of binary values. This can be beneficial in certain types of problems such as data compression, graphics, and searching algorithms.
+
+Here's a simple example of a `BitSet` in action:
+
+.. code-block:: java
+
+    import java.util.BitSet;
+
+    public class BitSetExample {
+        public static void main(final String[] args) {
+            final var bits = new BitSet(5);
+
+            // Set bits at index 0 and 2
+            bits.set(0);
+            bits.set(2);
+
+            System.out.println("BitSet: " + bits);
+            System.out.println("Bit at index 2: " + bits.get(2));
+            System.out.println("Bit at index 1: " + bits.get(1));
+            System.out.println("Size of BitSet: " + bits.size());
+        }
+    }
+
+When you run this code, it prints:
+
+.. code-block:: java
+
+    BitSet: {0, 2}
+    Bit at index 2: true
+    Bit at index 1: false
+    Size of BitSet: 64
+
+This example creates a `BitSet` and sets the bits at indices 0 and 2. The `BitSet`'s `toString()` method shows which indices are set to true. We also demonstrate the use of the `get(int index)` method to check the value of a specific bit.
+
+One important thing to note is that the `size()` method returns the "logical size" of the `BitSet` which is "the index of the highest set bit plus one". So, in this case, despite initializing the `BitSet` with a size of 5, the size returned is 64 as the `BitSet` internally allocates memory in multiples of 64 bits (the size of a `long`).
+
+Regarding its implementation, a `BitSet` internally uses a dynamic array (`long[]`) to hold the bits, which are represented as long integers (64-bit). Each `long` value represents 64 bits, with the 0th bit referring to the least significant bit of the `long` and the 63rd bit referring to the most significant bit. The `long[]` array is expanded as needed, ensuring the `BitSet` can grow to accommodate any bit index. The `BitSet` class also provides many methods for performing bitwise operations on the bits. This, combined with its dynamic size, makes `BitSet` a flexible tool for efficient bit manipulation.
 
 
 Stacks

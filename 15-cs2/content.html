@@ -576,6 +576,10 @@ Java’s <code class="docutils literal notranslate"><span class="pre">record</sp
 <section id="array-based-lists">
 <h2>Array-based lists<a class="headerlink" href="#array-based-lists" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#array-based-lists'">¶</a></h2>
 <p>Let’s move on to the next major CS2 topic, Array and ArrayList: Please describe these structures and provide an example of each to help me gain an Understanding of these basic data structures, their uses, and limitations.</p>
+<div class="admonition-todo admonition" id="id2">
+<p class="admonition-title">Todo</p>
+<p>add subsection headings</p>
+</div>
 <p>Certainly! Let’s explore the Array and ArrayList data structures.</p>
 <p><strong>Array:</strong>
 An array is a fixed-size data structure that stores elements of the same type in contiguous memory locations. It provides random access to its elements using indices. Arrays have a predetermined length that is defined at the time of declaration, and this length cannot be changed once the array is created.</p>
@@ -618,19 +622,17 @@ The ArrayList is a dynamic data structure provided by the Java Collections Frame
 <li><p><strong>Resizing Impact</strong>: When an ArrayList needs to resize its internal array, it creates a new array with a larger size and copies the elements from the old array to the new one. This resizing operation can be time-consuming, especially if the ArrayList contains a large number of elements. If you know the approximate size requirements in advance, initializing the ArrayList with an initial capacity can help mitigate frequent resizing.</p></li>
 </ol>
 <p>Despite these disadvantages, ArrayLists remain a widely used data structure due to their flexibility, ease of use, and the convenience provided by the Java Collections Framework. Understanding the limitations and trade-offs of ArrayLists can help you make informed decisions when selecting the appropriate data structure for your specific needs.</p>
-<div class="admonition-todo admonition" id="id2">
+<div class="admonition-todo admonition" id="id3">
 <p class="admonition-title">Todo</p>
 <p>main methods of ArrayList</p>
 </div>
-<div class="admonition-todo admonition" id="id3">
+<div class="admonition-todo admonition" id="id4">
 <p class="admonition-title">Todo</p>
 <p>sample implementation</p>
 </div>
 </section>
 <section id="maps">
 <h2>Maps<a class="headerlink" href="#maps" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#maps'">¶</a></h2>
-<section id="motivation">
-<h3>Motivation<a class="headerlink" href="#motivation" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#motivation'">¶</a></h3>
 <p>A map data structure, also known as a dictionary or associative array, is an extremely useful data structure that allows you to store and retrieve values based on a unique key. Here are a few reasons why you might use a map data structure in the context of a Computer Science 2 (CS2) course:</p>
 <p>Efficient Lookup: The most compelling reason to use a map is the ability to efficiently look up values using a key. Maps usually provide O(1) lookup time, which means it takes the same amount of time to find a value regardless of the number of items in the map. This is significantly faster than looking up a value in a list or array, which generally requires O(n) time.</p>
 <p>Data Organization: Maps can be very useful for organizing data. You can use the key-value structure of a map to associate related data. For example, if you were creating a program to manage a library, you might use a map to associate book titles with information about each book, such as its author and publication date.</p>
@@ -638,10 +640,9 @@ The ArrayList is a dynamic data structure provided by the Java Collections Frame
 <p>Implementing Abstract Data Types: Maps can be used to implement various abstract data types (ADTs) such as caches, indexes, symbol tables in compilers, or in representing adjacency lists in graphs. These applications are central to many areas of computer science.</p>
 <p>Programming Language Support: Many programming languages have built-in support for map data structures, making them a convenient choice for many tasks.</p>
 <p>In summary, maps are a powerful tool that can greatly simplify your code and improve its performance. They’re an essential part of a computer science student’s toolkit, and learning how to use them effectively can greatly benefit your problem-solving abilities.</p>
-</section>
 <section id="example">
 <h3>Example<a class="headerlink" href="#example" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#example'">¶</a></h3>
-<p>Sure, I’ll use the example of counting the occurrences of words in a sentence. This is a classic problem that maps solve very efficiently. I will use the java.util.Map interface along with its implementing class java.util.HashMap:</p>
+<p>Here is an example of counting the occurrences of words in a sentence. This is a classic problem that maps solve very efficiently. I will use the java.util.Map interface along with its implementing class java.util.HashMap:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.HashMap</span><span class="p">;</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Map</span><span class="p">;</span>
 
@@ -675,7 +676,7 @@ The ArrayList is a dynamic data structure provided by the Java Collections Frame
 </section>
 <section id="the-java-map-api">
 <h3>The Java Map API<a class="headerlink" href="#the-java-map-api" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#the-java-map-api'">¶</a></h3>
-<div class="admonition-todo admonition" id="id4">
+<div class="admonition-todo admonition" id="id5">
 <p class="admonition-title">Todo</p>
 <p>add thoughts on map as a generalization of array/ArrayList</p>
 </div>
@@ -782,38 +783,209 @@ The ArrayList is a dynamic data structure provided by the Java Collections Frame
 </section>
 <section id="sets">
 <h2>Sets<a class="headerlink" href="#sets" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#sets'">¶</a></h2>
-<div class="admonition-todo admonition" id="id5">
-<p class="admonition-title">Todo</p>
-<p>motivation</p>
+<p>A Set is a type of collection that stores unique elements - that is, no duplicates are allowed. It’s akin to a mathematical set, which is an unordered collection of distinct objects. In many programming languages, including Java, the <cite>Set</cite> is a standard data structure, often provided as part of the language’s standard library.</p>
+<p>A Set can be used whenever you want to keep track of a group of items, but you don’t care about their order, and you don’t want any duplicates. This can be useful in a variety of circumstances. For example, imagine you’re writing a program to analyze a document, and you want to know which unique words appear in the text. You could use a <cite>Set</cite> to store those words. Every time you encounter a new word, you add it to the <cite>Set</cite>. If the word is already in the <cite>Set</cite>, the <cite>Set</cite> remains unchanged - hence, no duplicates.</p>
+<p>Another common use for a <cite>Set</cite> is to efficiently check for the presence of an item. For instance, you might have a <cite>Set</cite> of banned usernames for a forum, and you want to quickly check if a given username is in that <cite>Set</cite>. Since many Set implementations (like HashSet in Java) can check for the presence of an item in constant time, this operation is very efficient.</p>
+<p>Also, a <cite>Set</cite> can be used to perform mathematical set operations, such as union (addition of two sets), intersection (common elements in two sets), and difference (elements present in one set but not the other).</p>
+<p>Overall, a <cite>Set</cite> is a very handy data structure, especially when dealing with collections of unique elements where order is not significant.</p>
+<section id="id6">
+<h3>Example<a class="headerlink" href="#id6" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id6'">¶</a></h3>
+<p>Here’s an example of how you might use a <cite>Set</cite> in Java to solve a simple problem: finding duplicate words in a sentence. This is an interesting use case because it shows off the unique-element property of the <cite>Set</cite>.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.HashSet</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Set</span><span class="p">;</span>
+
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">DuplicateWordsFinder</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">sentence</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Big big cats and little little dogs are great pets."</span><span class="p">;</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">words</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sentence</span><span class="p">.</span><span class="na">split</span><span class="p">(</span><span class="s">"\\s+"</span><span class="p">);</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">uniqueWords</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashSet</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">duplicateWords</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashSet</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="p">();</span>
+
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">word</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">words</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// Normalize word to ignore case of words while checking duplicates</span>
+<span class="w">            </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">lowerCaseWord</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">word</span><span class="p">.</span><span class="na">toLowerCase</span><span class="p">();</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">uniqueWords</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">lowerCaseWord</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">duplicateWords</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">lowerCaseWord</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Duplicate words: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">duplicateWords</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
 </div>
-<div class="admonition-todo admonition" id="id6">
-<p class="admonition-title">Todo</p>
-<p>example</p>
+<p>In this example, we first split a sentence into individual words. We then iterate over these words, attempting to add each to the <cite>uniqueWords</cite> set. The <cite>Set.add()</cite> method returns <cite>false</cite> if the element was already in the set. Thus, if <cite>add()</cite> returns <cite>false</cite>, we know we’ve found a duplicate, and we add the word to the <cite>duplicateWords</cite> set. Finally, we print out the set of duplicate words.</p>
+<p>The key advantage of using a <cite>Set</cite> in this situation is that it automatically handles the task of checking for duplicates. We don’t need to write any code to compare each word to every other word - the <cite>Set</cite> does that for us. This makes the code simpler and more efficient.</p>
+</section>
+<section id="the-java-set-api">
+<h3>The Java Set API<a class="headerlink" href="#the-java-set-api" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#the-java-set-api'">¶</a></h3>
+<p>The <cite>java.util.Set</cite> interface in Java provides a number of methods for working with collections of unique elements. As of Java 17, here are some of the key methods available:</p>
+<ol class="arabic simple">
+<li><p><strong>add(E e):</strong> Adds the specified element to this set if it is not already present.</p></li>
+<li><p><strong>remove(Object o):</strong> Removes the specified element from this set if it is present.</p></li>
+<li><p><strong>contains(Object o):</strong> Returns true if this set contains the specified element.</p></li>
+<li><p><strong>isEmpty():</strong> Returns true if this set contains no elements.</p></li>
+<li><p><strong>size():</strong> Returns the number of elements in this set.</p></li>
+<li><p><strong>clear():</strong> Removes all of the elements from this set.</p></li>
+<li><p><strong>iterator():</strong> Returns an iterator over the elements in this set.</p></li>
+<li><p><strong>toArray():</strong> Returns an array containing all of the elements in this set.</p></li>
+<li><p><strong>containsAll(Collection&lt;?&gt; c):</strong> Returns true if this set contains all of the elements of the specified collection.</p></li>
+<li><p><strong>addAll(Collection&lt;? extends E&gt; c):</strong> Adds all of the elements in the specified collection to this set.</p></li>
+<li><p><strong>removeAll(Collection&lt;?&gt; c):</strong> Removes from this set all of its elements that are contained in the specified collection.</p></li>
+<li><p><strong>retainAll(Collection&lt;?&gt; c):</strong> Retains only the elements in this set that are contained in the specified collection.</p></li>
+</ol>
+<p>In addition to these, the <cite>Set</cite> interface also inherits methods from the <cite>Collection</cite> interface, such as <cite>stream()</cite>, which returns a sequential <cite>Stream</cite> with this collection as its source, and <cite>forEach(Consumer&lt;? super E&gt; action)</cite>, which performs the given action for each element of the <cite>Iterable</cite> until all elements have been processed or the action throws an exception.</p>
+<p>These methods provide a variety of ways to manipulate and interact with sets of unique data in Java, and understanding them is essential for effective use of the <cite>Set</cite> interface.</p>
+<p>In addition to the methods previously described, <cite>java.util.Set</cite> inherits some important methods from the <cite>java.util.Collection</cite> interface, which include:</p>
+<ol class="arabic simple" start="13">
+<li><p><strong>equals(Object o):</strong> Compares the specified object with this collection for equality. In other words, two sets are defined to be equal if they contain the same elements.</p></li>
+<li><p><strong>hashCode():</strong> Returns the hash code value for this collection. The hash code of a set is defined to be the sum of the hash codes of the elements in the set.</p></li>
+<li><p><strong>removeIf(Predicate&lt;? super E&gt; filter):</strong> Removes all of the elements of this collection that satisfy the given predicate. This can be used to remove elements based on a condition.</p></li>
+<li><p><strong>parallelStream():</strong> Returns a possibly parallel Stream with this collection as its source. This can be used for operations that can be executed concurrently to improve performance.</p></li>
+<li><p><strong>spliterator():</strong> Creates a Spliterator over the elements in this collection. A Spliterator can be used to partition off some of its elements as another Spliterator, supporting efficient parallel operations.</p></li>
+</ol>
+<p>The <cite>Set</cite> interface doesn’t have any methods specifically for accessing elements based on their position in the set because sets, unlike lists, are not inherently ordered collections.</p>
+<p>Some implementations, like <cite>LinkedHashSet</cite>, do maintain an order (insertion-order in this case), but this is not a contractual characteristic of the <cite>Set</cite> interface itself.</p>
+<p>Also, the Set interface has three main implementation classes in the Java Collections Framework: <cite>HashSet</cite>, <cite>LinkedHashSet</cite>, and <cite>TreeSet</cite>, each with its own characteristics in terms of order, performance and allowing null elements.</p>
+</section>
+<section id="id7">
+<h3>Sample implementation<a class="headerlink" href="#id7" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id7'">¶</a></h3>
+<p>Sure, here is a simple pedagogically-oriented implementation of a Set using a backing array. This implementation uses local type inference (introduced in Java 10) and other modern Java features. Please note that this implementation is for learning purposes and doesn’t handle resizing, nor does it provide the performance benefits of a true <cite>HashSet</cite> or <cite>TreeSet</cite>:</p>
+<p><a href="#id8"><span class="problematic" id="id9">``</span></a><a href="#id10"><span class="problematic" id="id11">`</span></a>java
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.NoSuchElementException;</p>
+<dl>
+<dt>public class SimpleSet&lt;E&gt; implements Iterable&lt;E&gt; {</dt><dd><p>private static final int SIZE = 10;</p>
+<p>private final E[] elements;
+private int count = 0;</p>
+<p>@SuppressWarnings(“unchecked”)
+public SimpleSet() {</p>
+<blockquote>
+<div><p>this.elements = (E[]) new Object[SIZE];</p>
+</div></blockquote>
+<p>}</p>
+<dl>
+<dt>public void add(final E e) {</dt><dd><dl class="simple">
+<dt>if (count &gt;= SIZE) {</dt><dd><p>throw new IllegalStateException(“Set is full”);</p>
+</dd>
+</dl>
+<p>}
+if (contains(e)) {</p>
+<blockquote>
+<div><p>return; // No duplicates allowed in a Set</p>
+</div></blockquote>
+<p>}
+elements[count++] = e;</p>
+</dd>
+</dl>
+<p>}</p>
+<dl>
+<dt>public boolean contains(final E e) {</dt><dd><dl>
+<dt>for (final var element<span class="classifier">elements) {</span></dt><dd><dl class="simple">
+<dt>if (e.equals(element)) {</dt><dd><p>return true;</p>
+</dd>
+</dl>
+<p>}</p>
+</dd>
+</dl>
+<p>}
+return false;</p>
+</dd>
+</dl>
+<p>}</p>
+<p>@Override
+public Iterator&lt;E&gt; iterator() {</p>
+<blockquote>
+<div><dl>
+<dt>return new Iterator&lt;&gt;() {</dt><dd><p>private int currentIndex = 0;</p>
+<p>@Override
+public boolean hasNext() {</p>
+<blockquote>
+<div><p>return currentIndex &lt; count;</p>
+</div></blockquote>
+<p>}</p>
+<p>@Override
+public E next() {</p>
+<blockquote>
+<div><dl class="simple">
+<dt>if (!hasNext()) {</dt><dd><p>throw new NoSuchElementException();</p>
+</dd>
+</dl>
+<p>}
+return elements[currentIndex++];</p>
+</div></blockquote>
+<p>}</p>
+</dd>
+</dl>
+<p>};</p>
+</div></blockquote>
+<p>}</p>
+<p>@Override
+public String toString() {</p>
+<blockquote>
+<div><p>final var presentElements = Arrays.copyOf(elements, count);
+return Arrays.toString(presentElements);</p>
+</div></blockquote>
+<p>}</p>
+</dd>
+</dl>
+<section id="id12">
+<h4>}<a class="headerlink" href="#id12" title="Permalink to this heading">¶</a></h4>
+<p>The <cite>SimpleSet</cite> class maintains an array of elements. The <cite>add(E e)</cite> method adds a new element to the set only if it is not already present. The <cite>contains(E e)</cite> method checks if an element is present in the set. The class also implements the <cite>Iterable&lt;E&gt;</cite> interface, allowing for enhanced for-loop iteration over the elements. Note the use of the <cite>iterator()</cite> method to provide a custom iterator for the set.</p>
+<p>While useful for pedagogical purposes, this implementation lacks the performance characteristics of the standard Java Set implementations (e.g., <cite>HashSet</cite> and <cite>TreeSet</cite>). As the collection grows, operations can become slower because each operation needs to iterate over every element in the array. A more complex data structure, such as a hash table or a tree, can provide better performance by organizing the data in a way that allows operations to complete more quickly.</p>
+</section>
+</section>
+<section id="bitsets">
+<h3>Bitsets<a class="headerlink" href="#bitsets" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#bitsets'">¶</a></h3>
+<p>A <cite>BitSet</cite> in Java is a special kind of array that holds bit values. That is, each element in a <cite>BitSet</cite> is either a 0 or a 1. This can be incredibly useful and efficient when you need to store large sets of boolean values because a <cite>BitSet</cite> is more memory-efficient than other data structures, such as arrays or <cite>ArrayList&lt;Boolean&gt;</cite>, for instance.</p>
+<p><cite>BitSet</cite> is also useful when you need to perform bitwise operations (AND, OR, XOR, etc.) on a set of binary values. This can be beneficial in certain types of problems such as data compression, graphics, and searching algorithms.</p>
+<p>Here’s a simple example of a <cite>BitSet</cite> in action:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.BitSet</span><span class="p">;</span>
+
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">BitSetExample</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">bits</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BitSet</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// Set bits at index 0 and 2</span>
+<span class="w">        </span><span class="n">bits</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="w">        </span><span class="n">bits</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"BitSet: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">bits</span><span class="p">);</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Bit at index 2: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">bits</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="mi">2</span><span class="p">));</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Bit at index 1: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">bits</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Size of BitSet: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">bits</span><span class="p">.</span><span class="na">size</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
 </div>
-<div class="admonition-todo admonition" id="id7">
-<p class="admonition-title">Todo</p>
-<p>main methods</p>
+<p>When you run this code, it prints:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nl">BitSet</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">}</span>
+<span class="n">Bit</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">index</span><span class="w"> </span><span class="mi">2</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="n">Bit</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">index</span><span class="w"> </span><span class="mi">1</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span>
+<span class="n">Size</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">BitSet</span><span class="p">:</span><span class="w"> </span><span class="mi">64</span>
+</pre></div>
 </div>
-<div class="admonition-todo admonition" id="id8">
-<p class="admonition-title">Todo</p>
-<p>sample implementation</p>
-</div>
+<p>This example creates a <cite>BitSet</cite> and sets the bits at indices 0 and 2. The <cite>BitSet</cite>’s <cite>toString()</cite> method shows which indices are set to true. We also demonstrate the use of the <cite>get(int index)</cite> method to check the value of a specific bit.</p>
+<p>One important thing to note is that the <cite>size()</cite> method returns the “logical size” of the <cite>BitSet</cite> which is “the index of the highest set bit plus one”. So, in this case, despite initializing the <cite>BitSet</cite> with a size of 5, the size returned is 64 as the <cite>BitSet</cite> internally allocates memory in multiples of 64 bits (the size of a <cite>long</cite>).</p>
+<p>Regarding its implementation, a <cite>BitSet</cite> internally uses a dynamic array (<cite>long[]</cite>) to hold the bits, which are represented as long integers (64-bit). Each <cite>long</cite> value represents 64 bits, with the 0th bit referring to the least significant bit of the <cite>long</cite> and the 63rd bit referring to the most significant bit. The <cite>long[]</cite> array is expanded as needed, ensuring the <cite>BitSet</cite> can grow to accommodate any bit index. The <cite>BitSet</cite> class also provides many methods for performing bitwise operations on the bits. This, combined with its dynamic size, makes <cite>BitSet</cite> a flexible tool for efficient bit manipulation.</p>
+</section>
 </section>
 <section id="stacks">
 <h2>Stacks<a class="headerlink" href="#stacks" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#stacks'">¶</a></h2>
-<div class="admonition-todo admonition" id="id9">
+<div class="admonition-todo admonition" id="id13">
 <p class="admonition-title">Todo</p>
 <p>motivation</p>
 </div>
-<div class="admonition-todo admonition" id="id10">
+<div class="admonition-todo admonition" id="id14">
 <p class="admonition-title">Todo</p>
 <p>example</p>
 </div>
-<div class="admonition-todo admonition" id="id11">
+<div class="admonition-todo admonition" id="id15">
 <p class="admonition-title">Todo</p>
 <p>main methods</p>
 </div>
-<div class="admonition-todo admonition" id="id12">
+<div class="admonition-todo admonition" id="id16">
 <p class="admonition-title">Todo</p>
 <p>sample implementation</p>
 </div>
@@ -843,15 +1015,15 @@ The ArrayList is a dynamic data structure provided by the Java Collections Frame
 </section>
 <section id="queues">
 <h2>Queues<a class="headerlink" href="#queues" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#queues'">¶</a></h2>
-<div class="admonition-todo admonition" id="id13">
+<div class="admonition-todo admonition" id="id17">
 <p class="admonition-title">Todo</p>
 <p>example</p>
 </div>
-<div class="admonition-todo admonition" id="id14">
+<div class="admonition-todo admonition" id="id18">
 <p class="admonition-title">Todo</p>
 <p>main methods</p>
 </div>
-<div class="admonition-todo admonition" id="id15">
+<div class="admonition-todo admonition" id="id19">
 <p class="admonition-title">Todo</p>
 <p>sample implementation</p>
 </div>
@@ -884,14 +1056,11 @@ The ArrayList is a dynamic data structure provided by the Java Collections Frame
 </section>
 <section id="putting-everything-together-maze-solver">
 <h3>Putting everything together: maze solver<a class="headerlink" href="#putting-everything-together-maze-solver" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#putting-everything-together-maze-solver'">¶</a></h3>
-<div class="admonition-todo admonition" id="id16">
+<div class="admonition-todo admonition" id="id20">
 <p class="admonition-title">Todo</p>
 <p>extended example</p>
 </div>
 <hr class="docutils"/>
-<section id="content-below-here-to-be-organized-later">
-<h4><em>CONTENT BELOW HERE TO BE ORGANIZED LATER</em><a class="headerlink" href="#content-below-here-to-be-organized-later" title="Permalink to this heading">¶</a></h4>
-</section>
 </section>
 </section>
 <section id="top-15-cs2-topics-as-opposed-to-cs7">
@@ -923,7 +1092,7 @@ The ArrayList is a dynamic data structure provided by the Java Collections Frame
 <p>The exact order and selection of these topics may vary depending on the specific course and curriculum guidelines. Also, real-life examples and problem-solving exercises should be included to apply these data structures and concepts. The complexity and depth of these topics will increase when students move on to more advanced courses like CS7.</p>
 <section id="cs2-at-loyola-current-topics-and-learning-outcomes">
 <h3>CS2 at Loyola: Current topics and learning outcomes<a class="headerlink" href="#cs2-at-loyola-current-topics-and-learning-outcomes" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#cs2-at-loyola-current-topics-and-learning-outcomes'">¶</a></h3>
-<div class="admonition-todo admonition" id="id17">
+<div class="admonition-todo admonition" id="id21">
 <p class="admonition-title">Todo</p>
 <p>Update as needed.</p>
 </div>
@@ -1498,8 +1667,8 @@ Balto says: Howl!
 <p>Subtyping is an important concept in object-oriented programming and is closely related to inheritance. It allows for the substitution of objects of one class with objects of another class that is derived from or related to the former class.</p>
 <p>Subtyping enables polymorphism and supports the “is-a” relationship between classes. It allows objects of a derived class to be treated as objects of their parent class, providing flexibility and extensibility in program design. By leveraging subtyping, code can be written in a way that is more generic and adaptable to different types of objects.</p>
 <p>In the context of CS2, subtyping is a significant aspect of understanding inheritance and polymorphism. It enables students to create class hierarchies, define relationships between classes, and utilize the principles of code reuse and abstraction. By grasping the concept of subtyping, students can effectively design and implement object-oriented programs that utilize inheritance and polymorphism to their full potential.</p>
-<table class="docutils align-default" id="id18">
-<caption><span class="caption-text">Comparison between type hierarchy relationships</span><a class="headerlink" href="#id18" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id22">
+<caption><span class="caption-text">Comparison between type hierarchy relationships</span><a class="headerlink" href="#id22" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 33%"/>
 <col style="width: 33%"/>
@@ -1726,8 +1895,8 @@ Balto says: Howl!
 </pre></div>
 </div>
 <p>This example demonstrates how the <cite>Car</cite> object composes the <cite>Engine</cite> and <cite>Wheel</cite> objects, utilizing their behaviors and encapsulating them within its own functionality.</p>
-<table class="docutils align-default" id="id19">
-<caption><span class="caption-text">Comparison among object relationships</span><a class="headerlink" href="#id19" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id23">
+<caption><span class="caption-text">Comparison among object relationships</span><a class="headerlink" href="#id23" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 25%"/>
 <col style="width: 25%"/>
@@ -2001,20 +2170,25 @@ Maps
 </li>
 <li><a :data-current="activeSection === '#array-based-lists'" class="reference internal" href="#array-based-lists">Array-based lists</a></li>
 <li><a :data-current="activeSection === '#maps'" class="reference internal" href="#maps">Maps</a><ul>
-<li><a :data-current="activeSection === '#motivation'" class="reference internal" href="#motivation">Motivation</a></li>
 <li><a :data-current="activeSection === '#example'" class="reference internal" href="#example">Example</a></li>
 <li><a :data-current="activeSection === '#the-java-map-api'" class="reference internal" href="#the-java-map-api">The Java Map API</a></li>
 <li><a :data-current="activeSection === '#sample-implementation'" class="reference internal" href="#sample-implementation">Sample implementation</a></li>
 </ul>
 </li>
-<li><a :data-current="activeSection === '#sets'" class="reference internal" href="#sets">Sets</a></li>
+<li><a :data-current="activeSection === '#sets'" class="reference internal" href="#sets">Sets</a><ul>
+<li><a :data-current="activeSection === '#id6'" class="reference internal" href="#id6">Example</a></li>
+<li><a :data-current="activeSection === '#the-java-set-api'" class="reference internal" href="#the-java-set-api">The Java Set API</a></li>
+<li><a :data-current="activeSection === '#id7'" class="reference internal" href="#id7">Sample implementation</a><ul>
+<li><a :data-current="activeSection === '#id12'" class="reference internal" href="#id12">}</a></li>
+</ul>
+</li>
+<li><a :data-current="activeSection === '#bitsets'" class="reference internal" href="#bitsets">Bitsets</a></li>
+</ul>
+</li>
 <li><a :data-current="activeSection === '#stacks'" class="reference internal" href="#stacks">Stacks</a></li>
 <li><a :data-current="activeSection === '#queues'" class="reference internal" href="#queues">Queues</a><ul>
 <li><a :data-current="activeSection === '#a-unified-view-of-restricted-access-data-structures'" class="reference internal" href="#a-unified-view-of-restricted-access-data-structures">A unified view of restricted-access data structures</a></li>
-<li><a :data-current="activeSection === '#putting-everything-together-maze-solver'" class="reference internal" href="#putting-everything-together-maze-solver">Putting everything together: maze solver</a><ul>
-<li><a :data-current="activeSection === '#content-below-here-to-be-organized-later'" class="reference internal" href="#content-below-here-to-be-organized-later"><em>CONTENT BELOW HERE TO BE ORGANIZED LATER</em></a></li>
-</ul>
-</li>
+<li><a :data-current="activeSection === '#putting-everything-together-maze-solver'" class="reference internal" href="#putting-everything-together-maze-solver">Putting everything together: maze solver</a></li>
 </ul>
 </li>
 <li><a :data-current="activeSection === '#top-15-cs2-topics-as-opposed-to-cs7'" class="reference internal" href="#top-15-cs2-topics-as-opposed-to-cs7">Top 15 CS2 topics as opposed to CS7</a><ul>
