@@ -851,90 +851,70 @@ The ArrayList is a dynamic data structure provided by the Java Collections Frame
 <section id="id7">
 <h3>Sample implementation<a class="headerlink" href="#id7" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id7'">¶</a></h3>
 <p>Sure, here is a simple pedagogically-oriented implementation of a Set using a backing array. This implementation uses local type inference (introduced in Java 10) and other modern Java features. Please note that this implementation is for learning purposes and doesn’t handle resizing, nor does it provide the performance benefits of a true <cite>HashSet</cite> or <cite>TreeSet</cite>:</p>
-<p><a href="#id8"><span class="problematic" id="id9">``</span></a><a href="#id10"><span class="problematic" id="id11">`</span></a>java
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.NoSuchElementException;</p>
-<dl>
-<dt>public class SimpleSet&lt;E&gt; implements Iterable&lt;E&gt; {</dt><dd><p>private static final int SIZE = 10;</p>
-<p>private final E[] elements;
-private int count = 0;</p>
-<p>@SuppressWarnings(“unchecked”)
-public SimpleSet() {</p>
-<blockquote>
-<div><p>this.elements = (E[]) new Object[SIZE];</p>
-</div></blockquote>
-<p>}</p>
-<dl>
-<dt>public void add(final E e) {</dt><dd><dl class="simple">
-<dt>if (count &gt;= SIZE) {</dt><dd><p>throw new IllegalStateException(“Set is full”);</p>
-</dd>
-</dl>
-<p>}
-if (contains(e)) {</p>
-<blockquote>
-<div><p>return; // No duplicates allowed in a Set</p>
-</div></blockquote>
-<p>}
-elements[count++] = e;</p>
-</dd>
-</dl>
-<p>}</p>
-<dl>
-<dt>public boolean contains(final E e) {</dt><dd><dl>
-<dt>for (final var element<span class="classifier">elements) {</span></dt><dd><dl class="simple">
-<dt>if (e.equals(element)) {</dt><dd><p>return true;</p>
-</dd>
-</dl>
-<p>}</p>
-</dd>
-</dl>
-<p>}
-return false;</p>
-</dd>
-</dl>
-<p>}</p>
-<p>@Override
-public Iterator&lt;E&gt; iterator() {</p>
-<blockquote>
-<div><dl>
-<dt>return new Iterator&lt;&gt;() {</dt><dd><p>private int currentIndex = 0;</p>
-<p>@Override
-public boolean hasNext() {</p>
-<blockquote>
-<div><p>return currentIndex &lt; count;</p>
-</div></blockquote>
-<p>}</p>
-<p>@Override
-public E next() {</p>
-<blockquote>
-<div><dl class="simple">
-<dt>if (!hasNext()) {</dt><dd><p>throw new NoSuchElementException();</p>
-</dd>
-</dl>
-<p>}
-return elements[currentIndex++];</p>
-</div></blockquote>
-<p>}</p>
-</dd>
-</dl>
-<p>};</p>
-</div></blockquote>
-<p>}</p>
-<p>@Override
-public String toString() {</p>
-<blockquote>
-<div><p>final var presentElements = Arrays.copyOf(elements, count);
-return Arrays.toString(presentElements);</p>
-</div></blockquote>
-<p>}</p>
-</dd>
-</dl>
-<section id="id12">
-<h4>}<a class="headerlink" href="#id12" title="Permalink to this heading">¶</a></h4>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Arrays</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Iterator</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.NoSuchElementException</span><span class="p">;</span>
+
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">SimpleSet</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">Iterable</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">SIZE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">E</span><span class="o">[]</span><span class="w"> </span><span class="n">elements</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+
+<span class="w">    </span><span class="nd">@SuppressWarnings</span><span class="p">(</span><span class="s">"unchecked"</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">SimpleSet</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">elements</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">E</span><span class="o">[]</span><span class="p">)</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Object</span><span class="o">[</span><span class="n">SIZE</span><span class="o">]</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="n">E</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">count</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">SIZE</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IllegalStateException</span><span class="p">(</span><span class="s">"Set is full"</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">contains</span><span class="p">(</span><span class="n">e</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="p">;</span><span class="w"> </span><span class="c1">// No duplicates allowed in a Set</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="n">elements</span><span class="o">[</span><span class="n">count</span><span class="o">++]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">e</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">contains</span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="n">E</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">element</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">elements</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">element</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Iterator</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">iterator</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Iterator</span><span class="o">&lt;&gt;</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">currentIndex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+
+<span class="w">            </span><span class="nd">@Override</span>
+<span class="w">            </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">hasNext</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="n">currentIndex</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">count</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+
+<span class="w">            </span><span class="nd">@Override</span>
+<span class="w">            </span><span class="kd">public</span><span class="w"> </span><span class="n">E</span><span class="w"> </span><span class="nf">next</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">hasNext</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">NoSuchElementException</span><span class="p">();</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="n">elements</span><span class="o">[</span><span class="n">currentIndex</span><span class="o">++]</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">};</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">toString</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">presentElements</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Arrays</span><span class="p">.</span><span class="na">copyOf</span><span class="p">(</span><span class="n">elements</span><span class="p">,</span><span class="w"> </span><span class="n">count</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">Arrays</span><span class="p">.</span><span class="na">toString</span><span class="p">(</span><span class="n">presentElements</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 <p>The <cite>SimpleSet</cite> class maintains an array of elements. The <cite>add(E e)</cite> method adds a new element to the set only if it is not already present. The <cite>contains(E e)</cite> method checks if an element is present in the set. The class also implements the <cite>Iterable&lt;E&gt;</cite> interface, allowing for enhanced for-loop iteration over the elements. Note the use of the <cite>iterator()</cite> method to provide a custom iterator for the set.</p>
 <p>While useful for pedagogical purposes, this implementation lacks the performance characteristics of the standard Java Set implementations (e.g., <cite>HashSet</cite> and <cite>TreeSet</cite>). As the collection grows, operations can become slower because each operation needs to iterate over every element in the array. A more complex data structure, such as a hash table or a tree, can provide better performance by organizing the data in a way that allows operations to complete more quickly.</p>
-</section>
 </section>
 <section id="bitsets">
 <h3>Bitsets<a class="headerlink" href="#bitsets" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#bitsets'">¶</a></h3>
@@ -973,19 +953,19 @@ return Arrays.toString(presentElements);</p>
 </section>
 <section id="stacks">
 <h2>Stacks<a class="headerlink" href="#stacks" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#stacks'">¶</a></h2>
-<div class="admonition-todo admonition" id="id13">
+<div class="admonition-todo admonition" id="id8">
 <p class="admonition-title">Todo</p>
 <p>motivation</p>
 </div>
-<div class="admonition-todo admonition" id="id14">
+<div class="admonition-todo admonition" id="id9">
 <p class="admonition-title">Todo</p>
 <p>example</p>
 </div>
-<div class="admonition-todo admonition" id="id15">
+<div class="admonition-todo admonition" id="id10">
 <p class="admonition-title">Todo</p>
 <p>main methods</p>
 </div>
-<div class="admonition-todo admonition" id="id16">
+<div class="admonition-todo admonition" id="id11">
 <p class="admonition-title">Todo</p>
 <p>sample implementation</p>
 </div>
@@ -1015,15 +995,15 @@ return Arrays.toString(presentElements);</p>
 </section>
 <section id="queues">
 <h2>Queues<a class="headerlink" href="#queues" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#queues'">¶</a></h2>
-<div class="admonition-todo admonition" id="id17">
+<div class="admonition-todo admonition" id="id12">
 <p class="admonition-title">Todo</p>
 <p>example</p>
 </div>
-<div class="admonition-todo admonition" id="id18">
+<div class="admonition-todo admonition" id="id13">
 <p class="admonition-title">Todo</p>
 <p>main methods</p>
 </div>
-<div class="admonition-todo admonition" id="id19">
+<div class="admonition-todo admonition" id="id14">
 <p class="admonition-title">Todo</p>
 <p>sample implementation</p>
 </div>
@@ -1056,11 +1036,14 @@ return Arrays.toString(presentElements);</p>
 </section>
 <section id="putting-everything-together-maze-solver">
 <h3>Putting everything together: maze solver<a class="headerlink" href="#putting-everything-together-maze-solver" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#putting-everything-together-maze-solver'">¶</a></h3>
-<div class="admonition-todo admonition" id="id20">
+<div class="admonition-todo admonition" id="id15">
 <p class="admonition-title">Todo</p>
 <p>extended example</p>
 </div>
 <hr class="docutils"/>
+<section id="content-below-here-to-be-organized-later">
+<h4><em>CONTENT BELOW HERE TO BE ORGANIZED LATER</em><a class="headerlink" href="#content-below-here-to-be-organized-later" title="Permalink to this heading">¶</a></h4>
+</section>
 </section>
 </section>
 <section id="top-15-cs2-topics-as-opposed-to-cs7">
@@ -1092,7 +1075,7 @@ return Arrays.toString(presentElements);</p>
 <p>The exact order and selection of these topics may vary depending on the specific course and curriculum guidelines. Also, real-life examples and problem-solving exercises should be included to apply these data structures and concepts. The complexity and depth of these topics will increase when students move on to more advanced courses like CS7.</p>
 <section id="cs2-at-loyola-current-topics-and-learning-outcomes">
 <h3>CS2 at Loyola: Current topics and learning outcomes<a class="headerlink" href="#cs2-at-loyola-current-topics-and-learning-outcomes" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#cs2-at-loyola-current-topics-and-learning-outcomes'">¶</a></h3>
-<div class="admonition-todo admonition" id="id21">
+<div class="admonition-todo admonition" id="id16">
 <p class="admonition-title">Todo</p>
 <p>Update as needed.</p>
 </div>
@@ -1667,8 +1650,8 @@ Balto says: Howl!
 <p>Subtyping is an important concept in object-oriented programming and is closely related to inheritance. It allows for the substitution of objects of one class with objects of another class that is derived from or related to the former class.</p>
 <p>Subtyping enables polymorphism and supports the “is-a” relationship between classes. It allows objects of a derived class to be treated as objects of their parent class, providing flexibility and extensibility in program design. By leveraging subtyping, code can be written in a way that is more generic and adaptable to different types of objects.</p>
 <p>In the context of CS2, subtyping is a significant aspect of understanding inheritance and polymorphism. It enables students to create class hierarchies, define relationships between classes, and utilize the principles of code reuse and abstraction. By grasping the concept of subtyping, students can effectively design and implement object-oriented programs that utilize inheritance and polymorphism to their full potential.</p>
-<table class="docutils align-default" id="id22">
-<caption><span class="caption-text">Comparison between type hierarchy relationships</span><a class="headerlink" href="#id22" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id17">
+<caption><span class="caption-text">Comparison between type hierarchy relationships</span><a class="headerlink" href="#id17" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 33%"/>
 <col style="width: 33%"/>
@@ -1895,8 +1878,8 @@ Balto says: Howl!
 </pre></div>
 </div>
 <p>This example demonstrates how the <cite>Car</cite> object composes the <cite>Engine</cite> and <cite>Wheel</cite> objects, utilizing their behaviors and encapsulating them within its own functionality.</p>
-<table class="docutils align-default" id="id23">
-<caption><span class="caption-text">Comparison among object relationships</span><a class="headerlink" href="#id23" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id18">
+<caption><span class="caption-text">Comparison among object relationships</span><a class="headerlink" href="#id18" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 25%"/>
 <col style="width: 25%"/>
@@ -2178,17 +2161,17 @@ Maps
 <li><a :data-current="activeSection === '#sets'" class="reference internal" href="#sets">Sets</a><ul>
 <li><a :data-current="activeSection === '#id6'" class="reference internal" href="#id6">Example</a></li>
 <li><a :data-current="activeSection === '#the-java-set-api'" class="reference internal" href="#the-java-set-api">The Java Set API</a></li>
-<li><a :data-current="activeSection === '#id7'" class="reference internal" href="#id7">Sample implementation</a><ul>
-<li><a :data-current="activeSection === '#id12'" class="reference internal" href="#id12">}</a></li>
-</ul>
-</li>
+<li><a :data-current="activeSection === '#id7'" class="reference internal" href="#id7">Sample implementation</a></li>
 <li><a :data-current="activeSection === '#bitsets'" class="reference internal" href="#bitsets">Bitsets</a></li>
 </ul>
 </li>
 <li><a :data-current="activeSection === '#stacks'" class="reference internal" href="#stacks">Stacks</a></li>
 <li><a :data-current="activeSection === '#queues'" class="reference internal" href="#queues">Queues</a><ul>
 <li><a :data-current="activeSection === '#a-unified-view-of-restricted-access-data-structures'" class="reference internal" href="#a-unified-view-of-restricted-access-data-structures">A unified view of restricted-access data structures</a></li>
-<li><a :data-current="activeSection === '#putting-everything-together-maze-solver'" class="reference internal" href="#putting-everything-together-maze-solver">Putting everything together: maze solver</a></li>
+<li><a :data-current="activeSection === '#putting-everything-together-maze-solver'" class="reference internal" href="#putting-everything-together-maze-solver">Putting everything together: maze solver</a><ul>
+<li><a :data-current="activeSection === '#content-below-here-to-be-organized-later'" class="reference internal" href="#content-below-here-to-be-organized-later"><em>CONTENT BELOW HERE TO BE ORGANIZED LATER</em></a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a :data-current="activeSection === '#top-15-cs2-topics-as-opposed-to-cs7'" class="reference internal" href="#top-15-cs2-topics-as-opposed-to-cs7">Top 15 CS2 topics as opposed to CS7</a><ul>
