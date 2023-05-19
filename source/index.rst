@@ -25,6 +25,7 @@ The following is an outline of the contents of this online book:
    30-software-engineering/content.rst
    40-perf-benchmarks/content.rst
    80-pedagogy-crosscutting/content.rst
+   90-contributing/content.rst
    95-chatgpt-limitations/content.rst
    98-openai/content.rst
    99-sandbox/content.rst
