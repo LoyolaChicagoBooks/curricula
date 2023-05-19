@@ -433,6 +433,54 @@
 <span class="p">}</span>
 </pre></div>
 </div>
+<p>Let’s add a command-line interface to select the strategy:</p>
+<p>First, make sure to include the argparse4j dependency in your build.gradle file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dependencies</span> <span class="p">{</span>
+    <span class="n">implementation</span> <span class="s1">'net.sourceforge.argparse4j:argparse4j:0.8.1'</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Then, modify the main method as follows:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">net.sourceforge.argparse4j.ArgumentParsers</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">net.sourceforge.argparse4j.inf.ArgumentParser</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">net.sourceforge.argparse4j.inf.ArgumentParserException</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">net.sourceforge.argparse4j.inf.Namespace</span><span class="p">;</span>
+
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Main</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">ArgumentParser</span><span class="w"> </span><span class="n">parser</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ArgumentParsers</span><span class="p">.</span><span class="na">newFor</span><span class="p">(</span><span class="s">"StackQueue"</span><span class="p">).</span><span class="na">build</span><span class="p">()</span>
+<span class="w">                </span><span class="p">.</span><span class="na">defaultHelp</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+<span class="w">                </span><span class="p">.</span><span class="na">description</span><span class="p">(</span><span class="s">"Select FIFO or LIFO strategy"</span><span class="p">);</span>
+<span class="w">        </span><span class="n">parser</span><span class="p">.</span><span class="na">addArgument</span><span class="p">(</span><span class="s">"-s"</span><span class="p">,</span><span class="w"> </span><span class="s">"--strategy"</span><span class="p">)</span>
+<span class="w">                </span><span class="p">.</span><span class="na">choices</span><span class="p">(</span><span class="s">"fifo"</span><span class="p">,</span><span class="w"> </span><span class="s">"lifo"</span><span class="p">)</span>
+<span class="w">                </span><span class="p">.</span><span class="na">setDefault</span><span class="p">(</span><span class="s">"fifo"</span><span class="p">)</span>
+<span class="w">                </span><span class="p">.</span><span class="na">help</span><span class="p">(</span><span class="s">"Specify the strategy to use"</span><span class="p">);</span>
+
+<span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">Namespace</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">parser</span><span class="p">.</span><span class="na">parseArgs</span><span class="p">(</span><span class="n">args</span><span class="p">);</span>
+
+<span class="w">            </span><span class="c1">// Use user selected strategy</span>
+<span class="w">            </span><span class="n">String</span><span class="w"> </span><span class="n">strategy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">res</span><span class="p">.</span><span class="na">getString</span><span class="p">(</span><span class="s">"strategy"</span><span class="p">);</span>
+<span class="w">            </span><span class="n">Context</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">context</span><span class="p">;</span>
+
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="s">"fifo"</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">strategy</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">context</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Context</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">QueueStrategy</span><span class="o">&lt;&gt;</span><span class="p">());</span>
+<span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">context</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Context</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">StackStrategy</span><span class="o">&lt;&gt;</span><span class="p">());</span>
+<span class="w">            </span><span class="p">}</span>
+
+<span class="w">            </span><span class="n">context</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">"Hello"</span><span class="p">);</span>
+<span class="w">            </span><span class="n">context</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">"World"</span><span class="p">);</span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">context</span><span class="p">.</span><span class="na">remove</span><span class="p">());</span>
+
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">ArgumentParserException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">parser</span><span class="p">.</span><span class="na">handleError</span><span class="p">(</span><span class="n">e</span><span class="p">);</span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 </section>
 </section>
 </section>
