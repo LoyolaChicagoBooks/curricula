@@ -234,7 +234,7 @@ Now, you can use this type and these behaviors in your code:
 .. code-block:: java
 
     public class Main {
-        public static void main(String[] args) {
+        public static void main(final String[] args) {
             var direction = CardinalDirection.NORTH;
             System.out.println("Turn right from " + direction + " to get " + CardinalDirectionOperations.turnRight(direction));
             System.out.println("Turn left from " + direction + " to get " + CardinalDirectionOperations.turnLeft(direction));
@@ -282,7 +282,7 @@ Now, you can use these methods in your code:
 .. code-block:: java
 
     public class Main {
-        public static void main(String[] args) {
+        public static void main(final String[] args) {
             var direction = CardinalDirection.NORTH;
             System.out.println("The opposite of " + direction + " is " + direction.opposite());
             System.out.println("Turn right from " + direction + " to get " + direction.turnRight());
@@ -540,14 +540,261 @@ This is a very simplified example, and the letters won't look very good, especia
 .. warning:: Even ChatGPT-4 has real trouble coming up with and/or interpreting the code for drawing the letters. Manual review required!
 
 
+Abstract data types (ADTs)
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+An Abstract Data Type (ADT) is a high-level description of a collection of data and the operations that can be performed on that data. It is "abstract" because it provides an interface that hides the specific implementation details. This means that the same ADT could be implemented in many different ways, but as long as the data and operations are consistent, those different implementations are equivalent from the perspective of a client using the ADT.
+
+An ADT encapsulates data and methods together and focuses on what is to be done rather than how it is done. The "what" are the operations or methods, and the "how" is the internal working or implementation, which is hidden from the user. 
+
+For example, consider the ADT of a List. A List ADT might specify operations such as `add(item)`, `remove(item)`, `get(index)`, `size()`, and so on. However, it doesn't specify how these operations are implemented. This allows a List to be implemented in various ways (for instance, as an ArrayList or a LinkedList in Java) while still providing the same interface to the user. 
+
+The main advantage of using ADTs is that they provide a way to separate the concerns of what data a program is working with and how that data is stored and manipulated. This makes programs easier to understand, write, and debug. It also enables greater reusability of code, as the same ADT can be used in multiple different programs or parts of a program.
+
+
+.. todo:: key takeaways
+
+
+Lists
+-----
+
+A list can be defined as an ordered collection of elements, where each element has a specific position or index within the collection. The list ADT allows operations for adding, removing, and accessing elements based on their position in the list. It provides functionality to manipulate and retrieve elements in a sequential manner.
+
+The key characteristics of a list ADT typically include:
+
+1. **Ordering**: The elements in a list have a specific order or sequence. The order is maintained as elements are added or removed from the list.
+
+2. **Indexing**: Each element in the list is associated with a unique index, starting from 0 for the first element, and incrementing by one for each subsequent element. This allows for efficient random access to elements based on their index.
+
+3. **Dynamic Size**: A list can dynamically adjust its size to accommodate the addition or removal of elements. It can grow or shrink as needed to hold the elements.
+
+4. **Element Manipulation**: A list allows for various operations, such as inserting elements at specific positions, removing elements from specific positions, retrieving elements by index, searching for elements, and modifying elements at specific positions.
+
+It's important to note that the list ADT is an abstract concept and does not specify the underlying implementation. Depending on the programming language or specific requirements, there can be different implementations of lists, such as arrays, linked lists, or other data structures.
+
+The list ADT serves as a fundamental data structure, and students learn about the essential operations and characteristics associated with lists. They explore different implementations and gain an understanding of the trade-offs and performance implications of each implementation choice.
+
+Main methods of the List ADT
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. What are the top 10 methods for using the list interface in Java 17?
+
+Sure, here are the top 10 methods that you will commonly use when working with a List in Java:
+
+1. `boolean add(E e)`: Appends the specified element to the end of the list. This method returns `true` if the element was added successfully.
+
+2. `void add(int index, E element)`: Inserts the specified element at the specified position in the list.
+
+3. `E get(int index)`: Returns the element at the specified position in the list.
+
+4. `E remove(int index)`: Removes the element at the specified position in the list, and returns the element that was removed.
+
+5. `boolean remove(Object o)`: Removes the first occurrence of the specified element from the list, if it is present.
+
+6. `E set(int index, E element)`: Replaces the element at the specified position in the list with the specified element.
+
+7. `int size()`: Returns the number of elements in the list.
+
+8. `boolean isEmpty()`: Returns `true` if the list contains no elements.
+
+9. `void clear()`: Removes all of the elements from the list.
+
+10. `boolean contains(Object o)`: Returns `true` if the list contains the specified element.
+
+These methods cover the most common operations you'll perform on a List: adding elements, removing elements, getting or setting the value of an element, checking the size, and checking if an element is present in the List.
+
+
+Example
+^^^^^^^
+
+Here is an example of using each of these List methods with randomly generated data:
+
+.. code-block:: java
+
+    import java.util.*;
+
+    public class Main {
+        public static void main(final String[] args) {
+            final var list = new ArrayList<Integer>();
+            final var random = new Random();
+
+            // 1. add(E e)
+            for (int i = 0; i < 10; i++) {
+                final var numberToAdd = random.nextInt(100);
+                list.add(numberToAdd);
+                System.out.println("Added " + numberToAdd);
+            }
+
+            // 2. add(int index, E element)
+            final var indexToAddAt = random.nextInt(list.size());
+            final var numberToAddAtIndex = random.nextInt(100);
+            list.add(indexToAddAt, numberToAddAtIndex);
+            System.out.println("Added " + numberToAddAtIndex + " at index " + indexToAddAt);
+
+            // 3. get(int index)
+            final var indexToGet = random.nextInt(list.size());
+            System.out.println("Element at index " + indexToGet + " is " + list.get(indexToGet));
+
+            // 4. remove(int index)
+            final var indexToRemove = random.nextInt(list.size());
+            System.out.println("Removed element " + list.remove(indexToRemove) + " at index " + indexToRemove);
+
+            // 5. remove(Object o)
+            final var numberToRemove = list.get(random.nextInt(list.size()));
+            final var removalSuccessful = list.remove(Integer.valueOf(numberToRemove));
+            if (removalSuccessful) {
+                System.out.println("Successfully removed " + numberToRemove);
+            } else {
+                System.out.println("Failed to remove " + numberToRemove);
+            }
+
+            // 6. set(int index, E element)
+            final var indexToSet = random.nextInt(list.size());
+            final var numberToSetAtIndex = random.nextInt(100);
+            System.out.println("Set element at index " + indexToSet + " to " + list.set(indexToSet, numberToSetAtIndex));
+
+            // 7. size()
+            System.out.println("List size is " + list.size());
+
+            // 8. isEmpty()
+            System.out.println("Is list empty? " + list.isEmpty());
+
+            // 9. clear()
+            list.clear();
+            System.out.println("List cleared.");
+
+            // Check if list is empty after clearing.
+            System.out.println("Is list empty after clear? " + list.isEmpty());
+
+            // 10. contains(Object o)
+            // As list is empty after clear, it will not contain the number
+            final var doesListContain = list.contains(random.nextInt(100));
+            System.out.println("Does list contain random number? " + doesListContain);
+        }
+    }
+
+In this program, a new ArrayList of integers is created. The program then randomly adds integers, gets and removes integers at random indices, checks the size, and checks if the list is empty. The list is then cleared, and finally checks if the list contains a random number. Each operation is output to the console using `System.out.println()`.
+
+Unit tests for the List API
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. Can you write unit tests to show that each method does what is intended?
+
+Here is an example of using JUnit 5 to write unit tests for the `List` methods:
+
+.. code-block:: java
+
+    import org.junit.jupiter.api.*;
+    import java.util.*;
+
+    import static org.junit.jupiter.api.Assertions.*;
+
+    public class ListTest {
+        private List<Integer> list;
+        private static final int SIZE = 10;
+
+        @BeforeEach
+        public void setup() {
+            list = new ArrayList<>();
+            for (int i = 0; i < SIZE; i++) {
+                list.add(i);
+            }
+        }
+
+        @Test
+        public void testAdd() {
+            assertTrue(list.add(SIZE + 1));
+            assertEquals(SIZE + 1, list.size());
+        }
+
+        @Test
+        public void testAddAtIndex() {
+            list.add(5, SIZE + 1);
+            assertEquals(SIZE + 1, list.get(5));
+        }
+
+        @Test
+        public void testGet() {
+            assertEquals(0, list.get(0));
+        }
+
+        @Test
+        public void testRemoveByIndex() {
+            assertEquals(0, list.remove(0));
+            assertEquals(SIZE - 1, list.size());
+        }
+
+        @Test
+        public void testRemoveByObject() {
+            assertTrue(list.remove(Integer.valueOf(0)));
+            assertEquals(SIZE - 1, list.size());
+        }
+
+        @Test
+        public void testSet() {
+            assertEquals(0, list.set(0, SIZE + 1));
+            assertEquals(SIZE + 1, list.get(0));
+        }
+
+        @Test
+        public void testSize() {
+            assertEquals(SIZE, list.size());
+        }
+
+        @Test
+        public void testIsEmpty() {
+            assertFalse(list.isEmpty());
+            list.clear();
+            assertTrue(list.isEmpty());
+        }
+
+        @Test
+        public void testContains() {
+            assertTrue(list.contains(0));
+            assertFalse(list.contains(SIZE + 1));
+        }
+    }
+
+Each of these test methods uses assertions to ensure that the list behaves as expected when its methods are called. For example, `testAdd` verifies that `add` returns true and increases the size of the list by one, and `testGet` verifies that `get` returns the expected element.
+
+
+.. todo:: key takeaways
+
+
 Array-based lists
 -----------------
 
-Let's move on to the next major CS2 topic, Array and ArrayList: Please describe these structures and provide an example of each to help me gain an Understanding of these basic data structures, their uses, and limitations.
+In Java, `ArrayList` is a class that implements the `List` interface.
 
-.. todo:: add subsection headings
+The `List` interface is a part of Java's Collection Framework and extends the `Collection` interface. It is an ordered collection (also known as a sequence), and it can contain duplicate elements. The user has precise control over where in the list each element is inserted, and can access elements by their integer index (position in the list). The `List` interface provides a contract for common list operations, such as add, get, remove, indexOf, and others.
 
-Certainly! Let's explore the Array and ArrayList data structures.
+`ArrayList` is one of the several implementations of the `List` interface provided with Java's standard library. It's backed by a dynamic array, which means the size of the `ArrayList` can grow or shrink as needed. 
+
+`ArrayList` provides fast random read access (i.e., fast access to elements by index) because it's backed by an array. However, adding elements to the middle of the `ArrayList` or removing elements from the middle is slower because elements need to be shifted.
+
+
+Example
+^^^^^^^
+
+Here's how you might use `ArrayList` as a `List`:
+
+.. code-block:: java
+
+    List<String> names = new ArrayList<>();
+    names.add("Alice");
+    names.add("Bob");
+    names.add("Charlie");
+    String firstPerson = names.get(0);  // Alice
+
+In this code, we're declaring a variable `names` of type `List<String>`, but we're initializing it with an instance of `ArrayList<String>`. This means that we can use any class that implements `List<String>` to initialize `names`. This is a common example of programming to an interface in Java, which makes code more flexible and modifiable.
+
+
+Arrays vs. array-based lists
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. Let's move on to the next major CS2 topic, Array and ArrayList: Please describe these structures and provide an example of each to help me gain an Understanding of these basic data structures, their uses, and limitations.
+
+Let's explore the Array and ArrayList data structures.
 
 **Array:**
 An array is a fixed-size data structure that stores elements of the same type in contiguous memory locations. It provides random access to its elements using indices. Arrays have a predetermined length that is defined at the time of declaration, and this length cannot be changed once the array is created.
@@ -563,7 +810,6 @@ Here's an example of creating and using an array in Java:
 
     System.out.println(numbers[0]); // Accessing and printing the value of the first element
     System.out.println(numbers[1]); // Accessing and printing the value of the second element
-
 
 In this example, we create an array called `numbers` with a length of 5. We can assign values to specific elements using index notation (`numbers[index] = value`) and access the values using the same notation (`numbers[index]`). Arrays provide constant-time access to any element, making it efficient to retrieve or modify elements by their index.
 
@@ -609,9 +855,96 @@ While ArrayLists offer flexibility and convenience, there are a few disadvantage
 Despite these disadvantages, ArrayLists remain a widely used data structure due to their flexibility, ease of use, and the convenience provided by the Java Collections Framework. Understanding the limitations and trade-offs of ArrayLists can help you make informed decisions when selecting the appropriate data structure for your specific needs.
 
 
-.. todo:: main methods of ArrayList
+How to instantiate ArrayList
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. todo:: sample implementation
+.. I believe arraylist implements the methods of list, but what constructors does arraylist have?
+
+The `ArrayList` class in Java provides several constructors for creating a new `ArrayList`. As of Java 17, these constructors include:
+
+1. `ArrayList()`: This constructor is used to create an empty list with an initial capacity sufficient to hold 10 elements (by default). If the list grows beyond this capacity, it is automatically resized.
+
+.. code-block:: java
+
+    List<String> list = new ArrayList<>();
+
+2. `ArrayList(int initialCapacity)`: This constructor is used to create an empty list with a specified initial capacity. If the list grows beyond this capacity, it is automatically resized.
+
+.. code-block:: java
+
+    List<String> list = new ArrayList<>(50);
+
+3. `ArrayList(Collection<? extends E> c)`: This constructor is used to create a list containing the elements of the specified collection, in the order they are returned by the collection's iterator.
+
+.. code-block:: java
+
+    List<String> otherList = new ArrayList<>();
+    otherList.add("Alice");
+    otherList.add("Bob");
+
+    List<String> list = new ArrayList<>(otherList);  // list now contains "Alice" and "Bob"
+
+Each of these constructors provides a different way to initialize an `ArrayList`, depending on your specific needs.
+
+
+Sample implementation
+^^^^^^^^^^^^^^^^^^^^^
+
+.. Can you show a simple yet modern Java implementation class of the Map interface, pedagogically suitable for a CS2 audience (second computer science course)? The implementation doesn't have to be complete but should include the handful or so of essential methods.
+
+An implementation of a basic `ArrayList` in Java might look like this:
+
+.. code-block:: java
+
+    import java.util.Arrays;
+
+    public class SimpleArrayList<E> {
+        private static final int INITIAL_CAPACITY = 10;
+        private Object[] elementData;
+        private int size = 0;
+
+        public SimpleArrayList() {
+            elementData = new Object[INITIAL_CAPACITY];
+        }
+
+        public void add(E e) {
+            ensureCapacity();
+            elementData[size++] = e;
+        }
+
+        @SuppressWarnings("unchecked")
+        public E get(final int index) {
+            if (index < 0 || index >= size) {
+                throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
+            }
+            return (E) elementData[index];
+        }
+
+        public int size() {
+            return size;
+        }
+
+        private void ensureCapacity() {
+            int currentCapacity = elementData.length;
+            if (size + 1 > currentCapacity) {
+                int newCapacity = currentCapacity * 2;
+                elementData = Arrays.copyOf(elementData, newCapacity);
+            }
+        }
+    }
+
+This `SimpleArrayList` class is a very simplified implementation of an `ArrayList` in Java. It starts with an initial capacity (10, in this case), and when that capacity is exceeded, it creates a new array with double the previous capacity and copies the old elements into the new array. This ensures that there's always room to add new elements.
+
+The `add` method is used to add elements to the list. If the capacity of the list is exceeded, the `ensureCapacity` method is called to increase the capacity of the list.
+
+The `get` method is used to retrieve an element from the list at a specific index. If the index is invalid (negative, or greater than or equal to the size of the list), it throws an `IndexOutOfBoundsException`.
+
+The `size` method returns the number of elements currently in the list.
+
+Note that this is a very basic implementation and lacks many features and optimizations of the actual `ArrayList` class in the Java Collections Framework. It's intended to be an illustrative example of how you might start to implement such a data structure.    
+
+
+.. todo:: key takeaways
 
 
 Maps
@@ -737,6 +1070,97 @@ The `Map.Entry` interface provides methods to access the key and value of an ent
 
 Understanding these methods and how they interact with the `Map` interface can greatly enhance your ability to effectively and efficiently manipulate key-value data in Java.
 
+
+Unit tests for the Map API
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Unit tests help validate the behavior of individual methods. Here's an example of how you might test the key methods of the `Map` interface using a `HashMap` as the implementing class. This example uses JUnit 5:
+
+.. code-block:: java
+
+    import org.junit.jupiter.api.Test;
+    import java.util.HashMap;
+    import java.util.Map;
+
+    import static org.junit.jupiter.api.Assertions.*;
+
+    class MapTest {
+
+        @Test
+        void testPut() {
+            final Map<String, Integer> map = new HashMap<>();
+            final Integer result = map.put("One", 1);
+            assertNull(result);
+            assertEquals(1, map.size());
+        }
+
+        @Test
+        void testGet() {
+            final Map<String, Integer> map = new HashMap<>();
+            map.put("One", 1);
+            final Integer result = map.get("One");
+            assertNotNull(result);
+            assertEquals(1, result);
+        }
+
+        @Test
+        void testRemove() {
+            final Map<String, Integer> map = new HashMap<>();
+            map.put("One", 1);
+            final Integer removed = map.remove("One");
+            assertEquals(1, removed);
+            assertTrue(map.isEmpty());
+        }
+
+        @Test
+        void testClear() {
+            final Map<String, Integer> map = new HashMap<>();
+            map.put("One", 1);
+            map.put("Two", 2);
+            map.clear();
+            assertTrue(map.isEmpty());
+        }
+
+        @Test
+        void testSize() {
+            final Map<String, Integer> map = new HashMap<>();
+            map.put("One", 1);
+            map.put("Two", 2);
+            assertEquals(2, map.size());
+        }
+
+        @Test
+        void testContainsKey() {
+            final Map<String, Integer> map = new HashMap<>();
+            map.put("One", 1);
+            assertTrue(map.containsKey("One"));
+            assertFalse(map.containsKey("Two"));
+        }
+
+        @Test
+        void testContainsValue() {
+            final Map<String, Integer> map = new HashMap<>();
+            map.put("One", 1);
+            assertTrue(map.containsValue(1));
+            assertFalse(map.containsValue(2));
+        }
+
+        @Test
+        void testIsEmpty() {
+            final Map<String, Integer> map = new HashMap<>();
+            assertTrue(map.isEmpty());
+            map.put("One", 1);
+            assertFalse(map.isEmpty());
+        }
+
+        // More tests should be written to cover other methods and edge cases
+    }
+
+Each of these tests instantiates a new `HashMap`, performs some operations on it, and then checks that the state of the map is as expected. These checks use methods like `assertEquals`, `assertTrue`, and `assertFalse` from JUnit to assert expected outcomes. If an assertion fails, JUnit will report a failure for that test, indicating that there's a bug in the code under test.
+
+Note that unit tests should generally be written for each method in isolation and for interaction of methods, and should cover both common cases and edge cases. A full test suite for a `Map` implementation would have more tests than what's included here.
+
+
 Sample implementation
 ^^^^^^^^^^^^^^^^^^^^^
 
@@ -804,6 +1228,32 @@ The `SimpleMap` class maintains an array of `Entry` records, each of which holds
 This class provides a simple, tangible implementation of the Map interface, making it a great starting point for CS2 students. They could enhance this implementation by adding methods like `remove()`, `size()`, or `isEmpty()`. Later on, they could learn about more sophisticated implementations using hashing, linked lists (for collision resolution), and dynamic resizing.
 
 
+Key takeaways
+^^^^^^^^^^^^^
+
+.. *Lists have a similarly limited key type (index range) as arrays. Can you think about a similar but more general structure?*
+
+.. Apologies for the oversight. If you're looking for a more generalized data structure that can handle a wider range of key types beyond the index range of lists and arrays, a suitable option is the "Map" data structure.
+
+Maps, also known as dictionaries or associative arrays, provide a key-value mapping, allowing you to associate values with unique keys. Unlike arrays and lists, which use integer indices, maps allow for a more diverse range of key types, including strings, objects, and custom types. This makes maps highly versatile and widely usable.
+
+Here are some reasons why maps are a more general structure:
+
+1. Key-Value Pairing: Maps store elements as key-value pairs, where each key is unique within the map. This allows for efficient retrieval and modification of values based on their corresponding keys.
+
+2. Flexible Key Types: Maps support a wide range of key types, providing flexibility in choosing the most appropriate key type for your specific needs. Keys can be integers, strings, objects, or custom types.
+
+3. Dynamic Size: Like lists, maps can dynamically grow or shrink as elements are added or removed. This makes them suitable for scenarios where the number of elements and their associated keys can change over time.
+
+4. Efficient Retrieval: Maps provide fast lookup and retrieval of values based on their keys. The underlying implementation of maps utilizes hashing or other efficient lookup mechanisms, making them highly efficient for key-based operations.
+
+5. Key-Value Association: Maps establish a direct association between keys and values, allowing you to easily retrieve, update, or remove values based on their corresponding keys.
+
+6. Widely Supported: Maps are widely supported in programming languages and are available in various implementations with different features and performance characteristics.
+
+By utilizing maps, you can store and access values based on a wide range of key types, offering greater flexibility and generality compared to structures like arrays or lists.
+
+
 Sets
 ----
 
@@ -833,7 +1283,7 @@ Here's an example of how you might use a `Set` in Java to solve a simple problem
 
     public class DuplicateWordsFinder {
         public static void main(final String[] args) {
-            final String sentence = "Big big cats and little little dogs are great pets.";
+            final var sentence = "Big big cats and little little dogs are great pets.";
             final var words = sentence.split("\\s+");
             final var uniqueWords = new HashSet<String>();
             final var duplicateWords = new HashSet<String>();
@@ -905,6 +1355,91 @@ The `Set` interface doesn't have any methods specifically for accessing elements
 Some implementations, like `LinkedHashSet`, do maintain an order (insertion-order in this case), but this is not a contractual characteristic of the `Set` interface itself.
 
 Also, the Set interface has three main implementation classes in the Java Collections Framework: `HashSet`, `LinkedHashSet`, and `TreeSet`, each with its own characteristics in terms of order, performance and allowing null elements.
+
+
+Unit tests for the Set API
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. Can you write unit tests to show that each method of the Java 17 java.util.Set API does what is intended?
+
+Here's how you could write unit tests for the `Set` interface using `HashSet` as the implementing class. We'll use JUnit 5 for these tests.
+
+.. code-block:: java
+
+    import org.junit.jupiter.api.Test;
+
+    import java.util.HashSet;
+    import java.util.Set;
+
+    import static org.junit.jupiter.api.Assertions.*;
+
+    class SetTest {
+        @Test
+        void testAdd() {
+            final Set<String> set = new HashSet<>();
+            final boolean result = set.add("One");
+            assertTrue(result);
+            assertEquals(1, set.size());
+        }
+
+        @Test
+        void testAddDuplicate() {
+            final Set<String> set = new HashSet<>();
+            set.add("One");
+            final boolean result = set.add("One");  // should not add duplicate
+            assertFalse(result);
+            assertEquals(1, set.size());
+        }
+
+        @Test
+        void testRemove() {
+            final Set<String> set = new HashSet<>();
+            set.add("One");
+            final boolean result = set.remove("One");
+            assertTrue(result);
+            assertTrue(set.isEmpty());
+        }
+
+        @Test
+        void testClear() {
+            final Set<String> set = new HashSet<>();
+            set.add("One");
+            set.add("Two");
+            set.clear();
+            assertTrue(set.isEmpty());
+        }
+
+        @Test
+        void testSize() {
+            final Set<String> set = new HashSet<>();
+            set.add("One");
+            set.add("Two");
+            assertEquals(2, set.size());
+        }
+
+        @Test
+        void testContains() {
+            final Set<String> set = new HashSet<>();
+            set.add("One");
+            assertTrue(set.contains("One"));
+            assertFalse(set.contains("Two"));
+        }
+
+        @Test
+        void testIsEmpty() {
+            final Set<String> set = new HashSet<>();
+            assertTrue(set.isEmpty());
+            set.add("One");
+            assertFalse(set.isEmpty());
+        }
+        
+        // More tests should be written to cover other methods and edge cases
+    }
+
+In these tests, we're checking that each of the methods works as expected: `add` adds an item and returns `true` if it wasn't already present, `remove` removes an item and returns `true` if it was present, `clear` removes all items, `size` returns the number of items, `contains` checks for the presence of an item, and `isEmpty` checks if the set is empty.
+
+Note that for a complete set of tests, you would want to test other methods in the `Set` interface, and you would want to test edge cases and interactions between methods. These tests are intended to be a starting point and an illustrative example.
+
 
 Sample implementation
 ^^^^^^^^^^^^^^^^^^^^^
@@ -1026,6 +1561,9 @@ One important thing to note is that the `size()` method returns the "logical siz
 Regarding its implementation, a `BitSet` internally uses a dynamic array (`long[]`) to hold the bits, which are represented as long integers (64-bit). Each `long` value represents 64 bits, with the 0th bit referring to the least significant bit of the `long` and the 63rd bit referring to the most significant bit. The `long[]` array is expanded as needed, ensuring the `BitSet` can grow to accommodate any bit index. The `BitSet` class also provides many methods for performing bitwise operations on the bits. This, combined with its dynamic size, makes `BitSet` a flexible tool for efficient bit manipulation.
 
 
+.. todo:: key takeaways
+
+
 Stacks
 ------
 
@@ -1049,7 +1587,7 @@ Here's an example of using `Deque` and `ArrayDeque` as a LIFO stack:
     import java.util.*;
 
     public class Main {
-        public static void main(String[] args) {
+        public static void main(final String[] args) {
             Deque<Integer> stack = new ArrayDeque<>();
             stack.push(1);
             stack.push(2);
@@ -1071,14 +1609,260 @@ Using `Deque` with `ArrayDeque` for a LIFO stack provides efficient and convenie
 It's worth noting that using `Deque` instead of the legacy `Stack` class is recommended, as `Stack` is a subclass of `Vector`, which has certain synchronization overhead and is considered less efficient in modern Java applications.
 
 
+.. todo:: key takeaways
+
+
 Queues
 ------
 
-.. todo:: example
+.. Hi, do you know anything about queues in the context of an ACM CS2 introductory data structures course focusing on linear data structures.
 
-.. todo:: main methods
+.. Yes, definitely. 
 
-.. todo:: sample implementation
+A queue is a type of linear data structure that follows a specific order in which the operations are performed. The order is First In First Out (FIFO). This means that the data item that's been in the queue the longest is the first one to be removed, and when a new data item is added, it goes to the end of the queue.
+
+This is analogous to a real-life queue of people – people join the end of the queue and leave from the front. For example, in a line at a coffee shop, the first person who gets in line is the first person to get served and leave the line.
+
+Main queue operations
+^^^^^^^^^^^^^^^^^^^^^
+
+Here are the main operations on a queue:
+
+- **Enqueue:** Add an element to the end of the queue.
+- **Dequeue:** Remove an element from the front of the queue.
+- **IsEmpty:** Check if the queue is empty.
+- **IsFull:** Check if the queue is full.
+- **Peek/Top:** Get the value of the front of the queue without removing it.
+
+Example
+^^^^^^^
+
+Here's a simple example of a queue in Java using the LinkedList class which implements the Queue interface:
+
+.. code-block:: java
+
+    import java.util.LinkedList;
+    import java.util.Queue;
+
+    public class QueueExample {
+        public static void main(final String[] args) {
+            final Queue<String> queue = new LinkedList<>();
+
+            // Enqueue items
+            queue.add("John");
+            queue.add("Robert");
+            queue.add("Adam");
+
+            System.out.println("Queue: " + queue);
+
+            // Dequeue items
+            final var name = queue.poll();
+            System.out.println("Dequeued: " + name);
+            System.out.println("Queue after dequeue: " + queue);
+
+            // Get the item at the front of the queue
+            final var front = queue.peek();
+            System.out.println("Front of queue: " + front);
+        }
+    }
+
+The `java.util.Queue` interface in Java provides various methods like `add()`, `remove()`, `poll()`, `peek()`, etc. that let you manipulate and access queue items.
+
+In terms of real-world usage, queues are used whenever we need to manage objects in order starting with the first one in. This could be as simple as managing the print jobs on a printer or as complex as managing the execution of tasks on a CPU. In a lot of these cases, the queue is actually a 'priority queue', meaning that each item has a priority and the item with the highest priority is removed before items of lower priority.
+
+Unit tests for the Queue API
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. Can you show me how to use each of the main operations in isolation?  Use random number/data generation instead of hard-coding values.
+
+.. response: longer example that didn't seem to add much to the one above
+
+.. Can you write unit tests to show that each of the main queue operations does what is intended?
+
+Sure, I can provide a simple example using JUnit, which is the most common framework for writing unit tests in Java. In this example, we will test each of the main operations of a `Queue` using a `LinkedList`, which is one of Java's built-in `Queue` implementations. Each test method corresponds to one of the operations we discussed:
+
+.. code-block:: java
+
+    import org.junit.jupiter.api.*;
+    import java.util.*;
+
+    import static org.junit.jupiter.api.Assertions.*;
+
+    public class QueueTest {
+        private Queue<Integer> queue;
+        private static final int SIZE = 10;
+
+        @BeforeEach
+        public void setup() {
+            queue = new LinkedList<>();
+            for (int i = 0; i < SIZE; i++) {
+                queue.add(i);
+            }
+        }
+
+        @Test
+        public void testAdd() {
+            assertTrue(queue.add(SIZE + 1));
+            assertEquals(SIZE + 1, queue.size());
+        }
+
+        @Test
+        public void testOffer() {
+            assertTrue(queue.offer(SIZE + 1));
+            assertEquals(SIZE + 1, queue.size());
+        }
+
+        @Test
+        public void testRemove() {
+            for (int i = 0; i < SIZE; i++) {
+                assertEquals(i, queue.remove());
+            }
+            assertThrows(NoSuchElementException.class, () -> queue.remove());
+        }
+
+        @Test
+        public void testPoll() {
+            for (int i = 0; i < SIZE; i++) {
+                assertEquals(i, queue.poll());
+            }
+            assertNull(queue.poll());
+        }
+
+        @Test
+        public void testElement() {
+            assertEquals(0, queue.element());
+            queue.clear();
+            assertThrows(NoSuchElementException.class, () -> queue.element());
+        }
+
+        @Test
+        public void testPeek() {
+            assertEquals(0, queue.peek());
+            queue.clear();
+            assertNull(queue.peek());
+        }
+
+        @Test
+        public void testSize() {
+            assertEquals(SIZE, queue.size());
+        }
+
+        @Test
+        public void testIsEmpty() {
+            assertFalse(queue.isEmpty());
+            queue.clear();
+            assertTrue(queue.isEmpty());
+        }
+
+        @Test
+        public void testClear() {
+            queue.clear();
+            assertTrue(queue.isEmpty());
+        }
+
+        @Test
+        public void testContains() {
+            assertTrue(queue.contains(0));
+            assertFalse(queue.contains(SIZE + 1));
+        }
+    }
+
+Each test method uses assertions to check that the operation being tested has the expected effect. For example, the `testAdd` method adds an element to the queue and then checks that the size of the queue has increased by 1. The `testRemove` method removes elements from the queue and then checks that the removed elements are what we expect, and that trying to remove from an empty queue throws a `NoSuchElementException`.
+
+In order to set up the state before each test, I've used the `@BeforeEach` annotation, which runs the setup method before each individual test. In this case, the setup method initializes a queue with the numbers 0 to 9.
+
+Remember that you'll need to have JUnit in your project classpath to run these tests. If you're using a build tool like Maven or Gradle, you can add JUnit as a dependency in your build file. If you're not using a build tool, you can download JUnit and add it to your project classpath manually.
+
+
+Sample implementation
+^^^^^^^^^^^^^^^^^^^^^
+
+Sure, I can provide an example of a simple Queue implementation using arrays. This version has a fixed capacity, but it would be a good starting point for teaching about Queues in a CS2 course. It implements the essential methods: `add`, `remove`, `peek`, and `size`.
+
+.. code-block:: java
+
+    public class ArrayQueue<E> {
+        private Object[] elements;
+        private int front;
+        private int back;
+        private int size;
+        private static final int DEFAULT_CAPACITY = 10;
+
+        public ArrayQueue() {
+            elements = new Object[DEFAULT_CAPACITY];
+            front = 0;
+            back = -1;
+            size = 0;
+        }
+
+        public void add(final E element) {
+            if (size == elements.length) {
+                throw new IllegalStateException("Queue is full");
+            }
+            back = (back + 1) % elements.length;
+            elements[back] = element;
+            size++;
+        }
+
+        public E remove() {
+            if (size == 0) {
+                throw new IllegalStateException("Queue is empty");
+            }
+            final var element = (E) elements[front];
+            elements[front] = null; // to help garbage collector
+            front = (front + 1) % elements.length;
+            size--;
+            return element;
+        }
+
+        public E peek() {
+            if (size == 0) {
+                throw new IllegalStateException("Queue is empty");
+            }
+            return (E) elements[front];
+        }
+
+        public int size() {
+            return size;
+        }
+
+        public boolean isEmpty() {
+            return size == 0;
+        }
+    }
+
+This `ArrayQueue` class uses a circular array to store its elements. The `front` and `back` indices keep track of where to dequeue and enqueue elements, and they wrap around to the start of the array when they reach the end. The `size` field keeps track of the number of elements currently in the queue.
+
+This implementation throws an exception if you try to enqueue an element into a full queue or dequeue an element from an empty queue. In a real-world application, you might want to have the queue automatically expand its capacity when it gets full, but that's a bit more complicated and might be better suited for a more advanced course.
+
+
+Key takeaways
+^^^^^^^^^^^^^
+
+.. Please summarize the key takeaways of our discussion of the queue ADT.
+
+Sure, here are the key takeaways from our discussion of the Queue Abstract Data Type (ADT):
+
+1. Definition and Properties: A queue is a linear data structure that follows a First In, First Out (FIFO) order for operations. This means that the element that is added first will be the first one to be removed. 
+
+2. Use Cases: Queues are used when you need to manage objects in order starting with the first one in. They're used in a variety of applications, from handling requests in a server, to algorithmic problems like breadth-first search in graphs, to real-world scenarios like managing a line of customers in a store.
+
+3. Operations: The main operations associated with a queue are:
+   - `add(element)`: Add an element to the end of the queue.
+   - `remove()`: Remove an element from the front of the queue.
+   - `peek()`: Look at the front element of the queue without removing it.
+   - `isEmpty()`: Check if the queue is empty.
+   - `size()`: Get the number of elements in the queue.
+
+4. Implementations: We explored two ways to implement a queue in Java:
+   - Using Java's built-in LinkedList as the underlying storage: This way is straightforward because LinkedList directly supports add, remove, and peek operations that we need for a queue.
+   - Using an array: We created a circular array-based implementation which is more complex but provides an understanding of the internal working of a queue.
+
+5. Limitations: We also discussed some limitations, such as the queue size being fixed in an array-based implementation. This can be overcome with a dynamic array or linked list implementation.
+
+6. Unit Testing: We also learned how to write unit tests for each operation in isolation using JUnit, ensuring that our queue implementation works correctly.
+
+Remember, understanding queue operations and when to use them is an essential part of mastering data structures, and queues are an integral tool for many computer science problems and applications.
 
 
 A unified view of restricted-access data structures
@@ -1087,7 +1871,6 @@ A unified view of restricted-access data structures
 If you specifically want to refer to data structures like stacks and queues which follow particular kinds of insertion and removal patterns (Last-In-First-Out for stacks and First-In-First-Out for queues), a term often used is "Restricted Access Data Structures". These structures restrict access to their elements based on specific rules, unlike arrays or lists which allow access to any element at any time. 
 
 But keep in mind that the term "Restricted Access Data Structures" isn't a widely recognized standard term, and its meaning could vary depending on the context or source. The usage and understanding of these terminologies can differ slightly between different textbooks, resources, or educators.
-
 
 The `Collections.asLifoQueue` method is typically used to adapt a `Deque` (double-ended queue) implementation as a Last-In-First-Out (LIFO) queue. It returns a view of the specified `Deque` as a LIFO queue, which means that elements are accessed in the reverse order of their insertion.
 
@@ -1098,7 +1881,7 @@ Here's an example usage scenario to illustrate its purpose:
     import java.util.*;
 
     public class Main {
-        public static void main(String[] args) {
+        public static void main(final String[] args) {
             Deque<Integer> deque = new ArrayDeque<>();
             deque.push(1);
             deque.push(2);
@@ -1427,7 +2210,7 @@ Finally, we can create instances of our classes and manipulate them:
 .. code-block:: java
 
     public class Main {
-        public static void main(String[] args) {
+        public static void main(final String[] args) {
             final var pet = new Pet("Fido", PetType.DOG);
             final var owner = new Owner("John Doe", "123 Main St");
 
@@ -1532,7 +2315,7 @@ With this association, you can now create `Pet` objects and assign them to an `O
 .. code-block:: java
 
     public class Main {
-        public static void main(String[] args) {
+        public static void main(final String[] args) {
             final var owner = new Owner("John Doe", "123 Main St");
 
             final var pet1 = new Pet("Fido", PetType.DOG, owner);
@@ -1620,7 +2403,7 @@ Finally, we can create `Dog` and `Cat` objects and call their `makeSound` method
 .. code-block:: java
 
     public class Main {
-        public static void main(String[] args) {
+        public static void main(final String[] args) {
             final var dog = new Dog("Fido");
             final var cat = new Cat("Whiskers");
 
@@ -1667,7 +2450,7 @@ Now you can create a `Husky` object, add it to the `pets` list, and see that it 
 .. code-block:: java
 
     public class Main {
-        public static void main(String[] args) {
+        public static void main(final String[] args) {
             // Create a list of pets
             final var pets = new ArrayList<Pet>();
             pets.add(new Dog("Fido"));
@@ -1764,7 +2547,7 @@ Interfaces provide a way to define common behavior and can be utilized in this e
     }
 
     public class Main {
-        public static void main(String[] args) {
+        public static void main(final String[] args) {
             final var owner = new Owner("John Doe", "123 Main St");
 
             final var pets = new ArrayList<Soundable>();
@@ -1875,7 +2658,7 @@ Certainly! Here's the updated version that includes the `Husky` class back into 
     }
 
     public class Main {
-        public static void main(String[] args) {
+        public static void main(final String[] args) {
             final var owner = new Owner("John Doe", "123 Main St");
 
             final var pets = new ArrayList<Soundable>();
@@ -2084,20 +2867,20 @@ In summary, the aggregation relationship allows for the association of multiple 
 
    public class Engine {
        public void start() {
-	   // Code to start the engine
-	   System.out.println("Engine started.");
+	       // Code to start the engine
+	       System.out.println("Engine started.");
        }
 
        public void stop() {
-	   // Code to stop the engine
-	   System.out.println("Engine stopped.");
+	       // Code to stop the engine
+	       System.out.println("Engine stopped.");
        }
    }
 
    public record Wheel(int size) {
        public void rotate() {
 	   // Code to rotate the wheel
-	   System.out.println("Wheel rotating.");
+	       System.out.println("Wheel rotating.");
        }
    }
 
@@ -2106,18 +2889,18 @@ In summary, the aggregation relationship allows for the association of multiple 
        private List<Wheel> wheels;
 
        public Car() {
-	   engine = new Engine();
+	       engine = new Engine();
            wheels = List.of(new Wheel(18), new Wheel(18), new Wheel(18), new Wheel(18));
        }
 
        public void startCar() {
-	   engine.start();
-	   System.out.println("Car started.");
+           engine.start();
+           System.out.println("Car started.");
        }
 
        public void stopCar() {
-	   engine.stop();
-	   System.out.println("Car stopped.");
+	       engine.stop();
+	       System.out.println("Car stopped.");
        }
 
        public void drive() {
@@ -2130,10 +2913,10 @@ In summary, the aggregation relationship allows for the association of multiple 
 
    public class Main {
        public static void main(final String[] args) {
-	   final var car = new Car();
-	   car.startCar();
-	   car.drive();
-	   car.stopCar();
+	       final var car = new Car();
+	       car.startCar();
+	       car.drive();
+	       car.stopCar();
        }
    }
 
@@ -2214,73 +2997,7 @@ However, it's worth noting that the internal usage of class B can still be impor
 In summary, if a relationship between two classes is purely internal and not observable from outside the class, it is not typically described as a "has-a" relationship in terms of the class's public interface.
 
 If you have any further questions or need additional clarification, please let me know!
-Arrays and array-based lists
-----------------------------
 
-Let's explore the Array and ArrayList data structures.
-
-**Array:**
-An array is a fixed-size data structure that stores elements of the same type in contiguous memory locations. It provides random access to its elements using indices. Arrays have a predetermined length that is defined at the time of declaration, and this length cannot be changed once the array is created.
-
-Here's an example of creating and using an array in Java:
-
-.. code-block:: java
-
-    int[] numbers = new int[5]; // Creating an array of integers with a length of 5
-
-    numbers[0] = 10; // Assigning a value to the first element
-    numbers[1] = 20; // Assigning a value to the second element
-
-    System.out.println(numbers[0]); // Accessing and printing the value of the first element
-    System.out.println(numbers[1]); // Accessing and printing the value of the second element
-
-
-In this example, we create an array called `numbers` with a length of 5. We can assign values to specific elements using index notation (`numbers[index] = value`) and access the values using the same notation (`numbers[index]`). Arrays provide constant-time access to any element, making it efficient to retrieve or modify elements by their index.
-
-Arrays have a fixed size, so adding or removing elements requires creating a new array with the desired size and copying the existing elements. This can be cumbersome and inefficient if the size of the array needs to change frequently.
-
-**ArrayList:**
-The ArrayList is a dynamic data structure provided by the Java Collections Framework. It is implemented as an array internally, but it automatically manages the resizing and reallocation of memory as elements are added or removed. Unlike regular arrays, ArrayLists can grow or shrink dynamically to accommodate the number of elements.
-
-Here's an example of creating and using an ArrayList in Java:
-
-.. code-block:: java
-
-    import java.util.ArrayList;
-
-    ArrayList<Integer> numbersList = new ArrayList<>(); // Creating an ArrayList of integers
-
-    numbersList.add(10); // Adding an element to the ArrayList
-    numbersList.add(20); // Adding another element to the ArrayList
-
-    System.out.println(numbersList.get(0)); // Accessing and printing the value of the first element
-    System.out.println(numbersList.get(1)); // Accessing and printing the value of the second element
-
-
-In this example, we create an ArrayList called `numbersList` to store integers. We can add elements to the ArrayList using the `add` method and access the elements using the `get` method. ArrayLists provide similar functionality as arrays but with the added benefit of dynamic resizing.
-
-ArrayLists automatically handle memory allocation and resizing behind the scenes. When the ArrayList reaches its initial capacity, it automatically increases its size by allocating a new array and copying the elements from the old array to the new one. This dynamic resizing makes ArrayLists more flexible than regular arrays when it comes to adding or removing elements.
-
-It's important to note that ArrayLists have a small performance overhead compared to regular arrays due to the dynamic resizing and memory management operations. If you need constant-time access to elements by index and the size of the collection is fixed, arrays may be more suitable. However, if you require a flexible and resizable collection, ArrayLists provide a convenient solution.
-
-Both arrays and ArrayLists have their own use cases and limitations, and the choice between them depends on the specific requirements of the problem you are solving.
-
-
-*Do ArrayLists have any other disadvantages we should be aware of?*
-
-While ArrayLists offer flexibility and convenience, there are a few disadvantages to consider:
-
-1. **Memory Overhead**: ArrayLists have a higher memory overhead compared to arrays. In addition to storing the actual elements, ArrayLists also maintain internal bookkeeping information such as the array capacity and size. This extra memory usage can be a concern if memory efficiency is critical in your application.
-
-2. **Insertion and Deletion in the Middle**: Inserting or removing elements in the middle of an ArrayList can be less efficient compared to appending elements at the end. When an element is inserted or removed in the middle, the ArrayList needs to shift subsequent elements, which requires additional time. If you frequently perform operations that involve insertion or deletion in the middle, a different data structure like a linked list may be more suitable.
-
-3. **Primitive Types Boxing/Unboxing**: ArrayLists in Java can only store objects, so when working with primitive types (e.g., `int`, `char`, etc.), they are automatically boxed into their corresponding wrapper classes (e.g., `Integer`, `Character`, etc.). This process of autoboxing and unboxing can lead to a slight performance overhead and increased memory usage.
-
-4. **Synchronized Access**: ArrayLists are not inherently thread-safe. If you need to use ArrayLists in a multi-threaded environment, you must ensure proper synchronization to avoid concurrent modification issues. This can add complexity and potential overhead in terms of performance.
-
-5. **Resizing Impact**: When an ArrayList needs to resize its internal array, it creates a new array with a larger size and copies the elements from the old array to the new one. This resizing operation can be time-consuming, especially if the ArrayList contains a large number of elements. If you know the approximate size requirements in advance, initializing the ArrayList with an initial capacity can help mitigate frequent resizing.
-
-Despite these disadvantages, ArrayLists remain a widely used data structure due to their flexibility, ease of use, and the convenience provided by the Java Collections Framework. Understanding the limitations and trade-offs of ArrayLists can help you make informed decisions when selecting the appropriate data structure for your specific needs.
 Maps
 -----
 
@@ -2330,31 +3047,6 @@ Here are some reasons why lists can be considered a widely usable data structure
 5. Widely Supported: Lists are available in most programming languages and are widely supported by libraries and frameworks.
 
 By utilizing lists, you gain the advantages of a dynamic and flexible data structure that can handle a wide range of element types and provide efficient operations for adding, removing, and accessing elements.
-
-If you have any further questions or need additional information, feel free to ask!
-
-
-*Lists have a similarly limited key type (index range) as arrays. Can you think about a similar but more general structure?*
-
-Apologies for the oversight. If you're looking for a more generalized data structure that can handle a wider range of key types beyond the index range of lists and arrays, a suitable option is the "Map" data structure.
-
-Maps, also known as dictionaries or associative arrays, provide a key-value mapping, allowing you to associate values with unique keys. Unlike arrays and lists, which use integer indices, maps allow for a more diverse range of key types, including strings, objects, and custom types. This makes maps highly versatile and widely usable.
-
-Here are some reasons why maps are a more general structure:
-
-1. Key-Value Pairing: Maps store elements as key-value pairs, where each key is unique within the map. This allows for efficient retrieval and modification of values based on their corresponding keys.
-
-2. Flexible Key Types: Maps support a wide range of key types, providing flexibility in choosing the most appropriate key type for your specific needs. Keys can be integers, strings, objects, or custom types.
-
-3. Dynamic Size: Like lists, maps can dynamically grow or shrink as elements are added or removed. This makes them suitable for scenarios where the number of elements and their associated keys can change over time.
-
-4. Efficient Retrieval: Maps provide fast lookup and retrieval of values based on their keys. The underlying implementation of maps utilizes hashing or other efficient lookup mechanisms, making them highly efficient for key-based operations.
-
-5. Key-Value Association: Maps establish a direct association between keys and values, allowing you to easily retrieve, update, or remove values based on their corresponding keys.
-
-6. Widely Supported: Maps are widely supported in programming languages and are available in various implementations with different features and performance characteristics.
-
-By utilizing maps, you can store and access values based on a wide range of key types, offering greater flexibility and generality compared to structures like arrays or lists.
 
 If you have any further questions or need additional information, feel free to ask!
 
