@@ -956,8 +956,8 @@ The ArrayList is a dynamic data structure provided by the Java Collections Frame
 </ol>
 <p>It’s important to note that the time and space complexities mentioned here are based on the typical implementation of ArrayList in Java. Different programming languages or specific ArrayList implementations may have variations in their complexity characteristics, so it’s always advisable to refer to the documentation or implementation details of the specific ArrayList you are working with.</p>
 </section>
-<section id="how-to-instantiate-arraylist">
-<h3>How to instantiate ArrayList<a class="headerlink" href="#how-to-instantiate-arraylist" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#how-to-instantiate-arraylist'">¶</a></h3>
+<section id="how-to-create-arraylist-instances">
+<h3>How to create ArrayList instances<a class="headerlink" href="#how-to-create-arraylist-instances" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#how-to-create-arraylist-instances'">¶</a></h3>
 <p>The <cite>ArrayList</cite> class in Java provides several constructors for creating a new <cite>ArrayList</cite>. As of Java 17, these constructors include:</p>
 <ol class="arabic simple">
 <li><p><cite>ArrayList()</cite>: This constructor is used to create an empty list with an initial capacity sufficient to hold 10 elements (by default). If the list grows beyond this capacity, it is automatically resized.</p></li>
@@ -1173,6 +1173,59 @@ Java provides several other implementations of the <cite>Map</cite> interface, s
 </li>
 </ol>
 <p>These examples demonstrate different approaches to creating <cite>Map</cite> instances. You can use the <cite>Map.of()</cite> factory method for creating small immutable maps, or instantiate specific implementations like <cite>HashMap</cite>, <cite>TreeMap</cite>, or others based on your requirements.</p>
+</section>
+<section id="performance-of-map-api-methods">
+<h3>Performance of Map API methods<a class="headerlink" href="#performance-of-map-api-methods" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#performance-of-map-api-methods'">¶</a></h3>
+<p>The following table showcases the time and space complexity of the main methods in TreeMap, HashMap, and LinkedHashMap:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Method</p></th>
+<th class="head"><p>TreeMap</p></th>
+<th class="head"><p>HashMap</p></th>
+<th class="head"><p>LinkedHashMap</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>get(key)</p></td>
+<td><p>O(log n)</p></td>
+<td><p>O(1)</p></td>
+<td><p>O(1)</p></td>
+</tr>
+<tr class="row-odd"><td><p>put(key, value)</p></td>
+<td><p>O(log n)</p></td>
+<td><p>O(1)</p></td>
+<td><p>O(1)</p></td>
+</tr>
+<tr class="row-even"><td><p>remove(key)</p></td>
+<td><p>O(log n)</p></td>
+<td><p>O(1)</p></td>
+<td><p>O(1)</p></td>
+</tr>
+<tr class="row-odd"><td><p>containsKey(key)</p></td>
+<td><p>O(log n)</p></td>
+<td><p>O(1)</p></td>
+<td><p>O(1)</p></td>
+</tr>
+<tr class="row-even"><td><p>containsValue(value)</p></td>
+<td><p>O(n)</p></td>
+<td><p>O(n)</p></td>
+<td><p>O(n)</p></td>
+</tr>
+<tr class="row-odd"><td><p>size()</p></td>
+<td><p>O(1)</p></td>
+<td><p>O(1)</p></td>
+<td><p>O(1)</p></td>
+</tr>
+<tr class="row-even"><td><p>clear()</p></td>
+<td><p>O(1)</p></td>
+<td><p>O(1)</p></td>
+<td><p>O(1)</p></td>
+</tr>
+</tbody>
+</table>
+<p>In this table, the time complexity of each method is represented using Big O notation, while the space complexity is notated as O(1) since the space required remains constant regardless of the input size.</p>
+<p>Please note that the complexities provided here are general average case complexities. In some specific scenarios, the performance may deviate due to factors such as hash collisions or tree rebalancing in TreeMap. Additionally, the performance characteristics may vary depending on the specific usage patterns and the size of the map.</p>
+<p>It’s important to choose the appropriate map implementation based on the specific requirements and performance characteristics needed for your application.</p>
 </section>
 <section id="unit-tests-for-the-map-api">
 <h3>Unit tests for the Map API<a class="headerlink" href="#unit-tests-for-the-map-api" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#unit-tests-for-the-map-api'">¶</a></h3>
@@ -1444,6 +1497,49 @@ Java provides several other implementations of the <cite>Set</cite> interface, s
 </ol>
 <p>These examples demonstrate different approaches to creating <cite>Set</cite> instances. You can use the <cite>Set.of()</cite> factory method for creating small immutable sets, or instantiate specific implementations like <cite>HashSet</cite>, <cite>TreeSet</cite>, or others based on your requirements.</p>
 </section>
+<section id="id8">
+<h3>Performance of Map API methods<a class="headerlink" href="#id8" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id8'">¶</a></h3>
+<p>The following table showcases the time and space complexity of the main methods in TreeSet, HashSet, and LinkedHashSet:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Method</p></th>
+<th class="head"><p>TreeSet</p></th>
+<th class="head"><p>HashSet</p></th>
+<th class="head"><p>LinkedHashSet</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>add(element)</p></td>
+<td><p>O(log n)</p></td>
+<td><p>O(1)</p></td>
+<td><p>O(1)</p></td>
+</tr>
+<tr class="row-odd"><td><p>remove(element)</p></td>
+<td><p>O(log n)</p></td>
+<td><p>O(1)</p></td>
+<td><p>O(1)</p></td>
+</tr>
+<tr class="row-even"><td><p>contains(element)</p></td>
+<td><p>O(log n)</p></td>
+<td><p>O(1)</p></td>
+<td><p>O(1)</p></td>
+</tr>
+<tr class="row-odd"><td><p>size()</p></td>
+<td><p>O(1)</p></td>
+<td><p>O(1)</p></td>
+<td><p>O(1)</p></td>
+</tr>
+<tr class="row-even"><td><p>clear()</p></td>
+<td><p>O(1)</p></td>
+<td><p>O(1)</p></td>
+<td><p>O(1)</p></td>
+</tr>
+</tbody>
+</table>
+<p>In this table, the time complexity of each method is represented using Big O notation, while the space complexity is notated as O(1) since the space required remains constant regardless of the input size.</p>
+<p>Please note that the complexities provided here are general average case complexities. In some specific scenarios, the performance may deviate due to factors such as hash collisions or tree rebalancing in TreeSet.</p>
+<p>When choosing a specific set implementation, consider the specific requirements of your application and the performance characteristics needed. TreeSet is suitable when you need elements to be sorted in a specific order. HashSet is ideal for general-purpose sets with constant-time operations. LinkedHashSet maintains insertion order while providing constant-time operations.</p>
+</section>
 <section id="unit-tests-for-the-set-api">
 <h3>Unit tests for the Set API<a class="headerlink" href="#unit-tests-for-the-set-api" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#unit-tests-for-the-set-api'">¶</a></h3>
 <p>Here’s how you could write unit tests for the <cite>Set</cite> interface using <cite>HashSet</cite> as the implementing class. We’ll use JUnit 5 for these tests.</p>
@@ -1521,8 +1617,8 @@ Java provides several other implementations of the <cite>Set</cite> interface, s
 <p>In these tests, we’re checking that each of the methods works as expected: <cite>add</cite> adds an item and returns <cite>true</cite> if it wasn’t already present, <cite>remove</cite> removes an item and returns <cite>true</cite> if it was present, <cite>clear</cite> removes all items, <cite>size</cite> returns the number of items, <cite>contains</cite> checks for the presence of an item, and <cite>isEmpty</cite> checks if the set is empty.</p>
 <p>Note that for a complete set of tests, you would want to test other methods in the <cite>Set</cite> interface, and you would want to test edge cases and interactions between methods. These tests are intended to be a starting point and an illustrative example.</p>
 </section>
-<section id="id8">
-<h3>Sample implementation<a class="headerlink" href="#id8" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id8'">¶</a></h3>
+<section id="id9">
+<h3>Sample implementation<a class="headerlink" href="#id9" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id9'">¶</a></h3>
 <p>Sure, here is a simple pedagogically-oriented implementation of a Set using a backing array. This implementation uses local type inference (introduced in Java 10) and other modern Java features. Please note that this implementation is for learning purposes and doesn’t handle resizing, nor does it provide the performance benefits of a true <cite>HashSet</cite> or <cite>TreeSet</cite>:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Arrays</span><span class="p">;</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Iterator</span><span class="p">;</span>
@@ -1623,8 +1719,8 @@ Java provides several other implementations of the <cite>Set</cite> interface, s
 <p>One important thing to note is that the <cite>size()</cite> method returns the “logical size” of the <cite>BitSet</cite> which is “the index of the highest set bit plus one”. So, in this case, despite initializing the <cite>BitSet</cite> with a size of 5, the size returned is 64 as the <cite>BitSet</cite> internally allocates memory in multiples of 64 bits (the size of a <cite>long</cite>).</p>
 <p>Regarding its implementation, a <cite>BitSet</cite> internally uses a dynamic array (<cite>long[]</cite>) to hold the bits, which are represented as long integers (64-bit). Each <cite>long</cite> value represents 64 bits, with the 0th bit referring to the least significant bit of the <cite>long</cite> and the 63rd bit referring to the most significant bit. The <cite>long[]</cite> array is expanded as needed, ensuring the <cite>BitSet</cite> can grow to accommodate any bit index. The <cite>BitSet</cite> class also provides many methods for performing bitwise operations on the bits. This, combined with its dynamic size, makes <cite>BitSet</cite> a flexible tool for efficient bit manipulation.</p>
 </section>
-<section id="id9">
-<h3>Key takeaways<a class="headerlink" href="#id9" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id9'">¶</a></h3>
+<section id="id10">
+<h3>Key takeaways<a class="headerlink" href="#id10" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id10'">¶</a></h3>
 <p>From a discussion of <cite>Set</cite>, <cite>BitSet</cite>, and the comparison of <cite>Set</cite> with <cite>Map</cite>, here are the key takeaways:</p>
 <ol class="arabic simple">
 <li><p><strong>Uniqueness and Element-based Operations</strong>: Both <cite>Set</cite> and <cite>BitSet</cite> are used to store a collection of unique elements. The primary purpose of a <cite>Set</cite> is to ensure that each element is unique within the set, while a <cite>BitSet</cite> is a specialized implementation that represents a set of bits, typically used for efficient storage and manipulation of binary data. Both data structures provide operations for adding, removing, and querying elements.</p></li>
@@ -1708,6 +1804,20 @@ Java provides several other implementations of the <cite>Set</cite> interface, s
 <p>By utilizing the <cite>Deque</cite> interface, you can leverage the stack-specific methods such as <cite>push</cite>, <cite>pop</cite>, and <cite>peek</cite>, while also having access to additional functionality provided by the <cite>Deque</cite> interface, such as queue-like operations.</p>
 <p>Choosing between <cite>ArrayDeque</cite> and <cite>LinkedList</cite> depends on specific requirements. <cite>ArrayDeque</cite> typically provides better performance for most stack operations due to its array-based implementation, while <cite>LinkedList</cite> might be more suitable if you need efficient insertion and removal at both ends.</p>
 <p>Using the appropriate stack implementation ensures compatibility with the Java 17 API and enables you to benefit from the standardized stack behavior and functionality provided by the <cite>Deque</cite> interface.</p>
+</section>
+<section id="performance-of-stack-api-methods">
+<h3>Performance of Stack API methods<a class="headerlink" href="#performance-of-stack-api-methods" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#performance-of-stack-api-methods'">¶</a></h3>
+<p>The time and space complexity of the main methods in the standard Java 17 implementation of a Stack (utilizing an <cite>ArrayDeque</cite> or <cite>LinkedList</cite>) is as follows:</p>
+<ul class="simple">
+<li><p><cite>push(element)</cite>: O(1) time complexity on average. Amortized constant time complexity is achieved when the underlying array doesn’t require resizing. The space complexity is O(1) since it only requires adding an element to the internal array.</p></li>
+<li><p><cite>pop()</cite>: O(1) time complexity. Removing an element from the top of the stack takes constant time, regardless of the size of the stack. The space complexity is O(1) since it only requires removing an element from the internal array.</p></li>
+<li><p><cite>peek()</cite>: O(1) time complexity. Accessing the top element of the stack is a constant time operation. The space complexity is O(1) since it does not modify the internal array.</p></li>
+<li><p><cite>isEmpty()</cite>: O(1) time complexity. Checking if the stack is empty takes constant time. The space complexity is O(1) since it does not modify the internal array.</p></li>
+<li><p><cite>size()</cite>: O(1) time complexity. Determining the size of the stack takes constant time. The space complexity is O(1) since it does not modify the internal array.</p></li>
+</ul>
+<p>It’s important to note that the time complexity provided here represents the average and amortized case complexities. In rare cases, certain operations might require resizing the underlying array, resulting in a higher time complexity.</p>
+<p>The space complexity of the standard Java 17 implementation is O(n), where n is the number of elements in the stack. However, since we are analyzing the complexity of individual methods, we consider the space complexity as O(1) since these methods do not consume additional space proportional to the input size.</p>
+<p>Please keep in mind that these complexities apply to the standard Java 17 implementation of the Stack, specifically utilizing the <cite>ArrayDeque</cite> or <cite>LinkedList</cite> class. Other custom implementations or variations may have different complexities.</p>
 </section>
 <section id="unit-testing-the-stack-api-methods">
 <h3>Unit Testing the Stack API Methods<a class="headerlink" href="#unit-testing-the-stack-api-methods" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#unit-testing-the-stack-api-methods'">¶</a></h3>
@@ -1810,8 +1920,8 @@ Java provides several other implementations of the <cite>Set</cite> interface, s
 <p>By writing comprehensive unit tests for each of the main stack API methods, you can ensure that your implementation behaves as expected and handles different scenarios correctly.</p>
 </section>
 </section>
-<section id="id10">
-<h3>Sample implementation<a class="headerlink" href="#id10" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id10'">¶</a></h3>
+<section id="id11">
+<h3>Sample implementation<a class="headerlink" href="#id11" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id11'">¶</a></h3>
 <p>Here’s a simple implementation of the Stack ADT as a generic class based on arrays:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Stack</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Object</span><span class="o">[]</span><span class="w"> </span><span class="n">stack</span><span class="p">;</span>
@@ -1869,8 +1979,8 @@ Java provides several other implementations of the <cite>Set</cite> interface, s
 <p>Note that when accessing elements from the stack array, we cast them to the generic type <cite>E</cite> using <cite>(E)</cite> to ensure type safety. Additionally, the stack array is initially created with a default capacity, but it dynamically resizes when it becomes full using the <cite>resizeStack()</cite> method.</p>
 <p>This updated implementation allows you to create stacks of various types and provides a more flexible and reusable stack ADT.</p>
 </section>
-<section id="id11">
-<h3>Key takeaways<a class="headerlink" href="#id11" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id11'">¶</a></h3>
+<section id="id12">
+<h3>Key takeaways<a class="headerlink" href="#id12" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id12'">¶</a></h3>
 <ul class="simple">
 <li><p>The Stack ADT follows the Last-In-First-Out (LIFO) principle.</p></li>
 <li><p>It is commonly used for managing undo functionality, function call tracking, expression evaluation, and more.</p></li>
@@ -1885,8 +1995,8 @@ Java provides several other implementations of the <cite>Set</cite> interface, s
 <h2>Queues<a class="headerlink" href="#queues" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#queues'">¶</a></h2>
 <p>A queue is a type of linear data structure that follows a specific order in which the operations are performed. The order is First In First Out (FIFO). This means that the data item that’s been in the queue the longest is the first one to be removed, and when a new data item is added, it goes to the end of the queue.</p>
 <p>This is analogous to a real-life queue of people – people join the end of the queue and leave from the front. For example, in a line at a coffee shop, the first person who gets in line is the first person to get served and leave the line.</p>
-<section id="id12">
-<h3>Example<a class="headerlink" href="#id12" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id12'">¶</a></h3>
+<section id="id13">
+<h3>Example<a class="headerlink" href="#id13" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id13'">¶</a></h3>
 <p>Consider a scenario where you are building a ticketing system for an event. Users line up to purchase tickets, and you need to manage their requests in the order they arrive. A queue can be an excellent solution. As users join the line, their requests are enqueued. When it’s time to process the requests, each user is dequeued, ensuring fairness and maintaining the order of requests.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Queue</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ticketQueue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">LinkedList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
 
@@ -1935,6 +2045,19 @@ Java provides several other implementations of the <cite>Set</cite> interface, s
 </ol>
 <p>In these examples, we use the <cite>Queue</cite> interface to represent a queue. Both <cite>LinkedList</cite> and <cite>ArrayDeque</cite> implement the <cite>Queue</cite> interface and can be used interchangeably as queue implementations. The <cite>PriorityQueue</cite> class provides additional functionality for priority-based queues, where elements are ordered based on a specified priority.</p>
 <p>Using the appropriate queue implementation ensures compatibility with the Java 17 API and enables you to benefit from the standardized queue behavior and functionality provided by the <cite>Queue</cite> interface.</p>
+</section>
+<section id="performance-of-the-main-queue-api-methods">
+<h3>Performance of the main Queue API methods<a class="headerlink" href="#performance-of-the-main-queue-api-methods" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#performance-of-the-main-queue-api-methods'">¶</a></h3>
+<p>Here are the time and space complexities for the main methods in the standard Java 17 implementations of Queue (<cite>ArrayDeque</cite> and <cite>LinkedList</cite>), along with a brief rationale for each method’s time complexity:</p>
+<ul class="simple">
+<li><p><cite>add(element)</cite> / <cite>offer(element)</cite>: O(1) time complexity. Adding an element to the end of the queue takes constant time as it involves inserting the element into the underlying data structure. The space complexity is O(1).</p></li>
+<li><p><cite>remove()</cite> / <cite>poll()</cite>: O(1) time complexity. Removing and returning the element from the front of the queue takes constant time. The space complexity is O(1).</p></li>
+<li><p><cite>element()</cite> / <cite>peek()</cite>: O(1) time complexity. Accessing the element at the front of the queue without removing it takes constant time. The space complexity is O(1).</p></li>
+<li><p><cite>isEmpty()</cite>: O(1) time complexity. Checking if the queue is empty takes constant time. The space complexity is O(1).</p></li>
+<li><p><cite>size()</cite>: O(1) time complexity. Determining the size of the queue takes constant time. The space complexity is O(1).</p></li>
+</ul>
+<p>These complexities are applicable to the standard Java 17 implementations of <cite>ArrayDeque</cite> and <cite>LinkedList</cite>. The time complexities are derived from the inherent design and data structures used in the implementations, ensuring efficient operations for these methods. The space complexities are considered O(1) as they do not consume additional space proportional to the input size.</p>
+<p>It’s important to note that these complexities represent the average case complexities. Certain edge cases or specific usage scenarios may exhibit different performance characteristics.</p>
 </section>
 <section id="unit-tests-for-the-queue-api">
 <h3>Unit tests for the Queue API<a class="headerlink" href="#unit-tests-for-the-queue-api" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#unit-tests-for-the-queue-api'">¶</a></h3>
@@ -2028,8 +2151,8 @@ Java provides several other implementations of the <cite>Set</cite> interface, s
 <p>In order to set up the state before each test, I’ve used the <cite>@BeforeEach</cite> annotation, which runs the setup method before each individual test. In this case, the setup method initializes a queue with the numbers 0 to 9.</p>
 <p>Remember that you’ll need to have JUnit in your project classpath to run these tests. If you’re using a build tool like Maven or Gradle, you can add JUnit as a dependency in your build file. If you’re not using a build tool, you can download JUnit and add it to your project classpath manually.</p>
 </section>
-<section id="id13">
-<h3>Sample implementation<a class="headerlink" href="#id13" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id13'">¶</a></h3>
+<section id="id14">
+<h3>Sample implementation<a class="headerlink" href="#id14" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id14'">¶</a></h3>
 <p>Here is a simple Queue implementation using arrays. This version has a fixed capacity and implements the essential methods: <cite>add</cite>, <cite>remove</cite>, <cite>peek</cite>, and <cite>size</cite>.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ArrayQueue</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Object</span><span class="o">[]</span><span class="w"> </span><span class="n">elements</span><span class="p">;</span>
@@ -2085,8 +2208,8 @@ Java provides several other implementations of the <cite>Set</cite> interface, s
 <p>This <cite>ArrayQueue</cite> class uses a circular array to store its elements. The <cite>front</cite> and <cite>back</cite> indices keep track of where to dequeue and enqueue elements, and they wrap around to the start of the array when they reach the end. The <cite>size</cite> field keeps track of the number of elements currently in the queue.</p>
 <p>This implementation throws an exception if you try to enqueue an element into a full queue or dequeue an element from an empty queue. In a real-world application, you might want to have the queue automatically expand its capacity when it gets full, but that’s a bit more complicated and might be better suited for a more advanced course.</p>
 </section>
-<section id="id14">
-<h3>Key takeaways<a class="headerlink" href="#id14" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id14'">¶</a></h3>
+<section id="id15">
+<h3>Key takeaways<a class="headerlink" href="#id15" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id15'">¶</a></h3>
 <ul class="simple">
 <li><p>The Queue ADT follows the First-In-First-Out (FIFO) principle.</p></li>
 <li><p>It is commonly used for managing tasks, message processing, event handling, and more.</p></li>
@@ -2125,7 +2248,7 @@ Java provides several other implementations of the <cite>Set</cite> interface, s
 </section>
 <section id="putting-everything-together-maze-solver">
 <h3>Putting everything together: maze solver<a class="headerlink" href="#putting-everything-together-maze-solver" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#putting-everything-together-maze-solver'">¶</a></h3>
-<div class="admonition-todo admonition" id="id15">
+<div class="admonition-todo admonition" id="id16">
 <p class="admonition-title">Todo</p>
 <p>extended example</p>
 </div>
@@ -2161,7 +2284,7 @@ Java provides several other implementations of the <cite>Set</cite> interface, s
 <p>The exact order and selection of these topics may vary depending on the specific course and curriculum guidelines. Also, real-life examples and problem-solving exercises should be included to apply these data structures and concepts. The complexity and depth of these topics will increase when students move on to more advanced courses like CS7.</p>
 <section id="cs2-at-loyola-current-topics-and-learning-outcomes">
 <h3>CS2 at Loyola: Current topics and learning outcomes<a class="headerlink" href="#cs2-at-loyola-current-topics-and-learning-outcomes" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#cs2-at-loyola-current-topics-and-learning-outcomes'">¶</a></h3>
-<div class="admonition-todo admonition" id="id16">
+<div class="admonition-todo admonition" id="id17">
 <p class="admonition-title">Todo</p>
 <p>Update as needed.</p>
 </div>
@@ -2736,8 +2859,8 @@ Balto says: Howl!
 <p>Subtyping is an important concept in object-oriented programming and is closely related to inheritance. It allows for the substitution of objects of one class with objects of another class that is derived from or related to the former class.</p>
 <p>Subtyping enables polymorphism and supports the “is-a” relationship between classes. It allows objects of a derived class to be treated as objects of their parent class, providing flexibility and extensibility in program design. By leveraging subtyping, code can be written in a way that is more generic and adaptable to different types of objects.</p>
 <p>In the context of CS2, subtyping is a significant aspect of understanding inheritance and polymorphism. It enables students to create class hierarchies, define relationships between classes, and utilize the principles of code reuse and abstraction. By grasping the concept of subtyping, students can effectively design and implement object-oriented programs that utilize inheritance and polymorphism to their full potential.</p>
-<table class="docutils align-default" id="id19">
-<caption><span class="caption-text">Comparison between type hierarchy relationships</span><a class="headerlink" href="#id19" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id20">
+<caption><span class="caption-text">Comparison between type hierarchy relationships</span><a class="headerlink" href="#id20" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 33%"/>
 <col style="width: 33%"/>
@@ -2964,8 +3087,8 @@ Balto says: Howl!
 </pre></div>
 </div>
 <p>This example demonstrates how the <cite>Car</cite> object composes the <cite>Engine</cite> and <cite>Wheel</cite> objects, utilizing their behaviors and encapsulating them within its own functionality.</p>
-<table class="docutils align-default" id="id20">
-<caption><span class="caption-text">Comparison among object relationships</span><a class="headerlink" href="#id20" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id21">
+<caption><span class="caption-text">Comparison among object relationships</span><a class="headerlink" href="#id21" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 25%"/>
 <col style="width: 25%"/>
@@ -3118,8 +3241,8 @@ Balto says: Howl!
 <p>If you have any further questions or need additional clarification, please let me know!</p>
 </section>
 </section>
-<section id="id17">
-<h2>Maps<a class="headerlink" href="#id17" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id17'">¶</a></h2>
+<section id="id18">
+<h2>Maps<a class="headerlink" href="#id18" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id18'">¶</a></h2>
 <p><em>Which is the Swiss army knife of data structures?</em></p>
 <p>The “Swiss army knife” of data structures is often considered to be the “Array.” Arrays are versatile and widely used data structures that offer flexibility in storing and accessing elements.</p>
 <p>Here are some reasons why arrays can be considered the Swiss army knife of data structures:</p>
@@ -3148,7 +3271,7 @@ Balto says: Howl!
 </ol>
 <p>By utilizing lists, you gain the advantages of a dynamic and flexible data structure that can handle a wide range of element types and provide efficient operations for adding, removing, and accessing elements.</p>
 <p>If you have any further questions or need additional information, feel free to ask!</p>
-<div class="admonition-todo admonition" id="id18">
+<div class="admonition-todo admonition" id="id19">
 <p class="admonition-title">Todo</p>
 <p>move to SE course?</p>
 </div>
@@ -3199,7 +3322,7 @@ Balto says: Howl!
 <li><a :data-current="activeSection === '#arrays-vs-array-based-lists'" class="reference internal" href="#arrays-vs-array-based-lists">Arrays vs. array-based lists</a></li>
 <li><a :data-current="activeSection === '#id1'" class="reference internal" href="#id1">Example</a></li>
 <li><a :data-current="activeSection === '#performance-of-arraylist-methods'" class="reference internal" href="#performance-of-arraylist-methods">Performance of ArrayList methods</a></li>
-<li><a :data-current="activeSection === '#how-to-instantiate-arraylist'" class="reference internal" href="#how-to-instantiate-arraylist">How to instantiate ArrayList</a></li>
+<li><a :data-current="activeSection === '#how-to-create-arraylist-instances'" class="reference internal" href="#how-to-create-arraylist-instances">How to create ArrayList instances</a></li>
 <li><a :data-current="activeSection === '#sample-implementation'" class="reference internal" href="#sample-implementation">Sample implementation</a></li>
 <li><a :data-current="activeSection === '#id2'" class="reference internal" href="#id2">Key takeaways</a></li>
 </ul>
@@ -3208,6 +3331,7 @@ Balto says: Howl!
 <li><a :data-current="activeSection === '#id3'" class="reference internal" href="#id3">Example</a></li>
 <li><a :data-current="activeSection === '#the-java-map-api'" class="reference internal" href="#the-java-map-api">The Java Map API</a></li>
 <li><a :data-current="activeSection === '#how-to-create-map-instances'" class="reference internal" href="#how-to-create-map-instances">How to create Map instances</a></li>
+<li><a :data-current="activeSection === '#performance-of-map-api-methods'" class="reference internal" href="#performance-of-map-api-methods">Performance of Map API methods</a></li>
 <li><a :data-current="activeSection === '#unit-tests-for-the-map-api'" class="reference internal" href="#unit-tests-for-the-map-api">Unit tests for the Map API</a></li>
 <li><a :data-current="activeSection === '#id5'" class="reference internal" href="#id5">Sample implementation</a></li>
 <li><a :data-current="activeSection === '#id6'" class="reference internal" href="#id6">Key takeaways</a></li>
@@ -3217,10 +3341,11 @@ Balto says: Howl!
 <li><a :data-current="activeSection === '#id7'" class="reference internal" href="#id7">Example</a></li>
 <li><a :data-current="activeSection === '#the-java-set-api'" class="reference internal" href="#the-java-set-api">The Java Set API</a></li>
 <li><a :data-current="activeSection === '#how-to-create-set-instances'" class="reference internal" href="#how-to-create-set-instances">How to create Set instances</a></li>
+<li><a :data-current="activeSection === '#id8'" class="reference internal" href="#id8">Performance of Map API methods</a></li>
 <li><a :data-current="activeSection === '#unit-tests-for-the-set-api'" class="reference internal" href="#unit-tests-for-the-set-api">Unit tests for the Set API</a></li>
-<li><a :data-current="activeSection === '#id8'" class="reference internal" href="#id8">Sample implementation</a></li>
+<li><a :data-current="activeSection === '#id9'" class="reference internal" href="#id9">Sample implementation</a></li>
 <li><a :data-current="activeSection === '#bitsets'" class="reference internal" href="#bitsets">Bitsets</a></li>
-<li><a :data-current="activeSection === '#id9'" class="reference internal" href="#id9">Key takeaways</a></li>
+<li><a :data-current="activeSection === '#id10'" class="reference internal" href="#id10">Key takeaways</a></li>
 </ul>
 </li>
 <li><a :data-current="activeSection === '#stacks'" class="reference internal" href="#stacks">Stacks</a><ul>
@@ -3228,6 +3353,7 @@ Balto says: Howl!
 <li><a :data-current="activeSection === '#example-balancing-parentheses'" class="reference internal" href="#example-balancing-parentheses">Example: Balancing Parentheses</a></li>
 <li><a :data-current="activeSection === '#main-stack-api-methods'" class="reference internal" href="#main-stack-api-methods">Main Stack API Methods</a></li>
 <li><a :data-current="activeSection === '#how-to-instantiate-a-stack'" class="reference internal" href="#how-to-instantiate-a-stack">How to Instantiate a Stack</a></li>
+<li><a :data-current="activeSection === '#performance-of-stack-api-methods'" class="reference internal" href="#performance-of-stack-api-methods">Performance of Stack API methods</a></li>
 <li><a :data-current="activeSection === '#unit-testing-the-stack-api-methods'" class="reference internal" href="#unit-testing-the-stack-api-methods">Unit Testing the Stack API Methods</a><ul>
 <li><a :data-current="activeSection === '#testing-push-element'" class="reference internal" href="#testing-push-element">Testing <cite>push(element)</cite></a></li>
 <li><a :data-current="activeSection === '#testing-pop'" class="reference internal" href="#testing-pop">Testing <cite>pop()</cite></a></li>
@@ -3236,17 +3362,18 @@ Balto says: Howl!
 <li><a :data-current="activeSection === '#testing-size'" class="reference internal" href="#testing-size">Testing <cite>size()</cite></a></li>
 </ul>
 </li>
-<li><a :data-current="activeSection === '#id10'" class="reference internal" href="#id10">Sample implementation</a></li>
-<li><a :data-current="activeSection === '#id11'" class="reference internal" href="#id11">Key takeaways</a></li>
+<li><a :data-current="activeSection === '#id11'" class="reference internal" href="#id11">Sample implementation</a></li>
+<li><a :data-current="activeSection === '#id12'" class="reference internal" href="#id12">Key takeaways</a></li>
 </ul>
 </li>
 <li><a :data-current="activeSection === '#queues'" class="reference internal" href="#queues">Queues</a><ul>
-<li><a :data-current="activeSection === '#id12'" class="reference internal" href="#id12">Example</a></li>
+<li><a :data-current="activeSection === '#id13'" class="reference internal" href="#id13">Example</a></li>
 <li><a :data-current="activeSection === '#main-queue-api-methods'" class="reference internal" href="#main-queue-api-methods">Main Queue API Methods</a></li>
 <li><a :data-current="activeSection === '#how-to-instantiate-a-queue'" class="reference internal" href="#how-to-instantiate-a-queue">How to Instantiate a Queue</a></li>
+<li><a :data-current="activeSection === '#performance-of-the-main-queue-api-methods'" class="reference internal" href="#performance-of-the-main-queue-api-methods">Performance of the main Queue API methods</a></li>
 <li><a :data-current="activeSection === '#unit-tests-for-the-queue-api'" class="reference internal" href="#unit-tests-for-the-queue-api">Unit tests for the Queue API</a></li>
-<li><a :data-current="activeSection === '#id13'" class="reference internal" href="#id13">Sample implementation</a></li>
-<li><a :data-current="activeSection === '#id14'" class="reference internal" href="#id14">Key takeaways</a></li>
+<li><a :data-current="activeSection === '#id14'" class="reference internal" href="#id14">Sample implementation</a></li>
+<li><a :data-current="activeSection === '#id15'" class="reference internal" href="#id15">Key takeaways</a></li>
 <li><a :data-current="activeSection === '#a-unified-view-of-restricted-access-data-structures'" class="reference internal" href="#a-unified-view-of-restricted-access-data-structures">A unified view of restricted-access data structures</a></li>
 <li><a :data-current="activeSection === '#putting-everything-together-maze-solver'" class="reference internal" href="#putting-everything-together-maze-solver">Putting everything together: maze solver</a></li>
 </ul>
@@ -3272,7 +3399,7 @@ Balto says: Howl!
 <li><a :data-current="activeSection === '#only-observable-relationships-matter'" class="reference internal" href="#only-observable-relationships-matter">Only observable relationships matter</a></li>
 </ul>
 </li>
-<li><a :data-current="activeSection === '#id17'" class="reference internal" href="#id17">Maps</a></li>
+<li><a :data-current="activeSection === '#id18'" class="reference internal" href="#id18">Maps</a></li>
 <li><a :data-current="activeSection === '#software-engineering-principles'" class="reference internal" href="#software-engineering-principles">Software engineering principles</a><ul>
 <li><a :data-current="activeSection === '#what-does-beautiful-code-look-like-in-the-context-of-a-cs2-course'" class="reference internal" href="#what-does-beautiful-code-look-like-in-the-context-of-a-cs2-course">What does beautiful code look like in the context of a CS2 course?</a></li>
 </ul>
