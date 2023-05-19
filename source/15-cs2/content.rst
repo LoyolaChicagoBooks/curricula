@@ -674,7 +674,7 @@ The `List.of()` method returns an unmodifiable list that does not support the `a
         }
     }
 
-In this updated example, the unit tests focus on the methods that are supported by the `List.of()` factory method, such as `get`, `contains`, and `size`. These tests verify the expected behavior of these methods with an immutable list returned by `List.of()`. The tests ensure that the elements can be retrieved by index, the presence of specific elements can be checked, and the size of the list is correct.
+These unit tests focus on the methods that are supported by the `List.of()` factory method, such as `get`, `contains`, and `size`. These tests verify the expected behavior of these methods with an immutable list returned by `List.of()`. The tests ensure that the elements can be retrieved by index, the presence of specific elements can be checked, and the size of the list is correct.
 
 It's important to note that the `List.of()` method returns an unmodifiable list, which limits the ability to perform certain operations like adding or removing elements.
 
@@ -715,6 +715,7 @@ How to create mutable List instances
 In Java, the `List` interface is an interface and cannot be directly instantiated. However, you can create an instance of a class that implements the `List` interface. Here are a few examples of commonly used implementations of the `List` interface and how to instantiate them:
 
 1. **ArrayList**:
+
 .. code-block:: java
 
     import java.util.List;
@@ -736,6 +737,7 @@ In this example, an instance of `ArrayList` is created and assigned to the `List
 Here, an instance of `LinkedList` is created and assigned to the `List<String>` variable `linkedList`. `LinkedList` is a doubly-linked list implementation of the `List` interface.
 
 3. **Vector**:
+
 .. code-block:: java
 
     import java.util.List;
@@ -865,7 +867,7 @@ Here's how you might use `ArrayList` as a `List`:
     names.add("Alice");
     names.add("Bob");
     names.add("Charlie");
-    String firstPerson = names.get(0);  // Alice
+    final var firstPerson = names.get(0);  // Alice
 
 In this code, we're declaring a variable `names` of type `List<String>`, but we're initializing it with an instance of `ArrayList<String>`. This means that we can use any class that implements `List<String>` to initialize `names`. This is a common example of programming to an interface in Java, which makes code more flexible and modifiable.
 
@@ -1167,7 +1169,7 @@ Here is an example of counting the occurrences of words in a sentence. This is a
 
     public class WordCount {
         public static void main(final String[] args) {
-            final String sentence = "If it is to be, it is up to me to delegate";
+            final var sentence = "If it is to be, it is up to me to delegate";
             final var words = sentence.split("\\s+");
             final var wordCount = new HashMap<String, Integer>();
 
@@ -1284,7 +1286,7 @@ Here's an overview of how to create `Map` instances, including the `Map.of()` fa
 2. **Using `HashMap`**:
    The `HashMap` class is a commonly used implementation of the `Map` interface. It provides a dynamic and unordered collection of key-value pairs. Here's an example:
 
-.. code-block:: java
+   .. code-block:: java
 
         import java.util.Map;
         import java.util.HashMap;
@@ -1293,6 +1295,7 @@ Here's an overview of how to create `Map` instances, including the `Map.of()` fa
         map.put("Apple", 1);
         map.put("Banana", 2);
         map.put("Orange", 3);
+
 
    In this example, a `HashMap` instance is created by instantiating the `HashMap` class. Key-value pairs are added using the `put()` method, allowing for dynamic modification of the map.
 
@@ -1898,7 +1901,7 @@ Let's consider a simple example of implementing the "Undo" functionality using a
     undoStack.push("Typing");
 
     // User triggers "Undo"
-    String lastAction = undoStack.pop();
+    final var lastAction = undoStack.pop();
 
 In this example, we create a stack called `undoStack` using the `ArrayStack` implementation. As the user performs actions, such as formatting changes, deletions, and typing, each action is pushed onto the stack. When the "Undo" command is triggered, the most recent action is popped from the stack, allowing for the undoing of changes.
 
@@ -2085,19 +2088,20 @@ In this test, we create a stack, add elements to it, and verify the size at diff
 By writing comprehensive unit tests for each of the main stack API methods, you can ensure that your implementation behaves as expected and handles different scenarios correctly.
 
 
-Simple implementation
+Sample implementation
 ^^^^^^^^^^^^^^^^^^^^^
 
-Certainly! Here's a simplified implementation of a Stack ADT using simple Java arrays:
+Here's a simple implementation of the Stack ADT as a generic class based on arrays:
 
 .. code-block:: java
 
-    public class Stack {
-        private int[] stack;
+    public class Stack<E> {
+        private Object[] stack;
         private int top;
+        private static final int DEFAULT_CAPACITY = 10;
 
-        public Stack(int capacity) {
-            stack = new int[capacity];
+        public Stack() {
+            stack = new Object[DEFAULT_CAPACITY];
             top = -1;
         }
 
@@ -2109,44 +2113,44 @@ Certainly! Here's a simplified implementation of a Stack ADT using simple Java a
             return top == stack.length - 1;
         }
 
-        public void push(int element) {
+        public void push(E element) {
             if (isFull()) {
-                throw new RuntimeException("Stack is full");
+                resizeStack();
             }
             stack[++top] = element;
         }
 
-        public int pop() {
+        public E pop() {
             if (isEmpty()) {
                 throw new RuntimeException("Stack is empty");
             }
-            return stack[top--];
+            return (E) stack[top--];
         }
 
-        public int peek() {
+        public E peek() {
             if (isEmpty()) {
                 throw new RuntimeException("Stack is empty");
             }
-            return stack[top];
+            return (E) stack[top];
         }
 
         public int size() {
             return top + 1;
         }
+
+        private void resizeStack() {
+            int newCapacity = stack.length * 2;
+            Object[] newStack = new Object[newCapacity];
+            System.arraycopy(stack, 0, newStack, 0, stack.length);
+            stack = newStack;
+        }
     }
 
-In this implementation, we use a simple Java array to store the elements of the stack. Here's an overview of the key methods:
+In this revised implementation, the `Stack` class is now a generic class, allowing you to create stacks of any type. The key methods and functionalities remain the same as in the previous implementation.
 
-- `isEmpty()`: Checks if the stack is empty.
-- `isFull()`: Checks if the stack is full.
-- `push(element)`: Adds the specified element to the top of the stack.
-- `pop()`: Removes and returns the element at the top of the stack.
-- `peek()`: Returns the element at the top of the stack without removing it.
-- `size()`: Returns the number of elements in the stack.
+Note that when accessing elements from the stack array, we cast them to the generic type `E` using `(E)` to ensure type safety. Additionally, the stack array is initially created with a default capacity, but it dynamically resizes when it becomes full using the `resizeStack()` method.
 
-Note that in this implementation, we assume the stack is limited to storing integers. If you want to support other types, you can modify the array type and update the element handling accordingly.
-
-This simplified implementation demonstrates how a stack can be implemented using a simple array-based approach, offering a basic understanding of stack operations using primitive Java arrays.
+This updated implementation allows you to create stacks of various types and provides a more flexible and reusable stack ADT.
 
 
 Key takeaways
@@ -2341,7 +2345,7 @@ Remember that you'll need to have JUnit in your project classpath to run these t
 Sample implementation
 ^^^^^^^^^^^^^^^^^^^^^
 
-Sure, I can provide an example of a simple Queue implementation using arrays. This version has a fixed capacity, but it would be a good starting point for teaching about Queues in a CS2 course. It implements the essential methods: `add`, `remove`, `peek`, and `size`.
+Here is a simple Queue implementation using arrays. This version has a fixed capacity and implements the essential methods: `add`, `remove`, `peek`, and `size`.
 
 .. code-block:: java
 
