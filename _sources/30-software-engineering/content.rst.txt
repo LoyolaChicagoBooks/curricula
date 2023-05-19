@@ -256,3 +256,116 @@ Here's an example of how you can use the Scala Compiler Plugin for Contracts to 
      }
    }
 
+
+Strategy Pattern
+-------------------
+
+.. note:: This is based on a discussion with Konstantin. The tradition of Stack is push() and pop(). The tradition of a Queue is enqueue() and dequeue(). But in the latter case, I'm ok with addLast() and removeFirst(). My query below is about getting students to think about design patterns instead of the "all in one" method that may or may not make sense to them (especially during second year courses).
+
+Question
+^^^^^^^^^
+
+I want to use the strategy pattern to select between FIFO and LIFO policy in Java. I wish to use add() and remove() to do what is natural for a stack or queue respectively. Can you create adapters for these and then show how I can select the strategy to add and remove values at random based on the strategy?
+
+
+Answer
+^^^^^^^^
+
+First we'll define an interface called CollectionStrategy which has add() and remove() methods:
+
+.. code-block:: java
+
+   public interface CollectionStrategy<T> {
+       void add(T element);
+       T remove();
+   }
+
+
+Next, we'll create two classes StackStrategy and QueueStrategy implementing CollectionStrategy interface:
+
+.. code-block:: java
+
+   import java.util.Deque;
+   import java.util.LinkedList;
+   
+   public class StackStrategy<T> implements CollectionStrategy<T> {
+       private Deque<T> stack;
+   
+       public StackStrategy() {
+           this.stack = new LinkedList<>();
+       }
+   
+       @Override
+       public void add(T element) {
+           stack.push(element);
+       }
+   
+       @Override
+       public T remove() {
+           return stack.pop();
+       }
+   }
+   
+   public class QueueStrategy<T> implements CollectionStrategy<T> {
+       private Deque<T> queue;
+   
+       public QueueStrategy() {
+           this.queue = new LinkedList<>();
+       }
+   
+       @Override
+       public void add(T element) {
+           queue.addLast(element);
+       }
+   
+       @Override
+       public T remove() {
+           return queue.removeFirst();
+       }
+   }
+   
+Now we can create a class Context which uses CollectionStrategy:
+
+.. code-block:: java
+
+   public class Context<T> {
+       private CollectionStrategy<T> collectionStrategy;
+   
+       public Context(CollectionStrategy<T> collectionStrategy) {
+           this.collectionStrategy = collectionStrategy;
+       }
+   
+       public void setCollectionStrategy(CollectionStrategy<T> collectionStrategy) {
+           this.collectionStrategy = collectionStrategy;
+       }
+   
+       public void add(T element) {
+           collectionStrategy.add(element);
+       }
+   
+       public T remove() {
+           return collectionStrategy.remove();
+       }
+   }
+
+
+Then you can use it like this:
+
+.. code-block:: java
+
+   public class Main {
+       public static void main(String[] args) {
+           // Use stack strategy
+           Context<String> context = new Context<>(new StackStrategy<>());
+           context.add("Hello");
+           context.add("World");
+           System.out.println(context.remove());  // prints "World"
+   
+           // Change to queue strategy
+           context.setCollectionStrategy(new QueueStrategy<>());
+           context.add("Hello");
+           context.add("World");
+           System.out.println(context.remove());  // prints "Hello"
+       }
+   }
+   
