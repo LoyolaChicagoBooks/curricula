@@ -324,7 +324,7 @@ For example, we might want to model the cardinal directions (North, East, South,
 </div>
 <p>Now, you can use this type and these behaviors in your code:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Main</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="n">direction</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CardinalDirection</span><span class="p">.</span><span class="na">NORTH</span><span class="p">;</span>
 <span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Turn right from "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">direction</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">" to get "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">CardinalDirectionOperations</span><span class="p">.</span><span class="na">turnRight</span><span class="p">(</span><span class="n">direction</span><span class="p">));</span>
 <span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Turn left from "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">direction</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">" to get "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">CardinalDirectionOperations</span><span class="p">.</span><span class="na">turnLeft</span><span class="p">(</span><span class="n">direction</span><span class="p">));</span>
@@ -368,7 +368,7 @@ Therefore, object-oriented languages, such as Java, allow us to declare and impl
 </div>
 <p>Now, you can use these methods in your code:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Main</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="n">direction</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CardinalDirection</span><span class="p">.</span><span class="na">NORTH</span><span class="p">;</span>
 <span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"The opposite of "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">direction</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">" is "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">direction</span><span class="p">.</span><span class="na">opposite</span><span class="p">());</span>
 <span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Turn right from "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">direction</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">" to get "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">direction</span><span class="p">.</span><span class="na">turnRight</span><span class="p">());</span>
@@ -573,15 +573,218 @@ Java’s <code class="docutils literal notranslate"><span class="pre">record</sp
 <p>Even ChatGPT-4 has real trouble coming up with and/or interpreting the code for drawing the letters. Manual review required!</p>
 </div>
 </section>
+<section id="abstract-data-types-adts">
+<h3>Abstract data types (ADTs)<a class="headerlink" href="#abstract-data-types-adts" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#abstract-data-types-adts'">¶</a></h3>
+<p>An Abstract Data Type (ADT) is a high-level description of a collection of data and the operations that can be performed on that data. It is “abstract” because it provides an interface that hides the specific implementation details. This means that the same ADT could be implemented in many different ways, but as long as the data and operations are consistent, those different implementations are equivalent from the perspective of a client using the ADT.</p>
+<p>An ADT encapsulates data and methods together and focuses on what is to be done rather than how it is done. The “what” are the operations or methods, and the “how” is the internal working or implementation, which is hidden from the user.</p>
+<p>For example, consider the ADT of a List. A List ADT might specify operations such as <cite>add(item)</cite>, <cite>remove(item)</cite>, <cite>get(index)</cite>, <cite>size()</cite>, and so on. However, it doesn’t specify how these operations are implemented. This allows a List to be implemented in various ways (for instance, as an ArrayList or a LinkedList in Java) while still providing the same interface to the user.</p>
+<p>The main advantage of using ADTs is that they provide a way to separate the concerns of what data a program is working with and how that data is stored and manipulated. This makes programs easier to understand, write, and debug. It also enables greater reusability of code, as the same ADT can be used in multiple different programs or parts of a program.</p>
+<div class="admonition-todo admonition" id="id2">
+<p class="admonition-title">Todo</p>
+<p>key takeaways</p>
+</div>
+</section>
+</section>
+<section id="lists">
+<h2>Lists<a class="headerlink" href="#lists" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#lists'">¶</a></h2>
+<p>A list can be defined as an ordered collection of elements, where each element has a specific position or index within the collection. The list ADT allows operations for adding, removing, and accessing elements based on their position in the list. It provides functionality to manipulate and retrieve elements in a sequential manner.</p>
+<p>The key characteristics of a list ADT typically include:</p>
+<ol class="arabic simple">
+<li><p><strong>Ordering</strong>: The elements in a list have a specific order or sequence. The order is maintained as elements are added or removed from the list.</p></li>
+<li><p><strong>Indexing</strong>: Each element in the list is associated with a unique index, starting from 0 for the first element, and incrementing by one for each subsequent element. This allows for efficient random access to elements based on their index.</p></li>
+<li><p><strong>Dynamic Size</strong>: A list can dynamically adjust its size to accommodate the addition or removal of elements. It can grow or shrink as needed to hold the elements.</p></li>
+<li><p><strong>Element Manipulation</strong>: A list allows for various operations, such as inserting elements at specific positions, removing elements from specific positions, retrieving elements by index, searching for elements, and modifying elements at specific positions.</p></li>
+</ol>
+<p>It’s important to note that the list ADT is an abstract concept and does not specify the underlying implementation. Depending on the programming language or specific requirements, there can be different implementations of lists, such as arrays, linked lists, or other data structures.</p>
+<p>The list ADT serves as a fundamental data structure, and students learn about the essential operations and characteristics associated with lists. They explore different implementations and gain an understanding of the trade-offs and performance implications of each implementation choice.</p>
+<section id="main-methods-of-the-list-adt">
+<h3>Main methods of the List ADT<a class="headerlink" href="#main-methods-of-the-list-adt" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#main-methods-of-the-list-adt'">¶</a></h3>
+<p>Sure, here are the top 10 methods that you will commonly use when working with a List in Java:</p>
+<ol class="arabic simple">
+<li><p><cite>boolean add(E e)</cite>: Appends the specified element to the end of the list. This method returns <cite>true</cite> if the element was added successfully.</p></li>
+<li><p><cite>void add(int index, E element)</cite>: Inserts the specified element at the specified position in the list.</p></li>
+<li><p><cite>E get(int index)</cite>: Returns the element at the specified position in the list.</p></li>
+<li><p><cite>E remove(int index)</cite>: Removes the element at the specified position in the list, and returns the element that was removed.</p></li>
+<li><p><cite>boolean remove(Object o)</cite>: Removes the first occurrence of the specified element from the list, if it is present.</p></li>
+<li><p><cite>E set(int index, E element)</cite>: Replaces the element at the specified position in the list with the specified element.</p></li>
+<li><p><cite>int size()</cite>: Returns the number of elements in the list.</p></li>
+<li><p><cite>boolean isEmpty()</cite>: Returns <cite>true</cite> if the list contains no elements.</p></li>
+<li><p><cite>void clear()</cite>: Removes all of the elements from the list.</p></li>
+<li><p><cite>boolean contains(Object o)</cite>: Returns <cite>true</cite> if the list contains the specified element.</p></li>
+</ol>
+<p>These methods cover the most common operations you’ll perform on a List: adding elements, removing elements, getting or setting the value of an element, checking the size, and checking if an element is present in the List.</p>
+</section>
+<section id="example">
+<h3>Example<a class="headerlink" href="#example" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#example'">¶</a></h3>
+<p>Here is an example of using each of these List methods with randomly generated data:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.*</span><span class="p">;</span>
+
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Main</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">random</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Random</span><span class="p">();</span>
+
+<span class="w">        </span><span class="c1">// 1. add(E e)</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">numberToAdd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">random</span><span class="p">.</span><span class="na">nextInt</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+<span class="w">            </span><span class="n">list</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">numberToAdd</span><span class="p">);</span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Added "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">numberToAdd</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="c1">// 2. add(int index, E element)</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">indexToAddAt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">random</span><span class="p">.</span><span class="na">nextInt</span><span class="p">(</span><span class="n">list</span><span class="p">.</span><span class="na">size</span><span class="p">());</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">numberToAddAtIndex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">random</span><span class="p">.</span><span class="na">nextInt</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+<span class="w">        </span><span class="n">list</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">indexToAddAt</span><span class="p">,</span><span class="w"> </span><span class="n">numberToAddAtIndex</span><span class="p">);</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Added "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">numberToAddAtIndex</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">" at index "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">indexToAddAt</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// 3. get(int index)</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">indexToGet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">random</span><span class="p">.</span><span class="na">nextInt</span><span class="p">(</span><span class="n">list</span><span class="p">.</span><span class="na">size</span><span class="p">());</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Element at index "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">indexToGet</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">" is "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">indexToGet</span><span class="p">));</span>
+
+<span class="w">        </span><span class="c1">// 4. remove(int index)</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">indexToRemove</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">random</span><span class="p">.</span><span class="na">nextInt</span><span class="p">(</span><span class="n">list</span><span class="p">.</span><span class="na">size</span><span class="p">());</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Removed element "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">remove</span><span class="p">(</span><span class="n">indexToRemove</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">" at index "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">indexToRemove</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// 5. remove(Object o)</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">numberToRemove</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">random</span><span class="p">.</span><span class="na">nextInt</span><span class="p">(</span><span class="n">list</span><span class="p">.</span><span class="na">size</span><span class="p">()));</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">removalSuccessful</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">remove</span><span class="p">(</span><span class="n">Integer</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="n">numberToRemove</span><span class="p">));</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">removalSuccessful</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Successfully removed "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">numberToRemove</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Failed to remove "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">numberToRemove</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="c1">// 6. set(int index, E element)</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">indexToSet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">random</span><span class="p">.</span><span class="na">nextInt</span><span class="p">(</span><span class="n">list</span><span class="p">.</span><span class="na">size</span><span class="p">());</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">numberToSetAtIndex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">random</span><span class="p">.</span><span class="na">nextInt</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Set element at index "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">indexToSet</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">" to "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="n">indexToSet</span><span class="p">,</span><span class="w"> </span><span class="n">numberToSetAtIndex</span><span class="p">));</span>
+
+<span class="w">        </span><span class="c1">// 7. size()</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"List size is "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">size</span><span class="p">());</span>
+
+<span class="w">        </span><span class="c1">// 8. isEmpty()</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Is list empty? "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">());</span>
+
+<span class="w">        </span><span class="c1">// 9. clear()</span>
+<span class="w">        </span><span class="n">list</span><span class="p">.</span><span class="na">clear</span><span class="p">();</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"List cleared."</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// Check if list is empty after clearing.</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Is list empty after clear? "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">());</span>
+
+<span class="w">        </span><span class="c1">// 10. contains(Object o)</span>
+<span class="w">        </span><span class="c1">// As list is empty after clear, it will not contain the number</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">doesListContain</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">contains</span><span class="p">(</span><span class="n">random</span><span class="p">.</span><span class="na">nextInt</span><span class="p">(</span><span class="mi">100</span><span class="p">));</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Does list contain random number? "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">doesListContain</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In this program, a new ArrayList of integers is created. The program then randomly adds integers, gets and removes integers at random indices, checks the size, and checks if the list is empty. The list is then cleared, and finally checks if the list contains a random number. Each operation is output to the console using <cite>System.out.println()</cite>.</p>
+</section>
+<section id="unit-tests-for-the-list-api">
+<h3>Unit tests for the List API<a class="headerlink" href="#unit-tests-for-the-list-api" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#unit-tests-for-the-list-api'">¶</a></h3>
+<p>Here is an example of using JUnit 5 to write unit tests for the <cite>List</cite> methods:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">org.junit.jupiter.api.*</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.*</span><span class="p">;</span>
+
+<span class="kn">import static</span><span class="w"> </span><span class="nn">org.junit.jupiter.api.Assertions.*</span><span class="p">;</span>
+
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ListTest</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">list</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">SIZE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+
+<span class="w">    </span><span class="nd">@BeforeEach</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">SIZE</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">list</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Test</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">testAdd</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">assertTrue</span><span class="p">(</span><span class="n">list</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">SIZE</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">));</span>
+<span class="w">        </span><span class="n">assertEquals</span><span class="p">(</span><span class="n">SIZE</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">size</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Test</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">testAddAtIndex</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">list</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="n">SIZE</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="w">        </span><span class="n">assertEquals</span><span class="p">(</span><span class="n">SIZE</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="mi">5</span><span class="p">));</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Test</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">testGet</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">assertEquals</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Test</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">testRemoveByIndex</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">assertEquals</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">remove</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span>
+<span class="w">        </span><span class="n">assertEquals</span><span class="p">(</span><span class="n">SIZE</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">size</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Test</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">testRemoveByObject</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">assertTrue</span><span class="p">(</span><span class="n">list</span><span class="p">.</span><span class="na">remove</span><span class="p">(</span><span class="n">Integer</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="mi">0</span><span class="p">)));</span>
+<span class="w">        </span><span class="n">assertEquals</span><span class="p">(</span><span class="n">SIZE</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">size</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Test</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">testSet</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">assertEquals</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">SIZE</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">));</span>
+<span class="w">        </span><span class="n">assertEquals</span><span class="p">(</span><span class="n">SIZE</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Test</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">testSize</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">assertEquals</span><span class="p">(</span><span class="n">SIZE</span><span class="p">,</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">size</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Test</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">testIsEmpty</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">assertFalse</span><span class="p">(</span><span class="n">list</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">());</span>
+<span class="w">        </span><span class="n">list</span><span class="p">.</span><span class="na">clear</span><span class="p">();</span>
+<span class="w">        </span><span class="n">assertTrue</span><span class="p">(</span><span class="n">list</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Test</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">testContains</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">assertTrue</span><span class="p">(</span><span class="n">list</span><span class="p">.</span><span class="na">contains</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span>
+<span class="w">        </span><span class="n">assertFalse</span><span class="p">(</span><span class="n">list</span><span class="p">.</span><span class="na">contains</span><span class="p">(</span><span class="n">SIZE</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">));</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Each of these test methods uses assertions to ensure that the list behaves as expected when its methods are called. For example, <cite>testAdd</cite> verifies that <cite>add</cite> returns true and increases the size of the list by one, and <cite>testGet</cite> verifies that <cite>get</cite> returns the expected element.</p>
+<div class="admonition-todo admonition" id="id3">
+<p class="admonition-title">Todo</p>
+<p>key takeaways</p>
+</div>
+</section>
 </section>
 <section id="array-based-lists">
 <h2>Array-based lists<a class="headerlink" href="#array-based-lists" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#array-based-lists'">¶</a></h2>
-<p>Let’s move on to the next major CS2 topic, Array and ArrayList: Please describe these structures and provide an example of each to help me gain an Understanding of these basic data structures, their uses, and limitations.</p>
-<div class="admonition-todo admonition" id="id2">
-<p class="admonition-title">Todo</p>
-<p>add subsection headings</p>
+<p>In Java, <cite>ArrayList</cite> is a class that implements the <cite>List</cite> interface.</p>
+<p>The <cite>List</cite> interface is a part of Java’s Collection Framework and extends the <cite>Collection</cite> interface. It is an ordered collection (also known as a sequence), and it can contain duplicate elements. The user has precise control over where in the list each element is inserted, and can access elements by their integer index (position in the list). The <cite>List</cite> interface provides a contract for common list operations, such as add, get, remove, indexOf, and others.</p>
+<p><cite>ArrayList</cite> is one of the several implementations of the <cite>List</cite> interface provided with Java’s standard library. It’s backed by a dynamic array, which means the size of the <cite>ArrayList</cite> can grow or shrink as needed.</p>
+<p><cite>ArrayList</cite> provides fast random read access (i.e., fast access to elements by index) because it’s backed by an array. However, adding elements to the middle of the <cite>ArrayList</cite> or removing elements from the middle is slower because elements need to be shifted.</p>
+<section id="id4">
+<h3>Example<a class="headerlink" href="#id4" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id4'">¶</a></h3>
+<p>Here’s how you might use <cite>ArrayList</cite> as a <cite>List</cite>:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">names</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="n">names</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">"Alice"</span><span class="p">);</span>
+<span class="n">names</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">"Bob"</span><span class="p">);</span>
+<span class="n">names</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">"Charlie"</span><span class="p">);</span>
+<span class="n">String</span><span class="w"> </span><span class="n">firstPerson</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">names</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span><span class="w">  </span><span class="c1">// Alice</span>
+</pre></div>
 </div>
-<p>Certainly! Let’s explore the Array and ArrayList data structures.</p>
+<p>In this code, we’re declaring a variable <cite>names</cite> of type <cite>List&lt;String&gt;</cite>, but we’re initializing it with an instance of <cite>ArrayList&lt;String&gt;</cite>. This means that we can use any class that implements <cite>List&lt;String&gt;</cite> to initialize <cite>names</cite>. This is a common example of programming to an interface in Java, which makes code more flexible and modifiable.</p>
+</section>
+<section id="arrays-vs-array-based-lists">
+<h3>Arrays vs. array-based lists<a class="headerlink" href="#arrays-vs-array-based-lists" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#arrays-vs-array-based-lists'">¶</a></h3>
+<p>Let’s explore the Array and ArrayList data structures.</p>
 <p><strong>Array:</strong>
 An array is a fixed-size data structure that stores elements of the same type in contiguous memory locations. It provides random access to its elements using indices. Arrays have a predetermined length that is defined at the time of declaration, and this length cannot be changed once the array is created.</p>
 <p>Here’s an example of creating and using an array in Java:</p>
@@ -623,14 +826,85 @@ The ArrayList is a dynamic data structure provided by the Java Collections Frame
 <li><p><strong>Resizing Impact</strong>: When an ArrayList needs to resize its internal array, it creates a new array with a larger size and copies the elements from the old array to the new one. This resizing operation can be time-consuming, especially if the ArrayList contains a large number of elements. If you know the approximate size requirements in advance, initializing the ArrayList with an initial capacity can help mitigate frequent resizing.</p></li>
 </ol>
 <p>Despite these disadvantages, ArrayLists remain a widely used data structure due to their flexibility, ease of use, and the convenience provided by the Java Collections Framework. Understanding the limitations and trade-offs of ArrayLists can help you make informed decisions when selecting the appropriate data structure for your specific needs.</p>
-<div class="admonition-todo admonition" id="id3">
-<p class="admonition-title">Todo</p>
-<p>main methods of ArrayList</p>
+</section>
+<section id="how-to-instantiate-arraylist">
+<h3>How to instantiate ArrayList<a class="headerlink" href="#how-to-instantiate-arraylist" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#how-to-instantiate-arraylist'">¶</a></h3>
+<p>The <cite>ArrayList</cite> class in Java provides several constructors for creating a new <cite>ArrayList</cite>. As of Java 17, these constructors include:</p>
+<ol class="arabic simple">
+<li><p><cite>ArrayList()</cite>: This constructor is used to create an empty list with an initial capacity sufficient to hold 10 elements (by default). If the list grows beyond this capacity, it is automatically resized.</p></li>
+</ol>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+</pre></div>
 </div>
-<div class="admonition-todo admonition" id="id4">
-<p class="admonition-title">Todo</p>
-<p>sample implementation</p>
+<ol class="arabic simple" start="2">
+<li><p><cite>ArrayList(int initialCapacity)</cite>: This constructor is used to create an empty list with a specified initial capacity. If the list grows beyond this capacity, it is automatically resized.</p></li>
+</ol>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="mi">50</span><span class="p">);</span>
+</pre></div>
 </div>
+<ol class="arabic simple" start="3">
+<li><p><cite>ArrayList(Collection&lt;? extends E&gt; c)</cite>: This constructor is used to create a list containing the elements of the specified collection, in the order they are returned by the collection’s iterator.</p></li>
+</ol>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">otherList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="n">otherList</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">"Alice"</span><span class="p">);</span>
+<span class="n">otherList</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">"Bob"</span><span class="p">);</span>
+
+<span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="n">otherList</span><span class="p">);</span><span class="w">  </span><span class="c1">// list now contains "Alice" and "Bob"</span>
+</pre></div>
+</div>
+<p>Each of these constructors provides a different way to initialize an <cite>ArrayList</cite>, depending on your specific needs.</p>
+</section>
+<section id="sample-implementation">
+<h3>Sample implementation<a class="headerlink" href="#sample-implementation" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#sample-implementation'">¶</a></h3>
+<p>An implementation of a basic <cite>ArrayList</cite> in Java might look like this:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Arrays</span><span class="p">;</span>
+
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">SimpleArrayList</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">INITIAL_CAPACITY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Object</span><span class="o">[]</span><span class="w"> </span><span class="n">elementData</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">SimpleArrayList</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">elementData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Object</span><span class="o">[</span><span class="n">INITIAL_CAPACITY</span><span class="o">]</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="n">E</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">ensureCapacity</span><span class="p">();</span>
+<span class="w">        </span><span class="n">elementData</span><span class="o">[</span><span class="n">size</span><span class="o">++]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">e</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@SuppressWarnings</span><span class="p">(</span><span class="s">"unchecked"</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">E</span><span class="w"> </span><span class="nf">get</span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">index</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">index</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">index</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">size</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IndexOutOfBoundsException</span><span class="p">(</span><span class="s">"Index: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">index</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">", Size: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">size</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">E</span><span class="p">)</span><span class="w"> </span><span class="n">elementData</span><span class="o">[</span><span class="n">index</span><span class="o">]</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">size</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">size</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">ensureCapacity</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">currentCapacity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">elementData</span><span class="p">.</span><span class="na">length</span><span class="p">;</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">size</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">currentCapacity</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kt">int</span><span class="w"> </span><span class="n">newCapacity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">currentCapacity</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="w">            </span><span class="n">elementData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Arrays</span><span class="p">.</span><span class="na">copyOf</span><span class="p">(</span><span class="n">elementData</span><span class="p">,</span><span class="w"> </span><span class="n">newCapacity</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This <cite>SimpleArrayList</cite> class is a very simplified implementation of an <cite>ArrayList</cite> in Java. It starts with an initial capacity (10, in this case), and when that capacity is exceeded, it creates a new array with double the previous capacity and copies the old elements into the new array. This ensures that there’s always room to add new elements.</p>
+<p>The <cite>add</cite> method is used to add elements to the list. If the capacity of the list is exceeded, the <cite>ensureCapacity</cite> method is called to increase the capacity of the list.</p>
+<p>The <cite>get</cite> method is used to retrieve an element from the list at a specific index. If the index is invalid (negative, or greater than or equal to the size of the list), it throws an <cite>IndexOutOfBoundsException</cite>.</p>
+<p>The <cite>size</cite> method returns the number of elements currently in the list.</p>
+<p>Note that this is a very basic implementation and lacks many features and optimizations of the actual <cite>ArrayList</cite> class in the Java Collections Framework. It’s intended to be an illustrative example of how you might start to implement such a data structure.</p>
+<div class="admonition-todo admonition" id="id5">
+<p class="admonition-title">Todo</p>
+<p>key takeaways</p>
+</div>
+</section>
 </section>
 <section id="maps">
 <h2>Maps<a class="headerlink" href="#maps" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#maps'">¶</a></h2>
@@ -641,8 +915,8 @@ The ArrayList is a dynamic data structure provided by the Java Collections Frame
 <p>Implementing Abstract Data Types: Maps can be used to implement various abstract data types (ADTs) such as caches, indexes, symbol tables in compilers, or in representing adjacency lists in graphs. These applications are central to many areas of computer science.</p>
 <p>Programming Language Support: Many programming languages have built-in support for map data structures, making them a convenient choice for many tasks.</p>
 <p>In summary, maps are a powerful tool that can greatly simplify your code and improve its performance. They’re an essential part of a computer science student’s toolkit, and learning how to use them effectively can greatly benefit your problem-solving abilities.</p>
-<section id="example">
-<h3>Example<a class="headerlink" href="#example" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#example'">¶</a></h3>
+<section id="id6">
+<h3>Example<a class="headerlink" href="#id6" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id6'">¶</a></h3>
 <p>Here is an example of counting the occurrences of words in a sentence. This is a classic problem that maps solve very efficiently. I will use the java.util.Map interface along with its implementing class java.util.HashMap:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.HashMap</span><span class="p">;</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Map</span><span class="p">;</span>
@@ -677,7 +951,7 @@ The ArrayList is a dynamic data structure provided by the Java Collections Frame
 </section>
 <section id="the-java-map-api">
 <h3>The Java Map API<a class="headerlink" href="#the-java-map-api" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#the-java-map-api'">¶</a></h3>
-<div class="admonition-todo admonition" id="id5">
+<div class="admonition-todo admonition" id="id7">
 <p class="admonition-title">Todo</p>
 <p>add thoughts on map as a generalization of array/ArrayList</p>
 </div>
@@ -720,8 +994,93 @@ The ArrayList is a dynamic data structure provided by the Java Collections Frame
 <p>The <cite>Map.Entry</cite> interface provides methods to access the key and value of an entry, as well as to set the value. Additionally, it has methods to compare entries by key or value, which can be useful for sorting and other operations.</p>
 <p>Understanding these methods and how they interact with the <cite>Map</cite> interface can greatly enhance your ability to effectively and efficiently manipulate key-value data in Java.</p>
 </section>
-<section id="sample-implementation">
-<h3>Sample implementation<a class="headerlink" href="#sample-implementation" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#sample-implementation'">¶</a></h3>
+<section id="unit-tests-for-the-map-api">
+<h3>Unit tests for the Map API<a class="headerlink" href="#unit-tests-for-the-map-api" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#unit-tests-for-the-map-api'">¶</a></h3>
+<p>Unit tests help validate the behavior of individual methods. Here’s an example of how you might test the key methods of the <cite>Map</cite> interface using a <cite>HashMap</cite> as the implementing class. This example uses JUnit 5:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">org.junit.jupiter.api.Test</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.HashMap</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Map</span><span class="p">;</span>
+
+<span class="kn">import static</span><span class="w"> </span><span class="nn">org.junit.jupiter.api.Assertions.*</span><span class="p">;</span>
+
+<span class="kd">class</span> <span class="nc">MapTest</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="nd">@Test</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">testPut</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">map</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="n">Integer</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">map</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">"One"</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="w">        </span><span class="n">assertNull</span><span class="p">(</span><span class="n">result</span><span class="p">);</span>
+<span class="w">        </span><span class="n">assertEquals</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">map</span><span class="p">.</span><span class="na">size</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Test</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">testGet</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">map</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="w">        </span><span class="n">map</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">"One"</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="n">Integer</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">map</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">"One"</span><span class="p">);</span>
+<span class="w">        </span><span class="n">assertNotNull</span><span class="p">(</span><span class="n">result</span><span class="p">);</span>
+<span class="w">        </span><span class="n">assertEquals</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Test</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">testRemove</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">map</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="w">        </span><span class="n">map</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">"One"</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="n">Integer</span><span class="w"> </span><span class="n">removed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">map</span><span class="p">.</span><span class="na">remove</span><span class="p">(</span><span class="s">"One"</span><span class="p">);</span>
+<span class="w">        </span><span class="n">assertEquals</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">removed</span><span class="p">);</span>
+<span class="w">        </span><span class="n">assertTrue</span><span class="p">(</span><span class="n">map</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Test</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">testClear</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">map</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="w">        </span><span class="n">map</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">"One"</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="w">        </span><span class="n">map</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">"Two"</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
+<span class="w">        </span><span class="n">map</span><span class="p">.</span><span class="na">clear</span><span class="p">();</span>
+<span class="w">        </span><span class="n">assertTrue</span><span class="p">(</span><span class="n">map</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Test</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">testSize</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">map</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="w">        </span><span class="n">map</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">"One"</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="w">        </span><span class="n">map</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">"Two"</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
+<span class="w">        </span><span class="n">assertEquals</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">map</span><span class="p">.</span><span class="na">size</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Test</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">testContainsKey</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">map</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="w">        </span><span class="n">map</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">"One"</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="w">        </span><span class="n">assertTrue</span><span class="p">(</span><span class="n">map</span><span class="p">.</span><span class="na">containsKey</span><span class="p">(</span><span class="s">"One"</span><span class="p">));</span>
+<span class="w">        </span><span class="n">assertFalse</span><span class="p">(</span><span class="n">map</span><span class="p">.</span><span class="na">containsKey</span><span class="p">(</span><span class="s">"Two"</span><span class="p">));</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Test</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">testContainsValue</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">map</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="w">        </span><span class="n">map</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">"One"</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="w">        </span><span class="n">assertTrue</span><span class="p">(</span><span class="n">map</span><span class="p">.</span><span class="na">containsValue</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
+<span class="w">        </span><span class="n">assertFalse</span><span class="p">(</span><span class="n">map</span><span class="p">.</span><span class="na">containsValue</span><span class="p">(</span><span class="mi">2</span><span class="p">));</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Test</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">testIsEmpty</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">map</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="w">        </span><span class="n">assertTrue</span><span class="p">(</span><span class="n">map</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">());</span>
+<span class="w">        </span><span class="n">map</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">"One"</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="w">        </span><span class="n">assertFalse</span><span class="p">(</span><span class="n">map</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// More tests should be written to cover other methods and edge cases</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Each of these tests instantiates a new <cite>HashMap</cite>, performs some operations on it, and then checks that the state of the map is as expected. These checks use methods like <cite>assertEquals</cite>, <cite>assertTrue</cite>, and <cite>assertFalse</cite> from JUnit to assert expected outcomes. If an assertion fails, JUnit will report a failure for that test, indicating that there’s a bug in the code under test.</p>
+<p>Note that unit tests should generally be written for each method in isolation and for interaction of methods, and should cover both common cases and edge cases. A full test suite for a <cite>Map</cite> implementation would have more tests than what’s included here.</p>
+</section>
+<section id="id8">
+<h3>Sample implementation<a class="headerlink" href="#id8" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id8'">¶</a></h3>
 <p><em>Can you show a simple yet modern Java implementation class of the Map interface, pedagogically suitable for a CS2 audience (second computer science course)? The implementation doesn’t have to be complete but should include the handful or so of essential methods.</em></p>
 <p>Absolutely, here’s a simple pedagogically-oriented implementation of a Map using a backing array, suitable for a CS2 level audience. Note that this implementation doesn’t handle resizing, hashing, or collision resolution - it’s essentially a glorified associative list. This example uses local type inference (introduced in Java 10) and other modern Java features as per your request:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Arrays</span><span class="p">;</span>
@@ -781,6 +1140,20 @@ The ArrayList is a dynamic data structure provided by the Java Collections Frame
 <p>The <cite>SimpleMap</cite> class maintains an array of <cite>Entry</cite> records, each of which holds a key-value pair. The <cite>put()</cite> method adds a new key-value pair to the map, or updates the value if the key is already present. The <cite>get()</cite> method retrieves a value by its key, and the <cite>containsKey()</cite> method checks if a key is in the map.</p>
 <p>This class provides a simple, tangible implementation of the Map interface, making it a great starting point for CS2 students. They could enhance this implementation by adding methods like <cite>remove()</cite>, <cite>size()</cite>, or <cite>isEmpty()</cite>. Later on, they could learn about more sophisticated implementations using hashing, linked lists (for collision resolution), and dynamic resizing.</p>
 </section>
+<section id="key-takeaways">
+<h3>Key takeaways<a class="headerlink" href="#key-takeaways" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#key-takeaways'">¶</a></h3>
+<p>Maps, also known as dictionaries or associative arrays, provide a key-value mapping, allowing you to associate values with unique keys. Unlike arrays and lists, which use integer indices, maps allow for a more diverse range of key types, including strings, objects, and custom types. This makes maps highly versatile and widely usable.</p>
+<p>Here are some reasons why maps are a more general structure:</p>
+<ol class="arabic simple">
+<li><p>Key-Value Pairing: Maps store elements as key-value pairs, where each key is unique within the map. This allows for efficient retrieval and modification of values based on their corresponding keys.</p></li>
+<li><p>Flexible Key Types: Maps support a wide range of key types, providing flexibility in choosing the most appropriate key type for your specific needs. Keys can be integers, strings, objects, or custom types.</p></li>
+<li><p>Dynamic Size: Like lists, maps can dynamically grow or shrink as elements are added or removed. This makes them suitable for scenarios where the number of elements and their associated keys can change over time.</p></li>
+<li><p>Efficient Retrieval: Maps provide fast lookup and retrieval of values based on their keys. The underlying implementation of maps utilizes hashing or other efficient lookup mechanisms, making them highly efficient for key-based operations.</p></li>
+<li><p>Key-Value Association: Maps establish a direct association between keys and values, allowing you to easily retrieve, update, or remove values based on their corresponding keys.</p></li>
+<li><p>Widely Supported: Maps are widely supported in programming languages and are available in various implementations with different features and performance characteristics.</p></li>
+</ol>
+<p>By utilizing maps, you can store and access values based on a wide range of key types, offering greater flexibility and generality compared to structures like arrays or lists.</p>
+</section>
 </section>
 <section id="sets">
 <h2>Sets<a class="headerlink" href="#sets" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#sets'">¶</a></h2>
@@ -789,15 +1162,15 @@ The ArrayList is a dynamic data structure provided by the Java Collections Frame
 <p>Another common use for a <cite>Set</cite> is to efficiently check for the presence of an item. For instance, you might have a <cite>Set</cite> of banned usernames for a forum, and you want to quickly check if a given username is in that <cite>Set</cite>. Since many Set implementations (like HashSet in Java) can check for the presence of an item in constant time, this operation is very efficient.</p>
 <p>Also, a <cite>Set</cite> can be used to perform mathematical set operations, such as union (addition of two sets), intersection (common elements in two sets), and difference (elements present in one set but not the other).</p>
 <p>Overall, a <cite>Set</cite> is a very handy data structure, especially when dealing with collections of unique elements where order is not significant.</p>
-<section id="id6">
-<h3>Example<a class="headerlink" href="#id6" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id6'">¶</a></h3>
+<section id="id9">
+<h3>Example<a class="headerlink" href="#id9" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id9'">¶</a></h3>
 <p>Here’s an example of how you might use a <cite>Set</cite> in Java to solve a simple problem: finding duplicate words in a sentence. This is an interesting use case because it shows off the unique-element property of the <cite>Set</cite>.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.HashSet</span><span class="p">;</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Set</span><span class="p">;</span>
 
 <span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">DuplicateWordsFinder</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">sentence</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Big big cats and little little dogs are great pets."</span><span class="p">;</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">sentence</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Big big cats and little little dogs are great pets."</span><span class="p">;</span>
 <span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">words</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sentence</span><span class="p">.</span><span class="na">split</span><span class="p">(</span><span class="s">"\\s+"</span><span class="p">);</span>
 <span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">uniqueWords</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashSet</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="p">();</span>
 <span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">duplicateWords</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashSet</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="p">();</span>
@@ -849,8 +1222,85 @@ The ArrayList is a dynamic data structure provided by the Java Collections Frame
 <p>Some implementations, like <cite>LinkedHashSet</cite>, do maintain an order (insertion-order in this case), but this is not a contractual characteristic of the <cite>Set</cite> interface itself.</p>
 <p>Also, the Set interface has three main implementation classes in the Java Collections Framework: <cite>HashSet</cite>, <cite>LinkedHashSet</cite>, and <cite>TreeSet</cite>, each with its own characteristics in terms of order, performance and allowing null elements.</p>
 </section>
-<section id="id7">
-<h3>Sample implementation<a class="headerlink" href="#id7" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id7'">¶</a></h3>
+<section id="unit-tests-for-the-set-api">
+<h3>Unit tests for the Set API<a class="headerlink" href="#unit-tests-for-the-set-api" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#unit-tests-for-the-set-api'">¶</a></h3>
+<p>Here’s how you could write unit tests for the <cite>Set</cite> interface using <cite>HashSet</cite> as the implementing class. We’ll use JUnit 5 for these tests.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">org.junit.jupiter.api.Test</span><span class="p">;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.HashSet</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Set</span><span class="p">;</span>
+
+<span class="kn">import static</span><span class="w"> </span><span class="nn">org.junit.jupiter.api.Assertions.*</span><span class="p">;</span>
+
+<span class="kd">class</span> <span class="nc">SetTest</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nd">@Test</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">testAdd</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="n">Set</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashSet</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">set</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">"One"</span><span class="p">);</span>
+<span class="w">        </span><span class="n">assertTrue</span><span class="p">(</span><span class="n">result</span><span class="p">);</span>
+<span class="w">        </span><span class="n">assertEquals</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">set</span><span class="p">.</span><span class="na">size</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Test</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">testAddDuplicate</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="n">Set</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashSet</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="w">        </span><span class="n">set</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">"One"</span><span class="p">);</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">set</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">"One"</span><span class="p">);</span><span class="w">  </span><span class="c1">// should not add duplicate</span>
+<span class="w">        </span><span class="n">assertFalse</span><span class="p">(</span><span class="n">result</span><span class="p">);</span>
+<span class="w">        </span><span class="n">assertEquals</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">set</span><span class="p">.</span><span class="na">size</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Test</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">testRemove</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="n">Set</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashSet</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="w">        </span><span class="n">set</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">"One"</span><span class="p">);</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">set</span><span class="p">.</span><span class="na">remove</span><span class="p">(</span><span class="s">"One"</span><span class="p">);</span>
+<span class="w">        </span><span class="n">assertTrue</span><span class="p">(</span><span class="n">result</span><span class="p">);</span>
+<span class="w">        </span><span class="n">assertTrue</span><span class="p">(</span><span class="n">set</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Test</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">testClear</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="n">Set</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashSet</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="w">        </span><span class="n">set</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">"One"</span><span class="p">);</span>
+<span class="w">        </span><span class="n">set</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">"Two"</span><span class="p">);</span>
+<span class="w">        </span><span class="n">set</span><span class="p">.</span><span class="na">clear</span><span class="p">();</span>
+<span class="w">        </span><span class="n">assertTrue</span><span class="p">(</span><span class="n">set</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Test</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">testSize</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="n">Set</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashSet</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="w">        </span><span class="n">set</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">"One"</span><span class="p">);</span>
+<span class="w">        </span><span class="n">set</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">"Two"</span><span class="p">);</span>
+<span class="w">        </span><span class="n">assertEquals</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">set</span><span class="p">.</span><span class="na">size</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Test</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">testContains</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="n">Set</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashSet</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="w">        </span><span class="n">set</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">"One"</span><span class="p">);</span>
+<span class="w">        </span><span class="n">assertTrue</span><span class="p">(</span><span class="n">set</span><span class="p">.</span><span class="na">contains</span><span class="p">(</span><span class="s">"One"</span><span class="p">));</span>
+<span class="w">        </span><span class="n">assertFalse</span><span class="p">(</span><span class="n">set</span><span class="p">.</span><span class="na">contains</span><span class="p">(</span><span class="s">"Two"</span><span class="p">));</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Test</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">testIsEmpty</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="n">Set</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashSet</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="w">        </span><span class="n">assertTrue</span><span class="p">(</span><span class="n">set</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">());</span>
+<span class="w">        </span><span class="n">set</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">"One"</span><span class="p">);</span>
+<span class="w">        </span><span class="n">assertFalse</span><span class="p">(</span><span class="n">set</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// More tests should be written to cover other methods and edge cases</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In these tests, we’re checking that each of the methods works as expected: <cite>add</cite> adds an item and returns <cite>true</cite> if it wasn’t already present, <cite>remove</cite> removes an item and returns <cite>true</cite> if it was present, <cite>clear</cite> removes all items, <cite>size</cite> returns the number of items, <cite>contains</cite> checks for the presence of an item, and <cite>isEmpty</cite> checks if the set is empty.</p>
+<p>Note that for a complete set of tests, you would want to test other methods in the <cite>Set</cite> interface, and you would want to test edge cases and interactions between methods. These tests are intended to be a starting point and an illustrative example.</p>
+</section>
+<section id="id10">
+<h3>Sample implementation<a class="headerlink" href="#id10" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id10'">¶</a></h3>
 <p>Sure, here is a simple pedagogically-oriented implementation of a Set using a backing array. This implementation uses local type inference (introduced in Java 10) and other modern Java features. Please note that this implementation is for learning purposes and doesn’t handle resizing, nor does it provide the performance benefits of a true <cite>HashSet</cite> or <cite>TreeSet</cite>:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Arrays</span><span class="p">;</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Iterator</span><span class="p">;</span>
@@ -950,23 +1400,27 @@ The ArrayList is a dynamic data structure provided by the Java Collections Frame
 <p>This example creates a <cite>BitSet</cite> and sets the bits at indices 0 and 2. The <cite>BitSet</cite>’s <cite>toString()</cite> method shows which indices are set to true. We also demonstrate the use of the <cite>get(int index)</cite> method to check the value of a specific bit.</p>
 <p>One important thing to note is that the <cite>size()</cite> method returns the “logical size” of the <cite>BitSet</cite> which is “the index of the highest set bit plus one”. So, in this case, despite initializing the <cite>BitSet</cite> with a size of 5, the size returned is 64 as the <cite>BitSet</cite> internally allocates memory in multiples of 64 bits (the size of a <cite>long</cite>).</p>
 <p>Regarding its implementation, a <cite>BitSet</cite> internally uses a dynamic array (<cite>long[]</cite>) to hold the bits, which are represented as long integers (64-bit). Each <cite>long</cite> value represents 64 bits, with the 0th bit referring to the least significant bit of the <cite>long</cite> and the 63rd bit referring to the most significant bit. The <cite>long[]</cite> array is expanded as needed, ensuring the <cite>BitSet</cite> can grow to accommodate any bit index. The <cite>BitSet</cite> class also provides many methods for performing bitwise operations on the bits. This, combined with its dynamic size, makes <cite>BitSet</cite> a flexible tool for efficient bit manipulation.</p>
+<div class="admonition-todo admonition" id="id11">
+<p class="admonition-title">Todo</p>
+<p>key takeaways</p>
+</div>
 </section>
 </section>
 <section id="stacks">
 <h2>Stacks<a class="headerlink" href="#stacks" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#stacks'">¶</a></h2>
-<div class="admonition-todo admonition" id="id8">
+<div class="admonition-todo admonition" id="id12">
 <p class="admonition-title">Todo</p>
 <p>motivation</p>
 </div>
-<div class="admonition-todo admonition" id="id9">
+<div class="admonition-todo admonition" id="id13">
 <p class="admonition-title">Todo</p>
 <p>example</p>
 </div>
-<div class="admonition-todo admonition" id="id10">
+<div class="admonition-todo admonition" id="id14">
 <p class="admonition-title">Todo</p>
 <p>main methods</p>
 </div>
-<div class="admonition-todo admonition" id="id11">
+<div class="admonition-todo admonition" id="id15">
 <p class="admonition-title">Todo</p>
 <p>sample implementation</p>
 </div>
@@ -976,7 +1430,7 @@ The ArrayList is a dynamic data structure provided by the Java Collections Frame
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.*</span><span class="p">;</span>
 
 <span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Main</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="n">Deque</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">stack</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayDeque</span><span class="o">&lt;&gt;</span><span class="p">();</span>
 <span class="w">        </span><span class="n">stack</span><span class="p">.</span><span class="na">push</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
 <span class="w">        </span><span class="n">stack</span><span class="p">.</span><span class="na">push</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
@@ -993,21 +1447,227 @@ The ArrayList is a dynamic data structure provided by the Java Collections Frame
 <p>The output demonstrates the LIFO behavior of the stack, where elements <cite>3</cite>, <cite>2</cite>, and <cite>1</cite> are printed in reverse order.</p>
 <p>Using <cite>Deque</cite> with <cite>ArrayDeque</cite> for a LIFO stack provides efficient and convenient operations for adding and removing elements at the top of the stack. The <cite>ArrayDeque</cite> implementation offers good performance characteristics and can dynamically resize as needed to accommodate elements.</p>
 <p>It’s worth noting that using <cite>Deque</cite> instead of the legacy <cite>Stack</cite> class is recommended, as <cite>Stack</cite> is a subclass of <cite>Vector</cite>, which has certain synchronization overhead and is considered less efficient in modern Java applications.</p>
+<div class="admonition-todo admonition" id="id16">
+<p class="admonition-title">Todo</p>
+<p>key takeaways</p>
+</div>
 </section>
 <section id="queues">
 <h2>Queues<a class="headerlink" href="#queues" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#queues'">¶</a></h2>
-<div class="admonition-todo admonition" id="id12">
-<p class="admonition-title">Todo</p>
-<p>example</p>
+<p>A queue is a type of linear data structure that follows a specific order in which the operations are performed. The order is First In First Out (FIFO). This means that the data item that’s been in the queue the longest is the first one to be removed, and when a new data item is added, it goes to the end of the queue.</p>
+<p>This is analogous to a real-life queue of people – people join the end of the queue and leave from the front. For example, in a line at a coffee shop, the first person who gets in line is the first person to get served and leave the line.</p>
+<section id="main-queue-operations">
+<h3>Main queue operations<a class="headerlink" href="#main-queue-operations" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#main-queue-operations'">¶</a></h3>
+<p>Here are the main operations on a queue:</p>
+<ul class="simple">
+<li><p><strong>Enqueue:</strong> Add an element to the end of the queue.</p></li>
+<li><p><strong>Dequeue:</strong> Remove an element from the front of the queue.</p></li>
+<li><p><strong>IsEmpty:</strong> Check if the queue is empty.</p></li>
+<li><p><strong>IsFull:</strong> Check if the queue is full.</p></li>
+<li><p><strong>Peek/Top:</strong> Get the value of the front of the queue without removing it.</p></li>
+</ul>
+</section>
+<section id="id17">
+<h3>Example<a class="headerlink" href="#id17" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id17'">¶</a></h3>
+<p>Here’s a simple example of a queue in Java using the LinkedList class which implements the Queue interface:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.LinkedList</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Queue</span><span class="p">;</span>
+
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">QueueExample</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="n">Queue</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">queue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">LinkedList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+
+<span class="w">        </span><span class="c1">// Enqueue items</span>
+<span class="w">        </span><span class="n">queue</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">"John"</span><span class="p">);</span>
+<span class="w">        </span><span class="n">queue</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">"Robert"</span><span class="p">);</span>
+<span class="w">        </span><span class="n">queue</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">"Adam"</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Queue: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">queue</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// Dequeue items</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">queue</span><span class="p">.</span><span class="na">poll</span><span class="p">();</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Dequeued: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">name</span><span class="p">);</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Queue after dequeue: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">queue</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// Get the item at the front of the queue</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">front</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">queue</span><span class="p">.</span><span class="na">peek</span><span class="p">();</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Front of queue: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">front</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
 </div>
-<div class="admonition-todo admonition" id="id13">
-<p class="admonition-title">Todo</p>
-<p>main methods</p>
+<p>The <cite>java.util.Queue</cite> interface in Java provides various methods like <cite>add()</cite>, <cite>remove()</cite>, <cite>poll()</cite>, <cite>peek()</cite>, etc. that let you manipulate and access queue items.</p>
+<p>In terms of real-world usage, queues are used whenever we need to manage objects in order starting with the first one in. This could be as simple as managing the print jobs on a printer or as complex as managing the execution of tasks on a CPU. In a lot of these cases, the queue is actually a ‘priority queue’, meaning that each item has a priority and the item with the highest priority is removed before items of lower priority.</p>
+</section>
+<section id="unit-tests-for-the-queue-api">
+<h3>Unit tests for the Queue API<a class="headerlink" href="#unit-tests-for-the-queue-api" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#unit-tests-for-the-queue-api'">¶</a></h3>
+<p>Sure, I can provide a simple example using JUnit, which is the most common framework for writing unit tests in Java. In this example, we will test each of the main operations of a <cite>Queue</cite> using a <cite>LinkedList</cite>, which is one of Java’s built-in <cite>Queue</cite> implementations. Each test method corresponds to one of the operations we discussed:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">org.junit.jupiter.api.*</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.*</span><span class="p">;</span>
+
+<span class="kn">import static</span><span class="w"> </span><span class="nn">org.junit.jupiter.api.Assertions.*</span><span class="p">;</span>
+
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">QueueTest</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Queue</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">queue</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">SIZE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+
+<span class="w">    </span><span class="nd">@BeforeEach</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">queue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">LinkedList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">SIZE</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">queue</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Test</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">testAdd</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">assertTrue</span><span class="p">(</span><span class="n">queue</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">SIZE</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">));</span>
+<span class="w">        </span><span class="n">assertEquals</span><span class="p">(</span><span class="n">SIZE</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">queue</span><span class="p">.</span><span class="na">size</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Test</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">testOffer</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">assertTrue</span><span class="p">(</span><span class="n">queue</span><span class="p">.</span><span class="na">offer</span><span class="p">(</span><span class="n">SIZE</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">));</span>
+<span class="w">        </span><span class="n">assertEquals</span><span class="p">(</span><span class="n">SIZE</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">queue</span><span class="p">.</span><span class="na">size</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Test</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">testRemove</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">SIZE</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">assertEquals</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">queue</span><span class="p">.</span><span class="na">remove</span><span class="p">());</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="n">assertThrows</span><span class="p">(</span><span class="n">NoSuchElementException</span><span class="p">.</span><span class="na">class</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">queue</span><span class="p">.</span><span class="na">remove</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Test</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">testPoll</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">SIZE</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">assertEquals</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">queue</span><span class="p">.</span><span class="na">poll</span><span class="p">());</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="n">assertNull</span><span class="p">(</span><span class="n">queue</span><span class="p">.</span><span class="na">poll</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Test</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">testElement</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">assertEquals</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">queue</span><span class="p">.</span><span class="na">element</span><span class="p">());</span>
+<span class="w">        </span><span class="n">queue</span><span class="p">.</span><span class="na">clear</span><span class="p">();</span>
+<span class="w">        </span><span class="n">assertThrows</span><span class="p">(</span><span class="n">NoSuchElementException</span><span class="p">.</span><span class="na">class</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">queue</span><span class="p">.</span><span class="na">element</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Test</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">testPeek</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">assertEquals</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">queue</span><span class="p">.</span><span class="na">peek</span><span class="p">());</span>
+<span class="w">        </span><span class="n">queue</span><span class="p">.</span><span class="na">clear</span><span class="p">();</span>
+<span class="w">        </span><span class="n">assertNull</span><span class="p">(</span><span class="n">queue</span><span class="p">.</span><span class="na">peek</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Test</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">testSize</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">assertEquals</span><span class="p">(</span><span class="n">SIZE</span><span class="p">,</span><span class="w"> </span><span class="n">queue</span><span class="p">.</span><span class="na">size</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Test</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">testIsEmpty</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">assertFalse</span><span class="p">(</span><span class="n">queue</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">());</span>
+<span class="w">        </span><span class="n">queue</span><span class="p">.</span><span class="na">clear</span><span class="p">();</span>
+<span class="w">        </span><span class="n">assertTrue</span><span class="p">(</span><span class="n">queue</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Test</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">testClear</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">queue</span><span class="p">.</span><span class="na">clear</span><span class="p">();</span>
+<span class="w">        </span><span class="n">assertTrue</span><span class="p">(</span><span class="n">queue</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Test</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">testContains</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">assertTrue</span><span class="p">(</span><span class="n">queue</span><span class="p">.</span><span class="na">contains</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span>
+<span class="w">        </span><span class="n">assertFalse</span><span class="p">(</span><span class="n">queue</span><span class="p">.</span><span class="na">contains</span><span class="p">(</span><span class="n">SIZE</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">));</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
 </div>
-<div class="admonition-todo admonition" id="id14">
-<p class="admonition-title">Todo</p>
-<p>sample implementation</p>
+<p>Each test method uses assertions to check that the operation being tested has the expected effect. For example, the <cite>testAdd</cite> method adds an element to the queue and then checks that the size of the queue has increased by 1. The <cite>testRemove</cite> method removes elements from the queue and then checks that the removed elements are what we expect, and that trying to remove from an empty queue throws a <cite>NoSuchElementException</cite>.</p>
+<p>In order to set up the state before each test, I’ve used the <cite>@BeforeEach</cite> annotation, which runs the setup method before each individual test. In this case, the setup method initializes a queue with the numbers 0 to 9.</p>
+<p>Remember that you’ll need to have JUnit in your project classpath to run these tests. If you’re using a build tool like Maven or Gradle, you can add JUnit as a dependency in your build file. If you’re not using a build tool, you can download JUnit and add it to your project classpath manually.</p>
+</section>
+<section id="id18">
+<h3>Sample implementation<a class="headerlink" href="#id18" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id18'">¶</a></h3>
+<p>Sure, I can provide an example of a simple Queue implementation using arrays. This version has a fixed capacity, but it would be a good starting point for teaching about Queues in a CS2 course. It implements the essential methods: <cite>add</cite>, <cite>remove</cite>, <cite>peek</cite>, and <cite>size</cite>.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ArrayQueue</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Object</span><span class="o">[]</span><span class="w"> </span><span class="n">elements</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">front</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">back</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">DEFAULT_CAPACITY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">ArrayQueue</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">elements</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Object</span><span class="o">[</span><span class="n">DEFAULT_CAPACITY</span><span class="o">]</span><span class="p">;</span>
+<span class="w">        </span><span class="n">front</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">        </span><span class="n">back</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+<span class="w">        </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="n">E</span><span class="w"> </span><span class="n">element</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">size</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">elements</span><span class="p">.</span><span class="na">length</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IllegalStateException</span><span class="p">(</span><span class="s">"Queue is full"</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="n">back</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">back</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">elements</span><span class="p">.</span><span class="na">length</span><span class="p">;</span>
+<span class="w">        </span><span class="n">elements</span><span class="o">[</span><span class="n">back</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">element</span><span class="p">;</span>
+<span class="w">        </span><span class="n">size</span><span class="o">++</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">E</span><span class="w"> </span><span class="nf">remove</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">size</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IllegalStateException</span><span class="p">(</span><span class="s">"Queue is empty"</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">element</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">E</span><span class="p">)</span><span class="w"> </span><span class="n">elements</span><span class="o">[</span><span class="n">front</span><span class="o">]</span><span class="p">;</span>
+<span class="w">        </span><span class="n">elements</span><span class="o">[</span><span class="n">front</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span><span class="w"> </span><span class="c1">// to help garbage collector</span>
+<span class="w">        </span><span class="n">front</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">front</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">elements</span><span class="p">.</span><span class="na">length</span><span class="p">;</span>
+<span class="w">        </span><span class="n">size</span><span class="o">--</span><span class="p">;</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">element</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">E</span><span class="w"> </span><span class="nf">peek</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">size</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IllegalStateException</span><span class="p">(</span><span class="s">"Queue is empty"</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">E</span><span class="p">)</span><span class="w"> </span><span class="n">elements</span><span class="o">[</span><span class="n">front</span><span class="o">]</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">size</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">size</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">isEmpty</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
 </div>
+<p>This <cite>ArrayQueue</cite> class uses a circular array to store its elements. The <cite>front</cite> and <cite>back</cite> indices keep track of where to dequeue and enqueue elements, and they wrap around to the start of the array when they reach the end. The <cite>size</cite> field keeps track of the number of elements currently in the queue.</p>
+<p>This implementation throws an exception if you try to enqueue an element into a full queue or dequeue an element from an empty queue. In a real-world application, you might want to have the queue automatically expand its capacity when it gets full, but that’s a bit more complicated and might be better suited for a more advanced course.</p>
+</section>
+<section id="id19">
+<h3>Key takeaways<a class="headerlink" href="#id19" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id19'">¶</a></h3>
+<p>Sure, here are the key takeaways from our discussion of the Queue Abstract Data Type (ADT):</p>
+<ol class="arabic simple">
+<li><p>Definition and Properties: A queue is a linear data structure that follows a First In, First Out (FIFO) order for operations. This means that the element that is added first will be the first one to be removed.</p></li>
+<li><p>Use Cases: Queues are used when you need to manage objects in order starting with the first one in. They’re used in a variety of applications, from handling requests in a server, to algorithmic problems like breadth-first search in graphs, to real-world scenarios like managing a line of customers in a store.</p></li>
+<li><p>Operations: The main operations associated with a queue are:
+- <cite>add(element)</cite>: Add an element to the end of the queue.
+- <cite>remove()</cite>: Remove an element from the front of the queue.
+- <cite>peek()</cite>: Look at the front element of the queue without removing it.
+- <cite>isEmpty()</cite>: Check if the queue is empty.
+- <cite>size()</cite>: Get the number of elements in the queue.</p></li>
+<li><p>Implementations: We explored two ways to implement a queue in Java:
+- Using Java’s built-in LinkedList as the underlying storage: This way is straightforward because LinkedList directly supports add, remove, and peek operations that we need for a queue.
+- Using an array: We created a circular array-based implementation which is more complex but provides an understanding of the internal working of a queue.</p></li>
+<li><p>Limitations: We also discussed some limitations, such as the queue size being fixed in an array-based implementation. This can be overcome with a dynamic array or linked list implementation.</p></li>
+<li><p>Unit Testing: We also learned how to write unit tests for each operation in isolation using JUnit, ensuring that our queue implementation works correctly.</p></li>
+</ol>
+<p>Remember, understanding queue operations and when to use them is an essential part of mastering data structures, and queues are an integral tool for many computer science problems and applications.</p>
+</section>
 <section id="a-unified-view-of-restricted-access-data-structures">
 <h3>A unified view of restricted-access data structures<a class="headerlink" href="#a-unified-view-of-restricted-access-data-structures" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#a-unified-view-of-restricted-access-data-structures'">¶</a></h3>
 <p>If you specifically want to refer to data structures like stacks and queues which follow particular kinds of insertion and removal patterns (Last-In-First-Out for stacks and First-In-First-Out for queues), a term often used is “Restricted Access Data Structures”. These structures restrict access to their elements based on specific rules, unlike arrays or lists which allow access to any element at any time.</p>
@@ -1017,7 +1677,7 @@ The ArrayList is a dynamic data structure provided by the Java Collections Frame
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.*</span><span class="p">;</span>
 
 <span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Main</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="n">Deque</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">deque</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayDeque</span><span class="o">&lt;&gt;</span><span class="p">();</span>
 <span class="w">        </span><span class="n">deque</span><span class="p">.</span><span class="na">push</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
 <span class="w">        </span><span class="n">deque</span><span class="p">.</span><span class="na">push</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
@@ -1037,7 +1697,7 @@ The ArrayList is a dynamic data structure provided by the Java Collections Frame
 </section>
 <section id="putting-everything-together-maze-solver">
 <h3>Putting everything together: maze solver<a class="headerlink" href="#putting-everything-together-maze-solver" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#putting-everything-together-maze-solver'">¶</a></h3>
-<div class="admonition-todo admonition" id="id15">
+<div class="admonition-todo admonition" id="id20">
 <p class="admonition-title">Todo</p>
 <p>extended example</p>
 </div>
@@ -1076,7 +1736,7 @@ The ArrayList is a dynamic data structure provided by the Java Collections Frame
 <p>The exact order and selection of these topics may vary depending on the specific course and curriculum guidelines. Also, real-life examples and problem-solving exercises should be included to apply these data structures and concepts. The complexity and depth of these topics will increase when students move on to more advanced courses like CS7.</p>
 <section id="cs2-at-loyola-current-topics-and-learning-outcomes">
 <h3>CS2 at Loyola: Current topics and learning outcomes<a class="headerlink" href="#cs2-at-loyola-current-topics-and-learning-outcomes" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#cs2-at-loyola-current-topics-and-learning-outcomes'">¶</a></h3>
-<div class="admonition-todo admonition" id="id16">
+<div class="admonition-todo admonition" id="id21">
 <p class="admonition-title">Todo</p>
 <p>Update as needed.</p>
 </div>
@@ -1237,7 +1897,7 @@ The ArrayList is a dynamic data structure provided by the Java Collections Frame
 </div>
 <p>Finally, we can create instances of our classes and manipulate them:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Main</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">pet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Pet</span><span class="p">(</span><span class="s">"Fido"</span><span class="p">,</span><span class="w"> </span><span class="n">PetType</span><span class="p">.</span><span class="na">DOG</span><span class="p">);</span>
 <span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">owner</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Owner</span><span class="p">(</span><span class="s">"John Doe"</span><span class="p">,</span><span class="w"> </span><span class="s">"123 Main St"</span><span class="p">);</span>
 
@@ -1326,7 +1986,7 @@ The ArrayList is a dynamic data structure provided by the Java Collections Frame
 <p>In the updated <cite>Pet</cite> class, we added a field <cite>owner</cite> of type <cite>Owner</cite> to represent the owner of the pet. The <cite>Owner</cite> class remains unchanged.</p>
 <p>With this association, you can now create <cite>Pet</cite> objects and assign them to an <cite>Owner</cite>. Here’s an example:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Main</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">owner</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Owner</span><span class="p">(</span><span class="s">"John Doe"</span><span class="p">,</span><span class="w"> </span><span class="s">"123 Main St"</span><span class="p">);</span>
 
 <span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">pet1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Pet</span><span class="p">(</span><span class="s">"Fido"</span><span class="p">,</span><span class="w"> </span><span class="n">PetType</span><span class="p">.</span><span class="na">DOG</span><span class="p">,</span><span class="w"> </span><span class="n">owner</span><span class="p">);</span>
@@ -1397,7 +2057,7 @@ The ArrayList is a dynamic data structure provided by the Java Collections Frame
 </div>
 <p>Finally, we can create <cite>Dog</cite> and <cite>Cat</cite> objects and call their <cite>makeSound</cite> methods:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Main</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">dog</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Dog</span><span class="p">(</span><span class="s">"Fido"</span><span class="p">);</span>
 <span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">cat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Cat</span><span class="p">(</span><span class="s">"Whiskers"</span><span class="p">);</span>
 
@@ -1432,7 +2092,7 @@ Whiskers says: Meow!
 </div>
 <p>Now you can create a <cite>Husky</cite> object, add it to the <cite>pets</cite> list, and see that it howls instead of barks:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Main</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="c1">// Create a list of pets</span>
 <span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">pets</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Pet</span><span class="o">&gt;</span><span class="p">();</span>
 <span class="w">        </span><span class="n">pets</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Dog</span><span class="p">(</span><span class="s">"Fido"</span><span class="p">));</span>
@@ -1521,7 +2181,7 @@ Balto says: Howl!
 <span class="p">}</span>
 
 <span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Main</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">owner</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Owner</span><span class="p">(</span><span class="s">"John Doe"</span><span class="p">,</span><span class="w"> </span><span class="s">"123 Main St"</span><span class="p">);</span>
 
 <span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">pets</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Soundable</span><span class="o">&gt;</span><span class="p">();</span>
@@ -1620,7 +2280,7 @@ Whiskers says: Meow!
 <span class="p">}</span>
 
 <span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Main</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">owner</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Owner</span><span class="p">(</span><span class="s">"John Doe"</span><span class="p">,</span><span class="w"> </span><span class="s">"123 Main St"</span><span class="p">);</span>
 
 <span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">pets</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Soundable</span><span class="o">&gt;</span><span class="p">();</span>
@@ -1651,8 +2311,8 @@ Balto says: Howl!
 <p>Subtyping is an important concept in object-oriented programming and is closely related to inheritance. It allows for the substitution of objects of one class with objects of another class that is derived from or related to the former class.</p>
 <p>Subtyping enables polymorphism and supports the “is-a” relationship between classes. It allows objects of a derived class to be treated as objects of their parent class, providing flexibility and extensibility in program design. By leveraging subtyping, code can be written in a way that is more generic and adaptable to different types of objects.</p>
 <p>In the context of CS2, subtyping is a significant aspect of understanding inheritance and polymorphism. It enables students to create class hierarchies, define relationships between classes, and utilize the principles of code reuse and abstraction. By grasping the concept of subtyping, students can effectively design and implement object-oriented programs that utilize inheritance and polymorphism to their full potential.</p>
-<table class="docutils align-default" id="id17">
-<caption><span class="caption-text">Comparison between type hierarchy relationships</span><a class="headerlink" href="#id17" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id23">
+<caption><span class="caption-text">Comparison between type hierarchy relationships</span><a class="headerlink" href="#id23" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 33%"/>
 <col style="width: 33%"/>
@@ -1809,20 +2469,20 @@ Balto says: Howl!
 </div></blockquote>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Engine</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">start</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="c1">// Code to start the engine</span>
-<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Engine started."</span><span class="p">);</span>
+<span class="w">            </span><span class="c1">// Code to start the engine</span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Engine started."</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
 
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">stop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="c1">// Code to stop the engine</span>
-<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Engine stopped."</span><span class="p">);</span>
+<span class="w">            </span><span class="c1">// Code to stop the engine</span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Engine stopped."</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 
 <span class="kd">public</span><span class="w"> </span><span class="kd">record</span> <span class="nc">Wheel</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">rotate</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="c1">// Code to rotate the wheel</span>
-<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Wheel rotating."</span><span class="p">);</span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Wheel rotating."</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 
@@ -1831,7 +2491,7 @@ Balto says: Howl!
 <span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Wheel</span><span class="o">&gt;</span><span class="w"> </span><span class="n">wheels</span><span class="p">;</span>
 
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">Car</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">engine</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Engine</span><span class="p">();</span>
+<span class="w">            </span><span class="n">engine</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Engine</span><span class="p">();</span>
 <span class="w">        </span><span class="n">wheels</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">List</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Wheel</span><span class="p">(</span><span class="mi">18</span><span class="p">),</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Wheel</span><span class="p">(</span><span class="mi">18</span><span class="p">),</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Wheel</span><span class="p">(</span><span class="mi">18</span><span class="p">),</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Wheel</span><span class="p">(</span><span class="mi">18</span><span class="p">));</span>
 <span class="w">    </span><span class="p">}</span>
 
@@ -1841,8 +2501,8 @@ Balto says: Howl!
 <span class="w">    </span><span class="p">}</span>
 
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">stopCar</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">engine</span><span class="p">.</span><span class="na">stop</span><span class="p">();</span>
-<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Car stopped."</span><span class="p">);</span>
+<span class="w">            </span><span class="n">engine</span><span class="p">.</span><span class="na">stop</span><span class="p">();</span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Car stopped."</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
 
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">drive</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
@@ -1855,10 +2515,10 @@ Balto says: Howl!
 
 <span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Main</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">car</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Car</span><span class="p">();</span>
-<span class="w">        </span><span class="n">car</span><span class="p">.</span><span class="na">startCar</span><span class="p">();</span>
-<span class="w">        </span><span class="n">car</span><span class="p">.</span><span class="na">drive</span><span class="p">();</span>
-<span class="w">        </span><span class="n">car</span><span class="p">.</span><span class="na">stopCar</span><span class="p">();</span>
+<span class="w">            </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">car</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Car</span><span class="p">();</span>
+<span class="w">            </span><span class="n">car</span><span class="p">.</span><span class="na">startCar</span><span class="p">();</span>
+<span class="w">            </span><span class="n">car</span><span class="p">.</span><span class="na">drive</span><span class="p">();</span>
+<span class="w">            </span><span class="n">car</span><span class="p">.</span><span class="na">stopCar</span><span class="p">();</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -1879,8 +2539,8 @@ Balto says: Howl!
 </pre></div>
 </div>
 <p>This example demonstrates how the <cite>Car</cite> object composes the <cite>Engine</cite> and <cite>Wheel</cite> objects, utilizing their behaviors and encapsulating them within its own functionality.</p>
-<table class="docutils align-default" id="id18">
-<caption><span class="caption-text">Comparison among object relationships</span><a class="headerlink" href="#id18" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id24">
+<caption><span class="caption-text">Comparison among object relationships</span><a class="headerlink" href="#id24" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 25%"/>
 <col style="width: 25%"/>
@@ -2030,54 +2690,11 @@ Balto says: Howl!
 <p>In your example, since class B is not part of class A’s public interface and is purely internal, it wouldn’t be accurate to describe it as a “has-a” relationship. The internal usage of class B within class A is an implementation detail, and class B’s existence is not visible or relevant to external entities interacting with class A.</p>
 <p>However, it’s worth noting that the internal usage of class B can still be important for the implementation and internal functioning of class A. It helps encapsulate the necessary behavior and state within class A without exposing the details of class B to external entities.</p>
 <p>In summary, if a relationship between two classes is purely internal and not observable from outside the class, it is not typically described as a “has-a” relationship in terms of the class’s public interface.</p>
-<p>If you have any further questions or need additional clarification, please let me know!
-Arrays and array-based lists
-—————————-</p>
-<p>Let’s explore the Array and ArrayList data structures.</p>
-<p><strong>Array:</strong>
-An array is a fixed-size data structure that stores elements of the same type in contiguous memory locations. It provides random access to its elements using indices. Arrays have a predetermined length that is defined at the time of declaration, and this length cannot be changed once the array is created.</p>
-<p>Here’s an example of creating and using an array in Java:</p>
-<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">numbers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="o">[</span><span class="mi">5</span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="c1">// Creating an array of integers with a length of 5</span>
-
-<span class="n">numbers</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="c1">// Assigning a value to the first element</span>
-<span class="n">numbers</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span><span class="p">;</span><span class="w"> </span><span class="c1">// Assigning a value to the second element</span>
-
-<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">numbers</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">);</span><span class="w"> </span><span class="c1">// Accessing and printing the value of the first element</span>
-<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">numbers</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">);</span><span class="w"> </span><span class="c1">// Accessing and printing the value of the second element</span>
-</pre></div>
-</div>
-<p>In this example, we create an array called <cite>numbers</cite> with a length of 5. We can assign values to specific elements using index notation (<cite>numbers[index] = value</cite>) and access the values using the same notation (<cite>numbers[index]</cite>). Arrays provide constant-time access to any element, making it efficient to retrieve or modify elements by their index.</p>
-<p>Arrays have a fixed size, so adding or removing elements requires creating a new array with the desired size and copying the existing elements. This can be cumbersome and inefficient if the size of the array needs to change frequently.</p>
-<p><strong>ArrayList:</strong>
-The ArrayList is a dynamic data structure provided by the Java Collections Framework. It is implemented as an array internally, but it automatically manages the resizing and reallocation of memory as elements are added or removed. Unlike regular arrays, ArrayLists can grow or shrink dynamically to accommodate the number of elements.</p>
-<p>Here’s an example of creating and using an ArrayList in Java:</p>
-<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.ArrayList</span><span class="p">;</span>
-
-<span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">numbersList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span><span class="w"> </span><span class="c1">// Creating an ArrayList of integers</span>
-
-<span class="n">numbersList</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span><span class="w"> </span><span class="c1">// Adding an element to the ArrayList</span>
-<span class="n">numbersList</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">20</span><span class="p">);</span><span class="w"> </span><span class="c1">// Adding another element to the ArrayList</span>
-
-<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">numbersList</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span><span class="w"> </span><span class="c1">// Accessing and printing the value of the first element</span>
-<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">numbersList</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span><span class="w"> </span><span class="c1">// Accessing and printing the value of the second element</span>
-</pre></div>
-</div>
-<p>In this example, we create an ArrayList called <cite>numbersList</cite> to store integers. We can add elements to the ArrayList using the <cite>add</cite> method and access the elements using the <cite>get</cite> method. ArrayLists provide similar functionality as arrays but with the added benefit of dynamic resizing.</p>
-<p>ArrayLists automatically handle memory allocation and resizing behind the scenes. When the ArrayList reaches its initial capacity, it automatically increases its size by allocating a new array and copying the elements from the old array to the new one. This dynamic resizing makes ArrayLists more flexible than regular arrays when it comes to adding or removing elements.</p>
-<p>It’s important to note that ArrayLists have a small performance overhead compared to regular arrays due to the dynamic resizing and memory management operations. If you need constant-time access to elements by index and the size of the collection is fixed, arrays may be more suitable. However, if you require a flexible and resizable collection, ArrayLists provide a convenient solution.</p>
-<p>Both arrays and ArrayLists have their own use cases and limitations, and the choice between them depends on the specific requirements of the problem you are solving.</p>
-<p><em>Do ArrayLists have any other disadvantages we should be aware of?</em></p>
-<p>While ArrayLists offer flexibility and convenience, there are a few disadvantages to consider:</p>
-<ol class="arabic simple">
-<li><p><strong>Memory Overhead</strong>: ArrayLists have a higher memory overhead compared to arrays. In addition to storing the actual elements, ArrayLists also maintain internal bookkeeping information such as the array capacity and size. This extra memory usage can be a concern if memory efficiency is critical in your application.</p></li>
-<li><p><strong>Insertion and Deletion in the Middle</strong>: Inserting or removing elements in the middle of an ArrayList can be less efficient compared to appending elements at the end. When an element is inserted or removed in the middle, the ArrayList needs to shift subsequent elements, which requires additional time. If you frequently perform operations that involve insertion or deletion in the middle, a different data structure like a linked list may be more suitable.</p></li>
-<li><p><strong>Primitive Types Boxing/Unboxing</strong>: ArrayLists in Java can only store objects, so when working with primitive types (e.g., <cite>int</cite>, <cite>char</cite>, etc.), they are automatically boxed into their corresponding wrapper classes (e.g., <cite>Integer</cite>, <cite>Character</cite>, etc.). This process of autoboxing and unboxing can lead to a slight performance overhead and increased memory usage.</p></li>
-<li><p><strong>Synchronized Access</strong>: ArrayLists are not inherently thread-safe. If you need to use ArrayLists in a multi-threaded environment, you must ensure proper synchronization to avoid concurrent modification issues. This can add complexity and potential overhead in terms of performance.</p></li>
-<li><p><strong>Resizing Impact</strong>: When an ArrayList needs to resize its internal array, it creates a new array with a larger size and copies the elements from the old array to the new one. This resizing operation can be time-consuming, especially if the ArrayList contains a large number of elements. If you know the approximate size requirements in advance, initializing the ArrayList with an initial capacity can help mitigate frequent resizing.</p></li>
-</ol>
-<p>Despite these disadvantages, ArrayLists remain a widely used data structure due to their flexibility, ease of use, and the convenience provided by the Java Collections Framework. Understanding the limitations and trade-offs of ArrayLists can help you make informed decisions when selecting the appropriate data structure for your specific needs.
-Maps
-—–</p>
+<p>If you have any further questions or need additional clarification, please let me know!</p>
+</section>
+</section>
+<section id="id22">
+<h2>Maps<a class="headerlink" href="#id22" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id22'">¶</a></h2>
 <p><em>Which is the Swiss army knife of data structures?</em></p>
 <p>The “Swiss army knife” of data structures is often considered to be the “Array.” Arrays are versatile and widely used data structures that offer flexibility in storing and accessing elements.</p>
 <p>Here are some reasons why arrays can be considered the Swiss army knife of data structures:</p>
@@ -2106,21 +2723,6 @@ Maps
 </ol>
 <p>By utilizing lists, you gain the advantages of a dynamic and flexible data structure that can handle a wide range of element types and provide efficient operations for adding, removing, and accessing elements.</p>
 <p>If you have any further questions or need additional information, feel free to ask!</p>
-<p><em>Lists have a similarly limited key type (index range) as arrays. Can you think about a similar but more general structure?</em></p>
-<p>Apologies for the oversight. If you’re looking for a more generalized data structure that can handle a wider range of key types beyond the index range of lists and arrays, a suitable option is the “Map” data structure.</p>
-<p>Maps, also known as dictionaries or associative arrays, provide a key-value mapping, allowing you to associate values with unique keys. Unlike arrays and lists, which use integer indices, maps allow for a more diverse range of key types, including strings, objects, and custom types. This makes maps highly versatile and widely usable.</p>
-<p>Here are some reasons why maps are a more general structure:</p>
-<ol class="arabic simple">
-<li><p>Key-Value Pairing: Maps store elements as key-value pairs, where each key is unique within the map. This allows for efficient retrieval and modification of values based on their corresponding keys.</p></li>
-<li><p>Flexible Key Types: Maps support a wide range of key types, providing flexibility in choosing the most appropriate key type for your specific needs. Keys can be integers, strings, objects, or custom types.</p></li>
-<li><p>Dynamic Size: Like lists, maps can dynamically grow or shrink as elements are added or removed. This makes them suitable for scenarios where the number of elements and their associated keys can change over time.</p></li>
-<li><p>Efficient Retrieval: Maps provide fast lookup and retrieval of values based on their keys. The underlying implementation of maps utilizes hashing or other efficient lookup mechanisms, making them highly efficient for key-based operations.</p></li>
-<li><p>Key-Value Association: Maps establish a direct association between keys and values, allowing you to easily retrieve, update, or remove values based on their corresponding keys.</p></li>
-<li><p>Widely Supported: Maps are widely supported in programming languages and are available in various implementations with different features and performance characteristics.</p></li>
-</ol>
-<p>By utilizing maps, you can store and access values based on a wide range of key types, offering greater flexibility and generality compared to structures like arrays or lists.</p>
-<p>If you have any further questions or need additional information, feel free to ask!</p>
-</section>
 </section>
 <section id="software-engineering-principles">
 <h2>Software engineering principles<a class="headerlink" href="#software-engineering-principles" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#software-engineering-principles'">¶</a></h2>
@@ -2150,24 +2752,45 @@ Maps
 <li><a :data-current="activeSection === '#finite-enumeration-types'" class="reference internal" href="#finite-enumeration-types">Finite enumeration types</a></li>
 <li><a :data-current="activeSection === '#aggregating-values-using-records'" class="reference internal" href="#aggregating-values-using-records">Aggregating values using records</a></li>
 <li><a :data-current="activeSection === '#classes-with-mutable-state'" class="reference internal" href="#classes-with-mutable-state">Classes with mutable state</a></li>
+<li><a :data-current="activeSection === '#abstract-data-types-adts'" class="reference internal" href="#abstract-data-types-adts">Abstract data types (ADTs)</a></li>
 </ul>
 </li>
-<li><a :data-current="activeSection === '#array-based-lists'" class="reference internal" href="#array-based-lists">Array-based lists</a></li>
-<li><a :data-current="activeSection === '#maps'" class="reference internal" href="#maps">Maps</a><ul>
+<li><a :data-current="activeSection === '#lists'" class="reference internal" href="#lists">Lists</a><ul>
+<li><a :data-current="activeSection === '#main-methods-of-the-list-adt'" class="reference internal" href="#main-methods-of-the-list-adt">Main methods of the List ADT</a></li>
 <li><a :data-current="activeSection === '#example'" class="reference internal" href="#example">Example</a></li>
-<li><a :data-current="activeSection === '#the-java-map-api'" class="reference internal" href="#the-java-map-api">The Java Map API</a></li>
+<li><a :data-current="activeSection === '#unit-tests-for-the-list-api'" class="reference internal" href="#unit-tests-for-the-list-api">Unit tests for the List API</a></li>
+</ul>
+</li>
+<li><a :data-current="activeSection === '#array-based-lists'" class="reference internal" href="#array-based-lists">Array-based lists</a><ul>
+<li><a :data-current="activeSection === '#id4'" class="reference internal" href="#id4">Example</a></li>
+<li><a :data-current="activeSection === '#arrays-vs-array-based-lists'" class="reference internal" href="#arrays-vs-array-based-lists">Arrays vs. array-based lists</a></li>
+<li><a :data-current="activeSection === '#how-to-instantiate-arraylist'" class="reference internal" href="#how-to-instantiate-arraylist">How to instantiate ArrayList</a></li>
 <li><a :data-current="activeSection === '#sample-implementation'" class="reference internal" href="#sample-implementation">Sample implementation</a></li>
 </ul>
 </li>
-<li><a :data-current="activeSection === '#sets'" class="reference internal" href="#sets">Sets</a><ul>
+<li><a :data-current="activeSection === '#maps'" class="reference internal" href="#maps">Maps</a><ul>
 <li><a :data-current="activeSection === '#id6'" class="reference internal" href="#id6">Example</a></li>
+<li><a :data-current="activeSection === '#the-java-map-api'" class="reference internal" href="#the-java-map-api">The Java Map API</a></li>
+<li><a :data-current="activeSection === '#unit-tests-for-the-map-api'" class="reference internal" href="#unit-tests-for-the-map-api">Unit tests for the Map API</a></li>
+<li><a :data-current="activeSection === '#id8'" class="reference internal" href="#id8">Sample implementation</a></li>
+<li><a :data-current="activeSection === '#key-takeaways'" class="reference internal" href="#key-takeaways">Key takeaways</a></li>
+</ul>
+</li>
+<li><a :data-current="activeSection === '#sets'" class="reference internal" href="#sets">Sets</a><ul>
+<li><a :data-current="activeSection === '#id9'" class="reference internal" href="#id9">Example</a></li>
 <li><a :data-current="activeSection === '#the-java-set-api'" class="reference internal" href="#the-java-set-api">The Java Set API</a></li>
-<li><a :data-current="activeSection === '#id7'" class="reference internal" href="#id7">Sample implementation</a></li>
+<li><a :data-current="activeSection === '#unit-tests-for-the-set-api'" class="reference internal" href="#unit-tests-for-the-set-api">Unit tests for the Set API</a></li>
+<li><a :data-current="activeSection === '#id10'" class="reference internal" href="#id10">Sample implementation</a></li>
 <li><a :data-current="activeSection === '#bitsets'" class="reference internal" href="#bitsets">Bitsets</a></li>
 </ul>
 </li>
 <li><a :data-current="activeSection === '#stacks'" class="reference internal" href="#stacks">Stacks</a></li>
 <li><a :data-current="activeSection === '#queues'" class="reference internal" href="#queues">Queues</a><ul>
+<li><a :data-current="activeSection === '#main-queue-operations'" class="reference internal" href="#main-queue-operations">Main queue operations</a></li>
+<li><a :data-current="activeSection === '#id17'" class="reference internal" href="#id17">Example</a></li>
+<li><a :data-current="activeSection === '#unit-tests-for-the-queue-api'" class="reference internal" href="#unit-tests-for-the-queue-api">Unit tests for the Queue API</a></li>
+<li><a :data-current="activeSection === '#id18'" class="reference internal" href="#id18">Sample implementation</a></li>
+<li><a :data-current="activeSection === '#id19'" class="reference internal" href="#id19">Key takeaways</a></li>
 <li><a :data-current="activeSection === '#a-unified-view-of-restricted-access-data-structures'" class="reference internal" href="#a-unified-view-of-restricted-access-data-structures">A unified view of restricted-access data structures</a></li>
 <li><a :data-current="activeSection === '#putting-everything-together-maze-solver'" class="reference internal" href="#putting-everything-together-maze-solver">Putting everything together: maze solver</a><ul>
 <li><a :data-current="activeSection === '#content-below-here-to-be-organized-later'" class="reference internal" href="#content-below-here-to-be-organized-later"><em>CONTENT BELOW HERE TO BE ORGANIZED LATER</em></a></li>
@@ -2196,6 +2819,7 @@ Maps
 <li><a :data-current="activeSection === '#only-observable-relationships-matter'" class="reference internal" href="#only-observable-relationships-matter">Only observable relationships matter</a></li>
 </ul>
 </li>
+<li><a :data-current="activeSection === '#id22'" class="reference internal" href="#id22">Maps</a></li>
 <li><a :data-current="activeSection === '#software-engineering-principles'" class="reference internal" href="#software-engineering-principles">Software engineering principles</a><ul>
 <li><a :data-current="activeSection === '#what-does-beautiful-code-look-like-in-the-context-of-a-cs2-course'" class="reference internal" href="#what-does-beautiful-code-look-like-in-the-context-of-a-cs2-course">What does beautiful code look like in the context of a CS2 course?</a></li>
 </ul>
