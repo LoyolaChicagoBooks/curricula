@@ -1013,6 +1013,8 @@ In this program, a new ArrayList of integers is created. The program then random
 Performance of ArrayList methods
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+.. What are time and space complexity of the main ArrayList methods?
+
 The time and space complexity of the main ArrayList methods are as follows:
 
 1. **Add (Append)**: The `add` method in ArrayList adds an element to the end of the list. If the underlying array needs to be resized to accommodate the new element, the time complexity is amortized O(1) on average. In the worst case, when the array needs to be resized, the time complexity becomes O(n), where n is the number of elements in the list. The space complexity is O(n), as the underlying array may need to be resized.
@@ -1030,8 +1032,8 @@ The time and space complexity of the main ArrayList methods are as follows:
 It's important to note that the time and space complexities mentioned here are based on the typical implementation of ArrayList in Java. Different programming languages or specific ArrayList implementations may have variations in their complexity characteristics, so it's always advisable to refer to the documentation or implementation details of the specific ArrayList you are working with.
 
 
-How to instantiate ArrayList
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+How to create ArrayList instances
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. I believe arraylist implements the methods of list, but what constructors does arraylist have?
 
@@ -1315,6 +1317,36 @@ Here's an overview of how to create `Map` instances, including the `Map.of()` fa
    In this example, a `TreeMap` instance is created by instantiating the `TreeMap` class. The `TreeMap` implementation provides a sorted map based on the natural ordering of the keys.
 
 These examples demonstrate different approaches to creating `Map` instances. You can use the `Map.of()` factory method for creating small immutable maps, or instantiate specific implementations like `HashMap`, `TreeMap`, or others based on your requirements.
+
+
+Performance of Map API methods
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The following table showcases the time and space complexity of the main methods in TreeMap, HashMap, and LinkedHashMap:
+
++----------------------+---------------+--------------+-------------------+
+| Method               | TreeMap       | HashMap      | LinkedHashMap     |
++======================+===============+==============+===================+
+| get(key)             | O(log n)      | O(1)         | O(1)              |
++----------------------+---------------+--------------+-------------------+
+| put(key, value)      | O(log n)      | O(1)         | O(1)              |
++----------------------+---------------+--------------+-------------------+
+| remove(key)          | O(log n)      | O(1)         | O(1)              |
++----------------------+---------------+--------------+-------------------+
+| containsKey(key)     | O(log n)      | O(1)         | O(1)              |
++----------------------+---------------+--------------+-------------------+
+| containsValue(value) | O(n)          | O(n)         | O(n)              |
++----------------------+---------------+--------------+-------------------+
+| size()               | O(1)          | O(1)         | O(1)              |
++----------------------+---------------+--------------+-------------------+
+| clear()              | O(1)          | O(1)         | O(1)              |
++----------------------+---------------+--------------+-------------------+
+
+In this table, the time complexity of each method is represented using Big O notation, while the space complexity is notated as O(1) since the space required remains constant regardless of the input size.
+
+Please note that the complexities provided here are general average case complexities. In some specific scenarios, the performance may deviate due to factors such as hash collisions or tree rebalancing in TreeMap. Additionally, the performance characteristics may vary depending on the specific usage patterns and the size of the map.
+
+It's important to choose the appropriate map implementation based on the specific requirements and performance characteristics needed for your application.
 
 
 Unit tests for the Map API
@@ -1654,6 +1686,32 @@ Certainly! Here's an overview of how to create `Set` instances, including the `S
 These examples demonstrate different approaches to creating `Set` instances. You can use the `Set.of()` factory method for creating small immutable sets, or instantiate specific implementations like `HashSet`, `TreeSet`, or others based on your requirements.
 
 
+Performance of Map API methods
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The following table showcases the time and space complexity of the main methods in TreeSet, HashSet, and LinkedHashSet:
+
++----------------------+--------------+--------------+-------------------+
+| Method               | TreeSet      | HashSet      | LinkedHashSet     |
++======================+==============+==============+===================+
+| add(element)         | O(log n)     | O(1)         | O(1)              |
++----------------------+--------------+--------------+-------------------+
+| remove(element)      | O(log n)     | O(1)         | O(1)              |
++----------------------+--------------+--------------+-------------------+
+| contains(element)    | O(log n)     | O(1)         | O(1)              |
++----------------------+--------------+--------------+-------------------+
+| size()               | O(1)         | O(1)         | O(1)              |
++----------------------+--------------+--------------+-------------------+
+| clear()              | O(1)         | O(1)         | O(1)              |
++----------------------+--------------+--------------+-------------------+
+
+In this table, the time complexity of each method is represented using Big O notation, while the space complexity is notated as O(1) since the space required remains constant regardless of the input size.
+
+Please note that the complexities provided here are general average case complexities. In some specific scenarios, the performance may deviate due to factors such as hash collisions or tree rebalancing in TreeSet.
+
+When choosing a specific set implementation, consider the specific requirements of your application and the performance characteristics needed. TreeSet is suitable when you need elements to be sorted in a specific order. HashSet is ideal for general-purpose sets with constant-time operations. LinkedHashSet maintains insertion order while providing constant-time operations.
+
+
 Unit tests for the Set API
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -1811,6 +1869,7 @@ Sure, here is a simple pedagogically-oriented implementation of a Set using a ba
 The `SimpleSet` class maintains an array of elements. The `add(E e)` method adds a new element to the set only if it is not already present. The `contains(E e)` method checks if an element is present in the set. The class also implements the `Iterable<E>` interface, allowing for enhanced for-loop iteration over the elements. Note the use of the `iterator()` method to provide a custom iterator for the set.
 
 While useful for pedagogical purposes, this implementation lacks the performance characteristics of the standard Java Set implementations (e.g., `HashSet` and `TreeSet`). As the collection grows, operations can become slower because each operation needs to iterate over every element in the array. A more complex data structure, such as a hash table or a tree, can provide better performance by organizing the data in a way that allows operations to complete more quickly.
+
 
 Bitsets
 ^^^^^^^
@@ -1970,6 +2029,24 @@ By utilizing the `Deque` interface, you can leverage the stack-specific methods 
 Choosing between `ArrayDeque` and `LinkedList` depends on specific requirements. `ArrayDeque` typically provides better performance for most stack operations due to its array-based implementation, while `LinkedList` might be more suitable if you need efficient insertion and removal at both ends.
 
 Using the appropriate stack implementation ensures compatibility with the Java 17 API and enables you to benefit from the standardized stack behavior and functionality provided by the `Deque` interface.
+
+
+Performance of Stack API methods
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The time and space complexity of the main methods in the standard Java 17 implementation of a Stack (utilizing an `ArrayDeque` or `LinkedList`) is as follows:
+
+- `push(element)`: O(1) time complexity on average. Amortized constant time complexity is achieved when the underlying array doesn't require resizing. The space complexity is O(1) since it only requires adding an element to the internal array.
+- `pop()`: O(1) time complexity. Removing an element from the top of the stack takes constant time, regardless of the size of the stack. The space complexity is O(1) since it only requires removing an element from the internal array.
+- `peek()`: O(1) time complexity. Accessing the top element of the stack is a constant time operation. The space complexity is O(1) since it does not modify the internal array.
+- `isEmpty()`: O(1) time complexity. Checking if the stack is empty takes constant time. The space complexity is O(1) since it does not modify the internal array.
+- `size()`: O(1) time complexity. Determining the size of the stack takes constant time. The space complexity is O(1) since it does not modify the internal array.
+
+It's important to note that the time complexity provided here represents the average and amortized case complexities. In rare cases, certain operations might require resizing the underlying array, resulting in a higher time complexity.
+
+The space complexity of the standard Java 17 implementation is O(n), where n is the number of elements in the stack. However, since we are analyzing the complexity of individual methods, we consider the space complexity as O(1) since these methods do not consume additional space proportional to the input size.
+
+Please keep in mind that these complexities apply to the standard Java 17 implementation of the Stack, specifically utilizing the `ArrayDeque` or `LinkedList` class. Other custom implementations or variations may have different complexities.
 
 
 Unit Testing the Stack API Methods
@@ -2236,6 +2313,26 @@ In Java 17, you can instantiate a queue using specific interfaces and implementa
 In these examples, we use the `Queue` interface to represent a queue. Both `LinkedList` and `ArrayDeque` implement the `Queue` interface and can be used interchangeably as queue implementations. The `PriorityQueue` class provides additional functionality for priority-based queues, where elements are ordered based on a specified priority.
 
 Using the appropriate queue implementation ensures compatibility with the Java 17 API and enables you to benefit from the standardized queue behavior and functionality provided by the `Queue` interface.
+
+
+Performance of the main Queue API methods
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Here are the time and space complexities for the main methods in the standard Java 17 implementations of Queue (`ArrayDeque` and `LinkedList`), along with a brief rationale for each method's time complexity:
+
+- `add(element)` / `offer(element)`: O(1) time complexity. Adding an element to the end of the queue takes constant time as it involves inserting the element into the underlying data structure. The space complexity is O(1).
+
+- `remove()` / `poll()`: O(1) time complexity. Removing and returning the element from the front of the queue takes constant time. The space complexity is O(1).
+
+- `element()` / `peek()`: O(1) time complexity. Accessing the element at the front of the queue without removing it takes constant time. The space complexity is O(1).
+
+- `isEmpty()`: O(1) time complexity. Checking if the queue is empty takes constant time. The space complexity is O(1).
+
+- `size()`: O(1) time complexity. Determining the size of the queue takes constant time. The space complexity is O(1).
+
+These complexities are applicable to the standard Java 17 implementations of `ArrayDeque` and `LinkedList`. The time complexities are derived from the inherent design and data structures used in the implementations, ensuring efficient operations for these methods. The space complexities are considered O(1) as they do not consume additional space proportional to the input size.
+
+It's important to note that these complexities represent the average case complexities. Certain edge cases or specific usage scenarios may exhibit different performance characteristics.
 
 
 Unit tests for the Queue API

@@ -46,6 +46,7 @@ Elements of a chapter (our own - WIP)
 - intro, motivation, and definition
 - real-world example
 - main API methods
+- performance (if applicable)
 - how to instantiate
 - unit tests
 - simple implementation
