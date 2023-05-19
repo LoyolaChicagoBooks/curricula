@@ -34,3 +34,5 @@ Sample tool stack
 - supports passive outline in explorer pane
 - preview within VS Code works and refreshes quasi-instantly (but a bit suboptimal for long documents because it goes back to the top after each HTML rebuild)
 - you can also see the local file path of the html in the output window in case you want to view it in an external browser
+- optional Botrush Edge/Chrome browser extension for downloading ChatGPT sessions in varioius formats including Markdown
+- pandoc for converting Markdown and other formats to reStructuredText
