@@ -369,3 +369,57 @@ Then you can use it like this:
        }
    }
    
+
+Let's add a command-line interface to select the strategy:
+
+First, make sure to include the argparse4j dependency in your build.gradle file:
+
+::
+
+   dependencies {
+       implementation 'net.sourceforge.argparse4j:argparse4j:0.8.1'
+   }
+   
+Then, modify the main method as follows:
+
+.. code-block:: java
+
+   import net.sourceforge.argparse4j.ArgumentParsers;
+   import net.sourceforge.argparse4j.inf.ArgumentParser;
+   import net.sourceforge.argparse4j.inf.ArgumentParserException;
+   import net.sourceforge.argparse4j.inf.Namespace;
+   
+   public class Main {
+       public static void main(String[] args) {
+           ArgumentParser parser = ArgumentParsers.newFor("StackQueue").build()
+                   .defaultHelp(true)
+                   .description("Select FIFO or LIFO strategy");
+           parser.addArgument("-s", "--strategy")
+                   .choices("fifo", "lifo")
+                   .setDefault("fifo")
+                   .help("Specify the strategy to use");
+           
+           try {
+               Namespace res = parser.parseArgs(args);
+               
+               // Use user selected strategy
+               String strategy = res.getString("strategy");
+               Context<String> context;
+               
+               if ("fifo".equals(strategy)) {
+                   context = new Context<>(new QueueStrategy<>());
+               } else {
+                   context = new Context<>(new StackStrategy<>());
+               }
+   
+               context.add("Hello");
+               context.add("World");
+               System.out.println(context.remove());
+   
+           } catch (ArgumentParserException e) {
+               parser.handleError(e);
+               System.exit(1);
+           }
+       }
+   }
+   
