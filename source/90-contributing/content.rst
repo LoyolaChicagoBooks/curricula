@@ -1,4 +1,4 @@
-How to contribute
+How to Contribute
 =================
 
 Anyone is welcome to contribute to this project as long as you meet some basic criteria.
@@ -36,3 +36,5 @@ Sample tool stack
 - you can also see the local file path of the html in the output window in case you want to view it in an external browser
 - optional Botrush Edge/Chrome browser extension for downloading ChatGPT sessions in varioius formats including Markdown
 - pandoc for converting Markdown and other formats to reStructuredText
+
+.. image:: images/vscode-rest.png
