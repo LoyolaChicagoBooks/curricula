@@ -168,8 +168,9 @@
 <p>Konstantin will take it from here.</p>
 </div>
 </section>
-<section id="the-curated-short-list-of-top-10-topics-in-order">
-<h2>The curated short list of top 10 topics in order<a class="headerlink" href="#the-curated-short-list-of-top-10-topics-in-order" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#the-curated-short-list-of-top-10-topics-in-order'">¶</a></h2>
+<section id="the-curated-short-list-of-top-15-main-topics-in-order">
+<h2>The curated short list of top 15 main topics in order<a class="headerlink" href="#the-curated-short-list-of-top-15-main-topics-in-order" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#the-curated-short-list-of-top-15-main-topics-in-order'">¶</a></h2>
+<p>In the Data Structures 1 course, we will focus on the following main topics:</p>
 <ol class="arabic simple">
 <li><p>Transition from CS1</p></li>
 <li><p>Programmer-defined types</p></li>
@@ -182,13 +183,32 @@
 <li><p>Searching</p></li>
 <li><p>Sorting</p></li>
 <li><p>Linked lists</p></li>
-<li><p>Trees and search trees</p></li>
+<li><p>Trees</p></li>
+<li><p>Search trees</p></li>
 <li><p>Hash tables</p></li>
 </ol>
-<div class="admonition-todo admonition" id="id1">
-<p class="admonition-title">Todo</p>
-<p>separate list cross-cutting topics</p>
-</div>
+<p>In addition, we will incorporate elements of the following cross-cutting topics throughout our coverage of the main topics:</p>
+<ul class="simple">
+<li><p>Problem solving and program correctness</p></li>
+<li><p>Algorithm analysis and performance</p></li>
+<li><p>Design principles and patterns</p></li>
+<li><p>Advanced programming techniques</p></li>
+<li><p>Tools</p></li>
+</ul>
+</section>
+<section id="overview-of-cross-cutting-topics">
+<h2>Overview of cross-cutting topics<a class="headerlink" href="#overview-of-cross-cutting-topics" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#overview-of-cross-cutting-topics'">¶</a></h2>
+<p>Cross-cutting topics in a curriculum are those that span multiple areas of study or are applicable to a variety of specific topics. In the context of a CS2 course focused on data structures, these topics often include general principles and methodologies rather than specific technologies or structures.</p>
+<p>Certainly! Here are summaries for each of the cross-cutting topics:</p>
+<ol class="arabic simple">
+<li><p><strong>Problem Solving and Program Correctness</strong>: Problem solving and program correctness encompass techniques and approaches to effectively analyze and solve problems in programming. It involves understanding the problem domain, breaking down complex problems into manageable components, designing appropriate algorithms, and ensuring the correctness of program logic. Emphasizing problem-solving skills and program correctness helps students develop systematic thinking, error prevention, and the ability to write robust and reliable code.</p></li>
+<li><p><strong>Algorithm Analysis and Performance</strong>: Algorithm analysis and performance focus on evaluating the efficiency and performance characteristics of algorithms. Students learn techniques to measure and analyze the time complexity, space complexity, and other performance metrics of algorithms. Understanding algorithm analysis enables students to make informed decisions about choosing the most efficient algorithms for specific tasks and provides a foundation for optimizing code performance.</p></li>
+<li><p><strong>Design Principles and Patterns</strong>: Design principles and patterns introduce students to fundamental principles of software design and commonly used design patterns. They emphasize concepts like encapsulation, modularity, reusability, and maintainability. By learning design principles and patterns, students gain insights into designing flexible, modular, and extensible software systems. They also learn how to apply proven solutions to recurring design problems, promoting code organization, and facilitating better software architecture.</p></li>
+<li><p><strong>Advanced Programming Techniques</strong>: Advanced programming techniques encompass a range of advanced concepts and techniques that go beyond the basics of programming. This may include topics such as exception handling, input/output operations, concurrency, multithreading, generics, functional programming concepts, and more. Covering advanced programming techniques helps students expand their programming repertoire, enabling them to tackle complex problems, write more efficient code, and leverage language features and tools effectively.</p></li>
+<li><p><strong>Tools</strong>: Tools refer to the software development tools that aid programmers in various aspects of the development process. This includes integrated development environments (IDEs), version control systems (e.g., Git), build tools (e.g., Gradle, Maven), debugging tools, testing frameworks, and other software development utilities. Teaching students about relevant tools equips them with the necessary skills to efficiently write, test, debug, and maintain code, enhancing their productivity and collaboration capabilities.</p></li>
+</ol>
+<p>By incorporating these cross-cutting topics into the curriculum, students gain a well-rounded understanding of programming principles, best practices, and techniques that can be applied across different programming domains. This broadens their skill set, fosters better code quality, and prepares them to tackle real-world programming challenges.</p>
+<p>While it’s important to study specific data structures like those listed above, these cross-cutting topics provide a framework for understanding how to use those structures effectively and efficiently. They will be revisited and applied repeatedly throughout both this course and subsequent computer science courses.</p>
 </section>
 <section id="transition-from-cs1-conditionals-loops-arrays-and-unit-testing">
 <h2>Transition from CS1: conditionals, loops, arrays, and unit testing<a class="headerlink" href="#transition-from-cs1-conditionals-loops-arrays-and-unit-testing" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#transition-from-cs1-conditionals-loops-arrays-and-unit-testing'">¶</a></h2>
@@ -579,10 +599,17 @@ Java’s <code class="docutils literal notranslate"><span class="pre">record</sp
 <p>An ADT encapsulates data and methods together and focuses on what is to be done rather than how it is done. The “what” are the operations or methods, and the “how” is the internal working or implementation, which is hidden from the user.</p>
 <p>For example, consider the ADT of a List. A List ADT might specify operations such as <cite>add(item)</cite>, <cite>remove(item)</cite>, <cite>get(index)</cite>, <cite>size()</cite>, and so on. However, it doesn’t specify how these operations are implemented. This allows a List to be implemented in various ways (for instance, as an ArrayList or a LinkedList in Java) while still providing the same interface to the user.</p>
 <p>The main advantage of using ADTs is that they provide a way to separate the concerns of what data a program is working with and how that data is stored and manipulated. This makes programs easier to understand, write, and debug. It also enables greater reusability of code, as the same ADT can be used in multiple different programs or parts of a program.</p>
-<div class="admonition-todo admonition" id="id2">
-<p class="admonition-title">Todo</p>
-<p>key takeaways</p>
-</div>
+</section>
+<section id="key-takeaways">
+<h3>Key takeaways<a class="headerlink" href="#key-takeaways" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#key-takeaways'">¶</a></h3>
+<p>The key takeaways from a discussion of programmer-defined types, including enums, records, classes, and abstract data types (ADTs), are as follows:</p>
+<ol class="arabic simple">
+<li><p><strong>Enums</strong>: Enums are used to represent a fixed set of values or constants. They provide a way to define a specific type with a limited number of valid values. Enums are useful for modeling concepts that have a finite set of options, such as days of the week or status codes. They enhance code clarity, readability, and type safety by providing named values.</p></li>
+<li><p><strong>Records</strong>: Records are a newer addition to Java (introduced in Java 14) and provide a concise way to define classes that primarily store data. They automatically generate appropriate constructors, accessors, and <cite>equals()</cite>, <cite>hashCode()</cite>, and <cite>toString()</cite> methods based on the fields defined in the record. Records are a convenient choice when creating data-centric classes with minimal behavior.</p></li>
+<li><p><strong>Classes</strong>: Classes are the fundamental building blocks of object-oriented programming. They encapsulate data and behavior within a single unit. Classes allow for the definition of fields (data) and methods (behavior) and support concepts like inheritance, polymorphism, and encapsulation. They provide a flexible way to model real-world entities and implement complex functionality.</p></li>
+<li><p><strong>Abstract Data Types (ADTs)</strong>: ADTs represent a higher-level concept that focuses on the behavior and operations of a data structure rather than its implementation details. ADTs define a set of operations that can be performed on a data structure without exposing its internal representation. They abstract away the implementation and allow users to interact with the data structure through well-defined interfaces. ADTs can be implemented using classes or interfaces, providing a level of abstraction and modularity in software design.</p></li>
+</ol>
+<p>Key takeaways include understanding the different types available for defining and modeling data structures and concepts, as well as their specific use cases. Enums provide a way to represent fixed sets of values, records offer a concise way to define data-centric classes, classes provide the foundation for object-oriented programming, and ADTs enable abstraction and modularity in software design. Utilizing these types appropriately can lead to more expressive, maintainable, and efficient code.</p>
 </section>
 </section>
 <section id="lists">
@@ -597,9 +624,57 @@ Java’s <code class="docutils literal notranslate"><span class="pre">record</sp
 </ol>
 <p>It’s important to note that the list ADT is an abstract concept and does not specify the underlying implementation. Depending on the programming language or specific requirements, there can be different implementations of lists, such as arrays, linked lists, or other data structures.</p>
 <p>The list ADT serves as a fundamental data structure, and students learn about the essential operations and characteristics associated with lists. They explore different implementations and gain an understanding of the trade-offs and performance implications of each implementation choice.</p>
+<section id="immutable-lists">
+<h3>Immutable lists<a class="headerlink" href="#immutable-lists" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#immutable-lists'">¶</a></h3>
+<p>The <cite>List.of</cite> factory method provides a convenient way to create immutable lists. It returns an immutable <cite>List</cite> instance that cannot be modified, making it useful for scenarios where you want to ensure immutability or create a fixed set of elements.</p>
+<p>To use the <cite>List.of</cite> factory method, you can directly call it and provide the elements as arguments. Here’s an example:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.List</span><span class="p">;</span>
+
+<span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">fruits</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">List</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">"Apple"</span><span class="p">,</span><span class="w"> </span><span class="s">"Banana"</span><span class="p">,</span><span class="w"> </span><span class="s">"Orange"</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>In this example, the <cite>List.of</cite> factory method creates an immutable <cite>List</cite> containing the specified elements <cite>“Apple”</cite>, <cite>“Banana”</cite>, and <cite>“Orange”</cite>. The returned list cannot be modified, so any attempts to add, remove, or modify elements will result in an <cite>UnsupportedOperationException</cite>.</p>
+<p>It’s important to note that the <cite>List.of</cite> factory method creates an immutable list, meaning you cannot modify its contents after creation. If you need a mutable list that allows modifications, you should use one of the implementations I mentioned earlier, such as <cite>ArrayList</cite>, <cite>LinkedList</cite>, or <cite>CopyOnWriteArrayList</cite>.</p>
+<p>The <cite>List.of</cite> factory method provides a concise and readable way to create immutable lists in Java, promoting immutability and ensuring data integrity in scenarios where you don’t need to modify the list once it’s created.</p>
+</section>
+<section id="unit-tests-for-unmodifiable-lists">
+<h3>Unit tests for unmodifiable lists<a class="headerlink" href="#unit-tests-for-unmodifiable-lists" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#unit-tests-for-unmodifiable-lists'">¶</a></h3>
+<p>The <cite>List.of()</cite> method returns an unmodifiable list that does not support the <cite>add</cite> and <cite>remove</cite> operations. Here’s an example of unit tests using the <cite>List.of()</cite> factory method to demonstrate the behavior of other methods in the List API:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.List</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Arrays</span><span class="p">;</span>
+
+<span class="kn">import static</span><span class="w"> </span><span class="nn">org.junit.Assert.*</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">org.junit.Test</span><span class="p">;</span>
+
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ListApiTest</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="nd">@Test</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">testGet</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">List</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">"Apple"</span><span class="p">,</span><span class="w"> </span><span class="s">"Banana"</span><span class="p">,</span><span class="w"> </span><span class="s">"Orange"</span><span class="p">);</span>
+<span class="w">        </span><span class="n">assertEquals</span><span class="p">(</span><span class="s">"Banana"</span><span class="p">,</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Test</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">testContains</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">List</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">"Apple"</span><span class="p">,</span><span class="w"> </span><span class="s">"Banana"</span><span class="p">,</span><span class="w"> </span><span class="s">"Orange"</span><span class="p">);</span>
+<span class="w">        </span><span class="n">assertTrue</span><span class="p">(</span><span class="n">list</span><span class="p">.</span><span class="na">contains</span><span class="p">(</span><span class="s">"Apple"</span><span class="p">));</span>
+<span class="w">        </span><span class="n">assertFalse</span><span class="p">(</span><span class="n">list</span><span class="p">.</span><span class="na">contains</span><span class="p">(</span><span class="s">"Mango"</span><span class="p">));</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Test</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">testSize</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">List</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">"Apple"</span><span class="p">,</span><span class="w"> </span><span class="s">"Banana"</span><span class="p">,</span><span class="w"> </span><span class="s">"Orange"</span><span class="p">);</span>
+<span class="w">        </span><span class="n">assertEquals</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">size</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>These unit tests focus on the methods that are supported by the <cite>List.of()</cite> factory method, such as <cite>get</cite>, <cite>contains</cite>, and <cite>size</cite>. These tests verify the expected behavior of these methods with an immutable list returned by <cite>List.of()</cite>. The tests ensure that the elements can be retrieved by index, the presence of specific elements can be checked, and the size of the list is correct.</p>
+<p>It’s important to note that the <cite>List.of()</cite> method returns an unmodifiable list, which limits the ability to perform certain operations like adding or removing elements.</p>
+</section>
 <section id="main-methods-of-the-list-adt">
 <h3>Main methods of the List ADT<a class="headerlink" href="#main-methods-of-the-list-adt" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#main-methods-of-the-list-adt'">¶</a></h3>
-<p>Sure, here are the top 10 methods that you will commonly use when working with a List in Java:</p>
+<p>Here are the top 10 methods that you will commonly use when working more generally with a mutable List implementation in Java:</p>
 <ol class="arabic simple">
 <li><p><cite>boolean add(E e)</cite>: Appends the specified element to the end of the list. This method returns <cite>true</cite> if the element was added successfully.</p></li>
 <li><p><cite>void add(int index, E element)</cite>: Inserts the specified element at the specified position in the list.</p></li>
@@ -614,76 +689,53 @@ Java’s <code class="docutils literal notranslate"><span class="pre">record</sp
 </ol>
 <p>These methods cover the most common operations you’ll perform on a List: adding elements, removing elements, getting or setting the value of an element, checking the size, and checking if an element is present in the List.</p>
 </section>
-<section id="example">
-<h3>Example<a class="headerlink" href="#example" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#example'">¶</a></h3>
-<p>Here is an example of using each of these List methods with randomly generated data:</p>
-<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.*</span><span class="p">;</span>
+<section id="how-to-create-mutable-list-instances">
+<h3>How to create mutable List instances<a class="headerlink" href="#how-to-create-mutable-list-instances" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#how-to-create-mutable-list-instances'">¶</a></h3>
+<p>In Java, the <cite>List</cite> interface is an interface and cannot be directly instantiated. However, you can create an instance of a class that implements the <cite>List</cite> interface. Here are a few examples of commonly used implementations of the <cite>List</cite> interface and how to instantiate them:</p>
+<ol class="arabic simple">
+<li><p><strong>ArrayList</strong>:</p></li>
+</ol>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.List</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.ArrayList</span><span class="p">;</span>
 
-<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Main</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="p">();</span>
-<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">random</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Random</span><span class="p">();</span>
-
-<span class="w">        </span><span class="c1">// 1. add(E e)</span>
-<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">numberToAdd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">random</span><span class="p">.</span><span class="na">nextInt</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
-<span class="w">            </span><span class="n">list</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">numberToAdd</span><span class="p">);</span>
-<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Added "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">numberToAdd</span><span class="p">);</span>
-<span class="w">        </span><span class="p">}</span>
-
-<span class="w">        </span><span class="c1">// 2. add(int index, E element)</span>
-<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">indexToAddAt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">random</span><span class="p">.</span><span class="na">nextInt</span><span class="p">(</span><span class="n">list</span><span class="p">.</span><span class="na">size</span><span class="p">());</span>
-<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">numberToAddAtIndex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">random</span><span class="p">.</span><span class="na">nextInt</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
-<span class="w">        </span><span class="n">list</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">indexToAddAt</span><span class="p">,</span><span class="w"> </span><span class="n">numberToAddAtIndex</span><span class="p">);</span>
-<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Added "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">numberToAddAtIndex</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">" at index "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">indexToAddAt</span><span class="p">);</span>
-
-<span class="w">        </span><span class="c1">// 3. get(int index)</span>
-<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">indexToGet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">random</span><span class="p">.</span><span class="na">nextInt</span><span class="p">(</span><span class="n">list</span><span class="p">.</span><span class="na">size</span><span class="p">());</span>
-<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Element at index "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">indexToGet</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">" is "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">indexToGet</span><span class="p">));</span>
-
-<span class="w">        </span><span class="c1">// 4. remove(int index)</span>
-<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">indexToRemove</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">random</span><span class="p">.</span><span class="na">nextInt</span><span class="p">(</span><span class="n">list</span><span class="p">.</span><span class="na">size</span><span class="p">());</span>
-<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Removed element "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">remove</span><span class="p">(</span><span class="n">indexToRemove</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">" at index "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">indexToRemove</span><span class="p">);</span>
-
-<span class="w">        </span><span class="c1">// 5. remove(Object o)</span>
-<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">numberToRemove</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">random</span><span class="p">.</span><span class="na">nextInt</span><span class="p">(</span><span class="n">list</span><span class="p">.</span><span class="na">size</span><span class="p">()));</span>
-<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">removalSuccessful</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">remove</span><span class="p">(</span><span class="n">Integer</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="n">numberToRemove</span><span class="p">));</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">removalSuccessful</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Successfully removed "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">numberToRemove</span><span class="p">);</span>
-<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Failed to remove "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">numberToRemove</span><span class="p">);</span>
-<span class="w">        </span><span class="p">}</span>
-
-<span class="w">        </span><span class="c1">// 6. set(int index, E element)</span>
-<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">indexToSet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">random</span><span class="p">.</span><span class="na">nextInt</span><span class="p">(</span><span class="n">list</span><span class="p">.</span><span class="na">size</span><span class="p">());</span>
-<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">numberToSetAtIndex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">random</span><span class="p">.</span><span class="na">nextInt</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
-<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Set element at index "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">indexToSet</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">" to "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="n">indexToSet</span><span class="p">,</span><span class="w"> </span><span class="n">numberToSetAtIndex</span><span class="p">));</span>
-
-<span class="w">        </span><span class="c1">// 7. size()</span>
-<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"List size is "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">size</span><span class="p">());</span>
-
-<span class="w">        </span><span class="c1">// 8. isEmpty()</span>
-<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Is list empty? "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">());</span>
-
-<span class="w">        </span><span class="c1">// 9. clear()</span>
-<span class="w">        </span><span class="n">list</span><span class="p">.</span><span class="na">clear</span><span class="p">();</span>
-<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"List cleared."</span><span class="p">);</span>
-
-<span class="w">        </span><span class="c1">// Check if list is empty after clearing.</span>
-<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Is list empty after clear? "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">());</span>
-
-<span class="w">        </span><span class="c1">// 10. contains(Object o)</span>
-<span class="w">        </span><span class="c1">// As list is empty after clear, it will not contain the number</span>
-<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">doesListContain</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">contains</span><span class="p">(</span><span class="n">random</span><span class="p">.</span><span class="na">nextInt</span><span class="p">(</span><span class="mi">100</span><span class="p">));</span>
-<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Does list contain random number? "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">doesListContain</span><span class="p">);</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
+<span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">arrayList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
 </pre></div>
 </div>
-<p>In this program, a new ArrayList of integers is created. The program then randomly adds integers, gets and removes integers at random indices, checks the size, and checks if the list is empty. The list is then cleared, and finally checks if the list contains a random number. Each operation is output to the console using <cite>System.out.println()</cite>.</p>
+<p>In this example, an instance of <cite>ArrayList</cite> is created and assigned to the <cite>List&lt;String&gt;</cite> variable <cite>arrayList</cite>. <cite>ArrayList</cite> is a resizable array-based implementation of the <cite>List</cite> interface.</p>
+<ol class="arabic simple" start="2">
+<li><p><strong>LinkedList</strong>:</p></li>
+</ol>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.List</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.LinkedList</span><span class="p">;</span>
+
+<span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">linkedList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">LinkedList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Here, an instance of <cite>LinkedList</cite> is created and assigned to the <cite>List&lt;String&gt;</cite> variable <cite>linkedList</cite>. <cite>LinkedList</cite> is a doubly-linked list implementation of the <cite>List</cite> interface.</p>
+<ol class="arabic simple" start="3">
+<li><p><strong>Vector</strong>:</p></li>
+</ol>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.List</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Vector</span><span class="p">;</span>
+
+<span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">vector</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Vector</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>In this example, an instance of <cite>Vector</cite> is created and assigned to the <cite>List&lt;String&gt;</cite> variable <cite>vector</cite>. <cite>Vector</cite> is a synchronized array-based implementation of the <cite>List</cite> interface.</p>
+<ol class="arabic simple" start="4">
+<li><p><strong>CopyOnWriteArrayList</strong>:</p></li>
+</ol>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.List</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.concurrent.CopyOnWriteArrayList</span><span class="p">;</span>
+
+<span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">copyOnWriteArrayList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">CopyOnWriteArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Here, an instance of <cite>CopyOnWriteArrayList</cite> is created and assigned to the <cite>List&lt;String&gt;</cite> variable <cite>copyOnWriteArrayList</cite>. <cite>CopyOnWriteArrayList</cite> is a thread-safe implementation of the <cite>List</cite> interface that provides enhanced concurrency support.</p>
+<p>These are just a few examples of classes that implement the <cite>List</cite> interface, and we will discuss mostly <cite>ArrayList</cite> and <cite>LinkedList</cite> in this course. The choice of implementation depends on the specific requirements of your application, considering factors like performance, concurrency, and usage patterns. By instantiating classes that implement the <cite>List</cite> interface, you can utilize the methods and functionality provided by the <cite>List</cite> interface to work with collections of elements in a flexible and consistent manner.</p>
 </section>
-<section id="unit-tests-for-the-list-api">
-<h3>Unit tests for the List API<a class="headerlink" href="#unit-tests-for-the-list-api" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#unit-tests-for-the-list-api'">¶</a></h3>
+<section id="unit-tests-for-the-full-list-api">
+<h3>Unit tests for the full List API<a class="headerlink" href="#unit-tests-for-the-full-list-api" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#unit-tests-for-the-full-list-api'">¶</a></h3>
 <p>Here is an example of using JUnit 5 to write unit tests for the <cite>List</cite> methods:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">org.junit.jupiter.api.*</span><span class="p">;</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">java.util.*</span><span class="p">;</span>
@@ -758,10 +810,6 @@ Java’s <code class="docutils literal notranslate"><span class="pre">record</sp
 </pre></div>
 </div>
 <p>Each of these test methods uses assertions to ensure that the list behaves as expected when its methods are called. For example, <cite>testAdd</cite> verifies that <cite>add</cite> returns true and increases the size of the list by one, and <cite>testGet</cite> verifies that <cite>get</cite> returns the expected element.</p>
-<div class="admonition-todo admonition" id="id3">
-<p class="admonition-title">Todo</p>
-<p>key takeaways</p>
-</div>
 </section>
 </section>
 <section id="array-based-lists">
@@ -770,14 +818,14 @@ Java’s <code class="docutils literal notranslate"><span class="pre">record</sp
 <p>The <cite>List</cite> interface is a part of Java’s Collection Framework and extends the <cite>Collection</cite> interface. It is an ordered collection (also known as a sequence), and it can contain duplicate elements. The user has precise control over where in the list each element is inserted, and can access elements by their integer index (position in the list). The <cite>List</cite> interface provides a contract for common list operations, such as add, get, remove, indexOf, and others.</p>
 <p><cite>ArrayList</cite> is one of the several implementations of the <cite>List</cite> interface provided with Java’s standard library. It’s backed by a dynamic array, which means the size of the <cite>ArrayList</cite> can grow or shrink as needed.</p>
 <p><cite>ArrayList</cite> provides fast random read access (i.e., fast access to elements by index) because it’s backed by an array. However, adding elements to the middle of the <cite>ArrayList</cite> or removing elements from the middle is slower because elements need to be shifted.</p>
-<section id="id4">
-<h3>Example<a class="headerlink" href="#id4" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id4'">¶</a></h3>
+<section id="example">
+<h3>Example<a class="headerlink" href="#example" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#example'">¶</a></h3>
 <p>Here’s how you might use <cite>ArrayList</cite> as a <cite>List</cite>:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">names</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
 <span class="n">names</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">"Alice"</span><span class="p">);</span>
 <span class="n">names</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">"Bob"</span><span class="p">);</span>
 <span class="n">names</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">"Charlie"</span><span class="p">);</span>
-<span class="n">String</span><span class="w"> </span><span class="n">firstPerson</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">names</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span><span class="w">  </span><span class="c1">// Alice</span>
+<span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">firstPerson</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">names</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span><span class="w">  </span><span class="c1">// Alice</span>
 </pre></div>
 </div>
 <p>In this code, we’re declaring a variable <cite>names</cite> of type <cite>List&lt;String&gt;</cite>, but we’re initializing it with an instance of <cite>ArrayList&lt;String&gt;</cite>. This means that we can use any class that implements <cite>List&lt;String&gt;</cite> to initialize <cite>names</cite>. This is a common example of programming to an interface in Java, which makes code more flexible and modifiable.</p>
@@ -826,6 +874,87 @@ The ArrayList is a dynamic data structure provided by the Java Collections Frame
 <li><p><strong>Resizing Impact</strong>: When an ArrayList needs to resize its internal array, it creates a new array with a larger size and copies the elements from the old array to the new one. This resizing operation can be time-consuming, especially if the ArrayList contains a large number of elements. If you know the approximate size requirements in advance, initializing the ArrayList with an initial capacity can help mitigate frequent resizing.</p></li>
 </ol>
 <p>Despite these disadvantages, ArrayLists remain a widely used data structure due to their flexibility, ease of use, and the convenience provided by the Java Collections Framework. Understanding the limitations and trade-offs of ArrayLists can help you make informed decisions when selecting the appropriate data structure for your specific needs.</p>
+</section>
+<section id="id1">
+<h3>Example<a class="headerlink" href="#id1" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id1'">¶</a></h3>
+<p>Here is an example of using each of the List methods with an ArrayList implementation and randomly generated data:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.*</span><span class="p">;</span>
+
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Main</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">random</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Random</span><span class="p">();</span>
+
+<span class="w">        </span><span class="c1">// 1. add(E e)</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">numberToAdd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">random</span><span class="p">.</span><span class="na">nextInt</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+<span class="w">            </span><span class="n">list</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">numberToAdd</span><span class="p">);</span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Added "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">numberToAdd</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="c1">// 2. add(int index, E element)</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">indexToAddAt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">random</span><span class="p">.</span><span class="na">nextInt</span><span class="p">(</span><span class="n">list</span><span class="p">.</span><span class="na">size</span><span class="p">());</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">numberToAddAtIndex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">random</span><span class="p">.</span><span class="na">nextInt</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+<span class="w">        </span><span class="n">list</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">indexToAddAt</span><span class="p">,</span><span class="w"> </span><span class="n">numberToAddAtIndex</span><span class="p">);</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Added "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">numberToAddAtIndex</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">" at index "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">indexToAddAt</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// 3. get(int index)</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">indexToGet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">random</span><span class="p">.</span><span class="na">nextInt</span><span class="p">(</span><span class="n">list</span><span class="p">.</span><span class="na">size</span><span class="p">());</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Element at index "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">indexToGet</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">" is "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">indexToGet</span><span class="p">));</span>
+
+<span class="w">        </span><span class="c1">// 4. remove(int index)</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">indexToRemove</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">random</span><span class="p">.</span><span class="na">nextInt</span><span class="p">(</span><span class="n">list</span><span class="p">.</span><span class="na">size</span><span class="p">());</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Removed element "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">remove</span><span class="p">(</span><span class="n">indexToRemove</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">" at index "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">indexToRemove</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// 5. remove(Object o)</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">numberToRemove</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">random</span><span class="p">.</span><span class="na">nextInt</span><span class="p">(</span><span class="n">list</span><span class="p">.</span><span class="na">size</span><span class="p">()));</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">removalSuccessful</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">remove</span><span class="p">(</span><span class="n">Integer</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="n">numberToRemove</span><span class="p">));</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">removalSuccessful</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Successfully removed "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">numberToRemove</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Failed to remove "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">numberToRemove</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="c1">// 6. set(int index, E element)</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">indexToSet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">random</span><span class="p">.</span><span class="na">nextInt</span><span class="p">(</span><span class="n">list</span><span class="p">.</span><span class="na">size</span><span class="p">());</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">numberToSetAtIndex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">random</span><span class="p">.</span><span class="na">nextInt</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Set element at index "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">indexToSet</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">" to "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="n">indexToSet</span><span class="p">,</span><span class="w"> </span><span class="n">numberToSetAtIndex</span><span class="p">));</span>
+
+<span class="w">        </span><span class="c1">// 7. size()</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"List size is "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">size</span><span class="p">());</span>
+
+<span class="w">        </span><span class="c1">// 8. isEmpty()</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Is list empty? "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">());</span>
+
+<span class="w">        </span><span class="c1">// 9. clear()</span>
+<span class="w">        </span><span class="n">list</span><span class="p">.</span><span class="na">clear</span><span class="p">();</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"List cleared."</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// Check if list is empty after clearing.</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Is list empty after clear? "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">());</span>
+
+<span class="w">        </span><span class="c1">// 10. contains(Object o)</span>
+<span class="w">        </span><span class="c1">// As list is empty after clear, it will not contain the number</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">doesListContain</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">contains</span><span class="p">(</span><span class="n">random</span><span class="p">.</span><span class="na">nextInt</span><span class="p">(</span><span class="mi">100</span><span class="p">));</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Does list contain random number? "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">doesListContain</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In this program, a new ArrayList of integers is created. The program then randomly adds integers, gets and removes integers at random indices, checks the size, and checks if the list is empty. The list is then cleared, and finally checks if the list contains a random number. Each operation is output to the console using <cite>System.out.println()</cite>.</p>
+</section>
+<section id="performance-of-arraylist-methods">
+<h3>Performance of ArrayList methods<a class="headerlink" href="#performance-of-arraylist-methods" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#performance-of-arraylist-methods'">¶</a></h3>
+<p>The time and space complexity of the main ArrayList methods are as follows:</p>
+<ol class="arabic simple">
+<li><p><strong>Add (Append)</strong>: The <cite>add</cite> method in ArrayList adds an element to the end of the list. If the underlying array needs to be resized to accommodate the new element, the time complexity is amortized O(1) on average. In the worst case, when the array needs to be resized, the time complexity becomes O(n), where n is the number of elements in the list. The space complexity is O(n), as the underlying array may need to be resized.</p></li>
+<li><p><strong>Add (Insert)</strong>: The <cite>add</cite> method can also be used to insert an element at a specific index in the list. If the element is inserted at the beginning or middle of the list, it requires shifting subsequent elements, resulting in a time complexity of O(n), where n is the number of elements in the list. The space complexity is O(n) in the worst case if the underlying array needs to be resized.</p></li>
+<li><p><strong>Get</strong>: The <cite>get</cite> method retrieves an element from the list based on its index. It has a time complexity of O(1) as accessing elements by index in an ArrayList is a constant-time operation. The space complexity is O(1) as it does not require any additional memory allocation.</p></li>
+<li><p><strong>Remove</strong>: The <cite>remove</cite> method removes an element from the list based on its index. If the element is removed from the beginning or middle of the list, it requires shifting subsequent elements, resulting in a time complexity of O(n), where n is the number of elements in the list. The space complexity is O(n) in the worst case if the underlying array needs to be resized.</p></li>
+<li><p><strong>Contains</strong>: The <cite>contains</cite> method checks whether an element is present in the list. It performs a linear search through the elements, resulting in a time complexity of O(n), where n is the number of elements in the list. The space complexity is O(1) as it does not require any additional memory allocation.</p></li>
+<li><p><strong>Size</strong>: The <cite>size</cite> method returns the number of elements in the list. It has a time complexity of O(1) as the size of the ArrayList is maintained as a separate variable. The space complexity is O(1) as it does not require any additional memory allocation.</p></li>
+</ol>
+<p>It’s important to note that the time and space complexities mentioned here are based on the typical implementation of ArrayList in Java. Different programming languages or specific ArrayList implementations may have variations in their complexity characteristics, so it’s always advisable to refer to the documentation or implementation details of the specific ArrayList you are working with.</p>
 </section>
 <section id="how-to-instantiate-arraylist">
 <h3>How to instantiate ArrayList<a class="headerlink" href="#how-to-instantiate-arraylist" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#how-to-instantiate-arraylist'">¶</a></h3>
@@ -900,10 +1029,19 @@ The ArrayList is a dynamic data structure provided by the Java Collections Frame
 <p>The <cite>get</cite> method is used to retrieve an element from the list at a specific index. If the index is invalid (negative, or greater than or equal to the size of the list), it throws an <cite>IndexOutOfBoundsException</cite>.</p>
 <p>The <cite>size</cite> method returns the number of elements currently in the list.</p>
 <p>Note that this is a very basic implementation and lacks many features and optimizations of the actual <cite>ArrayList</cite> class in the Java Collections Framework. It’s intended to be an illustrative example of how you might start to implement such a data structure.</p>
-<div class="admonition-todo admonition" id="id5">
-<p class="admonition-title">Todo</p>
-<p>key takeaways</p>
-</div>
+</section>
+<section id="id2">
+<h3>Key takeaways<a class="headerlink" href="#id2" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id2'">¶</a></h3>
+<p>The key takeaways from a discussion of ArrayList and its comparison with basic arrays are as follows:</p>
+<p>Certainly! Here’s a revised order of the key takeaways based on your request:</p>
+<ol class="arabic simple">
+<li><p><strong>Efficiency and Performance</strong>: <cite>ArrayList</cite> provides efficient random access to elements by their index, allowing for quick retrieval and modification operations. It offers similar performance characteristics to basic arrays in terms of accessing elements.</p></li>
+<li><p><strong>Convenience and Abstraction</strong>: <cite>ArrayList</cite> abstracts away the complexity of managing array resizing and provides built-in methods for adding, removing, and accessing elements. It offers a higher-level interface compared to basic arrays, making it more convenient to work with collections of data.</p></li>
+<li><p><strong>Type Safety and Compile-Time Checks</strong>: <cite>ArrayList</cite> ensures type safety by allowing only elements of the specified type to be added to the list. This helps prevent type-related errors and provides compile-time checks, reducing the risk of runtime exceptions.</p></li>
+<li><p><strong>Dynamic Size and Flexibility</strong>: <cite>ArrayList</cite> dynamically adjusts its size as elements are added or removed, providing flexibility for handling varying amounts of data. It offers a resizable alternative to basic arrays, which have a fixed length.</p></li>
+<li><p><strong>Overhead and Additional Complexity</strong>: <cite>ArrayList</cite> incurs additional overhead compared to basic arrays due to resizing operations and maintaining extra metadata. This overhead includes increased memory usage and computational cost.</p></li>
+</ol>
+<p>Key takeaways include understanding that ArrayList offers dynamic size, convenient methods, efficient random access, and automatic memory management. However, it also incurs additional overhead compared to basic arrays. Choosing between ArrayList and basic arrays depends on the specific requirements of the application. If dynamic resizing, convenience methods, and type safety are important, ArrayList is a suitable choice. On the other hand, basic arrays may be preferred when a fixed-size collection or minimal overhead is required.</p>
 </section>
 </section>
 <section id="maps">
@@ -915,15 +1053,15 @@ The ArrayList is a dynamic data structure provided by the Java Collections Frame
 <p>Implementing Abstract Data Types: Maps can be used to implement various abstract data types (ADTs) such as caches, indexes, symbol tables in compilers, or in representing adjacency lists in graphs. These applications are central to many areas of computer science.</p>
 <p>Programming Language Support: Many programming languages have built-in support for map data structures, making them a convenient choice for many tasks.</p>
 <p>In summary, maps are a powerful tool that can greatly simplify your code and improve its performance. They’re an essential part of a computer science student’s toolkit, and learning how to use them effectively can greatly benefit your problem-solving abilities.</p>
-<section id="id6">
-<h3>Example<a class="headerlink" href="#id6" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id6'">¶</a></h3>
+<section id="id3">
+<h3>Example<a class="headerlink" href="#id3" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id3'">¶</a></h3>
 <p>Here is an example of counting the occurrences of words in a sentence. This is a classic problem that maps solve very efficiently. I will use the java.util.Map interface along with its implementing class java.util.HashMap:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.HashMap</span><span class="p">;</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Map</span><span class="p">;</span>
 
 <span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">WordCount</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">sentence</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"If it is to be, it is up to me to delegate"</span><span class="p">;</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">sentence</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"If it is to be, it is up to me to delegate"</span><span class="p">;</span>
 <span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">words</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sentence</span><span class="p">.</span><span class="na">split</span><span class="p">(</span><span class="s">"\\s+"</span><span class="p">);</span>
 <span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">wordCount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="p">();</span>
 
@@ -951,7 +1089,7 @@ The ArrayList is a dynamic data structure provided by the Java Collections Frame
 </section>
 <section id="the-java-map-api">
 <h3>The Java Map API<a class="headerlink" href="#the-java-map-api" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#the-java-map-api'">¶</a></h3>
-<div class="admonition-todo admonition" id="id7">
+<div class="admonition-todo admonition" id="id4">
 <p class="admonition-title">Todo</p>
 <p>add thoughts on map as a generalization of array/ArrayList</p>
 </div>
@@ -993,6 +1131,48 @@ The ArrayList is a dynamic data structure provided by the Java Collections Frame
 </ol>
 <p>The <cite>Map.Entry</cite> interface provides methods to access the key and value of an entry, as well as to set the value. Additionally, it has methods to compare entries by key or value, which can be useful for sorting and other operations.</p>
 <p>Understanding these methods and how they interact with the <cite>Map</cite> interface can greatly enhance your ability to effectively and efficiently manipulate key-value data in Java.</p>
+</section>
+<section id="how-to-create-map-instances">
+<h3>How to create Map instances<a class="headerlink" href="#how-to-create-map-instances" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#how-to-create-map-instances'">¶</a></h3>
+<p>Here’s an overview of how to create <cite>Map</cite> instances, including the <cite>Map.of()</cite> factory method:</p>
+<ol class="arabic">
+<li><p><strong>Using `Map.of()` Factory Method (Java 9+)</strong>:
+The <cite>Map</cite> interface provides a factory method called <cite>of()</cite> that allows you to create an immutable <cite>Map</cite> with a fixed number of entries. Here’s an example:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Map</span><span class="p">;</span>
+
+<span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">map</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Map</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">"Apple"</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">"Banana"</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="s">"Orange"</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>In this example, a <cite>Map</cite> instance is created using the <cite>Map.of()</cite> factory method. It takes a sequence of key-value pairs as arguments and returns an immutable <cite>Map</cite> containing those entries.</p>
+</li>
+<li><p><strong>Using `HashMap`</strong>:
+The <cite>HashMap</cite> class is a commonly used implementation of the <cite>Map</cite> interface. It provides a dynamic and unordered collection of key-value pairs. Here’s an example:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Map</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.HashMap</span><span class="p">;</span>
+
+<span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">map</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="n">map</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">"Apple"</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="n">map</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">"Banana"</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
+<span class="n">map</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">"Orange"</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>In this example, a <cite>HashMap</cite> instance is created by instantiating the <cite>HashMap</cite> class. Key-value pairs are added using the <cite>put()</cite> method, allowing for dynamic modification of the map.</p>
+</li>
+<li><p><strong>Using Other Map Implementations</strong>:
+Java provides several other implementations of the <cite>Map</cite> interface, such as <cite>TreeMap</cite>, <cite>LinkedHashMap</cite>, and <cite>ConcurrentHashMap</cite>. Each implementation has unique characteristics and is suitable for specific use cases. Here’s an example using <cite>TreeMap</cite>:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Map</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.TreeMap</span><span class="p">;</span>
+
+<span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">map</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">TreeMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="n">map</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">"Apple"</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="n">map</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">"Banana"</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
+<span class="n">map</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="s">"Orange"</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>In this example, a <cite>TreeMap</cite> instance is created by instantiating the <cite>TreeMap</cite> class. The <cite>TreeMap</cite> implementation provides a sorted map based on the natural ordering of the keys.</p>
+</li>
+</ol>
+<p>These examples demonstrate different approaches to creating <cite>Map</cite> instances. You can use the <cite>Map.of()</cite> factory method for creating small immutable maps, or instantiate specific implementations like <cite>HashMap</cite>, <cite>TreeMap</cite>, or others based on your requirements.</p>
 </section>
 <section id="unit-tests-for-the-map-api">
 <h3>Unit tests for the Map API<a class="headerlink" href="#unit-tests-for-the-map-api" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#unit-tests-for-the-map-api'">¶</a></h3>
@@ -1079,8 +1259,8 @@ The ArrayList is a dynamic data structure provided by the Java Collections Frame
 <p>Each of these tests instantiates a new <cite>HashMap</cite>, performs some operations on it, and then checks that the state of the map is as expected. These checks use methods like <cite>assertEquals</cite>, <cite>assertTrue</cite>, and <cite>assertFalse</cite> from JUnit to assert expected outcomes. If an assertion fails, JUnit will report a failure for that test, indicating that there’s a bug in the code under test.</p>
 <p>Note that unit tests should generally be written for each method in isolation and for interaction of methods, and should cover both common cases and edge cases. A full test suite for a <cite>Map</cite> implementation would have more tests than what’s included here.</p>
 </section>
-<section id="id8">
-<h3>Sample implementation<a class="headerlink" href="#id8" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id8'">¶</a></h3>
+<section id="id5">
+<h3>Sample implementation<a class="headerlink" href="#id5" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id5'">¶</a></h3>
 <p><em>Can you show a simple yet modern Java implementation class of the Map interface, pedagogically suitable for a CS2 audience (second computer science course)? The implementation doesn’t have to be complete but should include the handful or so of essential methods.</em></p>
 <p>Absolutely, here’s a simple pedagogically-oriented implementation of a Map using a backing array, suitable for a CS2 level audience. Note that this implementation doesn’t handle resizing, hashing, or collision resolution - it’s essentially a glorified associative list. This example uses local type inference (introduced in Java 10) and other modern Java features as per your request:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Arrays</span><span class="p">;</span>
@@ -1140,8 +1320,8 @@ The ArrayList is a dynamic data structure provided by the Java Collections Frame
 <p>The <cite>SimpleMap</cite> class maintains an array of <cite>Entry</cite> records, each of which holds a key-value pair. The <cite>put()</cite> method adds a new key-value pair to the map, or updates the value if the key is already present. The <cite>get()</cite> method retrieves a value by its key, and the <cite>containsKey()</cite> method checks if a key is in the map.</p>
 <p>This class provides a simple, tangible implementation of the Map interface, making it a great starting point for CS2 students. They could enhance this implementation by adding methods like <cite>remove()</cite>, <cite>size()</cite>, or <cite>isEmpty()</cite>. Later on, they could learn about more sophisticated implementations using hashing, linked lists (for collision resolution), and dynamic resizing.</p>
 </section>
-<section id="key-takeaways">
-<h3>Key takeaways<a class="headerlink" href="#key-takeaways" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#key-takeaways'">¶</a></h3>
+<section id="id6">
+<h3>Key takeaways<a class="headerlink" href="#id6" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id6'">¶</a></h3>
 <p>Maps, also known as dictionaries or associative arrays, provide a key-value mapping, allowing you to associate values with unique keys. Unlike arrays and lists, which use integer indices, maps allow for a more diverse range of key types, including strings, objects, and custom types. This makes maps highly versatile and widely usable.</p>
 <p>Here are some reasons why maps are a more general structure:</p>
 <ol class="arabic simple">
@@ -1162,8 +1342,8 @@ The ArrayList is a dynamic data structure provided by the Java Collections Frame
 <p>Another common use for a <cite>Set</cite> is to efficiently check for the presence of an item. For instance, you might have a <cite>Set</cite> of banned usernames for a forum, and you want to quickly check if a given username is in that <cite>Set</cite>. Since many Set implementations (like HashSet in Java) can check for the presence of an item in constant time, this operation is very efficient.</p>
 <p>Also, a <cite>Set</cite> can be used to perform mathematical set operations, such as union (addition of two sets), intersection (common elements in two sets), and difference (elements present in one set but not the other).</p>
 <p>Overall, a <cite>Set</cite> is a very handy data structure, especially when dealing with collections of unique elements where order is not significant.</p>
-<section id="id9">
-<h3>Example<a class="headerlink" href="#id9" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id9'">¶</a></h3>
+<section id="id7">
+<h3>Example<a class="headerlink" href="#id7" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id7'">¶</a></h3>
 <p>Here’s an example of how you might use a <cite>Set</cite> in Java to solve a simple problem: finding duplicate words in a sentence. This is an interesting use case because it shows off the unique-element property of the <cite>Set</cite>.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.HashSet</span><span class="p">;</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Set</span><span class="p">;</span>
@@ -1221,6 +1401,48 @@ The ArrayList is a dynamic data structure provided by the Java Collections Frame
 <p>The <cite>Set</cite> interface doesn’t have any methods specifically for accessing elements based on their position in the set because sets, unlike lists, are not inherently ordered collections.</p>
 <p>Some implementations, like <cite>LinkedHashSet</cite>, do maintain an order (insertion-order in this case), but this is not a contractual characteristic of the <cite>Set</cite> interface itself.</p>
 <p>Also, the Set interface has three main implementation classes in the Java Collections Framework: <cite>HashSet</cite>, <cite>LinkedHashSet</cite>, and <cite>TreeSet</cite>, each with its own characteristics in terms of order, performance and allowing null elements.</p>
+</section>
+<section id="how-to-create-set-instances">
+<h3>How to create Set instances<a class="headerlink" href="#how-to-create-set-instances" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#how-to-create-set-instances'">¶</a></h3>
+<p>Certainly! Here’s an overview of how to create <cite>Set</cite> instances, including the <cite>Set.of()</cite> factory method:</p>
+<ol class="arabic">
+<li><p><strong>Using `Set.of()` Factory Method (Java 9+)</strong>:
+The <cite>Set</cite> interface provides a factory method called <cite>of()</cite> that allows you to create an immutable <cite>Set</cite> with a fixed number of elements. Here’s an example:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Set</span><span class="p">;</span>
+
+<span class="n">Set</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Set</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">"Apple"</span><span class="p">,</span><span class="w"> </span><span class="s">"Banana"</span><span class="p">,</span><span class="w"> </span><span class="s">"Orange"</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>In this example, a <cite>Set</cite> instance is created using the <cite>Set.of()</cite> factory method. It takes a sequence of elements as arguments and returns an immutable <cite>Set</cite> containing those elements.</p>
+</li>
+<li><p><strong>Using `HashSet`</strong>:
+The <cite>HashSet</cite> class is a commonly used implementation of the <cite>Set</cite> interface. It provides a dynamic and unordered collection of unique elements. Here’s an example:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Set</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.HashSet</span><span class="p">;</span>
+
+<span class="n">Set</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HashSet</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="n">set</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">"Apple"</span><span class="p">);</span>
+<span class="n">set</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">"Banana"</span><span class="p">);</span>
+<span class="n">set</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">"Orange"</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>In this example, a <cite>HashSet</cite> instance is created by instantiating the <cite>HashSet</cite> class. Elements are added using the <cite>add()</cite> method, allowing for dynamic modification of the set.</p>
+</li>
+<li><p><strong>Using Other Set Implementations</strong>:
+Java provides several other implementations of the <cite>Set</cite> interface, such as <cite>TreeSet</cite>, <cite>LinkedHashSet</cite>, and <cite>EnumSet</cite>. Each implementation has unique characteristics and is suitable for specific use cases. Here’s an example using <cite>TreeSet</cite>:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Set</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.TreeSet</span><span class="p">;</span>
+
+<span class="n">Set</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">TreeSet</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="n">set</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">"Apple"</span><span class="p">);</span>
+<span class="n">set</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">"Banana"</span><span class="p">);</span>
+<span class="n">set</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">"Orange"</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>In this example, a <cite>TreeSet</cite> instance is created by instantiating the <cite>TreeSet</cite> class. The <cite>TreeSet</cite> implementation provides a sorted set based on the natural ordering of the elements.</p>
+</li>
+</ol>
+<p>These examples demonstrate different approaches to creating <cite>Set</cite> instances. You can use the <cite>Set.of()</cite> factory method for creating small immutable sets, or instantiate specific implementations like <cite>HashSet</cite>, <cite>TreeSet</cite>, or others based on your requirements.</p>
 </section>
 <section id="unit-tests-for-the-set-api">
 <h3>Unit tests for the Set API<a class="headerlink" href="#unit-tests-for-the-set-api" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#unit-tests-for-the-set-api'">¶</a></h3>
@@ -1299,8 +1521,8 @@ The ArrayList is a dynamic data structure provided by the Java Collections Frame
 <p>In these tests, we’re checking that each of the methods works as expected: <cite>add</cite> adds an item and returns <cite>true</cite> if it wasn’t already present, <cite>remove</cite> removes an item and returns <cite>true</cite> if it was present, <cite>clear</cite> removes all items, <cite>size</cite> returns the number of items, <cite>contains</cite> checks for the presence of an item, and <cite>isEmpty</cite> checks if the set is empty.</p>
 <p>Note that for a complete set of tests, you would want to test other methods in the <cite>Set</cite> interface, and you would want to test edge cases and interactions between methods. These tests are intended to be a starting point and an illustrative example.</p>
 </section>
-<section id="id10">
-<h3>Sample implementation<a class="headerlink" href="#id10" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id10'">¶</a></h3>
+<section id="id8">
+<h3>Sample implementation<a class="headerlink" href="#id8" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id8'">¶</a></h3>
 <p>Sure, here is a simple pedagogically-oriented implementation of a Set using a backing array. This implementation uses local type inference (introduced in Java 10) and other modern Java features. Please note that this implementation is for learning purposes and doesn’t handle resizing, nor does it provide the performance benefits of a true <cite>HashSet</cite> or <cite>TreeSet</cite>:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Arrays</span><span class="p">;</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Iterator</span><span class="p">;</span>
@@ -1400,104 +1622,319 @@ The ArrayList is a dynamic data structure provided by the Java Collections Frame
 <p>This example creates a <cite>BitSet</cite> and sets the bits at indices 0 and 2. The <cite>BitSet</cite>’s <cite>toString()</cite> method shows which indices are set to true. We also demonstrate the use of the <cite>get(int index)</cite> method to check the value of a specific bit.</p>
 <p>One important thing to note is that the <cite>size()</cite> method returns the “logical size” of the <cite>BitSet</cite> which is “the index of the highest set bit plus one”. So, in this case, despite initializing the <cite>BitSet</cite> with a size of 5, the size returned is 64 as the <cite>BitSet</cite> internally allocates memory in multiples of 64 bits (the size of a <cite>long</cite>).</p>
 <p>Regarding its implementation, a <cite>BitSet</cite> internally uses a dynamic array (<cite>long[]</cite>) to hold the bits, which are represented as long integers (64-bit). Each <cite>long</cite> value represents 64 bits, with the 0th bit referring to the least significant bit of the <cite>long</cite> and the 63rd bit referring to the most significant bit. The <cite>long[]</cite> array is expanded as needed, ensuring the <cite>BitSet</cite> can grow to accommodate any bit index. The <cite>BitSet</cite> class also provides many methods for performing bitwise operations on the bits. This, combined with its dynamic size, makes <cite>BitSet</cite> a flexible tool for efficient bit manipulation.</p>
-<div class="admonition-todo admonition" id="id11">
-<p class="admonition-title">Todo</p>
-<p>key takeaways</p>
-</div>
+</section>
+<section id="id9">
+<h3>Key takeaways<a class="headerlink" href="#id9" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id9'">¶</a></h3>
+<p>From a discussion of <cite>Set</cite>, <cite>BitSet</cite>, and the comparison of <cite>Set</cite> with <cite>Map</cite>, here are the key takeaways:</p>
+<ol class="arabic simple">
+<li><p><strong>Uniqueness and Element-based Operations</strong>: Both <cite>Set</cite> and <cite>BitSet</cite> are used to store a collection of unique elements. The primary purpose of a <cite>Set</cite> is to ensure that each element is unique within the set, while a <cite>BitSet</cite> is a specialized implementation that represents a set of bits, typically used for efficient storage and manipulation of binary data. Both data structures provide operations for adding, removing, and querying elements.</p></li>
+<li><p><strong>Set vs. Map</strong>: The main difference between a <cite>Set</cite> and a <cite>Map</cite> is that a <cite>Set</cite> stores only the unique elements, while a <cite>Map</cite> stores key-value pairs. In other words, a <cite>Set</cite> is a collection of distinct elements, whereas a <cite>Map</cite> associates each element with a unique key. <cite>Set</cite> is useful when you only need to store and query unique elements, while <cite>Map</cite> is suitable for scenarios where you need to store and access values associated with specific keys.</p></li>
+<li><p><strong>Membership Testing and Efficient Operations</strong>: Both <cite>Set</cite> and <cite>BitSet</cite> offer efficient membership testing operations. They allow you to check whether an element is present in the set or not, providing a quick way to determine membership without iterating through the entire collection. <cite>BitSet</cite> offers additional capabilities for performing bitwise operations, making it particularly useful when dealing with binary data and bit-level manipulation.</p></li>
+<li><p><strong>Performance and Space Efficiency</strong>: <cite>BitSet</cite> can be more space-efficient than <cite>Set</cite>, especially when dealing with a large number of elements. It uses a compact internal representation of bits, which can save memory compared to storing individual objects in a <cite>Set</cite>. However, this space efficiency comes at the cost of increased complexity and limited support for non-integer elements.</p></li>
+</ol>
+<p>These key takeaways highlight the uniqueness and element-based operations provided by <cite>Set</cite> and <cite>BitSet</cite>. They also emphasize the difference between <cite>Set</cite> and <cite>Map</cite>, with <cite>Set</cite> focusing on unique elements and <cite>Map</cite> associating elements with unique keys. Furthermore, the efficient membership testing and space efficiency of <cite>BitSet</cite> are mentioned as distinguishing factors.</p>
 </section>
 </section>
 <section id="stacks">
 <h2>Stacks<a class="headerlink" href="#stacks" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#stacks'">¶</a></h2>
-<div class="admonition-todo admonition" id="id12">
-<p class="admonition-title">Todo</p>
-<p>motivation</p>
-</div>
-<div class="admonition-todo admonition" id="id13">
-<p class="admonition-title">Todo</p>
-<p>example</p>
-</div>
-<div class="admonition-todo admonition" id="id14">
-<p class="admonition-title">Todo</p>
-<p>main methods</p>
-</div>
-<div class="admonition-todo admonition" id="id15">
-<p class="admonition-title">Todo</p>
-<p>sample implementation</p>
-</div>
-<p>In modern Java (Java 17), you can use the <cite>Deque</cite> interface and the <cite>ArrayDeque</cite> class to implement a LIFO stack.</p>
-<p>The <cite>Deque</cite> interface, short for “double-ended queue,” provides operations to add and remove elements from both ends of the queue. By using the <cite>push</cite> and <cite>pop</cite> methods of <cite>Deque</cite>, you can achieve LIFO behavior, similar to a stack.</p>
-<p>Here’s an example of using <cite>Deque</cite> and <cite>ArrayDeque</cite> as a LIFO stack:</p>
-<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.*</span><span class="p">;</span>
+<p>The Stack Abstract Data Type (ADT) is a collection that follows the Last-In-First-Out (LIFO) principle. It represents a stack of elements, where the most recently added element is the first one to be removed. The Stack ADT is widely used in various applications, offering an intuitive and efficient way to manage data.</p>
+<p>Imagine you’re working on a text editor, and you want to implement an “Undo” functionality that allows users to revert their recent changes. A stack can be the perfect solution. As users perform actions, such as typing, deleting, or formatting, each action can be pushed onto the stack. When the user triggers the “Undo” command, the most recent action is popped from the stack, undoing the corresponding change.</p>
+<section id="example-text-editor-undo-functionality">
+<h3>Example: Text Editor Undo Functionality<a class="headerlink" href="#example-text-editor-undo-functionality" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#example-text-editor-undo-functionality'">¶</a></h3>
+<p>Let’s consider a simple example of implementing the “Undo” functionality using a stack:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Deque</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">undoStack</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayStack</span><span class="o">&lt;&gt;</span><span class="p">();</span>
 
-<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Main</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">Deque</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">stack</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayDeque</span><span class="o">&lt;&gt;</span><span class="p">();</span>
-<span class="w">        </span><span class="n">stack</span><span class="p">.</span><span class="na">push</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
-<span class="w">        </span><span class="n">stack</span><span class="p">.</span><span class="na">push</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-<span class="w">        </span><span class="n">stack</span><span class="p">.</span><span class="na">push</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+<span class="c1">// User performs actions</span>
+<span class="n">undoStack</span><span class="p">.</span><span class="na">push</span><span class="p">(</span><span class="s">"Formatting change"</span><span class="p">);</span>
+<span class="n">undoStack</span><span class="p">.</span><span class="na">push</span><span class="p">(</span><span class="s">"Deletion"</span><span class="p">);</span>
+<span class="n">undoStack</span><span class="p">.</span><span class="na">push</span><span class="p">(</span><span class="s">"Typing"</span><span class="p">);</span>
 
-<span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">stack</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">stack</span><span class="p">.</span><span class="na">pop</span><span class="p">());</span><span class="w"> </span><span class="c1">// Output: 3, 2, 1</span>
+<span class="c1">// User triggers "Undo"</span>
+<span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">lastAction</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">undoStack</span><span class="p">.</span><span class="na">pop</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>In this example, we create a stack called <cite>undoStack</cite> using the <cite>ArrayStack</cite> implementation. As the user performs actions, such as formatting changes, deletions, and typing, each action is pushed onto the stack. When the “Undo” command is triggered, the most recent action is popped from the stack, allowing for the undoing of changes.</p>
+</section>
+<section id="example-balancing-parentheses">
+<h3>Example: Balancing Parentheses<a class="headerlink" href="#example-balancing-parentheses" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#example-balancing-parentheses'">¶</a></h3>
+<p>Let’s explore a practical example where the Stack ADT proves its usefulness. Consider the task of checking whether a given string containing parentheses is balanced or not. We can use a stack to solve this problem efficiently by tracking the opening and closing parentheses.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">isBalanced</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">input</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Deque</span><span class="o">&lt;</span><span class="n">Character</span><span class="o">&gt;</span><span class="w"> </span><span class="n">stack</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayDeque</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">input</span><span class="p">.</span><span class="na">toCharArray</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">c</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">'('</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">stack</span><span class="p">.</span><span class="na">push</span><span class="p">(</span><span class="n">c</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">c</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">')'</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">stack</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">()</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">stack</span><span class="p">.</span><span class="na">pop</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="sc">'('</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
 <span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">stack</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In this example, we use a stack to check the balance of parentheses in the <cite>isBalanced</cite> method. The method iterates over each character in the input string. If an opening parenthesis is encountered, it is pushed onto the stack. If a closing parenthesis is encountered, it is matched with the corresponding opening parenthesis from the stack. If the parentheses are balanced, the stack should be empty by the end.</p>
+</section>
+<section id="main-stack-api-methods">
+<h3>Main Stack API Methods<a class="headerlink" href="#main-stack-api-methods" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#main-stack-api-methods'">¶</a></h3>
+<p>The Stack ADT provides several essential methods to manipulate the stack:</p>
+<ul class="simple">
+<li><p><cite>push(element)</cite>: Adds the specified element to the top of the stack.</p></li>
+<li><p><cite>pop()</cite>: Removes and returns the element at the top of the stack.</p></li>
+<li><p><cite>peek()</cite>: Returns the element at the top of the stack without removing it.</p></li>
+<li><p><cite>isEmpty()</cite>: Checks if the stack is empty.</p></li>
+<li><p><cite>size()</cite>: Returns the number of elements in the stack.</p></li>
+<li><p><cite>clear()</cite>: Removes all elements from the stack.</p></li>
+</ul>
+</section>
+<section id="how-to-instantiate-a-stack">
+<h3>How to Instantiate a Stack<a class="headerlink" href="#how-to-instantiate-a-stack" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#how-to-instantiate-a-stack'">¶</a></h3>
+<p>In Java 17, you can instantiate a stack by utilizing the specific interfaces and implementations available in the <cite>java.util</cite> package. Here are a few common approaches:</p>
+<ol class="arabic">
+<li><p>Using <cite>Deque</cite> Interface with <cite>ArrayDeque</cite> Implementation:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Deque</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">stack</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayDeque</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+</pre></div>
+</div>
+</li>
+<li><p>Using <cite>LinkedList</cite> Class:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Deque</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">stack</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">LinkedList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p>In these examples, we use the <cite>Deque</cite> interface, which stands for “double-ended queue,” to represent a stack. Both <cite>ArrayDeque</cite> and <cite>LinkedList</cite> implement the <cite>Deque</cite> interface and can be used interchangeably as stack implementations.</p>
+<p>By utilizing the <cite>Deque</cite> interface, you can leverage the stack-specific methods such as <cite>push</cite>, <cite>pop</cite>, and <cite>peek</cite>, while also having access to additional functionality provided by the <cite>Deque</cite> interface, such as queue-like operations.</p>
+<p>Choosing between <cite>ArrayDeque</cite> and <cite>LinkedList</cite> depends on specific requirements. <cite>ArrayDeque</cite> typically provides better performance for most stack operations due to its array-based implementation, while <cite>LinkedList</cite> might be more suitable if you need efficient insertion and removal at both ends.</p>
+<p>Using the appropriate stack implementation ensures compatibility with the Java 17 API and enables you to benefit from the standardized stack behavior and functionality provided by the <cite>Deque</cite> interface.</p>
+</section>
+<section id="unit-testing-the-stack-api-methods">
+<h3>Unit Testing the Stack API Methods<a class="headerlink" href="#unit-testing-the-stack-api-methods" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#unit-testing-the-stack-api-methods'">¶</a></h3>
+<p>To ensure the correctness of your stack implementation, it is crucial to write comprehensive unit tests for each of the main API methods. Let’s explore how you can effectively test these methods:</p>
+<section id="testing-push-element">
+<h4>Testing <cite>push(element)</cite><a class="headerlink" href="#testing-push-element" title="Permalink to this heading">¶</a></h4>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Test</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">testPush</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Deque</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">stack</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayDeque</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+
+<span class="w">    </span><span class="n">stack</span><span class="p">.</span><span class="na">push</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<span class="w">    </span><span class="n">stack</span><span class="p">.</span><span class="na">push</span><span class="p">(</span><span class="mi">20</span><span class="p">);</span>
+<span class="w">    </span><span class="n">stack</span><span class="p">.</span><span class="na">push</span><span class="p">(</span><span class="mi">30</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">assertEquals</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="n">stack</span><span class="p">.</span><span class="na">peek</span><span class="p">());</span>
+<span class="w">    </span><span class="n">assertFalse</span><span class="p">(</span><span class="n">stack</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">());</span>
+<span class="w">    </span><span class="n">assertEquals</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">stack</span><span class="p">.</span><span class="na">size</span><span class="p">());</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In this test, we create a stack and push three elements onto it. We then assert that the top element is 30, the stack is not empty, and its size is 3.</p>
+</section>
+<section id="testing-pop">
+<h4>Testing <cite>pop()</cite><a class="headerlink" href="#testing-pop" title="Permalink to this heading">¶</a></h4>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Test</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">testPop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Deque</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">stack</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayDeque</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+
+<span class="w">    </span><span class="n">stack</span><span class="p">.</span><span class="na">push</span><span class="p">(</span><span class="s">"Apple"</span><span class="p">);</span>
+<span class="w">    </span><span class="n">stack</span><span class="p">.</span><span class="na">push</span><span class="p">(</span><span class="s">"Banana"</span><span class="p">);</span>
+<span class="w">    </span><span class="n">stack</span><span class="p">.</span><span class="na">push</span><span class="p">(</span><span class="s">"Orange"</span><span class="p">);</span>
+
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="n">poppedElement</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stack</span><span class="p">.</span><span class="na">pop</span><span class="p">();</span>
+
+<span class="w">    </span><span class="n">assertEquals</span><span class="p">(</span><span class="s">"Orange"</span><span class="p">,</span><span class="w"> </span><span class="n">poppedElement</span><span class="p">);</span>
+<span class="w">    </span><span class="n">assertEquals</span><span class="p">(</span><span class="s">"Banana"</span><span class="p">,</span><span class="w"> </span><span class="n">stack</span><span class="p">.</span><span class="na">peek</span><span class="p">());</span>
+<span class="w">    </span><span class="n">assertEquals</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">stack</span><span class="p">.</span><span class="na">size</span><span class="p">());</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In this test, we create a stack, push three elements onto it, and then pop the top element. We assert that the popped element is “Orange”, the new top element is “Banana”, and the stack size is reduced to 2.</p>
+</section>
+<section id="testing-peek">
+<h4>Testing <cite>peek()</cite><a class="headerlink" href="#testing-peek" title="Permalink to this heading">¶</a></h4>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Test</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">testPeek</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Deque</span><span class="o">&lt;</span><span class="n">Double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">stack</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayDeque</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+
+<span class="w">    </span><span class="n">stack</span><span class="p">.</span><span class="na">push</span><span class="p">(</span><span class="mf">3.14</span><span class="p">);</span>
+<span class="w">    </span><span class="n">stack</span><span class="p">.</span><span class="na">push</span><span class="p">(</span><span class="mf">2.71</span><span class="p">);</span>
+<span class="w">    </span><span class="n">stack</span><span class="p">.</span><span class="na">push</span><span class="p">(</span><span class="mf">1.618</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">assertEquals</span><span class="p">(</span><span class="mf">1.618</span><span class="p">,</span><span class="w"> </span><span class="n">stack</span><span class="p">.</span><span class="na">peek</span><span class="p">());</span>
+<span class="w">    </span><span class="n">assertEquals</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">stack</span><span class="p">.</span><span class="na">size</span><span class="p">());</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In this test, we create a stack, push three elements onto it, and then peek at the top element. We assert that the peeked element is 1.618 and that the stack size remains unchanged.</p>
+</section>
+<section id="testing-isempty">
+<h4>Testing <cite>isEmpty()</cite><a class="headerlink" href="#testing-isempty" title="Permalink to this heading">¶</a></h4>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Test</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">testIsEmpty</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Deque</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">stack</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayDeque</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+
+<span class="w">    </span><span class="n">assertTrue</span><span class="p">(</span><span class="n">stack</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">());</span>
+
+<span class="w">    </span><span class="n">stack</span><span class="p">.</span><span class="na">push</span><span class="p">(</span><span class="s">"Java"</span><span class="p">);</span>
+<span class="w">    </span><span class="n">assertFalse</span><span class="p">(</span><span class="n">stack</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">());</span>
+
+<span class="w">    </span><span class="n">stack</span><span class="p">.</span><span class="na">pop</span><span class="p">();</span>
+<span class="w">    </span><span class="n">assertTrue</span><span class="p">(</span><span class="n">stack</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">());</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In this test, we create a stack and verify its empty state at different stages. We assert that the stack is initially empty, becomes non-empty after pushing an element, and becomes empty again after popping all elements.</p>
+</section>
+<section id="testing-size">
+<h4>Testing <cite>size()</cite><a class="headerlink" href="#testing-size" title="Permalink to this heading">¶</a></h4>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Test</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">testSize</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Deque</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">stack</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayDeque</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+
+<span class="w">    </span><span class="n">assertEquals</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">stack</span><span class="p">.</span><span class="na">size</span><span class="p">());</span>
+
+<span class="w">    </span><span class="n">stack</span><span class="p">.</span><span class="na">push</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+<span class="w">    </span><span class="n">stack</span><span class="p">.</span><span class="na">push</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<span class="w">    </span><span class="n">stack</span><span class="p">.</span><span class="na">push</span><span class="p">(</span><span class="mi">15</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">assertEquals</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">stack</span><span class="p">.</span><span class="na">size</span><span class="p">());</span>
+
+<span class="w">    </span><span class="n">stack</span><span class="p">.</span><span class="na">pop</span><span class="p">();</span>
+<span class="w">    </span><span class="n">stack</span><span class="p">.</span><span class="na">pop</span><span class="p">();</span>
+
+<span class="w">    </span><span class="n">assertEquals</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">stack</span><span class="p">.</span><span class="na">size</span><span class="p">());</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In this test, we create a stack, add elements to it, and verify the size at different stages. We assert that the initial size is 0, increases as elements are pushed, and decreases as elements are popped.</p>
+<p>By writing comprehensive unit tests for each of the main stack API methods, you can ensure that your implementation behaves as expected and handles different scenarios correctly.</p>
+</section>
+</section>
+<section id="id10">
+<h3>Sample implementation<a class="headerlink" href="#id10" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id10'">¶</a></h3>
+<p>Here’s a simple implementation of the Stack ADT as a generic class based on arrays:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Stack</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Object</span><span class="o">[]</span><span class="w"> </span><span class="n">stack</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">top</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">DEFAULT_CAPACITY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">Stack</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">stack</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Object</span><span class="o">[</span><span class="n">DEFAULT_CAPACITY</span><span class="o">]</span><span class="p">;</span>
+<span class="w">        </span><span class="n">top</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">isEmpty</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">top</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">isFull</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">top</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">stack</span><span class="p">.</span><span class="na">length</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">push</span><span class="p">(</span><span class="n">E</span><span class="w"> </span><span class="n">element</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">isFull</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">resizeStack</span><span class="p">();</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="n">stack</span><span class="o">[++</span><span class="n">top</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">element</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">E</span><span class="w"> </span><span class="nf">pop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">isEmpty</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">RuntimeException</span><span class="p">(</span><span class="s">"Stack is empty"</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">E</span><span class="p">)</span><span class="w"> </span><span class="n">stack</span><span class="o">[</span><span class="n">top</span><span class="o">--]</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">E</span><span class="w"> </span><span class="nf">peek</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">isEmpty</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">RuntimeException</span><span class="p">(</span><span class="s">"Stack is empty"</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">E</span><span class="p">)</span><span class="w"> </span><span class="n">stack</span><span class="o">[</span><span class="n">top</span><span class="o">]</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">size</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">top</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">resizeStack</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">newCapacity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stack</span><span class="p">.</span><span class="na">length</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="w">        </span><span class="n">Object</span><span class="o">[]</span><span class="w"> </span><span class="n">newStack</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Object</span><span class="o">[</span><span class="n">newCapacity</span><span class="o">]</span><span class="p">;</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">arraycopy</span><span class="p">(</span><span class="n">stack</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">newStack</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">stack</span><span class="p">.</span><span class="na">length</span><span class="p">);</span>
+<span class="w">        </span><span class="n">stack</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">newStack</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>In this example, we create a <cite>Deque</cite> implementation using <cite>ArrayDeque</cite>. Elements are added to the stack using the <cite>push</cite> method, and they are removed using the <cite>pop</cite> method. The <cite>push</cite> operation adds elements to the top of the stack, and the <cite>pop</cite> operation removes and returns the topmost element.</p>
-<p>The output demonstrates the LIFO behavior of the stack, where elements <cite>3</cite>, <cite>2</cite>, and <cite>1</cite> are printed in reverse order.</p>
-<p>Using <cite>Deque</cite> with <cite>ArrayDeque</cite> for a LIFO stack provides efficient and convenient operations for adding and removing elements at the top of the stack. The <cite>ArrayDeque</cite> implementation offers good performance characteristics and can dynamically resize as needed to accommodate elements.</p>
-<p>It’s worth noting that using <cite>Deque</cite> instead of the legacy <cite>Stack</cite> class is recommended, as <cite>Stack</cite> is a subclass of <cite>Vector</cite>, which has certain synchronization overhead and is considered less efficient in modern Java applications.</p>
-<div class="admonition-todo admonition" id="id16">
-<p class="admonition-title">Todo</p>
-<p>key takeaways</p>
-</div>
+<p>In this revised implementation, the <cite>Stack</cite> class is now a generic class, allowing you to create stacks of any type. The key methods and functionalities remain the same as in the previous implementation.</p>
+<p>Note that when accessing elements from the stack array, we cast them to the generic type <cite>E</cite> using <cite>(E)</cite> to ensure type safety. Additionally, the stack array is initially created with a default capacity, but it dynamically resizes when it becomes full using the <cite>resizeStack()</cite> method.</p>
+<p>This updated implementation allows you to create stacks of various types and provides a more flexible and reusable stack ADT.</p>
+</section>
+<section id="id11">
+<h3>Key takeaways<a class="headerlink" href="#id11" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id11'">¶</a></h3>
+<ul class="simple">
+<li><p>The Stack ADT follows the Last-In-First-Out (LIFO) principle.</p></li>
+<li><p>It is commonly used for managing undo functionality, function call tracking, expression evaluation, and more.</p></li>
+<li><p>Important methods of the Stack ADT include <cite>push</cite>, <cite>pop</cite>, <cite>peek</cite>, <cite>isEmpty</cite>, <cite>size</cite>, and <cite>clear</cite>.</p></li>
+<li><p>Stacks can be instantiated using array-based or linked list-based implementations.</p></li>
+<li><p>The Stack ADT offers an intuitive way to manage data and solve various programming problems efficiently.</p></li>
+</ul>
+<p>Understanding the Stack ADT and its key properties empowers programmers to leverage its benefits in different applications, simplifying complex operations and improving overall code organization.</p>
+</section>
 </section>
 <section id="queues">
 <h2>Queues<a class="headerlink" href="#queues" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#queues'">¶</a></h2>
 <p>A queue is a type of linear data structure that follows a specific order in which the operations are performed. The order is First In First Out (FIFO). This means that the data item that’s been in the queue the longest is the first one to be removed, and when a new data item is added, it goes to the end of the queue.</p>
 <p>This is analogous to a real-life queue of people – people join the end of the queue and leave from the front. For example, in a line at a coffee shop, the first person who gets in line is the first person to get served and leave the line.</p>
-<section id="main-queue-operations">
-<h3>Main queue operations<a class="headerlink" href="#main-queue-operations" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#main-queue-operations'">¶</a></h3>
-<p>Here are the main operations on a queue:</p>
-<ul class="simple">
-<li><p><strong>Enqueue:</strong> Add an element to the end of the queue.</p></li>
-<li><p><strong>Dequeue:</strong> Remove an element from the front of the queue.</p></li>
-<li><p><strong>IsEmpty:</strong> Check if the queue is empty.</p></li>
-<li><p><strong>IsFull:</strong> Check if the queue is full.</p></li>
-<li><p><strong>Peek/Top:</strong> Get the value of the front of the queue without removing it.</p></li>
-</ul>
-</section>
-<section id="id17">
-<h3>Example<a class="headerlink" href="#id17" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id17'">¶</a></h3>
-<p>Here’s a simple example of a queue in Java using the LinkedList class which implements the Queue interface:</p>
-<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.LinkedList</span><span class="p">;</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Queue</span><span class="p">;</span>
+<section id="id12">
+<h3>Example<a class="headerlink" href="#id12" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id12'">¶</a></h3>
+<p>Consider a scenario where you are building a ticketing system for an event. Users line up to purchase tickets, and you need to manage their requests in the order they arrive. A queue can be an excellent solution. As users join the line, their requests are enqueued. When it’s time to process the requests, each user is dequeued, ensuring fairness and maintaining the order of requests.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Queue</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ticketQueue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">LinkedList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
 
-<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">QueueExample</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="n">Queue</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">queue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">LinkedList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="c1">// Users join the line</span>
+<span class="n">ticketQueue</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">"User1"</span><span class="p">);</span>
+<span class="n">ticketQueue</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">"User2"</span><span class="p">);</span>
+<span class="n">ticketQueue</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">"User3"</span><span class="p">);</span>
 
-<span class="w">        </span><span class="c1">// Enqueue items</span>
-<span class="w">        </span><span class="n">queue</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">"John"</span><span class="p">);</span>
-<span class="w">        </span><span class="n">queue</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">"Robert"</span><span class="p">);</span>
-<span class="w">        </span><span class="n">queue</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">"Adam"</span><span class="p">);</span>
-
-<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Queue: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">queue</span><span class="p">);</span>
-
-<span class="w">        </span><span class="c1">// Dequeue items</span>
-<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">queue</span><span class="p">.</span><span class="na">poll</span><span class="p">();</span>
-<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Dequeued: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">name</span><span class="p">);</span>
-<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Queue after dequeue: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">queue</span><span class="p">);</span>
-
-<span class="w">        </span><span class="c1">// Get the item at the front of the queue</span>
-<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">front</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">queue</span><span class="p">.</span><span class="na">peek</span><span class="p">();</span>
-<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"Front of queue: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">front</span><span class="p">);</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
+<span class="c1">// Processing requests</span>
+<span class="kd">var</span><span class="w"> </span><span class="n">firstUser</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ticketQueue</span><span class="p">.</span><span class="na">remove</span><span class="p">();</span>
 </pre></div>
 </div>
-<p>The <cite>java.util.Queue</cite> interface in Java provides various methods like <cite>add()</cite>, <cite>remove()</cite>, <cite>poll()</cite>, <cite>peek()</cite>, etc. that let you manipulate and access queue items.</p>
-<p>In terms of real-world usage, queues are used whenever we need to manage objects in order starting with the first one in. This could be as simple as managing the print jobs on a printer or as complex as managing the execution of tasks on a CPU. In a lot of these cases, the queue is actually a ‘priority queue’, meaning that each item has a priority and the item with the highest priority is removed before items of lower priority.</p>
+<p>In this example, we create a queue called ticketQueue using the LinkedList implementation. As users join the ticket line, their names are added to the queue using the add() method. When it’s time to process the ticket requests, the first user is dequeued from the queue using the remove() method, ensuring that the requests are handled in the order they arrived.</p>
+</section>
+<section id="main-queue-api-methods">
+<h3>Main Queue API Methods<a class="headerlink" href="#main-queue-api-methods" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#main-queue-api-methods'">¶</a></h3>
+<p>The Queue ADT provides several essential methods to manipulate the queue:</p>
+<ul class="simple">
+<li><p><cite>add(element)</cite>: Adds the specified element to the end of the queue.</p></li>
+<li><p><cite>remove()</cite>: Removes and returns the element at the front of the queue.</p></li>
+<li><p><cite>element()</cite>: Returns the element at the front of the queue without removing it.</p></li>
+<li><p><cite>offer(element)</cite>: Adds the specified element to the end of the queue (returns true if successful).</p></li>
+<li><p><cite>poll()</cite>: Removes and returns the element at the front of the queue (returns null if empty).</p></li>
+<li><p><cite>peek()</cite>: Returns the element at the front of the queue without removing it (returns null if empty).</p></li>
+<li><p><cite>isEmpty()</cite>: Checks if the queue is empty.</p></li>
+<li><p><cite>size()</cite>: Returns the number of elements in the queue.</p></li>
+<li><p><cite>clear()</cite>: Removes all elements from the queue.</p></li>
+</ul>
+</section>
+<section id="how-to-instantiate-a-queue">
+<h3>How to Instantiate a Queue<a class="headerlink" href="#how-to-instantiate-a-queue" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#how-to-instantiate-a-queue'">¶</a></h3>
+<p>In Java 17, you can instantiate a queue using specific interfaces and implementations from the <cite>java.util</cite> package. Here are a few common approaches:</p>
+<ol class="arabic simple">
+<li><p>Using <cite>Queue</cite> Interface with <cite>LinkedList</cite> Implementation:
+<code class="docutils literal notranslate"><span class="pre">`java</span>
+<span class="pre">Queue&lt;String&gt;</span> <span class="pre">queue</span> <span class="pre">=</span> <span class="pre">new</span> <span class="pre">LinkedList&lt;&gt;();</span>
+<span class="pre">`</span></code></p></li>
+<li><p>Using <cite>ArrayDeque</cite> Class:
+<code class="docutils literal notranslate"><span class="pre">`java</span>
+<span class="pre">Queue&lt;String&gt;</span> <span class="pre">queue</span> <span class="pre">=</span> <span class="pre">new</span> <span class="pre">ArrayDeque&lt;&gt;();</span>
+<span class="pre">`</span></code></p></li>
+<li><p>Using <cite>PriorityQueue</cite> Class (for priority-based queues):
+<code class="docutils literal notranslate"><span class="pre">`java</span>
+<span class="pre">Queue&lt;String&gt;</span> <span class="pre">queue</span> <span class="pre">=</span> <span class="pre">new</span> <span class="pre">PriorityQueue&lt;&gt;();</span>
+<span class="pre">`</span></code></p></li>
+</ol>
+<p>In these examples, we use the <cite>Queue</cite> interface to represent a queue. Both <cite>LinkedList</cite> and <cite>ArrayDeque</cite> implement the <cite>Queue</cite> interface and can be used interchangeably as queue implementations. The <cite>PriorityQueue</cite> class provides additional functionality for priority-based queues, where elements are ordered based on a specified priority.</p>
+<p>Using the appropriate queue implementation ensures compatibility with the Java 17 API and enables you to benefit from the standardized queue behavior and functionality provided by the <cite>Queue</cite> interface.</p>
 </section>
 <section id="unit-tests-for-the-queue-api">
 <h3>Unit tests for the Queue API<a class="headerlink" href="#unit-tests-for-the-queue-api" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#unit-tests-for-the-queue-api'">¶</a></h3>
@@ -1591,9 +2028,9 @@ The ArrayList is a dynamic data structure provided by the Java Collections Frame
 <p>In order to set up the state before each test, I’ve used the <cite>@BeforeEach</cite> annotation, which runs the setup method before each individual test. In this case, the setup method initializes a queue with the numbers 0 to 9.</p>
 <p>Remember that you’ll need to have JUnit in your project classpath to run these tests. If you’re using a build tool like Maven or Gradle, you can add JUnit as a dependency in your build file. If you’re not using a build tool, you can download JUnit and add it to your project classpath manually.</p>
 </section>
-<section id="id18">
-<h3>Sample implementation<a class="headerlink" href="#id18" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id18'">¶</a></h3>
-<p>Sure, I can provide an example of a simple Queue implementation using arrays. This version has a fixed capacity, but it would be a good starting point for teaching about Queues in a CS2 course. It implements the essential methods: <cite>add</cite>, <cite>remove</cite>, <cite>peek</cite>, and <cite>size</cite>.</p>
+<section id="id13">
+<h3>Sample implementation<a class="headerlink" href="#id13" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id13'">¶</a></h3>
+<p>Here is a simple Queue implementation using arrays. This version has a fixed capacity and implements the essential methods: <cite>add</cite>, <cite>remove</cite>, <cite>peek</cite>, and <cite>size</cite>.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ArrayQueue</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Object</span><span class="o">[]</span><span class="w"> </span><span class="n">elements</span><span class="p">;</span>
 <span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">front</span><span class="p">;</span>
@@ -1648,25 +2085,16 @@ The ArrayList is a dynamic data structure provided by the Java Collections Frame
 <p>This <cite>ArrayQueue</cite> class uses a circular array to store its elements. The <cite>front</cite> and <cite>back</cite> indices keep track of where to dequeue and enqueue elements, and they wrap around to the start of the array when they reach the end. The <cite>size</cite> field keeps track of the number of elements currently in the queue.</p>
 <p>This implementation throws an exception if you try to enqueue an element into a full queue or dequeue an element from an empty queue. In a real-world application, you might want to have the queue automatically expand its capacity when it gets full, but that’s a bit more complicated and might be better suited for a more advanced course.</p>
 </section>
-<section id="id19">
-<h3>Key takeaways<a class="headerlink" href="#id19" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id19'">¶</a></h3>
-<p>Sure, here are the key takeaways from our discussion of the Queue Abstract Data Type (ADT):</p>
-<ol class="arabic simple">
-<li><p>Definition and Properties: A queue is a linear data structure that follows a First In, First Out (FIFO) order for operations. This means that the element that is added first will be the first one to be removed.</p></li>
-<li><p>Use Cases: Queues are used when you need to manage objects in order starting with the first one in. They’re used in a variety of applications, from handling requests in a server, to algorithmic problems like breadth-first search in graphs, to real-world scenarios like managing a line of customers in a store.</p></li>
-<li><p>Operations: The main operations associated with a queue are:
-- <cite>add(element)</cite>: Add an element to the end of the queue.
-- <cite>remove()</cite>: Remove an element from the front of the queue.
-- <cite>peek()</cite>: Look at the front element of the queue without removing it.
-- <cite>isEmpty()</cite>: Check if the queue is empty.
-- <cite>size()</cite>: Get the number of elements in the queue.</p></li>
-<li><p>Implementations: We explored two ways to implement a queue in Java:
-- Using Java’s built-in LinkedList as the underlying storage: This way is straightforward because LinkedList directly supports add, remove, and peek operations that we need for a queue.
-- Using an array: We created a circular array-based implementation which is more complex but provides an understanding of the internal working of a queue.</p></li>
-<li><p>Limitations: We also discussed some limitations, such as the queue size being fixed in an array-based implementation. This can be overcome with a dynamic array or linked list implementation.</p></li>
-<li><p>Unit Testing: We also learned how to write unit tests for each operation in isolation using JUnit, ensuring that our queue implementation works correctly.</p></li>
-</ol>
-<p>Remember, understanding queue operations and when to use them is an essential part of mastering data structures, and queues are an integral tool for many computer science problems and applications.</p>
+<section id="id14">
+<h3>Key takeaways<a class="headerlink" href="#id14" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id14'">¶</a></h3>
+<ul class="simple">
+<li><p>The Queue ADT follows the First-In-First-Out (FIFO) principle.</p></li>
+<li><p>It is commonly used for managing tasks, message processing, event handling, and more.</p></li>
+<li><p>Important methods of the Queue ADT include <cite>add</cite>, <cite>remove</cite>, <cite>element</cite>, <cite>offer</cite>, <cite>poll</cite>, <cite>peek</cite>, <cite>isEmpty</cite>, <cite>size</cite>, and <cite>clear</cite>.</p></li>
+<li><p>Queues can be instantiated using <cite>LinkedList</cite>, <cite>ArrayDeque</cite>, or <cite>PriorityQueue</cite> based on specific requirements.</p></li>
+<li><p>The Queue ADT ensures fairness, preserves order, and provides efficient data management capabilities.</p></li>
+</ul>
+<p>Understanding the Queue ADT and its key properties empowers programmers to utilize queues effectively in various applications, ensuring proper order and efficient processing of elements.</p>
 </section>
 <section id="a-unified-view-of-restricted-access-data-structures">
 <h3>A unified view of restricted-access data structures<a class="headerlink" href="#a-unified-view-of-restricted-access-data-structures" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#a-unified-view-of-restricted-access-data-structures'">¶</a></h3>
@@ -1697,14 +2125,11 @@ The ArrayList is a dynamic data structure provided by the Java Collections Frame
 </section>
 <section id="putting-everything-together-maze-solver">
 <h3>Putting everything together: maze solver<a class="headerlink" href="#putting-everything-together-maze-solver" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#putting-everything-together-maze-solver'">¶</a></h3>
-<div class="admonition-todo admonition" id="id20">
+<div class="admonition-todo admonition" id="id15">
 <p class="admonition-title">Todo</p>
 <p>extended example</p>
 </div>
 <hr class="docutils"/>
-<section id="content-below-here-to-be-organized-later">
-<h4><em>CONTENT BELOW HERE TO BE ORGANIZED LATER</em><a class="headerlink" href="#content-below-here-to-be-organized-later" title="Permalink to this heading">¶</a></h4>
-</section>
 </section>
 </section>
 <section id="top-15-cs2-topics-as-opposed-to-cs7">
@@ -1736,7 +2161,7 @@ The ArrayList is a dynamic data structure provided by the Java Collections Frame
 <p>The exact order and selection of these topics may vary depending on the specific course and curriculum guidelines. Also, real-life examples and problem-solving exercises should be included to apply these data structures and concepts. The complexity and depth of these topics will increase when students move on to more advanced courses like CS7.</p>
 <section id="cs2-at-loyola-current-topics-and-learning-outcomes">
 <h3>CS2 at Loyola: Current topics and learning outcomes<a class="headerlink" href="#cs2-at-loyola-current-topics-and-learning-outcomes" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#cs2-at-loyola-current-topics-and-learning-outcomes'">¶</a></h3>
-<div class="admonition-todo admonition" id="id21">
+<div class="admonition-todo admonition" id="id16">
 <p class="admonition-title">Todo</p>
 <p>Update as needed.</p>
 </div>
@@ -2311,8 +2736,8 @@ Balto says: Howl!
 <p>Subtyping is an important concept in object-oriented programming and is closely related to inheritance. It allows for the substitution of objects of one class with objects of another class that is derived from or related to the former class.</p>
 <p>Subtyping enables polymorphism and supports the “is-a” relationship between classes. It allows objects of a derived class to be treated as objects of their parent class, providing flexibility and extensibility in program design. By leveraging subtyping, code can be written in a way that is more generic and adaptable to different types of objects.</p>
 <p>In the context of CS2, subtyping is a significant aspect of understanding inheritance and polymorphism. It enables students to create class hierarchies, define relationships between classes, and utilize the principles of code reuse and abstraction. By grasping the concept of subtyping, students can effectively design and implement object-oriented programs that utilize inheritance and polymorphism to their full potential.</p>
-<table class="docutils align-default" id="id23">
-<caption><span class="caption-text">Comparison between type hierarchy relationships</span><a class="headerlink" href="#id23" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id19">
+<caption><span class="caption-text">Comparison between type hierarchy relationships</span><a class="headerlink" href="#id19" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 33%"/>
 <col style="width: 33%"/>
@@ -2539,8 +2964,8 @@ Balto says: Howl!
 </pre></div>
 </div>
 <p>This example demonstrates how the <cite>Car</cite> object composes the <cite>Engine</cite> and <cite>Wheel</cite> objects, utilizing their behaviors and encapsulating them within its own functionality.</p>
-<table class="docutils align-default" id="id24">
-<caption><span class="caption-text">Comparison among object relationships</span><a class="headerlink" href="#id24" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id20">
+<caption><span class="caption-text">Comparison among object relationships</span><a class="headerlink" href="#id20" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 25%"/>
 <col style="width: 25%"/>
@@ -2693,8 +3118,8 @@ Balto says: Howl!
 <p>If you have any further questions or need additional clarification, please let me know!</p>
 </section>
 </section>
-<section id="id22">
-<h2>Maps<a class="headerlink" href="#id22" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id22'">¶</a></h2>
+<section id="id17">
+<h2>Maps<a class="headerlink" href="#id17" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id17'">¶</a></h2>
 <p><em>Which is the Swiss army knife of data structures?</em></p>
 <p>The “Swiss army knife” of data structures is often considered to be the “Array.” Arrays are versatile and widely used data structures that offer flexibility in storing and accessing elements.</p>
 <p>Here are some reasons why arrays can be considered the Swiss army knife of data structures:</p>
@@ -2723,6 +3148,10 @@ Balto says: Howl!
 </ol>
 <p>By utilizing lists, you gain the advantages of a dynamic and flexible data structure that can handle a wide range of element types and provide efficient operations for adding, removing, and accessing elements.</p>
 <p>If you have any further questions or need additional information, feel free to ask!</p>
+<div class="admonition-todo admonition" id="id18">
+<p class="admonition-title">Todo</p>
+<p>move to SE course?</p>
+</div>
 </section>
 <section id="software-engineering-principles">
 <h2>Software engineering principles<a class="headerlink" href="#software-engineering-principles" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#software-engineering-principles'">¶</a></h2>
@@ -2745,7 +3174,8 @@ Balto says: Howl!
 <div class="sticky top-16 -mt-10 max-h-[calc(var(--vh)-4rem)] overflow-y-auto pt-6 space-y-2"><p class="font-medium">On this page</p>
 <ul>
 <li><a :data-current="activeSection === '#top-15-topics-in-cs2-curricula'" class="reference internal" href="#top-15-topics-in-cs2-curricula">Top 15 topics in CS2 curricula?</a></li>
-<li><a :data-current="activeSection === '#the-curated-short-list-of-top-10-topics-in-order'" class="reference internal" href="#the-curated-short-list-of-top-10-topics-in-order">The curated short list of top 10 topics in order</a></li>
+<li><a :data-current="activeSection === '#the-curated-short-list-of-top-15-main-topics-in-order'" class="reference internal" href="#the-curated-short-list-of-top-15-main-topics-in-order">The curated short list of top 15 main topics in order</a></li>
+<li><a :data-current="activeSection === '#overview-of-cross-cutting-topics'" class="reference internal" href="#overview-of-cross-cutting-topics">Overview of cross-cutting topics</a></li>
 <li><a :data-current="activeSection === '#transition-from-cs1-conditionals-loops-arrays-and-unit-testing'" class="reference internal" href="#transition-from-cs1-conditionals-loops-arrays-and-unit-testing">Transition from CS1: conditionals, loops, arrays, and unit testing</a></li>
 <li><a :data-current="activeSection === '#programmer-defined-types'" class="reference internal" href="#programmer-defined-types">Programmer-defined types</a><ul>
 <li><a :data-current="activeSection === '#limitations-of-primitive-types'" class="reference internal" href="#limitations-of-primitive-types">Limitations of primitive types</a></li>
@@ -2753,49 +3183,72 @@ Balto says: Howl!
 <li><a :data-current="activeSection === '#aggregating-values-using-records'" class="reference internal" href="#aggregating-values-using-records">Aggregating values using records</a></li>
 <li><a :data-current="activeSection === '#classes-with-mutable-state'" class="reference internal" href="#classes-with-mutable-state">Classes with mutable state</a></li>
 <li><a :data-current="activeSection === '#abstract-data-types-adts'" class="reference internal" href="#abstract-data-types-adts">Abstract data types (ADTs)</a></li>
-</ul>
-</li>
-<li><a :data-current="activeSection === '#lists'" class="reference internal" href="#lists">Lists</a><ul>
-<li><a :data-current="activeSection === '#main-methods-of-the-list-adt'" class="reference internal" href="#main-methods-of-the-list-adt">Main methods of the List ADT</a></li>
-<li><a :data-current="activeSection === '#example'" class="reference internal" href="#example">Example</a></li>
-<li><a :data-current="activeSection === '#unit-tests-for-the-list-api'" class="reference internal" href="#unit-tests-for-the-list-api">Unit tests for the List API</a></li>
-</ul>
-</li>
-<li><a :data-current="activeSection === '#array-based-lists'" class="reference internal" href="#array-based-lists">Array-based lists</a><ul>
-<li><a :data-current="activeSection === '#id4'" class="reference internal" href="#id4">Example</a></li>
-<li><a :data-current="activeSection === '#arrays-vs-array-based-lists'" class="reference internal" href="#arrays-vs-array-based-lists">Arrays vs. array-based lists</a></li>
-<li><a :data-current="activeSection === '#how-to-instantiate-arraylist'" class="reference internal" href="#how-to-instantiate-arraylist">How to instantiate ArrayList</a></li>
-<li><a :data-current="activeSection === '#sample-implementation'" class="reference internal" href="#sample-implementation">Sample implementation</a></li>
-</ul>
-</li>
-<li><a :data-current="activeSection === '#maps'" class="reference internal" href="#maps">Maps</a><ul>
-<li><a :data-current="activeSection === '#id6'" class="reference internal" href="#id6">Example</a></li>
-<li><a :data-current="activeSection === '#the-java-map-api'" class="reference internal" href="#the-java-map-api">The Java Map API</a></li>
-<li><a :data-current="activeSection === '#unit-tests-for-the-map-api'" class="reference internal" href="#unit-tests-for-the-map-api">Unit tests for the Map API</a></li>
-<li><a :data-current="activeSection === '#id8'" class="reference internal" href="#id8">Sample implementation</a></li>
 <li><a :data-current="activeSection === '#key-takeaways'" class="reference internal" href="#key-takeaways">Key takeaways</a></li>
 </ul>
 </li>
+<li><a :data-current="activeSection === '#lists'" class="reference internal" href="#lists">Lists</a><ul>
+<li><a :data-current="activeSection === '#immutable-lists'" class="reference internal" href="#immutable-lists">Immutable lists</a></li>
+<li><a :data-current="activeSection === '#unit-tests-for-unmodifiable-lists'" class="reference internal" href="#unit-tests-for-unmodifiable-lists">Unit tests for unmodifiable lists</a></li>
+<li><a :data-current="activeSection === '#main-methods-of-the-list-adt'" class="reference internal" href="#main-methods-of-the-list-adt">Main methods of the List ADT</a></li>
+<li><a :data-current="activeSection === '#how-to-create-mutable-list-instances'" class="reference internal" href="#how-to-create-mutable-list-instances">How to create mutable List instances</a></li>
+<li><a :data-current="activeSection === '#unit-tests-for-the-full-list-api'" class="reference internal" href="#unit-tests-for-the-full-list-api">Unit tests for the full List API</a></li>
+</ul>
+</li>
+<li><a :data-current="activeSection === '#array-based-lists'" class="reference internal" href="#array-based-lists">Array-based lists</a><ul>
+<li><a :data-current="activeSection === '#example'" class="reference internal" href="#example">Example</a></li>
+<li><a :data-current="activeSection === '#arrays-vs-array-based-lists'" class="reference internal" href="#arrays-vs-array-based-lists">Arrays vs. array-based lists</a></li>
+<li><a :data-current="activeSection === '#id1'" class="reference internal" href="#id1">Example</a></li>
+<li><a :data-current="activeSection === '#performance-of-arraylist-methods'" class="reference internal" href="#performance-of-arraylist-methods">Performance of ArrayList methods</a></li>
+<li><a :data-current="activeSection === '#how-to-instantiate-arraylist'" class="reference internal" href="#how-to-instantiate-arraylist">How to instantiate ArrayList</a></li>
+<li><a :data-current="activeSection === '#sample-implementation'" class="reference internal" href="#sample-implementation">Sample implementation</a></li>
+<li><a :data-current="activeSection === '#id2'" class="reference internal" href="#id2">Key takeaways</a></li>
+</ul>
+</li>
+<li><a :data-current="activeSection === '#maps'" class="reference internal" href="#maps">Maps</a><ul>
+<li><a :data-current="activeSection === '#id3'" class="reference internal" href="#id3">Example</a></li>
+<li><a :data-current="activeSection === '#the-java-map-api'" class="reference internal" href="#the-java-map-api">The Java Map API</a></li>
+<li><a :data-current="activeSection === '#how-to-create-map-instances'" class="reference internal" href="#how-to-create-map-instances">How to create Map instances</a></li>
+<li><a :data-current="activeSection === '#unit-tests-for-the-map-api'" class="reference internal" href="#unit-tests-for-the-map-api">Unit tests for the Map API</a></li>
+<li><a :data-current="activeSection === '#id5'" class="reference internal" href="#id5">Sample implementation</a></li>
+<li><a :data-current="activeSection === '#id6'" class="reference internal" href="#id6">Key takeaways</a></li>
+</ul>
+</li>
 <li><a :data-current="activeSection === '#sets'" class="reference internal" href="#sets">Sets</a><ul>
-<li><a :data-current="activeSection === '#id9'" class="reference internal" href="#id9">Example</a></li>
+<li><a :data-current="activeSection === '#id7'" class="reference internal" href="#id7">Example</a></li>
 <li><a :data-current="activeSection === '#the-java-set-api'" class="reference internal" href="#the-java-set-api">The Java Set API</a></li>
+<li><a :data-current="activeSection === '#how-to-create-set-instances'" class="reference internal" href="#how-to-create-set-instances">How to create Set instances</a></li>
 <li><a :data-current="activeSection === '#unit-tests-for-the-set-api'" class="reference internal" href="#unit-tests-for-the-set-api">Unit tests for the Set API</a></li>
-<li><a :data-current="activeSection === '#id10'" class="reference internal" href="#id10">Sample implementation</a></li>
+<li><a :data-current="activeSection === '#id8'" class="reference internal" href="#id8">Sample implementation</a></li>
 <li><a :data-current="activeSection === '#bitsets'" class="reference internal" href="#bitsets">Bitsets</a></li>
+<li><a :data-current="activeSection === '#id9'" class="reference internal" href="#id9">Key takeaways</a></li>
 </ul>
 </li>
-<li><a :data-current="activeSection === '#stacks'" class="reference internal" href="#stacks">Stacks</a></li>
+<li><a :data-current="activeSection === '#stacks'" class="reference internal" href="#stacks">Stacks</a><ul>
+<li><a :data-current="activeSection === '#example-text-editor-undo-functionality'" class="reference internal" href="#example-text-editor-undo-functionality">Example: Text Editor Undo Functionality</a></li>
+<li><a :data-current="activeSection === '#example-balancing-parentheses'" class="reference internal" href="#example-balancing-parentheses">Example: Balancing Parentheses</a></li>
+<li><a :data-current="activeSection === '#main-stack-api-methods'" class="reference internal" href="#main-stack-api-methods">Main Stack API Methods</a></li>
+<li><a :data-current="activeSection === '#how-to-instantiate-a-stack'" class="reference internal" href="#how-to-instantiate-a-stack">How to Instantiate a Stack</a></li>
+<li><a :data-current="activeSection === '#unit-testing-the-stack-api-methods'" class="reference internal" href="#unit-testing-the-stack-api-methods">Unit Testing the Stack API Methods</a><ul>
+<li><a :data-current="activeSection === '#testing-push-element'" class="reference internal" href="#testing-push-element">Testing <cite>push(element)</cite></a></li>
+<li><a :data-current="activeSection === '#testing-pop'" class="reference internal" href="#testing-pop">Testing <cite>pop()</cite></a></li>
+<li><a :data-current="activeSection === '#testing-peek'" class="reference internal" href="#testing-peek">Testing <cite>peek()</cite></a></li>
+<li><a :data-current="activeSection === '#testing-isempty'" class="reference internal" href="#testing-isempty">Testing <cite>isEmpty()</cite></a></li>
+<li><a :data-current="activeSection === '#testing-size'" class="reference internal" href="#testing-size">Testing <cite>size()</cite></a></li>
+</ul>
+</li>
+<li><a :data-current="activeSection === '#id10'" class="reference internal" href="#id10">Sample implementation</a></li>
+<li><a :data-current="activeSection === '#id11'" class="reference internal" href="#id11">Key takeaways</a></li>
+</ul>
+</li>
 <li><a :data-current="activeSection === '#queues'" class="reference internal" href="#queues">Queues</a><ul>
-<li><a :data-current="activeSection === '#main-queue-operations'" class="reference internal" href="#main-queue-operations">Main queue operations</a></li>
-<li><a :data-current="activeSection === '#id17'" class="reference internal" href="#id17">Example</a></li>
+<li><a :data-current="activeSection === '#id12'" class="reference internal" href="#id12">Example</a></li>
+<li><a :data-current="activeSection === '#main-queue-api-methods'" class="reference internal" href="#main-queue-api-methods">Main Queue API Methods</a></li>
+<li><a :data-current="activeSection === '#how-to-instantiate-a-queue'" class="reference internal" href="#how-to-instantiate-a-queue">How to Instantiate a Queue</a></li>
 <li><a :data-current="activeSection === '#unit-tests-for-the-queue-api'" class="reference internal" href="#unit-tests-for-the-queue-api">Unit tests for the Queue API</a></li>
-<li><a :data-current="activeSection === '#id18'" class="reference internal" href="#id18">Sample implementation</a></li>
-<li><a :data-current="activeSection === '#id19'" class="reference internal" href="#id19">Key takeaways</a></li>
+<li><a :data-current="activeSection === '#id13'" class="reference internal" href="#id13">Sample implementation</a></li>
+<li><a :data-current="activeSection === '#id14'" class="reference internal" href="#id14">Key takeaways</a></li>
 <li><a :data-current="activeSection === '#a-unified-view-of-restricted-access-data-structures'" class="reference internal" href="#a-unified-view-of-restricted-access-data-structures">A unified view of restricted-access data structures</a></li>
-<li><a :data-current="activeSection === '#putting-everything-together-maze-solver'" class="reference internal" href="#putting-everything-together-maze-solver">Putting everything together: maze solver</a><ul>
-<li><a :data-current="activeSection === '#content-below-here-to-be-organized-later'" class="reference internal" href="#content-below-here-to-be-organized-later"><em>CONTENT BELOW HERE TO BE ORGANIZED LATER</em></a></li>
-</ul>
-</li>
+<li><a :data-current="activeSection === '#putting-everything-together-maze-solver'" class="reference internal" href="#putting-everything-together-maze-solver">Putting everything together: maze solver</a></li>
 </ul>
 </li>
 <li><a :data-current="activeSection === '#top-15-cs2-topics-as-opposed-to-cs7'" class="reference internal" href="#top-15-cs2-topics-as-opposed-to-cs7">Top 15 CS2 topics as opposed to CS7</a><ul>
@@ -2819,7 +3272,7 @@ Balto says: Howl!
 <li><a :data-current="activeSection === '#only-observable-relationships-matter'" class="reference internal" href="#only-observable-relationships-matter">Only observable relationships matter</a></li>
 </ul>
 </li>
-<li><a :data-current="activeSection === '#id22'" class="reference internal" href="#id22">Maps</a></li>
+<li><a :data-current="activeSection === '#id17'" class="reference internal" href="#id17">Maps</a></li>
 <li><a :data-current="activeSection === '#software-engineering-principles'" class="reference internal" href="#software-engineering-principles">Software engineering principles</a><ul>
 <li><a :data-current="activeSection === '#what-does-beautiful-code-look-like-in-the-context-of-a-cs2-course'" class="reference internal" href="#what-does-beautiful-code-look-like-in-the-context-of-a-cs2-course">What does beautiful code look like in the context of a CS2 course?</a></li>
 </ul>

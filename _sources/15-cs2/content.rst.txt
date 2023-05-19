@@ -54,8 +54,10 @@ Please note that this list is not exhaustive, and the topics covered in a specif
 .. note:: Konstantin will take it from here.
 
 
-The curated short list of top 10 topics in order
-------------------------------------------------
+The curated short list of top 15 main topics in order
+-----------------------------------------------------
+
+In the Data Structures 1 course, we will focus on the following main topics:
 
 1. Transition from CS1
 2. Programmer-defined types
@@ -68,10 +70,39 @@ The curated short list of top 10 topics in order
 9. Searching
 10. Sorting
 11. Linked lists
-12. Trees and search trees
-13. Hash tables
+12. Trees
+13. Search trees
+14. Hash tables
 
-.. todo:: separate list cross-cutting topics
+In addition, we will incorporate elements of the following cross-cutting topics throughout our coverage of the main topics:
+
+- Problem solving and program correctness
+- Algorithm analysis and performance
+- Design principles and patterns
+- Advanced programming techniques
+- Tools
+
+
+Overview of cross-cutting topics
+--------------------------------
+
+Cross-cutting topics in a curriculum are those that span multiple areas of study or are applicable to a variety of specific topics. In the context of a CS2 course focused on data structures, these topics often include general principles and methodologies rather than specific technologies or structures. 
+
+Certainly! Here are summaries for each of the cross-cutting topics:
+
+1. **Problem Solving and Program Correctness**: Problem solving and program correctness encompass techniques and approaches to effectively analyze and solve problems in programming. It involves understanding the problem domain, breaking down complex problems into manageable components, designing appropriate algorithms, and ensuring the correctness of program logic. Emphasizing problem-solving skills and program correctness helps students develop systematic thinking, error prevention, and the ability to write robust and reliable code.
+
+2. **Algorithm Analysis and Performance**: Algorithm analysis and performance focus on evaluating the efficiency and performance characteristics of algorithms. Students learn techniques to measure and analyze the time complexity, space complexity, and other performance metrics of algorithms. Understanding algorithm analysis enables students to make informed decisions about choosing the most efficient algorithms for specific tasks and provides a foundation for optimizing code performance.
+
+3. **Design Principles and Patterns**: Design principles and patterns introduce students to fundamental principles of software design and commonly used design patterns. They emphasize concepts like encapsulation, modularity, reusability, and maintainability. By learning design principles and patterns, students gain insights into designing flexible, modular, and extensible software systems. They also learn how to apply proven solutions to recurring design problems, promoting code organization, and facilitating better software architecture.
+
+4. **Advanced Programming Techniques**: Advanced programming techniques encompass a range of advanced concepts and techniques that go beyond the basics of programming. This may include topics such as exception handling, input/output operations, concurrency, multithreading, generics, functional programming concepts, and more. Covering advanced programming techniques helps students expand their programming repertoire, enabling them to tackle complex problems, write more efficient code, and leverage language features and tools effectively.
+
+5. **Tools**: Tools refer to the software development tools that aid programmers in various aspects of the development process. This includes integrated development environments (IDEs), version control systems (e.g., Git), build tools (e.g., Gradle, Maven), debugging tools, testing frameworks, and other software development utilities. Teaching students about relevant tools equips them with the necessary skills to efficiently write, test, debug, and maintain code, enhancing their productivity and collaboration capabilities.
+
+By incorporating these cross-cutting topics into the curriculum, students gain a well-rounded understanding of programming principles, best practices, and techniques that can be applied across different programming domains. This broadens their skill set, fosters better code quality, and prepares them to tackle real-world programming challenges.
+
+While it's important to study specific data structures like those listed above, these cross-cutting topics provide a framework for understanding how to use those structures effectively and efficiently. They will be revisited and applied repeatedly throughout both this course and subsequent computer science courses.
 
 
 Transition from CS1: conditionals, loops, arrays, and unit testing
@@ -552,7 +583,20 @@ For example, consider the ADT of a List. A List ADT might specify operations suc
 The main advantage of using ADTs is that they provide a way to separate the concerns of what data a program is working with and how that data is stored and manipulated. This makes programs easier to understand, write, and debug. It also enables greater reusability of code, as the same ADT can be used in multiple different programs or parts of a program.
 
 
-.. todo:: key takeaways
+Key takeaways
+^^^^^^^^^^^^^
+
+The key takeaways from a discussion of programmer-defined types, including enums, records, classes, and abstract data types (ADTs), are as follows:
+
+1. **Enums**: Enums are used to represent a fixed set of values or constants. They provide a way to define a specific type with a limited number of valid values. Enums are useful for modeling concepts that have a finite set of options, such as days of the week or status codes. They enhance code clarity, readability, and type safety by providing named values.
+
+2. **Records**: Records are a newer addition to Java (introduced in Java 14) and provide a concise way to define classes that primarily store data. They automatically generate appropriate constructors, accessors, and `equals()`, `hashCode()`, and `toString()` methods based on the fields defined in the record. Records are a convenient choice when creating data-centric classes with minimal behavior.
+
+3. **Classes**: Classes are the fundamental building blocks of object-oriented programming. They encapsulate data and behavior within a single unit. Classes allow for the definition of fields (data) and methods (behavior) and support concepts like inheritance, polymorphism, and encapsulation. They provide a flexible way to model real-world entities and implement complex functionality.
+
+4. **Abstract Data Types (ADTs)**: ADTs represent a higher-level concept that focuses on the behavior and operations of a data structure rather than its implementation details. ADTs define a set of operations that can be performed on a data structure without exposing its internal representation. They abstract away the implementation and allow users to interact with the data structure through well-defined interfaces. ADTs can be implemented using classes or interfaces, providing a level of abstraction and modularity in software design.
+
+Key takeaways include understanding the different types available for defining and modeling data structures and concepts, as well as their specific use cases. Enums provide a way to represent fixed sets of values, records offer a concise way to define data-centric classes, classes provide the foundation for object-oriented programming, and ADTs enable abstraction and modularity in software design. Utilizing these types appropriately can lead to more expressive, maintainable, and efficient code.
 
 
 Lists
@@ -574,12 +618,73 @@ It's important to note that the list ADT is an abstract concept and does not spe
 
 The list ADT serves as a fundamental data structure, and students learn about the essential operations and characteristics associated with lists. They explore different implementations and gain an understanding of the trade-offs and performance implications of each implementation choice.
 
+
+Immutable lists
+^^^^^^^^^^^^^^^
+
+The `List.of` factory method provides a convenient way to create immutable lists. It returns an immutable `List` instance that cannot be modified, making it useful for scenarios where you want to ensure immutability or create a fixed set of elements.
+
+To use the `List.of` factory method, you can directly call it and provide the elements as arguments. Here's an example:
+
+.. code-block:: java
+
+    import java.util.List;
+
+    List<String> fruits = List.of("Apple", "Banana", "Orange");
+
+In this example, the `List.of` factory method creates an immutable `List` containing the specified elements `"Apple"`, `"Banana"`, and `"Orange"`. The returned list cannot be modified, so any attempts to add, remove, or modify elements will result in an `UnsupportedOperationException`.
+
+It's important to note that the `List.of` factory method creates an immutable list, meaning you cannot modify its contents after creation. If you need a mutable list that allows modifications, you should use one of the implementations I mentioned earlier, such as `ArrayList`, `LinkedList`, or `CopyOnWriteArrayList`.
+
+The `List.of` factory method provides a concise and readable way to create immutable lists in Java, promoting immutability and ensuring data integrity in scenarios where you don't need to modify the list once it's created.
+
+
+Unit tests for unmodifiable lists
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The `List.of()` method returns an unmodifiable list that does not support the `add` and `remove` operations. Here's an example of unit tests using the `List.of()` factory method to demonstrate the behavior of other methods in the List API:
+
+.. code-block:: java
+
+    import java.util.List;
+    import java.util.Arrays;
+
+    import static org.junit.Assert.*;
+    import org.junit.Test;
+
+    public class ListApiTest {
+
+        @Test
+        public void testGet() {
+            List<String> list = List.of("Apple", "Banana", "Orange");
+            assertEquals("Banana", list.get(1));
+        }
+
+        @Test
+        public void testContains() {
+            List<String> list = List.of("Apple", "Banana", "Orange");
+            assertTrue(list.contains("Apple"));
+            assertFalse(list.contains("Mango"));
+        }
+
+        @Test
+        public void testSize() {
+            List<String> list = List.of("Apple", "Banana", "Orange");
+            assertEquals(3, list.size());
+        }
+    }
+
+These unit tests focus on the methods that are supported by the `List.of()` factory method, such as `get`, `contains`, and `size`. These tests verify the expected behavior of these methods with an immutable list returned by `List.of()`. The tests ensure that the elements can be retrieved by index, the presence of specific elements can be checked, and the size of the list is correct.
+
+It's important to note that the `List.of()` method returns an unmodifiable list, which limits the ability to perform certain operations like adding or removing elements.
+
+
 Main methods of the List ADT
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. What are the top 10 methods for using the list interface in Java 17?
 
-Sure, here are the top 10 methods that you will commonly use when working with a List in Java:
+Here are the top 10 methods that you will commonly use when working more generally with a mutable List implementation in Java:
 
 1. `boolean add(E e)`: Appends the specified element to the end of the list. This method returns `true` if the element was added successfully.
 
@@ -604,79 +709,60 @@ Sure, here are the top 10 methods that you will commonly use when working with a
 These methods cover the most common operations you'll perform on a List: adding elements, removing elements, getting or setting the value of an element, checking the size, and checking if an element is present in the List.
 
 
-Example
-^^^^^^^
+How to create mutable List instances
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Here is an example of using each of these List methods with randomly generated data:
+In Java, the `List` interface is an interface and cannot be directly instantiated. However, you can create an instance of a class that implements the `List` interface. Here are a few examples of commonly used implementations of the `List` interface and how to instantiate them:
+
+1. **ArrayList**:
 
 .. code-block:: java
 
-    import java.util.*;
+    import java.util.List;
+    import java.util.ArrayList;
 
-    public class Main {
-        public static void main(final String[] args) {
-            final var list = new ArrayList<Integer>();
-            final var random = new Random();
+    List<String> arrayList = new ArrayList<>();
 
-            // 1. add(E e)
-            for (int i = 0; i < 10; i++) {
-                final var numberToAdd = random.nextInt(100);
-                list.add(numberToAdd);
-                System.out.println("Added " + numberToAdd);
-            }
+In this example, an instance of `ArrayList` is created and assigned to the `List<String>` variable `arrayList`. `ArrayList` is a resizable array-based implementation of the `List` interface.
 
-            // 2. add(int index, E element)
-            final var indexToAddAt = random.nextInt(list.size());
-            final var numberToAddAtIndex = random.nextInt(100);
-            list.add(indexToAddAt, numberToAddAtIndex);
-            System.out.println("Added " + numberToAddAtIndex + " at index " + indexToAddAt);
+2. **LinkedList**:
 
-            // 3. get(int index)
-            final var indexToGet = random.nextInt(list.size());
-            System.out.println("Element at index " + indexToGet + " is " + list.get(indexToGet));
+.. code-block:: java
 
-            // 4. remove(int index)
-            final var indexToRemove = random.nextInt(list.size());
-            System.out.println("Removed element " + list.remove(indexToRemove) + " at index " + indexToRemove);
+    import java.util.List;
+    import java.util.LinkedList;
 
-            // 5. remove(Object o)
-            final var numberToRemove = list.get(random.nextInt(list.size()));
-            final var removalSuccessful = list.remove(Integer.valueOf(numberToRemove));
-            if (removalSuccessful) {
-                System.out.println("Successfully removed " + numberToRemove);
-            } else {
-                System.out.println("Failed to remove " + numberToRemove);
-            }
+    List<String> linkedList = new LinkedList<>();
 
-            // 6. set(int index, E element)
-            final var indexToSet = random.nextInt(list.size());
-            final var numberToSetAtIndex = random.nextInt(100);
-            System.out.println("Set element at index " + indexToSet + " to " + list.set(indexToSet, numberToSetAtIndex));
+Here, an instance of `LinkedList` is created and assigned to the `List<String>` variable `linkedList`. `LinkedList` is a doubly-linked list implementation of the `List` interface.
 
-            // 7. size()
-            System.out.println("List size is " + list.size());
+3. **Vector**:
 
-            // 8. isEmpty()
-            System.out.println("Is list empty? " + list.isEmpty());
+.. code-block:: java
 
-            // 9. clear()
-            list.clear();
-            System.out.println("List cleared.");
+    import java.util.List;
+    import java.util.Vector;
 
-            // Check if list is empty after clearing.
-            System.out.println("Is list empty after clear? " + list.isEmpty());
+    List<String> vector = new Vector<>();
 
-            // 10. contains(Object o)
-            // As list is empty after clear, it will not contain the number
-            final var doesListContain = list.contains(random.nextInt(100));
-            System.out.println("Does list contain random number? " + doesListContain);
-        }
-    }
+In this example, an instance of `Vector` is created and assigned to the `List<String>` variable `vector`. `Vector` is a synchronized array-based implementation of the `List` interface.
 
-In this program, a new ArrayList of integers is created. The program then randomly adds integers, gets and removes integers at random indices, checks the size, and checks if the list is empty. The list is then cleared, and finally checks if the list contains a random number. Each operation is output to the console using `System.out.println()`.
+4. **CopyOnWriteArrayList**:
 
-Unit tests for the List API
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. code-block:: java
+
+    import java.util.List;
+    import java.util.concurrent.CopyOnWriteArrayList;
+
+    List<String> copyOnWriteArrayList = new CopyOnWriteArrayList<>();
+
+Here, an instance of `CopyOnWriteArrayList` is created and assigned to the `List<String>` variable `copyOnWriteArrayList`. `CopyOnWriteArrayList` is a thread-safe implementation of the `List` interface that provides enhanced concurrency support.
+
+These are just a few examples of classes that implement the `List` interface, and we will discuss mostly `ArrayList` and `LinkedList` in this course. The choice of implementation depends on the specific requirements of your application, considering factors like performance, concurrency, and usage patterns. By instantiating classes that implement the `List` interface, you can utilize the methods and functionality provided by the `List` interface to work with collections of elements in a flexible and consistent manner.
+
+
+Unit tests for the full List API
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. Can you write unit tests to show that each method does what is intended?
 
@@ -758,9 +844,6 @@ Here is an example of using JUnit 5 to write unit tests for the `List` methods:
 Each of these test methods uses assertions to ensure that the list behaves as expected when its methods are called. For example, `testAdd` verifies that `add` returns true and increases the size of the list by one, and `testGet` verifies that `get` returns the expected element.
 
 
-.. todo:: key takeaways
-
-
 Array-based lists
 -----------------
 
@@ -784,7 +867,7 @@ Here's how you might use `ArrayList` as a `List`:
     names.add("Alice");
     names.add("Bob");
     names.add("Charlie");
-    String firstPerson = names.get(0);  // Alice
+    final var firstPerson = names.get(0);  // Alice
 
 In this code, we're declaring a variable `names` of type `List<String>`, but we're initializing it with an instance of `ArrayList<String>`. This means that we can use any class that implements `List<String>` to initialize `names`. This is a common example of programming to an interface in Java, which makes code more flexible and modifiable.
 
@@ -853,6 +936,98 @@ While ArrayLists offer flexibility and convenience, there are a few disadvantage
 5. **Resizing Impact**: When an ArrayList needs to resize its internal array, it creates a new array with a larger size and copies the elements from the old array to the new one. This resizing operation can be time-consuming, especially if the ArrayList contains a large number of elements. If you know the approximate size requirements in advance, initializing the ArrayList with an initial capacity can help mitigate frequent resizing.
 
 Despite these disadvantages, ArrayLists remain a widely used data structure due to their flexibility, ease of use, and the convenience provided by the Java Collections Framework. Understanding the limitations and trade-offs of ArrayLists can help you make informed decisions when selecting the appropriate data structure for your specific needs.
+
+
+Example
+^^^^^^^
+
+Here is an example of using each of the List methods with an ArrayList implementation and randomly generated data:
+
+.. code-block:: java
+
+    import java.util.*;
+
+    public class Main {
+        public static void main(final String[] args) {
+            final var list = new ArrayList<Integer>();
+            final var random = new Random();
+
+            // 1. add(E e)
+            for (int i = 0; i < 10; i++) {
+                final var numberToAdd = random.nextInt(100);
+                list.add(numberToAdd);
+                System.out.println("Added " + numberToAdd);
+            }
+
+            // 2. add(int index, E element)
+            final var indexToAddAt = random.nextInt(list.size());
+            final var numberToAddAtIndex = random.nextInt(100);
+            list.add(indexToAddAt, numberToAddAtIndex);
+            System.out.println("Added " + numberToAddAtIndex + " at index " + indexToAddAt);
+
+            // 3. get(int index)
+            final var indexToGet = random.nextInt(list.size());
+            System.out.println("Element at index " + indexToGet + " is " + list.get(indexToGet));
+
+            // 4. remove(int index)
+            final var indexToRemove = random.nextInt(list.size());
+            System.out.println("Removed element " + list.remove(indexToRemove) + " at index " + indexToRemove);
+
+            // 5. remove(Object o)
+            final var numberToRemove = list.get(random.nextInt(list.size()));
+            final var removalSuccessful = list.remove(Integer.valueOf(numberToRemove));
+            if (removalSuccessful) {
+                System.out.println("Successfully removed " + numberToRemove);
+            } else {
+                System.out.println("Failed to remove " + numberToRemove);
+            }
+
+            // 6. set(int index, E element)
+            final var indexToSet = random.nextInt(list.size());
+            final var numberToSetAtIndex = random.nextInt(100);
+            System.out.println("Set element at index " + indexToSet + " to " + list.set(indexToSet, numberToSetAtIndex));
+
+            // 7. size()
+            System.out.println("List size is " + list.size());
+
+            // 8. isEmpty()
+            System.out.println("Is list empty? " + list.isEmpty());
+
+            // 9. clear()
+            list.clear();
+            System.out.println("List cleared.");
+
+            // Check if list is empty after clearing.
+            System.out.println("Is list empty after clear? " + list.isEmpty());
+
+            // 10. contains(Object o)
+            // As list is empty after clear, it will not contain the number
+            final var doesListContain = list.contains(random.nextInt(100));
+            System.out.println("Does list contain random number? " + doesListContain);
+        }
+    }
+
+In this program, a new ArrayList of integers is created. The program then randomly adds integers, gets and removes integers at random indices, checks the size, and checks if the list is empty. The list is then cleared, and finally checks if the list contains a random number. Each operation is output to the console using `System.out.println()`.
+
+
+Performance of ArrayList methods
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The time and space complexity of the main ArrayList methods are as follows:
+
+1. **Add (Append)**: The `add` method in ArrayList adds an element to the end of the list. If the underlying array needs to be resized to accommodate the new element, the time complexity is amortized O(1) on average. In the worst case, when the array needs to be resized, the time complexity becomes O(n), where n is the number of elements in the list. The space complexity is O(n), as the underlying array may need to be resized.
+
+2. **Add (Insert)**: The `add` method can also be used to insert an element at a specific index in the list. If the element is inserted at the beginning or middle of the list, it requires shifting subsequent elements, resulting in a time complexity of O(n), where n is the number of elements in the list. The space complexity is O(n) in the worst case if the underlying array needs to be resized.
+
+3. **Get**: The `get` method retrieves an element from the list based on its index. It has a time complexity of O(1) as accessing elements by index in an ArrayList is a constant-time operation. The space complexity is O(1) as it does not require any additional memory allocation.
+
+4. **Remove**: The `remove` method removes an element from the list based on its index. If the element is removed from the beginning or middle of the list, it requires shifting subsequent elements, resulting in a time complexity of O(n), where n is the number of elements in the list. The space complexity is O(n) in the worst case if the underlying array needs to be resized.
+
+5. **Contains**: The `contains` method checks whether an element is present in the list. It performs a linear search through the elements, resulting in a time complexity of O(n), where n is the number of elements in the list. The space complexity is O(1) as it does not require any additional memory allocation.
+
+6. **Size**: The `size` method returns the number of elements in the list. It has a time complexity of O(1) as the size of the ArrayList is maintained as a separate variable. The space complexity is O(1) as it does not require any additional memory allocation.
+
+It's important to note that the time and space complexities mentioned here are based on the typical implementation of ArrayList in Java. Different programming languages or specific ArrayList implementations may have variations in their complexity characteristics, so it's always advisable to refer to the documentation or implementation details of the specific ArrayList you are working with.
 
 
 How to instantiate ArrayList
@@ -944,7 +1119,24 @@ The `size` method returns the number of elements currently in the list.
 Note that this is a very basic implementation and lacks many features and optimizations of the actual `ArrayList` class in the Java Collections Framework. It's intended to be an illustrative example of how you might start to implement such a data structure.    
 
 
-.. todo:: key takeaways
+Key takeaways
+^^^^^^^^^^^^^
+
+The key takeaways from a discussion of ArrayList and its comparison with basic arrays are as follows:
+
+Certainly! Here's a revised order of the key takeaways based on your request:
+
+1. **Efficiency and Performance**: `ArrayList` provides efficient random access to elements by their index, allowing for quick retrieval and modification operations. It offers similar performance characteristics to basic arrays in terms of accessing elements.
+
+2. **Convenience and Abstraction**: `ArrayList` abstracts away the complexity of managing array resizing and provides built-in methods for adding, removing, and accessing elements. It offers a higher-level interface compared to basic arrays, making it more convenient to work with collections of data.
+
+3. **Type Safety and Compile-Time Checks**: `ArrayList` ensures type safety by allowing only elements of the specified type to be added to the list. This helps prevent type-related errors and provides compile-time checks, reducing the risk of runtime exceptions.
+
+4. **Dynamic Size and Flexibility**: `ArrayList` dynamically adjusts its size as elements are added or removed, providing flexibility for handling varying amounts of data. It offers a resizable alternative to basic arrays, which have a fixed length.
+
+5. **Overhead and Additional Complexity**: `ArrayList` incurs additional overhead compared to basic arrays due to resizing operations and maintaining extra metadata. This overhead includes increased memory usage and computational cost.
+
+Key takeaways include understanding that ArrayList offers dynamic size, convenient methods, efficient random access, and automatic memory management. However, it also incurs additional overhead compared to basic arrays. Choosing between ArrayList and basic arrays depends on the specific requirements of the application. If dynamic resizing, convenience methods, and type safety are important, ArrayList is a suitable choice. On the other hand, basic arrays may be preferred when a fixed-size collection or minimal overhead is required.
 
 
 Maps
@@ -964,6 +1156,7 @@ Programming Language Support: Many programming languages have built-in support f
 
 In summary, maps are a powerful tool that can greatly simplify your code and improve its performance. They're an essential part of a computer science student's toolkit, and learning how to use them effectively can greatly benefit your problem-solving abilities.
 
+
 Example
 ^^^^^^^
 
@@ -976,7 +1169,7 @@ Here is an example of counting the occurrences of words in a sentence. This is a
 
     public class WordCount {
         public static void main(final String[] args) {
-            final String sentence = "If it is to be, it is up to me to delegate";
+            final var sentence = "If it is to be, it is up to me to delegate";
             final var words = sentence.split("\\s+");
             final var wordCount = new HashMap<String, Integer>();
 
@@ -1000,6 +1193,7 @@ After counting all the words, we print out the count of each word.
 This example shows the core of what makes maps useful: associating one value (the word) with another (its count), and allowing you to quickly and efficiently update that association. It's a simple example, but the principle extends to much more complex and powerful uses.
 
 .. warning:: Discuss whether to include these Map API's higher-order methods
+
 
 The Java Map API
 ^^^^^^^^^^^^^^^^
@@ -1069,6 +1263,58 @@ Moreover, the `java.util.Map` interface has two nested interfaces:
 The `Map.Entry` interface provides methods to access the key and value of an entry, as well as to set the value. Additionally, it has methods to compare entries by key or value, which can be useful for sorting and other operations.
 
 Understanding these methods and how they interact with the `Map` interface can greatly enhance your ability to effectively and efficiently manipulate key-value data in Java.
+
+
+How to create Map instances
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. How to create Map instances? Include the Map.of() factory method first.
+
+Here's an overview of how to create `Map` instances, including the `Map.of()` factory method:
+
+1. **Using `Map.of()` Factory Method (Java 9+)**:
+   The `Map` interface provides a factory method called `of()` that allows you to create an immutable `Map` with a fixed number of entries. Here's an example:
+
+   .. code-block:: java
+
+        import java.util.Map;
+
+        Map<String, Integer> map = Map.of("Apple", 1, "Banana", 2, "Orange", 3);
+
+   In this example, a `Map` instance is created using the `Map.of()` factory method. It takes a sequence of key-value pairs as arguments and returns an immutable `Map` containing those entries.
+
+2. **Using `HashMap`**:
+   The `HashMap` class is a commonly used implementation of the `Map` interface. It provides a dynamic and unordered collection of key-value pairs. Here's an example:
+
+   .. code-block:: java
+
+        import java.util.Map;
+        import java.util.HashMap;
+
+        Map<String, Integer> map = new HashMap<>();
+        map.put("Apple", 1);
+        map.put("Banana", 2);
+        map.put("Orange", 3);
+
+
+   In this example, a `HashMap` instance is created by instantiating the `HashMap` class. Key-value pairs are added using the `put()` method, allowing for dynamic modification of the map.
+
+3. **Using Other Map Implementations**:
+   Java provides several other implementations of the `Map` interface, such as `TreeMap`, `LinkedHashMap`, and `ConcurrentHashMap`. Each implementation has unique characteristics and is suitable for specific use cases. Here's an example using `TreeMap`:
+
+   .. code-block:: java
+
+        import java.util.Map;
+        import java.util.TreeMap;
+
+        Map<String, Integer> map = new TreeMap<>();
+        map.put("Apple", 1);
+        map.put("Banana", 2);
+        map.put("Orange", 3);
+
+   In this example, a `TreeMap` instance is created by instantiating the `TreeMap` class. The `TreeMap` implementation provides a sorted map based on the natural ordering of the keys.
+
+These examples demonstrate different approaches to creating `Map` instances. You can use the `Map.of()` factory method for creating small immutable maps, or instantiate specific implementations like `HashMap`, `TreeMap`, or others based on your requirements.
 
 
 Unit tests for the Map API
@@ -1357,6 +1603,57 @@ Some implementations, like `LinkedHashSet`, do maintain an order (insertion-orde
 Also, the Set interface has three main implementation classes in the Java Collections Framework: `HashSet`, `LinkedHashSet`, and `TreeSet`, each with its own characteristics in terms of order, performance and allowing null elements.
 
 
+How to create Set instances
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. How to create Set instances? Include the Set.of() factory method first.
+
+Certainly! Here's an overview of how to create `Set` instances, including the `Set.of()` factory method:
+
+1. **Using `Set.of()` Factory Method (Java 9+)**:
+   The `Set` interface provides a factory method called `of()` that allows you to create an immutable `Set` with a fixed number of elements. Here's an example:
+
+   .. code-block:: java
+
+        import java.util.Set;
+
+        Set<String> set = Set.of("Apple", "Banana", "Orange");
+
+   In this example, a `Set` instance is created using the `Set.of()` factory method. It takes a sequence of elements as arguments and returns an immutable `Set` containing those elements.
+
+2. **Using `HashSet`**:
+   The `HashSet` class is a commonly used implementation of the `Set` interface. It provides a dynamic and unordered collection of unique elements. Here's an example:
+
+   .. code-block:: java
+
+        import java.util.Set;
+        import java.util.HashSet;
+
+        Set<String> set = new HashSet<>();
+        set.add("Apple");
+        set.add("Banana");
+        set.add("Orange");
+
+   In this example, a `HashSet` instance is created by instantiating the `HashSet` class. Elements are added using the `add()` method, allowing for dynamic modification of the set.
+
+3. **Using Other Set Implementations**:
+   Java provides several other implementations of the `Set` interface, such as `TreeSet`, `LinkedHashSet`, and `EnumSet`. Each implementation has unique characteristics and is suitable for specific use cases. Here's an example using `TreeSet`:
+
+   .. code-block:: java
+
+        import java.util.Set;
+        import java.util.TreeSet;
+
+        Set<String> set = new TreeSet<>();
+        set.add("Apple");
+        set.add("Banana");
+        set.add("Orange");
+
+   In this example, a `TreeSet` instance is created by instantiating the `TreeSet` class. The `TreeSet` implementation provides a sorted set based on the natural ordering of the elements.
+
+These examples demonstrate different approaches to creating `Set` instances. You can use the `Set.of()` factory method for creating small immutable sets, or instantiate specific implementations like `HashSet`, `TreeSet`, or others based on your requirements.
+
+
 Unit tests for the Set API
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -1561,55 +1858,311 @@ One important thing to note is that the `size()` method returns the "logical siz
 Regarding its implementation, a `BitSet` internally uses a dynamic array (`long[]`) to hold the bits, which are represented as long integers (64-bit). Each `long` value represents 64 bits, with the 0th bit referring to the least significant bit of the `long` and the 63rd bit referring to the most significant bit. The `long[]` array is expanded as needed, ensuring the `BitSet` can grow to accommodate any bit index. The `BitSet` class also provides many methods for performing bitwise operations on the bits. This, combined with its dynamic size, makes `BitSet` a flexible tool for efficient bit manipulation.
 
 
-.. todo:: key takeaways
+Key takeaways
+^^^^^^^^^^^^^
+
+From a discussion of `Set`, `BitSet`, and the comparison of `Set` with `Map`, here are the key takeaways:
+
+1. **Uniqueness and Element-based Operations**: Both `Set` and `BitSet` are used to store a collection of unique elements. The primary purpose of a `Set` is to ensure that each element is unique within the set, while a `BitSet` is a specialized implementation that represents a set of bits, typically used for efficient storage and manipulation of binary data. Both data structures provide operations for adding, removing, and querying elements.
+
+2. **Set vs. Map**: The main difference between a `Set` and a `Map` is that a `Set` stores only the unique elements, while a `Map` stores key-value pairs. In other words, a `Set` is a collection of distinct elements, whereas a `Map` associates each element with a unique key. `Set` is useful when you only need to store and query unique elements, while `Map` is suitable for scenarios where you need to store and access values associated with specific keys.
+
+3. **Membership Testing and Efficient Operations**: Both `Set` and `BitSet` offer efficient membership testing operations. They allow you to check whether an element is present in the set or not, providing a quick way to determine membership without iterating through the entire collection. `BitSet` offers additional capabilities for performing bitwise operations, making it particularly useful when dealing with binary data and bit-level manipulation.
+
+4. **Performance and Space Efficiency**: `BitSet` can be more space-efficient than `Set`, especially when dealing with a large number of elements. It uses a compact internal representation of bits, which can save memory compared to storing individual objects in a `Set`. However, this space efficiency comes at the cost of increased complexity and limited support for non-integer elements.
+
+These key takeaways highlight the uniqueness and element-based operations provided by `Set` and `BitSet`. They also emphasize the difference between `Set` and `Map`, with `Set` focusing on unique elements and `Map` associating elements with unique keys. Furthermore, the efficient membership testing and space efficiency of `BitSet` are mentioned as distinguishing factors.
 
 
 Stacks
 ------
 
-.. todo:: motivation
+.. Can you write a complete CS2 textbook chapter on the Stack ADT with the following elements?
 
-.. todo:: example
+.. Chapter 7: The Stack Abstract Data Type - Lifting the Weight off Your Programming Shoulders
 
-.. todo:: main methods
+The Stack Abstract Data Type (ADT) is a collection that follows the Last-In-First-Out (LIFO) principle. It represents a stack of elements, where the most recently added element is the first one to be removed. The Stack ADT is widely used in various applications, offering an intuitive and efficient way to manage data.
 
-.. todo:: sample implementation
+Imagine you're working on a text editor, and you want to implement an "Undo" functionality that allows users to revert their recent changes. A stack can be the perfect solution. As users perform actions, such as typing, deleting, or formatting, each action can be pushed onto the stack. When the user triggers the "Undo" command, the most recent action is popped from the stack, undoing the corresponding change.
 
 
-In modern Java (Java 17), you can use the `Deque` interface and the `ArrayDeque` class to implement a LIFO stack. 
+Example: Text Editor Undo Functionality
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The `Deque` interface, short for "double-ended queue," provides operations to add and remove elements from both ends of the queue. By using the `push` and `pop` methods of `Deque`, you can achieve LIFO behavior, similar to a stack.
-
-Here's an example of using `Deque` and `ArrayDeque` as a LIFO stack:
+Let's consider a simple example of implementing the "Undo" functionality using a stack:
 
 .. code-block:: java
 
-    import java.util.*;
+    Deque<String> undoStack = new ArrayStack<>();
 
-    public class Main {
-        public static void main(final String[] args) {
-            Deque<Integer> stack = new ArrayDeque<>();
-            stack.push(1);
-            stack.push(2);
-            stack.push(3);
+    // User performs actions
+    undoStack.push("Formatting change");
+    undoStack.push("Deletion");
+    undoStack.push("Typing");
 
-            while (!stack.isEmpty()) {
-                System.out.println(stack.pop()); // Output: 3, 2, 1
+    // User triggers "Undo"
+    final var lastAction = undoStack.pop();
+
+In this example, we create a stack called `undoStack` using the `ArrayStack` implementation. As the user performs actions, such as formatting changes, deletions, and typing, each action is pushed onto the stack. When the "Undo" command is triggered, the most recent action is popped from the stack, allowing for the undoing of changes.
+
+
+Example: Balancing Parentheses
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Let's explore a practical example where the Stack ADT proves its usefulness. Consider the task of checking whether a given string containing parentheses is balanced or not. We can use a stack to solve this problem efficiently by tracking the opening and closing parentheses.
+
+.. code-block:: java
+
+    public boolean isBalanced(String input) {
+        Deque<Character> stack = new ArrayDeque<>();
+
+        for (final var c : input.toCharArray()) {
+            if (c == '(') {
+                stack.push(c);
+            } else if (c == ')') {
+                if (stack.isEmpty() || stack.pop() != '(') {
+                    return false;
+                }
             }
+        }
+
+        return stack.isEmpty();
+    }
+
+In this example, we use a stack to check the balance of parentheses in the `isBalanced` method. The method iterates over each character in the input string. If an opening parenthesis is encountered, it is pushed onto the stack. If a closing parenthesis is encountered, it is matched with the corresponding opening parenthesis from the stack. If the parentheses are balanced, the stack should be empty by the end.
+
+
+Main Stack API Methods
+^^^^^^^^^^^^^^^^^^^^^^
+
+The Stack ADT provides several essential methods to manipulate the stack:
+
+- `push(element)`: Adds the specified element to the top of the stack.
+- `pop()`: Removes and returns the element at the top of the stack.
+- `peek()`: Returns the element at the top of the stack without removing it.
+- `isEmpty()`: Checks if the stack is empty.
+- `size()`: Returns the number of elements in the stack.
+- `clear()`: Removes all elements from the stack.
+
+
+How to Instantiate a Stack
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+In Java 17, you can instantiate a stack by utilizing the specific interfaces and implementations available in the `java.util` package. Here are a few common approaches:
+
+1. Using `Deque` Interface with `ArrayDeque` Implementation:
+   
+   .. code-block:: java
+
+       Deque<String> stack = new ArrayDeque<>();
+
+2. Using `LinkedList` Class:
+
+   .. code-block:: java
+
+       Deque<String> stack = new LinkedList<>();
+
+
+In these examples, we use the `Deque` interface, which stands for "double-ended queue," to represent a stack. Both `ArrayDeque` and `LinkedList` implement the `Deque` interface and can be used interchangeably as stack implementations.
+
+By utilizing the `Deque` interface, you can leverage the stack-specific methods such as `push`, `pop`, and `peek`, while also having access to additional functionality provided by the `Deque` interface, such as queue-like operations.
+
+Choosing between `ArrayDeque` and `LinkedList` depends on specific requirements. `ArrayDeque` typically provides better performance for most stack operations due to its array-based implementation, while `LinkedList` might be more suitable if you need efficient insertion and removal at both ends.
+
+Using the appropriate stack implementation ensures compatibility with the Java 17 API and enables you to benefit from the standardized stack behavior and functionality provided by the `Deque` interface.
+
+
+Unit Testing the Stack API Methods
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+To ensure the correctness of your stack implementation, it is crucial to write comprehensive unit tests for each of the main API methods. Let's explore how you can effectively test these methods:
+
+Testing `push(element)`
+"""""""""""""""""""""""
+
+.. code-block:: java
+
+    @Test
+    void testPush() {
+        Deque<Integer> stack = new ArrayDeque<>();
+        
+        stack.push(10);
+        stack.push(20);
+        stack.push(30);
+
+        assertEquals(30, stack.peek());
+        assertFalse(stack.isEmpty());
+        assertEquals(3, stack.size());
+    }
+
+In this test, we create a stack and push three elements onto it. We then assert that the top element is 30, the stack is not empty, and its size is 3.
+
+Testing `pop()`
+"""""""""""""""
+
+.. code-block:: java
+
+    @Test
+    void testPop() {
+        Deque<String> stack = new ArrayDeque<>();
+
+        stack.push("Apple");
+        stack.push("Banana");
+        stack.push("Orange");
+
+        var poppedElement = stack.pop();
+
+        assertEquals("Orange", poppedElement);
+        assertEquals("Banana", stack.peek());
+        assertEquals(2, stack.size());
+    }
+
+In this test, we create a stack, push three elements onto it, and then pop the top element. We assert that the popped element is "Orange", the new top element is "Banana", and the stack size is reduced to 2.
+
+Testing `peek()`
+""""""""""""""""
+
+.. code-block:: java
+
+    @Test
+    void testPeek() {
+        Deque<Double> stack = new ArrayDeque<>();
+
+        stack.push(3.14);
+        stack.push(2.71);
+        stack.push(1.618);
+
+        assertEquals(1.618, stack.peek());
+        assertEquals(3, stack.size());
+    }
+
+In this test, we create a stack, push three elements onto it, and then peek at the top element. We assert that the peeked element is 1.618 and that the stack size remains unchanged.
+
+
+Testing `isEmpty()`
+"""""""""""""""""""
+
+.. code-block:: java
+
+    @Test
+    void testIsEmpty() {
+        Deque<String> stack = new ArrayDeque<>();
+
+        assertTrue(stack.isEmpty());
+
+        stack.push("Java");
+        assertFalse(stack.isEmpty());
+
+        stack.pop();
+        assertTrue(stack.isEmpty());
+    }
+
+In this test, we create a stack and verify its empty state at different stages. We assert that the stack is initially empty, becomes non-empty after pushing an element, and becomes empty again after popping all elements.
+
+
+Testing `size()`
+""""""""""""""""
+
+.. code-block:: java
+
+    @Test
+    void testSize() {
+        Deque<Integer> stack = new ArrayDeque<>();
+
+        assertEquals(0, stack.size());
+
+        stack.push(5);
+        stack.push(10);
+        stack.push(15);
+
+        assertEquals(3, stack.size());
+
+        stack.pop();
+        stack.pop();
+
+        assertEquals(1, stack.size());
+    }
+
+In this test, we create a stack, add elements to it, and verify the size at different stages. We assert that the initial size is 0, increases as elements are pushed, and decreases as elements are popped.
+
+By writing comprehensive unit tests for each of the main stack API methods, you can ensure that your implementation behaves as expected and handles different scenarios correctly.
+
+
+Sample implementation
+^^^^^^^^^^^^^^^^^^^^^
+
+Here's a simple implementation of the Stack ADT as a generic class based on arrays:
+
+.. code-block:: java
+
+    public class Stack<E> {
+        private Object[] stack;
+        private int top;
+        private static final int DEFAULT_CAPACITY = 10;
+
+        public Stack() {
+            stack = new Object[DEFAULT_CAPACITY];
+            top = -1;
+        }
+
+        public boolean isEmpty() {
+            return top == -1;
+        }
+
+        public boolean isFull() {
+            return top == stack.length - 1;
+        }
+
+        public void push(E element) {
+            if (isFull()) {
+                resizeStack();
+            }
+            stack[++top] = element;
+        }
+
+        public E pop() {
+            if (isEmpty()) {
+                throw new RuntimeException("Stack is empty");
+            }
+            return (E) stack[top--];
+        }
+
+        public E peek() {
+            if (isEmpty()) {
+                throw new RuntimeException("Stack is empty");
+            }
+            return (E) stack[top];
+        }
+
+        public int size() {
+            return top + 1;
+        }
+
+        private void resizeStack() {
+            int newCapacity = stack.length * 2;
+            Object[] newStack = new Object[newCapacity];
+            System.arraycopy(stack, 0, newStack, 0, stack.length);
+            stack = newStack;
         }
     }
 
+In this revised implementation, the `Stack` class is now a generic class, allowing you to create stacks of any type. The key methods and functionalities remain the same as in the previous implementation.
 
-In this example, we create a `Deque` implementation using `ArrayDeque`. Elements are added to the stack using the `push` method, and they are removed using the `pop` method. The `push` operation adds elements to the top of the stack, and the `pop` operation removes and returns the topmost element.
+Note that when accessing elements from the stack array, we cast them to the generic type `E` using `(E)` to ensure type safety. Additionally, the stack array is initially created with a default capacity, but it dynamically resizes when it becomes full using the `resizeStack()` method.
 
-The output demonstrates the LIFO behavior of the stack, where elements `3`, `2`, and `1` are printed in reverse order.
-
-Using `Deque` with `ArrayDeque` for a LIFO stack provides efficient and convenient operations for adding and removing elements at the top of the stack. The `ArrayDeque` implementation offers good performance characteristics and can dynamically resize as needed to accommodate elements.
-
-It's worth noting that using `Deque` instead of the legacy `Stack` class is recommended, as `Stack` is a subclass of `Vector`, which has certain synchronization overhead and is considered less efficient in modern Java applications.
+This updated implementation allows you to create stacks of various types and provides a more flexible and reusable stack ADT.
 
 
-.. todo:: key takeaways
+Key takeaways
+^^^^^^^^^^^^^
+
+- The Stack ADT follows the Last-In-First-Out (LIFO) principle.
+- It is commonly used for managing undo functionality, function call tracking, expression evaluation, and more.
+- Important methods of the Stack ADT include `push`, `pop`, `peek`, `isEmpty`, `size`, and `clear`.
+- Stacks can be instantiated using array-based or linked list-based implementations.
+- The Stack ADT offers an intuitive way to manage data and solve various programming problems efficiently.
+
+Understanding the Stack ADT and its key properties empowers programmers to leverage its benefits in different applications, simplifying complex operations and improving overall code organization.
 
 
 Queues
@@ -1623,52 +2176,67 @@ A queue is a type of linear data structure that follows a specific order in whic
 
 This is analogous to a real-life queue of people – people join the end of the queue and leave from the front. For example, in a line at a coffee shop, the first person who gets in line is the first person to get served and leave the line.
 
-Main queue operations
-^^^^^^^^^^^^^^^^^^^^^
-
-Here are the main operations on a queue:
-
-- **Enqueue:** Add an element to the end of the queue.
-- **Dequeue:** Remove an element from the front of the queue.
-- **IsEmpty:** Check if the queue is empty.
-- **IsFull:** Check if the queue is full.
-- **Peek/Top:** Get the value of the front of the queue without removing it.
 
 Example
 ^^^^^^^
 
-Here's a simple example of a queue in Java using the LinkedList class which implements the Queue interface:
+Consider a scenario where you are building a ticketing system for an event. Users line up to purchase tickets, and you need to manage their requests in the order they arrive. A queue can be an excellent solution. As users join the line, their requests are enqueued. When it's time to process the requests, each user is dequeued, ensuring fairness and maintaining the order of requests.
 
 .. code-block:: java
 
-    import java.util.LinkedList;
-    import java.util.Queue;
+    Queue<String> ticketQueue = new LinkedList<>();
 
-    public class QueueExample {
-        public static void main(final String[] args) {
-            final Queue<String> queue = new LinkedList<>();
+    // Users join the line
+    ticketQueue.add("User1");
+    ticketQueue.add("User2");
+    ticketQueue.add("User3");
 
-            // Enqueue items
-            queue.add("John");
-            queue.add("Robert");
-            queue.add("Adam");
+    // Processing requests
+    var firstUser = ticketQueue.remove();
 
-            System.out.println("Queue: " + queue);
+In this example, we create a queue called ticketQueue using the LinkedList implementation. As users join the ticket line, their names are added to the queue using the add() method. When it's time to process the ticket requests, the first user is dequeued from the queue using the remove() method, ensuring that the requests are handled in the order they arrived.
 
-            // Dequeue items
-            final var name = queue.poll();
-            System.out.println("Dequeued: " + name);
-            System.out.println("Queue after dequeue: " + queue);
 
-            // Get the item at the front of the queue
-            final var front = queue.peek();
-            System.out.println("Front of queue: " + front);
-        }
-    }
+Main Queue API Methods
+^^^^^^^^^^^^^^^^^^^^^^
 
-The `java.util.Queue` interface in Java provides various methods like `add()`, `remove()`, `poll()`, `peek()`, etc. that let you manipulate and access queue items.
+The Queue ADT provides several essential methods to manipulate the queue:
 
-In terms of real-world usage, queues are used whenever we need to manage objects in order starting with the first one in. This could be as simple as managing the print jobs on a printer or as complex as managing the execution of tasks on a CPU. In a lot of these cases, the queue is actually a 'priority queue', meaning that each item has a priority and the item with the highest priority is removed before items of lower priority.
+- `add(element)`: Adds the specified element to the end of the queue.
+- `remove()`: Removes and returns the element at the front of the queue.
+- `element()`: Returns the element at the front of the queue without removing it.
+- `offer(element)`: Adds the specified element to the end of the queue (returns true if successful).
+- `poll()`: Removes and returns the element at the front of the queue (returns null if empty).
+- `peek()`: Returns the element at the front of the queue without removing it (returns null if empty).
+- `isEmpty()`: Checks if the queue is empty.
+- `size()`: Returns the number of elements in the queue.
+- `clear()`: Removes all elements from the queue.
+
+
+How to Instantiate a Queue
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+In Java 17, you can instantiate a queue using specific interfaces and implementations from the `java.util` package. Here are a few common approaches:
+
+1. Using `Queue` Interface with `LinkedList` Implementation:
+   ```java
+   Queue<String> queue = new LinkedList<>();
+   ```
+
+2. Using `ArrayDeque` Class:
+   ```java
+   Queue<String> queue = new ArrayDeque<>();
+   ```
+
+3. Using `PriorityQueue` Class (for priority-based queues):
+   ```java
+   Queue<String> queue = new PriorityQueue<>();
+   ```
+
+In these examples, we use the `Queue` interface to represent a queue. Both `LinkedList` and `ArrayDeque` implement the `Queue` interface and can be used interchangeably as queue implementations. The `PriorityQueue` class provides additional functionality for priority-based queues, where elements are ordered based on a specified priority.
+
+Using the appropriate queue implementation ensures compatibility with the Java 17 API and enables you to benefit from the standardized queue behavior and functionality provided by the `Queue` interface.
+
 
 Unit tests for the Queue API
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1777,7 +2345,7 @@ Remember that you'll need to have JUnit in your project classpath to run these t
 Sample implementation
 ^^^^^^^^^^^^^^^^^^^^^
 
-Sure, I can provide an example of a simple Queue implementation using arrays. This version has a fixed capacity, but it would be a good starting point for teaching about Queues in a CS2 course. It implements the essential methods: `add`, `remove`, `peek`, and `size`.
+Here is a simple Queue implementation using arrays. This version has a fixed capacity and implements the essential methods: `add`, `remove`, `peek`, and `size`.
 
 .. code-block:: java
 
@@ -1841,28 +2409,13 @@ Key takeaways
 
 .. Please summarize the key takeaways of our discussion of the queue ADT.
 
-Sure, here are the key takeaways from our discussion of the Queue Abstract Data Type (ADT):
+- The Queue ADT follows the First-In-First-Out (FIFO) principle.
+- It is commonly used for managing tasks, message processing, event handling, and more.
+- Important methods of the Queue ADT include `add`, `remove`, `element`, `offer`, `poll`, `peek`, `isEmpty`, `size`, and `clear`.
+- Queues can be instantiated using `LinkedList`, `ArrayDeque`, or `PriorityQueue` based on specific requirements.
+- The Queue ADT ensures fairness, preserves order, and provides efficient data management capabilities.
 
-1. Definition and Properties: A queue is a linear data structure that follows a First In, First Out (FIFO) order for operations. This means that the element that is added first will be the first one to be removed. 
-
-2. Use Cases: Queues are used when you need to manage objects in order starting with the first one in. They're used in a variety of applications, from handling requests in a server, to algorithmic problems like breadth-first search in graphs, to real-world scenarios like managing a line of customers in a store.
-
-3. Operations: The main operations associated with a queue are:
-   - `add(element)`: Add an element to the end of the queue.
-   - `remove()`: Remove an element from the front of the queue.
-   - `peek()`: Look at the front element of the queue without removing it.
-   - `isEmpty()`: Check if the queue is empty.
-   - `size()`: Get the number of elements in the queue.
-
-4. Implementations: We explored two ways to implement a queue in Java:
-   - Using Java's built-in LinkedList as the underlying storage: This way is straightforward because LinkedList directly supports add, remove, and peek operations that we need for a queue.
-   - Using an array: We created a circular array-based implementation which is more complex but provides an understanding of the internal working of a queue.
-
-5. Limitations: We also discussed some limitations, such as the queue size being fixed in an array-based implementation. This can be overcome with a dynamic array or linked list implementation.
-
-6. Unit Testing: We also learned how to write unit tests for each operation in isolation using JUnit, ensuring that our queue implementation works correctly.
-
-Remember, understanding queue operations and when to use them is an essential part of mastering data structures, and queues are an integral tool for many computer science problems and applications.
+Understanding the Queue ADT and its key properties empowers programmers to utilize queues effectively in various applications, ensuring proper order and efficient processing of elements.
 
 
 A unified view of restricted-access data structures
@@ -1912,9 +2465,9 @@ Putting everything together: maze solver
 ******************************************
 
 
-******************************************
+==========================================
 *CONTENT BELOW HERE TO BE ORGANIZED LATER*
-******************************************
+==========================================
 
 
 Top 15 CS2 topics as opposed to CS7
@@ -3049,6 +3602,9 @@ Here are some reasons why lists can be considered a widely usable data structure
 By utilizing lists, you gain the advantages of a dynamic and flexible data structure that can handle a wide range of element types and provide efficient operations for adding, removing, and accessing elements.
 
 If you have any further questions or need additional information, feel free to ask!
+
+
+.. todo:: move to SE course?
 
 
 Software engineering principles

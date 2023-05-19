@@ -37,7 +37,19 @@ Sample tool stack
 - optional Botrush Edge/Chrome browser extension for downloading ChatGPT sessions in varioius formats including Markdown
 - pandoc for converting Markdown and other formats to reStructuredText
 
-.. image:: images/vscode-rest.png
+.. image:: figures/vscode-rest.png
+
+
+Elements of a chapter (our own - WIP)
+-------------------------------------
+
+- intro, motivation, and definition
+- real-world example
+- main API methods
+- how to instantiate
+- unit tests
+- simple implementation
+- key takeaways
 
 
 Possible chapter structure (GPT 3.5)
