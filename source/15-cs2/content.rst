@@ -314,7 +314,7 @@ Now, you can use these methods in your code:
 
     public class Main {
         public static void main(final String[] args) {
-            var direction = CardinalDirection.NORTH;
+            final var direction = CardinalDirection.NORTH;
             System.out.println("The opposite of " + direction + " is " + direction.opposite());
             System.out.println("Turn right from " + direction + " to get " + direction.turnRight());
             System.out.println("Turn left from " + direction + " to get " + direction.turnLeft());
@@ -630,7 +630,7 @@ To use the `List.of` factory method, you can directly call it and provide the el
 
     import java.util.List;
 
-    List<String> fruits = List.of("Apple", "Banana", "Orange");
+    final List<String> fruits = List.of("Apple", "Banana", "Orange");
 
 In this example, the `List.of` factory method creates an immutable `List` containing the specified elements `"Apple"`, `"Banana"`, and `"Orange"`. The returned list cannot be modified, so any attempts to add, remove, or modify elements will result in an `UnsupportedOperationException`.
 
@@ -656,20 +656,20 @@ The `List.of()` method returns an unmodifiable list that does not support the `a
 
         @Test
         public void testGet() {
-            List<String> list = List.of("Apple", "Banana", "Orange");
+            final List<String> list = List.of("Apple", "Banana", "Orange");
             assertEquals("Banana", list.get(1));
         }
 
         @Test
         public void testContains() {
-            List<String> list = List.of("Apple", "Banana", "Orange");
+            final List<String> list = List.of("Apple", "Banana", "Orange");
             assertTrue(list.contains("Apple"));
             assertFalse(list.contains("Mango"));
         }
 
         @Test
         public void testSize() {
-            List<String> list = List.of("Apple", "Banana", "Orange");
+            final List<String> list = List.of("Apple", "Banana", "Orange");
             assertEquals(3, list.size());
         }
     }
@@ -721,7 +721,7 @@ In Java, the `List` interface is an interface and cannot be directly instantiate
     import java.util.List;
     import java.util.ArrayList;
 
-    List<String> arrayList = new ArrayList<>();
+    final List<String> arrayList = new ArrayList<>();
 
 In this example, an instance of `ArrayList` is created and assigned to the `List<String>` variable `arrayList`. `ArrayList` is a resizable array-based implementation of the `List` interface.
 
@@ -732,7 +732,7 @@ In this example, an instance of `ArrayList` is created and assigned to the `List
     import java.util.List;
     import java.util.LinkedList;
 
-    List<String> linkedList = new LinkedList<>();
+    final List<String> linkedList = new LinkedList<>();
 
 Here, an instance of `LinkedList` is created and assigned to the `List<String>` variable `linkedList`. `LinkedList` is a doubly-linked list implementation of the `List` interface.
 
@@ -743,7 +743,7 @@ Here, an instance of `LinkedList` is created and assigned to the `List<String>` 
     import java.util.List;
     import java.util.Vector;
 
-    List<String> vector = new Vector<>();
+    final List<String> vector = new Vector<>();
 
 In this example, an instance of `Vector` is created and assigned to the `List<String>` variable `vector`. `Vector` is a synchronized array-based implementation of the `List` interface.
 
@@ -754,7 +754,7 @@ In this example, an instance of `Vector` is created and assigned to the `List<St
     import java.util.List;
     import java.util.concurrent.CopyOnWriteArrayList;
 
-    List<String> copyOnWriteArrayList = new CopyOnWriteArrayList<>();
+    final List<String> copyOnWriteArrayList = new CopyOnWriteArrayList<>();
 
 Here, an instance of `CopyOnWriteArrayList` is created and assigned to the `List<String>` variable `copyOnWriteArrayList`. `CopyOnWriteArrayList` is a thread-safe implementation of the `List` interface that provides enhanced concurrency support.
 
@@ -782,7 +782,7 @@ Here is an example of using JUnit 5 to write unit tests for the `List` methods:
         @BeforeEach
         public void setup() {
             list = new ArrayList<>();
-            for (int i = 0; i < SIZE; i++) {
+            for (var i = 0; i < SIZE; i++) {
                 list.add(i);
             }
         }
@@ -842,6 +842,35 @@ Here is an example of using JUnit 5 to write unit tests for the `List` methods:
     }
 
 Each of these test methods uses assertions to ensure that the list behaves as expected when its methods are called. For example, `testAdd` verifies that `add` returns true and increases the size of the list by one, and `testGet` verifies that `get` returns the expected element.
+
+
+Performance of List ADT implementations
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Here's a table summarizing the average time complexity of the main List API methods for ArrayList and LinkedList:
+
+.. csv-table:: 
+    :header: "Method", "ArrayList", "LinkedList"
+    :widths: 20, 20, 20
+
+    "add(E e)", "O(1)*", "O(1)"
+    "add(int index, E element)", "O(n)", "O(n)"
+    "remove(int index)", "O(n)", "O(n)"
+    "get(int index)", "O(1)", "O(n)"
+    "set(int index, E element)", "O(1)", "O(n)"
+    "size()", "O(1)", "O(1)"
+    "isEmpty()", "O(1)", "O(1)"
+    "contains(Object o)", "O(n)", "O(n)"
+
+(*) Amortized time is O(1)
+
+We will discuss later when and why one would want to choose one list implementation over another.
+
+
+Key takeaways
+^^^^^^^^^^^^^
+
+The List ADT is a fundamental data structure in computer science, allowing for flexible and ordered storage of elements. Java's List interface provides a number of methods for manipulating lists, such as adding, removing, and retrieving elements. Different list implementations (like ArrayList and LinkedList) offer different performance characteristics. Understanding these can help you choose the right implementation for your specific needs. Testing ensures the correct behavior of your list operations, and implementation helps deepen understanding of the underlying mechanics.
 
 
 Array-based lists
@@ -953,7 +982,7 @@ Here is an example of using each of the List methods with an ArrayList implement
             final var random = new Random();
 
             // 1. add(E e)
-            for (int i = 0; i < 10; i++) {
+            for (var i = 0; i < 10; i++) {
                 final var numberToAdd = random.nextInt(100);
                 list.add(numberToAdd);
                 System.out.println("Added " + numberToAdd);
@@ -1319,36 +1348,6 @@ Here's an overview of how to create `Map` instances, including the `Map.of()` fa
 These examples demonstrate different approaches to creating `Map` instances. You can use the `Map.of()` factory method for creating small immutable maps, or instantiate specific implementations like `HashMap`, `TreeMap`, or others based on your requirements.
 
 
-Performance of Map API methods
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-The following table showcases the time and space complexity of the main methods in TreeMap, HashMap, and LinkedHashMap:
-
-+----------------------+---------------+--------------+-------------------+
-| Method               | TreeMap       | HashMap      | LinkedHashMap     |
-+======================+===============+==============+===================+
-| get(key)             | O(log n)      | O(1)         | O(1)              |
-+----------------------+---------------+--------------+-------------------+
-| put(key, value)      | O(log n)      | O(1)         | O(1)              |
-+----------------------+---------------+--------------+-------------------+
-| remove(key)          | O(log n)      | O(1)         | O(1)              |
-+----------------------+---------------+--------------+-------------------+
-| containsKey(key)     | O(log n)      | O(1)         | O(1)              |
-+----------------------+---------------+--------------+-------------------+
-| containsValue(value) | O(n)          | O(n)         | O(n)              |
-+----------------------+---------------+--------------+-------------------+
-| size()               | O(1)          | O(1)         | O(1)              |
-+----------------------+---------------+--------------+-------------------+
-| clear()              | O(1)          | O(1)         | O(1)              |
-+----------------------+---------------+--------------+-------------------+
-
-In this table, the time complexity of each method is represented using Big O notation, while the space complexity is notated as O(1) since the space required remains constant regardless of the input size.
-
-Please note that the complexities provided here are general average case complexities. In some specific scenarios, the performance may deviate due to factors such as hash collisions or tree rebalancing in TreeMap. Additionally, the performance characteristics may vary depending on the specific usage patterns and the size of the map.
-
-It's important to choose the appropriate map implementation based on the specific requirements and performance characteristics needed for your application.
-
-
 Unit tests for the Map API
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -1367,7 +1366,7 @@ Unit tests help validate the behavior of individual methods. Here's an example o
         @Test
         void testPut() {
             final Map<String, Integer> map = new HashMap<>();
-            final Integer result = map.put("One", 1);
+            final var result = map.put("One", 1);
             assertNull(result);
             assertEquals(1, map.size());
         }
@@ -1376,7 +1375,7 @@ Unit tests help validate the behavior of individual methods. Here's an example o
         void testGet() {
             final Map<String, Integer> map = new HashMap<>();
             map.put("One", 1);
-            final Integer result = map.get("One");
+            final var result = map.get("One");
             assertNotNull(result);
             assertEquals(1, result);
         }
@@ -1385,7 +1384,7 @@ Unit tests help validate the behavior of individual methods. Here's an example o
         void testRemove() {
             final Map<String, Integer> map = new HashMap<>();
             map.put("One", 1);
-            final Integer removed = map.remove("One");
+            final var removed = map.remove("One");
             assertEquals(1, removed);
             assertTrue(map.isEmpty());
         }
@@ -1439,6 +1438,36 @@ Each of these tests instantiates a new `HashMap`, performs some operations on it
 Note that unit tests should generally be written for each method in isolation and for interaction of methods, and should cover both common cases and edge cases. A full test suite for a `Map` implementation would have more tests than what's included here.
 
 
+Performance of Map API methods
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The following table showcases the time and space complexity of the main methods in TreeMap, HashMap, and LinkedHashMap:
+
++----------------------+---------------+--------------+-------------------+
+| Method               | TreeMap       | HashMap      | LinkedHashMap     |
++======================+===============+==============+===================+
+| get(key)             | O(log n)      | O(1)         | O(1)              |
++----------------------+---------------+--------------+-------------------+
+| put(key, value)      | O(log n)      | O(1)         | O(1)              |
++----------------------+---------------+--------------+-------------------+
+| remove(key)          | O(log n)      | O(1)         | O(1)              |
++----------------------+---------------+--------------+-------------------+
+| containsKey(key)     | O(log n)      | O(1)         | O(1)              |
++----------------------+---------------+--------------+-------------------+
+| containsValue(value) | O(n)          | O(n)         | O(n)              |
++----------------------+---------------+--------------+-------------------+
+| size()               | O(1)          | O(1)         | O(1)              |
++----------------------+---------------+--------------+-------------------+
+| clear()              | O(1)          | O(1)         | O(1)              |
++----------------------+---------------+--------------+-------------------+
+
+In this table, the time complexity of each method is represented using Big O notation, while the space complexity is notated as O(1) since the space required remains constant regardless of the input size.
+
+Please note that the complexities provided here are general average case complexities. In some specific scenarios, the performance may deviate due to factors such as hash collisions or tree rebalancing in TreeMap. Additionally, the performance characteristics may vary depending on the specific usage patterns and the size of the map.
+
+It's important to choose the appropriate map implementation based on the specific requirements and performance characteristics needed for your application.
+
+
 Sample implementation
 ^^^^^^^^^^^^^^^^^^^^^
 
@@ -1477,7 +1506,7 @@ Absolutely, here's a simple pedagogically-oriented implementation of a Map using
             if (count >= SIZE) {
                 throw new IllegalStateException("Map is full");
             }
-            for (int i = 0; i < count; i++) {
+            for (var i = 0; i < count; i++) {
                 if (entries[i].key().equals(key)) {
                     entries[i] = new Entry<>(key, value);
                     return;
@@ -1686,32 +1715,6 @@ Certainly! Here's an overview of how to create `Set` instances, including the `S
 These examples demonstrate different approaches to creating `Set` instances. You can use the `Set.of()` factory method for creating small immutable sets, or instantiate specific implementations like `HashSet`, `TreeSet`, or others based on your requirements.
 
 
-Performance of Map API methods
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-The following table showcases the time and space complexity of the main methods in TreeSet, HashSet, and LinkedHashSet:
-
-+----------------------+--------------+--------------+-------------------+
-| Method               | TreeSet      | HashSet      | LinkedHashSet     |
-+======================+==============+==============+===================+
-| add(element)         | O(log n)     | O(1)         | O(1)              |
-+----------------------+--------------+--------------+-------------------+
-| remove(element)      | O(log n)     | O(1)         | O(1)              |
-+----------------------+--------------+--------------+-------------------+
-| contains(element)    | O(log n)     | O(1)         | O(1)              |
-+----------------------+--------------+--------------+-------------------+
-| size()               | O(1)         | O(1)         | O(1)              |
-+----------------------+--------------+--------------+-------------------+
-| clear()              | O(1)         | O(1)         | O(1)              |
-+----------------------+--------------+--------------+-------------------+
-
-In this table, the time complexity of each method is represented using Big O notation, while the space complexity is notated as O(1) since the space required remains constant regardless of the input size.
-
-Please note that the complexities provided here are general average case complexities. In some specific scenarios, the performance may deviate due to factors such as hash collisions or tree rebalancing in TreeSet.
-
-When choosing a specific set implementation, consider the specific requirements of your application and the performance characteristics needed. TreeSet is suitable when you need elements to be sorted in a specific order. HashSet is ideal for general-purpose sets with constant-time operations. LinkedHashSet maintains insertion order while providing constant-time operations.
-
-
 Unit tests for the Set API
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -1794,6 +1797,32 @@ Here's how you could write unit tests for the `Set` interface using `HashSet` as
 In these tests, we're checking that each of the methods works as expected: `add` adds an item and returns `true` if it wasn't already present, `remove` removes an item and returns `true` if it was present, `clear` removes all items, `size` returns the number of items, `contains` checks for the presence of an item, and `isEmpty` checks if the set is empty.
 
 Note that for a complete set of tests, you would want to test other methods in the `Set` interface, and you would want to test edge cases and interactions between methods. These tests are intended to be a starting point and an illustrative example.
+
+
+Performance of Set API methods
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The following table showcases the time and space complexity of the main methods in TreeSet, HashSet, and LinkedHashSet:
+
++----------------------+--------------+--------------+-------------------+
+| Method               | TreeSet      | HashSet      | LinkedHashSet     |
++======================+==============+==============+===================+
+| add(element)         | O(log n)     | O(1)         | O(1)              |
++----------------------+--------------+--------------+-------------------+
+| remove(element)      | O(log n)     | O(1)         | O(1)              |
++----------------------+--------------+--------------+-------------------+
+| contains(element)    | O(log n)     | O(1)         | O(1)              |
++----------------------+--------------+--------------+-------------------+
+| size()               | O(1)         | O(1)         | O(1)              |
++----------------------+--------------+--------------+-------------------+
+| clear()              | O(1)         | O(1)         | O(1)              |
++----------------------+--------------+--------------+-------------------+
+
+In this table, the time complexity of each method is represented using Big O notation, while the space complexity is notated as O(1) since the space required remains constant regardless of the input size.
+
+Please note that the complexities provided here are general average case complexities. In some specific scenarios, the performance may deviate due to factors such as hash collisions or tree rebalancing in TreeSet.
+
+When choosing a specific set implementation, consider the specific requirements of your application and the performance characteristics needed. TreeSet is suitable when you need elements to be sorted in a specific order. HashSet is ideal for general-purpose sets with constant-time operations. LinkedHashSet maintains insertion order while providing constant-time operations.
 
 
 Sample implementation
@@ -2031,26 +2060,8 @@ Choosing between `ArrayDeque` and `LinkedList` depends on specific requirements.
 Using the appropriate stack implementation ensures compatibility with the Java 17 API and enables you to benefit from the standardized stack behavior and functionality provided by the `Deque` interface.
 
 
-Performance of Stack API methods
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-The time and space complexity of the main methods in the standard Java 17 implementation of a Stack (utilizing an `ArrayDeque` or `LinkedList`) is as follows:
-
-- `push(element)`: O(1) time complexity on average. Amortized constant time complexity is achieved when the underlying array doesn't require resizing. The space complexity is O(1) since it only requires adding an element to the internal array.
-- `pop()`: O(1) time complexity. Removing an element from the top of the stack takes constant time, regardless of the size of the stack. The space complexity is O(1) since it only requires removing an element from the internal array.
-- `peek()`: O(1) time complexity. Accessing the top element of the stack is a constant time operation. The space complexity is O(1) since it does not modify the internal array.
-- `isEmpty()`: O(1) time complexity. Checking if the stack is empty takes constant time. The space complexity is O(1) since it does not modify the internal array.
-- `size()`: O(1) time complexity. Determining the size of the stack takes constant time. The space complexity is O(1) since it does not modify the internal array.
-
-It's important to note that the time complexity provided here represents the average and amortized case complexities. In rare cases, certain operations might require resizing the underlying array, resulting in a higher time complexity.
-
-The space complexity of the standard Java 17 implementation is O(n), where n is the number of elements in the stack. However, since we are analyzing the complexity of individual methods, we consider the space complexity as O(1) since these methods do not consume additional space proportional to the input size.
-
-Please keep in mind that these complexities apply to the standard Java 17 implementation of the Stack, specifically utilizing the `ArrayDeque` or `LinkedList` class. Other custom implementations or variations may have different complexities.
-
-
-Unit Testing the Stack API Methods
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Unit Tests for the Stack API
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 To ensure the correctness of your stack implementation, it is crucial to write comprehensive unit tests for each of the main API methods. Let's explore how you can effectively test these methods:
 
@@ -2163,6 +2174,24 @@ Testing `size()`
 In this test, we create a stack, add elements to it, and verify the size at different stages. We assert that the initial size is 0, increases as elements are pushed, and decreases as elements are popped.
 
 By writing comprehensive unit tests for each of the main stack API methods, you can ensure that your implementation behaves as expected and handles different scenarios correctly.
+
+
+Performance of Stack API methods
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The time and space complexity of the main methods in the standard Java 17 implementation of a Stack (utilizing an `ArrayDeque` or `LinkedList`) is as follows:
+
+- `push(element)`: O(1) time complexity on average. Amortized constant time complexity is achieved when the underlying array doesn't require resizing. The space complexity is O(1) since it only requires adding an element to the internal array.
+- `pop()`: O(1) time complexity. Removing an element from the top of the stack takes constant time, regardless of the size of the stack. The space complexity is O(1) since it only requires removing an element from the internal array.
+- `peek()`: O(1) time complexity. Accessing the top element of the stack is a constant time operation. The space complexity is O(1) since it does not modify the internal array.
+- `isEmpty()`: O(1) time complexity. Checking if the stack is empty takes constant time. The space complexity is O(1) since it does not modify the internal array.
+- `size()`: O(1) time complexity. Determining the size of the stack takes constant time. The space complexity is O(1) since it does not modify the internal array.
+
+It's important to note that the time complexity provided here represents the average and amortized case complexities. In rare cases, certain operations might require resizing the underlying array, resulting in a higher time complexity.
+
+The space complexity of the standard Java 17 implementation is O(n), where n is the number of elements in the stack. However, since we are analyzing the complexity of individual methods, we consider the space complexity as O(1) since these methods do not consume additional space proportional to the input size.
+
+Please keep in mind that these complexities apply to the standard Java 17 implementation of the Stack, specifically utilizing the `ArrayDeque` or `LinkedList` class. Other custom implementations or variations may have different complexities.
 
 
 Sample implementation
@@ -2315,26 +2344,6 @@ In these examples, we use the `Queue` interface to represent a queue. Both `Link
 Using the appropriate queue implementation ensures compatibility with the Java 17 API and enables you to benefit from the standardized queue behavior and functionality provided by the `Queue` interface.
 
 
-Performance of the main Queue API methods
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Here are the time and space complexities for the main methods in the standard Java 17 implementations of Queue (`ArrayDeque` and `LinkedList`), along with a brief rationale for each method's time complexity:
-
-- `add(element)` / `offer(element)`: O(1) time complexity. Adding an element to the end of the queue takes constant time as it involves inserting the element into the underlying data structure. The space complexity is O(1).
-
-- `remove()` / `poll()`: O(1) time complexity. Removing and returning the element from the front of the queue takes constant time. The space complexity is O(1).
-
-- `element()` / `peek()`: O(1) time complexity. Accessing the element at the front of the queue without removing it takes constant time. The space complexity is O(1).
-
-- `isEmpty()`: O(1) time complexity. Checking if the queue is empty takes constant time. The space complexity is O(1).
-
-- `size()`: O(1) time complexity. Determining the size of the queue takes constant time. The space complexity is O(1).
-
-These complexities are applicable to the standard Java 17 implementations of `ArrayDeque` and `LinkedList`. The time complexities are derived from the inherent design and data structures used in the implementations, ensuring efficient operations for these methods. The space complexities are considered O(1) as they do not consume additional space proportional to the input size.
-
-It's important to note that these complexities represent the average case complexities. Certain edge cases or specific usage scenarios may exhibit different performance characteristics.
-
-
 Unit tests for the Queue API
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -2360,7 +2369,7 @@ Sure, I can provide a simple example using JUnit, which is the most common frame
         @BeforeEach
         public void setup() {
             queue = new LinkedList<>();
-            for (int i = 0; i < SIZE; i++) {
+            for (var i = 0; i < SIZE; i++) {
                 queue.add(i);
             }
         }
@@ -2379,7 +2388,7 @@ Sure, I can provide a simple example using JUnit, which is the most common frame
 
         @Test
         public void testRemove() {
-            for (int i = 0; i < SIZE; i++) {
+            for (var i = 0; i < SIZE; i++) {
                 assertEquals(i, queue.remove());
             }
             assertThrows(NoSuchElementException.class, () -> queue.remove());
@@ -2387,7 +2396,7 @@ Sure, I can provide a simple example using JUnit, which is the most common frame
 
         @Test
         public void testPoll() {
-            for (int i = 0; i < SIZE; i++) {
+            for (var i = 0; i < SIZE; i++) {
                 assertEquals(i, queue.poll());
             }
             assertNull(queue.poll());
@@ -2437,6 +2446,26 @@ Each test method uses assertions to check that the operation being tested has th
 In order to set up the state before each test, I've used the `@BeforeEach` annotation, which runs the setup method before each individual test. In this case, the setup method initializes a queue with the numbers 0 to 9.
 
 Remember that you'll need to have JUnit in your project classpath to run these tests. If you're using a build tool like Maven or Gradle, you can add JUnit as a dependency in your build file. If you're not using a build tool, you can download JUnit and add it to your project classpath manually.
+
+
+Performance of the main Queue API methods
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Here are the time and space complexities for the main methods in the standard Java 17 implementations of Queue (`ArrayDeque` and `LinkedList`), along with a brief rationale for each method's time complexity:
+
+- `add(element)` / `offer(element)`: O(1) time complexity. Adding an element to the end of the queue takes constant time as it involves inserting the element into the underlying data structure. The space complexity is O(1).
+
+- `remove()` / `poll()`: O(1) time complexity. Removing and returning the element from the front of the queue takes constant time. The space complexity is O(1).
+
+- `element()` / `peek()`: O(1) time complexity. Accessing the element at the front of the queue without removing it takes constant time. The space complexity is O(1).
+
+- `isEmpty()`: O(1) time complexity. Checking if the queue is empty takes constant time. The space complexity is O(1).
+
+- `size()`: O(1) time complexity. Determining the size of the queue takes constant time. The space complexity is O(1).
+
+These complexities are applicable to the standard Java 17 implementations of `ArrayDeque` and `LinkedList`. The time complexities are derived from the inherent design and data structures used in the implementations, ensuring efficient operations for these methods. The space complexities are considered O(1) as they do not consume additional space proportional to the input size.
+
+It's important to note that these complexities represent the average case complexities. Certain edge cases or specific usage scenarios may exhibit different performance characteristics.
 
 
 Sample implementation
@@ -2522,32 +2551,42 @@ If you specifically want to refer to data structures like stacks and queues whic
 
 But keep in mind that the term "Restricted Access Data Structures" isn't a widely recognized standard term, and its meaning could vary depending on the context or source. The usage and understanding of these terminologies can differ slightly between different textbooks, resources, or educators.
 
-The `Collections.asLifoQueue` method is typically used to adapt a `Deque` (double-ended queue) implementation as a Last-In-First-Out (LIFO) queue. It returns a view of the specified `Deque` as a LIFO queue, which means that elements are accessed in the reverse order of their insertion.
+The `Collections.asLifoQueue` method is used to create a view of a `Deque` (double-ended queue) as a Last-In-First-Out (LIFO) `Queue`. It means that you can use a `Deque` like a `Stack`, but still treat it as a `Queue`. The `Deque` interface, among other things, provides methods for inserting, removing, and inspecting elements at both ends of the `Deque`.
 
-Here's an example usage scenario to illustrate its purpose:
+The `asLifoQueue` method is often used in algorithms and data structures where you want a stack-like behavior but need to use the `Queue` interface. One common use-case might be a depth-first search algorithm, where you want to explore the "deepest" nodes in a tree or graph first, which can be implemented by adding new nodes to the front of the `Deque` and always processing the first node in the `Deque`.
+
+Here's a simple example of using `Collections.asLifoQueue`:
 
 .. code-block:: java
 
-    import java.util.*;
+    import java.util.ArrayDeque;
+    import java.util.Collections;
+    import java.util.Queue;
 
-    public class Main {
+    public class LifoQueueExample {
         public static void main(final String[] args) {
-            Deque<Integer> deque = new ArrayDeque<>();
-            deque.push(1);
-            deque.push(2);
-            deque.push(3);
+            final ArrayDeque<Integer> deque = new ArrayDeque<>();
+            final Queue<Integer> queue = Collections.asLifoQueue(deque);
 
-            Queue<Integer> lifoQueue = Collections.asLifoQueue(deque);
-            System.out.println(lifoQueue.poll()); // Output: 3
-            System.out.println(lifoQueue.poll()); // Output: 2
-            System.out.println(lifoQueue.poll()); // Output: 1
+            queue.add(1);
+            queue.add(2);
+            queue.add(3);
+            
+            while (!queue.isEmpty()) {
+                System.out.println(queue.remove());
+            }
         }
     }
 
+When you run this code, it will print:
 
-In this example, we have a `Deque` implementation (`ArrayDeque`) where elements are pushed using the `push` method, which adds elements to the front of the deque. By using `Collections.asLifoQueue`, we adapt the `Deque` as a LIFO queue. The `lifoQueue` variable is now a view of the `deque` object but behaves like a LIFO queue.
+.. code-block:: 
 
-By calling `poll` on the `lifoQueue`, we retrieve elements in the reverse order of their insertion. In this case, the elements `3`, `2`, and `1` are retrieved in LIFO order.
+    3
+    2
+    1
+
+This demonstrates that the `Queue` is acting like a stack, with elements being removed in last-in, first-out order.
 
 The `Collections.asLifoQueue` method is useful when you have an existing `Deque` implementation and need to work with it as a LIFO queue. It provides a convenient way to adapt the `Deque` interface to the `Queue` interface with LIFO behavior. This can be beneficial in scenarios where you need LIFO functionality, such as implementing a stack or handling undo/redo operations.
 
