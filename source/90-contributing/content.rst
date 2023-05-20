@@ -46,11 +46,21 @@ Elements of a chapter (our own - WIP)
 - intro, motivation, and definition
 - real-world example
 - main API methods
-- performance (if applicable)
 - how to instantiate
 - unit tests
+- performance (if applicable)
 - simple implementation
 - key takeaways
+
+.. Can you write a complete CS2 textbook chapter on the List ADT with the following elements?
+  - intro, motivation, and definition
+  - example
+  - main API methods
+  - how to instantiate (including List.of factory method)
+  - unit tests (JUnit 5) to make sure each of the main API methods does what it's supposed to
+  - performance of main API methods for each implementation shown in the instantiation section (as a restructured text csv-table) 
+  - simple implementation suitable for CS2 teaching
+  - key takeaways
 
 
 Possible chapter structure (GPT 3.5)
