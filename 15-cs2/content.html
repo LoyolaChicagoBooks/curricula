@@ -7,9 +7,9 @@
 <meta content="white" media="(prefers-color-scheme: light)" name="theme-color"/>
 <meta content="black" metia="(prefers-color-scheme: dark)" name="theme-color"/>
 <meta content="Docutils 0.18.1: http://docutils.sourceforge.net/" name="generator"/>
-<title>Data Structures 1 | CS Curricula v2023-05-20 documentation</title>
-<meta content="Data Structures 1 | CS Curricula v2023-05-20 documentation" property="og:title"/>
-<meta content="Data Structures 1 | CS Curricula v2023-05-20 documentation" name="twitter:title"/>
+<title>Data Structures 1 | CS Curricula v2023-05-21 documentation</title>
+<meta content="Data Structures 1 | CS Curricula v2023-05-21 documentation" property="og:title"/>
+<meta content="Data Structures 1 | CS Curricula v2023-05-21 documentation" name="twitter:title"/>
 <link href="../_static/pygments.css" rel="stylesheet"/>
 <link href="../_static/theme.a16405b310edf0713aee.css" rel="stylesheet"/>
 <link href="../search.html" rel="search" title="Search"/>
@@ -39,7 +39,7 @@
     </a>
 <header class="sticky top-0 z-40 w-full border-b shadow-sm border-border supports-backdrop-blur:bg-background/60 bg-background/95 backdrop-blur"><div class="container flex items-center h-14">
 <div class="hidden mr-4 md:flex">
-<a class="flex items-center mr-6" href="../index.html"><span class="hidden font-bold sm:inline-block text-clip whitespace-nowrap">CS Curricula v2023-05-20 documentation</span>
+<a class="flex items-center mr-6" href="../index.html"><span class="hidden font-bold sm:inline-block text-clip whitespace-nowrap">CS Curricula v2023-05-21 documentation</span>
 </a></div><button @click="showSidebar = true" class="inline-flex items-center justify-center h-10 px-0 py-2 mr-2 text-base font-medium transition-colors rounded-md hover:text-accent-foreground hover:bg-transparent md:hidden" type="button">
 <svg aria-hidden="true" fill="currentColor" height="24" viewbox="0 96 960 960" width="24" xmlns="http://www.w3.org/2000/svg">
 <path d="M152.587 825.087q-19.152 0-32.326-13.174t-13.174-32.326q0-19.152 13.174-32.326t32.326-13.174h440q19.152 0 32.326 13.174t13.174 32.326q0 19.152-13.174 32.326t-32.326 13.174h-440Zm0-203.587q-19.152 0-32.326-13.174T107.087 576q0-19.152 13.174-32.326t32.326-13.174h320q19.152 0 32.326 13.174T518.087 576q0 19.152-13.174 32.326T472.587 621.5h-320Zm0-203.587q-19.152 0-32.326-13.174t-13.174-32.326q0-19.152 13.174-32.326t32.326-13.174h440q19.152 0 32.326 13.174t13.174 32.326q0 19.152-13.174 32.326t-32.326 13.174h-440ZM708.913 576l112.174 112.174q12.674 12.674 12.674 31.826t-12.674 31.826Q808.413 764.5 789.261 764.5t-31.826-12.674l-144-144Q600 594.391 600 576t13.435-31.826l144-144q12.674-12.674 31.826-12.674t31.826 12.674q12.674 12.674 12.674 31.826t-12.674 31.826L708.913 576Z"></path>
@@ -70,7 +70,7 @@
 </div>
 </header>
 <div class="flex-1"><div class="container flex-1 items-start md:grid md:grid-cols-[220px_minmax(0,1fr)] md:gap-6 lg:grid-cols-[240px_minmax(0,1fr)] lg:gap-10"><aside :aria-hidden="!showSidebar" :class="{ 'translate-x-0': showSidebar }" class="fixed inset-y-0 left-0 md:top-14 z-50 md:z-30 bg-background md:bg-transparent transition-all duration-100 -translate-x-full md:translate-x-0 ml-0 p-6 md:p-0 md:-ml-2 md:h-[calc(100vh-3.5rem)] w-5/6 md:w-full shrink-0 overflow-y-auto border-r border-border md:sticky" id="left-sidebar">
-<a class="!justify-start text-sm md:!hidden bg-background" href="../index.html"><span class="font-bold text-clip whitespace-nowrap">CS Curricula v2023-05-20 documentation</span>
+<a class="!justify-start text-sm md:!hidden bg-background" href="../index.html"><span class="font-bold text-clip whitespace-nowrap">CS Curricula v2023-05-21 documentation</span>
 </a>
 <div class="relative overflow-hidden md:overflow-auto my-4 md:my-0 h-[calc(100vh-8rem)] md:h-auto">
 <div class="overflow-y-auto h-full w-full relative pr-6"><nav class="table w-full min-w-full my-6 lg:my-8">
@@ -103,7 +103,7 @@
 <div class="w-full min-w-0 mx-auto">
 <nav aria-label="breadcrumbs" class="flex items-center mb-4 space-x-1 text-sm text-muted-foreground">
 <a class="overflow-hidden text-ellipsis whitespace-nowrap hover:text-foreground" href="../index.html">
-<span class="hidden md:inline">CS Curricula v2023-05-20 documentation</span>
+<span class="hidden md:inline">CS Curricula v2023-05-21 documentation</span>
 <svg aria-label="Home" class="md:hidden" fill="currentColor" height="18" stroke="none" viewbox="0 96 960 960" width="18" xmlns="http://www.w3.org/2000/svg">
 <path d="M240 856h120V616h240v240h120V496L480 316 240 496v360Zm-80 80V456l320-240 320 240v480H520V696h-80v240H160Zm320-350Z"></path>
 </svg>
@@ -2318,6 +2318,475 @@ Java provides several other implementations of the <cite>Set</cite> interface, s
 <p class="admonition-title">Todo</p>
 <p>extended example</p>
 </div>
+</section>
+</section>
+<section id="recursion">
+<h2>Recursion<a class="headerlink" href="#recursion" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#recursion'">¶</a></h2>
+<p>Recursion is a fundamental concept in computer science that provides a powerful and versatile way of solving problems.
+It’s a method of solving a problem where the solution depends on solutions to smaller instances of the same problem.</p>
+<p>Recursion can make code cleaner and easier to understand by reducing complex problems into simpler sub-problems. In many cases, recursive approaches can be more intuitive than their iterative counterparts.</p>
+<p>For example, consider a file system on a computer.
+If you wanted to find all files in a directory and all of its subdirectories, a recursive approach would be very natural: if the current “item” is a file, you can add it to your list, but if it’s a directory, you need to look at each
+item in the directory (which could in turn be another directory to look
+inside).</p>
+<p>Recursion is also the natural choice for problems based on nested or
+hierarchical data structures, such as trees and graphs, where data can
+be processed in a “divide-and-conquer” approach.</p>
+<p><strong>Definition:</strong> In computer programming, recursion is a method of problem-solving where the solution to a problem depends on solutions to smaller instances of the same problem.
+The process in which a function calls itself directly or indirectly is called recursion and the corresponding function is called a recursive function.</p>
+<p>Recursion involves several key aspects:</p>
+<ol class="arabic simple">
+<li><p>Base Case(s): The simplest instance of the problem that can be solved    directly. It’s the condition that allows the recursion to stop.</p></li>
+<li><p>Recursive Case(s): A more complex instance of the problem that’s solved by breaking it down, and calling the same function with the simpler version of the original problem.</p></li>
+<li><p>Recursive Call: The process of a function invoking itself with a different argument.</p></li>
+</ol>
+<p>Remember that each recursive call must make progress towards a base case
+to ensure that the recursion ends. Failing to do so can result in an
+infinite recursion, leading to a stack overflow error.</p>
+<section id="example-factorial">
+<h3>Example: Factorial<a class="headerlink" href="#example-factorial" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#example-factorial'">¶</a></h3>
+<p>One of the classic examples of recursion is implementing a
+method to compute the factorial of a number.</p>
+<p>Factorial of a non-negative integer n, denoted by n!, is the product of
+all positive integers less than or equal to n. It’s defined recursively
+in mathematical terms as follows:</p>
+<ul class="simple">
+<li><p>0! = 1 (base case)</p></li>
+<li><p>n! = n * (n-1)! for n &gt; 0 (recursive case)</p></li>
+</ul>
+<p>Here’s how this can be implemented in Java:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Main</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">"The factorial of %d is: %d%n"</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">));</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="nf">factorial</span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Base Case</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="c1">// Recursive Case</span>
+<span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>When you run this program, it will output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">The</span> <span class="n">factorial</span> <span class="n">of</span> <span class="mi">5</span> <span class="ow">is</span><span class="p">:</span> <span class="mi">120</span>
+</pre></div>
+</div>
+<p>This is a recursive solution because the <code class="docutils literal notranslate"><span class="pre">factorial</span></code> method calls
+itself to compute the factorial of a smaller number. The recursion
+continues to “unroll” until it hits the base case (when n is 0), at
+which point it starts “rolling up” again to compute and return the final
+result.</p>
+<p>Although recursion can make code easier to read and understand, it’s
+important to note that it can be less efficient than iterative solutions
+due to the overhead of function calls and can lead to stack overflow
+errors if the recursion depth becomes too large. These factors should be
+taken into consideration when deciding whether to use recursion to solve
+a problem.</p>
+</section>
+<section id="the-call-stack">
+<h3>The call stack<a class="headerlink" href="#the-call-stack" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#the-call-stack'">¶</a></h3>
+<p>Below is an ASCII representation of the call stack at each
+step in the computation of <code class="docutils literal notranslate"><span class="pre">factorial(5)</span></code>. It’s important to note that
+the top of the stack is at the bottom of each illustration since new
+stack frames are added “on top” of previous ones. The direction of
+computation is from the top to the bottom, reflecting that the last
+called function is the first one to finish.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Step</span> <span class="mi">1</span><span class="p">:</span> <span class="n">Call</span> <span class="n">factorial</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="o">-------------------</span>
+<span class="o">|</span> <span class="n">factorial</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">|</span>
+<span class="o">-------------------</span>
+
+<span class="n">Step</span> <span class="mi">2</span><span class="p">:</span> <span class="mi">5</span> <span class="o">*</span> <span class="n">factorial</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="o">-------------------</span>
+<span class="o">|</span> <span class="n">factorial</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="o">|</span>
+<span class="o">-------------------</span>
+<span class="o">|</span> <span class="n">factorial</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">|</span>
+<span class="o">-------------------</span>
+
+<span class="n">Step</span> <span class="mi">3</span><span class="p">:</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">factorial</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="o">-------------------</span>
+<span class="o">|</span> <span class="n">factorial</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">|</span>
+<span class="o">-------------------</span>
+<span class="o">|</span> <span class="n">factorial</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="o">|</span>
+<span class="o">-------------------</span>
+<span class="o">|</span> <span class="n">factorial</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">|</span>
+<span class="o">-------------------</span>
+
+<span class="n">Step</span> <span class="mi">4</span><span class="p">:</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">factorial</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="o">-------------------</span>
+<span class="o">|</span> <span class="n">factorial</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">|</span>
+<span class="o">-------------------</span>
+<span class="o">|</span> <span class="n">factorial</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">|</span>
+<span class="o">-------------------</span>
+<span class="o">|</span> <span class="n">factorial</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="o">|</span>
+<span class="o">-------------------</span>
+<span class="o">|</span> <span class="n">factorial</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">|</span>
+<span class="o">-------------------</span>
+
+<span class="n">Step</span> <span class="mi">5</span><span class="p">:</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">factorial</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="o">-------------------</span>
+<span class="o">|</span> <span class="n">factorial</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">|</span>
+<span class="o">-------------------</span>
+<span class="o">|</span> <span class="n">factorial</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">|</span>
+<span class="o">-------------------</span>
+<span class="o">|</span> <span class="n">factorial</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">|</span>
+<span class="o">-------------------</span>
+<span class="o">|</span> <span class="n">factorial</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="o">|</span>
+<span class="o">-------------------</span>
+<span class="o">|</span> <span class="n">factorial</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">|</span>
+<span class="o">-------------------</span>
+
+<span class="n">Step</span> <span class="mi">6</span><span class="p">:</span> <span class="mi">1</span> <span class="o">*</span> <span class="n">factorial</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="o">-------------------</span>
+<span class="o">|</span> <span class="n">factorial</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">|</span>
+<span class="o">-------------------</span>
+<span class="o">|</span> <span class="n">factorial</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">|</span>
+<span class="o">-------------------</span>
+<span class="o">|</span> <span class="n">factorial</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">|</span>
+<span class="o">-------------------</span>
+<span class="o">|</span> <span class="n">factorial</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">|</span>
+<span class="o">-------------------</span>
+<span class="o">|</span> <span class="n">factorial</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="o">|</span>
+<span class="o">-------------------</span>
+<span class="o">|</span> <span class="n">factorial</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">|</span>
+<span class="o">-------------------</span>
+
+<span class="n">Step</span> <span class="mi">7</span><span class="p">:</span> <span class="n">Return</span> <span class="mi">1</span> <span class="p">(</span><span class="n">Base</span> <span class="n">case</span><span class="p">)</span>
+<span class="o">-------------------</span>
+<span class="o">|</span> <span class="n">factorial</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">|</span>
+<span class="o">-------------------</span>
+<span class="o">|</span> <span class="n">factorial</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">|</span>
+<span class="o">-------------------</span>
+<span class="o">|</span> <span class="n">factorial</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">|</span>
+<span class="o">-------------------</span>
+<span class="o">|</span> <span class="n">factorial</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="o">|</span>
+<span class="o">-------------------</span>
+<span class="o">|</span> <span class="n">factorial</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">|</span>
+<span class="o">-------------------</span>
+
+<span class="n">Step</span> <span class="mi">8</span><span class="p">:</span> <span class="n">Return</span> <span class="mi">1</span> <span class="o">*</span> <span class="mi">1</span>
+<span class="o">-------------------</span>
+<span class="o">|</span> <span class="n">factorial</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">|</span>
+<span class="o">-------------------</span>
+<span class="o">|</span> <span class="n">factorial</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">|</span>
+<span class="o">-------------------</span>
+<span class="o">|</span> <span class="n">factorial</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="o">|</span>
+<span class="o">-------------------</span>
+<span class="o">|</span> <span class="n">factorial</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">|</span>
+<span class="o">-------------------</span>
+
+<span class="n">Step</span> <span class="mi">9</span><span class="p">:</span> <span class="n">Return</span> <span class="mi">2</span> <span class="o">*</span> <span class="mi">1</span>
+<span class="o">-------------------</span>
+<span class="o">|</span> <span class="n">factorial</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">|</span>
+<span class="o">-------------------</span>
+<span class="o">|</span> <span class="n">factorial</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="o">|</span>
+<span class="o">-------------------</span>
+<span class="o">|</span> <span class="n">factorial</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">|</span>
+<span class="o">-------------------</span>
+
+<span class="n">Step</span> <span class="mi">10</span><span class="p">:</span> <span class="n">Return</span> <span class="mi">3</span> <span class="o">*</span> <span class="mi">2</span>
+<span class="o">-------------------</span>
+<span class="o">|</span> <span class="n">factorial</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="o">|</span>
+<span class="o">-------------------</span>
+<span class="o">|</span> <span class="n">factorial</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">|</span>
+<span class="o">-------------------</span>
+
+<span class="n">Step</span> <span class="mi">11</span><span class="p">:</span> <span class="n">Return</span> <span class="mi">4</span> <span class="o">*</span> <span class="mi">6</span>
+<span class="o">-------------------</span>
+<span class="o">|</span> <span class="n">factorial</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">|</span>
+<span class="o">-------------------</span>
+
+<span class="n">Step</span> <span class="mi">12</span><span class="p">:</span> <span class="n">Return</span> <span class="mi">5</span> <span class="o">*</span> <span class="mi">24</span>
+<span class="o">-------------------</span>
+</pre></div>
+</div>
+<p>At this point, the entire stack has been unwound and the result, 120, is returned.</p>
+<p>Each step represents the addition or removal of a stack frame in the
+computation of <code class="docutils literal notranslate"><span class="pre">factorial(5)</span></code>. As you can see, as the recursion
+deepens (steps 1 to 6), stack frames are added. Once the base case is
+hit (step 7), the recursion starts to unwind, and the stack frames are
+removed one by one, each contributing to the final result (steps 8 to
+12).</p>
+</section>
+<section id="equivalent-iterative-version-factorial">
+<h3>Equivalent iterative version: Factorial<a class="headerlink" href="#equivalent-iterative-version-factorial" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#equivalent-iterative-version-factorial'">¶</a></h3>
+<p>Here’s how you can implement the factorial function iteratively
+using a for loop in Java:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">public</span> <span class="k">class</span> <span class="nc">Main</span> <span class="p">{</span>
+    <span class="n">public</span> <span class="n">static</span> <span class="n">void</span> <span class="n">main</span><span class="p">(</span><span class="n">final</span> <span class="n">String</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">var</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+        <span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">printf</span><span class="p">(</span><span class="s2">"The factorial of </span><span class="si">%d</span><span class="s2"> is: </span><span class="si">%d</span><span class="s2">%n"</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">));</span>
+    <span class="p">}</span>
+
+    <span class="n">public</span> <span class="n">static</span> <span class="n">long</span> <span class="n">factorial</span><span class="p">(</span><span class="n">final</span> <span class="nb">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">var</span> <span class="n">result</span> <span class="o">=</span> <span class="mi">1</span><span class="n">L</span><span class="p">;</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">var</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">result</span> <span class="o">*=</span> <span class="n">i</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In this version of the factorial function, we start with a <code class="docutils literal notranslate"><span class="pre">result</span></code>
+variable set to 1. We then multiply <code class="docutils literal notranslate"><span class="pre">result</span></code> by each integer from 1 to
+<code class="docutils literal notranslate"><span class="pre">n</span></code> inclusive. The result of each multiplication is stored back into
+<code class="docutils literal notranslate"><span class="pre">result</span></code>, so by the end of the loop, <code class="docutils literal notranslate"><span class="pre">result</span></code> contains the factorial
+of <code class="docutils literal notranslate"><span class="pre">n</span></code>.</p>
+<p>This code will output the same result as the recursive version:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">The</span> <span class="n">factorial</span> <span class="n">of</span> <span class="mi">5</span> <span class="ow">is</span><span class="p">:</span> <span class="mi">120</span>
+</pre></div>
+</div>
+<p>Iterative solutions can be more efficient than recursive ones because
+they avoid the overhead of function call stack frames. However, they can
+sometimes be harder to understand or write, especially for problems that
+have a naturally recursive structure.</p>
+</section>
+<section id="space-complexity-stack-safety-and-tail-recursion">
+<h3>Space complexity, stack safety, and tail recursion<a class="headerlink" href="#space-complexity-stack-safety-and-tail-recursion" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#space-complexity-stack-safety-and-tail-recursion'">¶</a></h3>
+<p>In a language that supports tail call optimization, you would write the
+recursive factorial function in a tail-recursive manner. Here’s what it
+might look like in Java, although please note that as of Java 17, the
+Java programming language does not support tail call optimization:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Main</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">"The factorial of %d is: %d%n"</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">));</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="nf">factorial</span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">acc</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">acc</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">acc</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In this version of <code class="docutils literal notranslate"><span class="pre">factorial</span></code>, the function takes an additional
+parameter <code class="docutils literal notranslate"><span class="pre">acc</span></code> which accumulates the factorial as the recursion
+progresses. This parameter is multiplied by <code class="docutils literal notranslate"><span class="pre">n</span></code> in each recursive
+call.</p>
+<p>The critical change here is that the last thing each call does is to
+make a recursive call to <code class="docutils literal notranslate"><span class="pre">factorial(n</span> <span class="pre">-</span> <span class="pre">1,</span> <span class="pre">n</span> <span class="pre">*</span> <span class="pre">acc)</span></code>. There’s no need
+to wait for the recursive call to return before performing the
+multiplication operation. This is what allows a tail call optimizing
+compiler to reuse the same stack frame for each recursive call,
+achieving constant space complexity.</p>
+<p>However, as I mentioned before, Java does not support tail call
+optimization as of version 17, so this version of <code class="docutils literal notranslate"><span class="pre">factorial</span></code> would
+still use O(n) stack space in Java. It’s written this way to illustrate
+the concept of tail recursion.</p>
+</section>
+<section id="tail-recursion-vs-iteration">
+<h3>Tail recursion vs. iteration<a class="headerlink" href="#tail-recursion-vs-iteration" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#tail-recursion-vs-iteration'">¶</a></h3>
+<p>Any tail-recursive method can be transformed into an iterative one.
+Tail-recursive methods have a single recursive call as their last
+operation. This feature makes it easy to convert them into iterative
+methods, using loops.</p>
+<p>The rationale behind this is that tail-recursive methods don’t need to
+perform any additional computations after the recursive call, and this
+directly translates to the body of a loop in the iterative version. In
+the loop, the computation is performed at each iteration, then the loop
+repeats until the base condition is satisfied, just like the base case
+in recursion.</p>
+<p>It’s important to note that while all tail-recursive methods can be
+converted into iterative ones, not all recursive methods can be easily
+converted into tail-recursive or iterative methods. Some recursive
+problems involve multiple recursive calls or need to perform operations
+after a recursive call, making them trickier to translate into an
+iterative form.</p>
+<p>Also, while converting tail-recursive methods to iterative ones can be
+beneficial from a performance standpoint (since it eliminates the
+function call overhead and the need for stack space), the resulting
+iterative code can sometimes be more difficult to read and understand,
+especially for problems that have a naturally recursive structure.</p>
+</section>
+<section id="example-fibonacci-numbers">
+<h3>Example: Fibonacci numbers<a class="headerlink" href="#example-fibonacci-numbers" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#example-fibonacci-numbers'">¶</a></h3>
+<p>A classic example of a recursive algorithm that can’t be converted into
+a tail-recursive version in an obvious way is the computation of the Fibonacci sequence.
+The Fibonacci sequence is defined recursively as follows:</p>
+<ul class="simple">
+<li><p>fib(0) = 0</p></li>
+<li><p>fib(1) = 1</p></li>
+<li><p>fib(n) = fib(n-1) + fib(n-2) for n &gt; 1</p></li>
+</ul>
+<p>In Java, the function might be implemented like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">public</span> <span class="n">static</span> <span class="nb">int</span> <span class="n">fib</span><span class="p">(</span><span class="n">final</span> <span class="nb">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">n</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The reason this can’t be converted into a tail-recursive version is that
+there are two recursive calls in the function and these calls are not
+the last operation. After the two recursive calls return, their results
+must be added together.</p>
+<p>That said, even though the Fibonacci sequence can’t be computed with a
+tail-recursive algorithm, it can still be computed with an iterative
+algorithm or a recursive algorithm that uses memoization to avoid
+redundant computations. This is a common example of how different
+techniques can be used to implement the same algorithm, depending on the
+requirements and constraints of the problem.</p>
+<p>Even though this is not obvious, it is
+possible to compute Fibonacci numbers in a tail-recursive manner by
+using more than one accumulator. In this case, we’ll use two
+accumulators to keep track of the last two numbers in the Fibonacci
+sequence. This way, each recursive call can be made with these two
+numbers updated appropriately.</p>
+<p>Here is how it could be implemented:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Main</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">"The %dth number in Fibonacci sequence is: %d%n"</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">fib</span><span class="p">(</span><span class="n">n</span><span class="p">));</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">fib</span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">fibHelper</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">fibHelper</span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">fibHelper</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In this example, <code class="docutils literal notranslate"><span class="pre">fibHelper</span></code> is the tail-recursive helper function.
+<code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code> are accumulators that keep track of the last two numbers
+in the sequence. At each step, we shift <code class="docutils literal notranslate"><span class="pre">b</span></code> to <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">+</span> <span class="pre">b</span></code> to
+<code class="docutils literal notranslate"><span class="pre">b</span></code>, which corresponds to moving one step forward in the Fibonacci
+sequence.</p>
+<p>However, it’s important to note that despite this function being
+tail-recursive, Java does not perform tail call optimization, so the
+space complexity is still O(n) due to the stack depth. This code is
+mainly for illustrative purposes and to demonstrate the principle of
+transforming standard recursion into tail recursion.</p>
+</section>
+<section id="multiple-or-tree-recursion-towers-of-hanoi">
+<h3>Multiple or tree recursion: Towers of Hanoi<a class="headerlink" href="#multiple-or-tree-recursion-towers-of-hanoi" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#multiple-or-tree-recursion-towers-of-hanoi'">¶</a></h3>
+<p>There are problems with straightforward, natural, recursive solutions that cannot easily be converted to an iterative solution (without introducing an additional data structure)?</p>
+<p>An example of such a problem is the puzzle game of Towers of Hanoi. The game
+consists of three rods and a number of disks of different sizes which
+can slide onto any rod. The puzzle starts with the disks neatly stacked
+in ascending order of size on one rod, the smallest at the top.</p>
+<p>The objective of the puzzle is to move the entire stack to another rod,
+obeying the following rules:</p>
+<ol class="arabic simple">
+<li><p>Only one disk may be moved at a time.</p></li>
+<li><p>Each move consists of taking the upper disk from one of the rods and
+sliding it onto another rod, on top of the other disks that may
+already be present on that rod.</p></li>
+<li><p>No disk may be placed on top of a smaller disk.</p></li>
+</ol>
+<p>Here’s a simple recursive solution in Java:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Main</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">hanoi</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="s">"A"</span><span class="p">,</span><span class="w"> </span><span class="s">"B"</span><span class="p">,</span><span class="w"> </span><span class="s">"C"</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">hanoi</span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">from</span><span class="p">,</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">to</span><span class="p">,</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">aux</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">"Move disk 1 from rod %s to rod %s%n"</span><span class="p">,</span><span class="w"> </span><span class="n">from</span><span class="p">,</span><span class="w"> </span><span class="n">to</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">hanoi</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">from</span><span class="p">,</span><span class="w"> </span><span class="n">aux</span><span class="p">,</span><span class="w"> </span><span class="n">to</span><span class="p">);</span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">"Move disk %d from rod %s to rod %s%n"</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">from</span><span class="p">,</span><span class="w"> </span><span class="n">to</span><span class="p">);</span>
+<span class="w">            </span><span class="n">hanoi</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">aux</span><span class="p">,</span><span class="w"> </span><span class="n">to</span><span class="p">,</span><span class="w"> </span><span class="n">from</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The recursive solution to the problem is intuitive and easy to
+understand: if we want to move <code class="docutils literal notranslate"><span class="pre">n</span></code> disks from rod <code class="docutils literal notranslate"><span class="pre">from</span></code> to rod
+<code class="docutils literal notranslate"><span class="pre">to</span></code>, we first move <code class="docutils literal notranslate"><span class="pre">n-1</span></code> disks from <code class="docutils literal notranslate"><span class="pre">from</span></code> to the auxiliary rod
+<code class="docutils literal notranslate"><span class="pre">aux</span></code>, then move the <code class="docutils literal notranslate"><span class="pre">n</span></code>th disk from <code class="docutils literal notranslate"><span class="pre">from</span></code> to <code class="docutils literal notranslate"><span class="pre">to</span></code>, and
+finally move the <code class="docutils literal notranslate"><span class="pre">n-1</span></code> disks from <code class="docutils literal notranslate"><span class="pre">aux</span></code> to <code class="docutils literal notranslate"><span class="pre">to</span></code>. The base case is
+when we only have one disk left to move.</p>
+<p>However, implementing this iteratively is not straightforward. We would
+need to simulate the program stack ourselves to keep track of the state
+of each recursive call, which would be significantly more complicated,
+and usually requires an explicit stack. So, this is an example of a
+problem where a recursive solution is more intuitive and easier to
+implement than an iterative solution.</p>
+</section>
+<section id="terminology">
+<h3>Terminology<a class="headerlink" href="#terminology" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#terminology'">¶</a></h3>
+<p id="chatgpt-67">There are specific terms to describe the various types of recursion:</p>
+<ol class="arabic simple">
+<li><p>Single Recursion or Linear Recursion: In this type of recursion, a
+function makes at most one recursive call in each branch, meaning it
+calls itself only once. Examples include the factorial function and
+the Fibonacci sequence function (although the Fibonacci function has
+two recursive branches, each branch only makes one recursive call).
+These types of problems can often be solved iteratively quite easily.</p></li>
+<li><p>Multiple Recursion or Tree Recursion: This refers to functions that
+call themselves more than once in at least one branch, leading to a
+tree-like structure of subproblems. An example is the Towers of Hanoi
+problem, where the function calls itself twice in the non-base case.
+Problems with multiple recursion often involve a branching of
+possibilities and are typically harder to solve iteratively without
+introducing an additional data structure, like an explicit stack, to
+maintain state information.</p></li>
+</ol>
+<p>Remember, the terms “single recursion” and “multiple recursion” aren’t
+universally standardized, but are commonly used to describe these types
+of recursion.</p>
+</section>
+<section id="performance-analysis-towers-of-hanoi">
+<h3>Performance analysis: Towers of Hanoi<a class="headerlink" href="#performance-analysis-towers-of-hanoi" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#performance-analysis-towers-of-hanoi'">¶</a></h3>
+<p>The Towers of Hanoi puzzle is a classic example of a problem that can be
+solved using recursion, and the time complexity of the solution can be
+expressed using a recurrence relation.</p>
+<p>For <code class="docutils literal notranslate"><span class="pre">n</span></code> disks, the number of moves <code class="docutils literal notranslate"><span class="pre">T(n)</span></code> required to solve the
+puzzle can be described by the recurrence relation:</p>
+<p><code class="docutils literal notranslate"><span class="pre">T(n)</span> <span class="pre">=</span> <span class="pre">2*T(n-1)</span> <span class="pre">+</span> <span class="pre">1</span></code></p>
+<p>The intuition behind this recurrence is as follows:</p>
+<ul class="simple">
+<li><p>To move <code class="docutils literal notranslate"><span class="pre">n</span></code> disks from the source peg to the destination peg, we
+first need to move <code class="docutils literal notranslate"><span class="pre">n-1</span></code> disks from the source peg to the auxiliary
+peg. This requires <code class="docutils literal notranslate"><span class="pre">T(n-1)</span></code> moves.</p></li>
+<li><p>Then, we move the remaining disk (the largest one) from the source
+peg to the destination peg. This requires one move.</p></li>
+<li><p>Finally, we need to move the <code class="docutils literal notranslate"><span class="pre">n-1</span></code> disks from the auxiliary peg to
+the destination peg. This again requires <code class="docutils literal notranslate"><span class="pre">T(n-1)</span></code> moves.</p></li>
+</ul>
+<p>Thus, the total number of moves is <code class="docutils literal notranslate"><span class="pre">T(n)</span> <span class="pre">=</span> <span class="pre">2*T(n-1)</span> <span class="pre">+</span> <span class="pre">1</span></code>.</p>
+<p>To solve this recurrence relation, we can use a method called
+“unrolling” or “iteration”. Here’s how it works:</p>
+<ol class="arabic simple">
+<li><p>Start with the equation <code class="docutils literal notranslate"><span class="pre">T(n)</span> <span class="pre">=</span> <span class="pre">2*T(n-1)</span> <span class="pre">+</span> <span class="pre">1</span></code></p></li>
+<li><p>Substitute <code class="docutils literal notranslate"><span class="pre">T(n-1)</span> <span class="pre">=</span> <span class="pre">2*T(n-2)</span> <span class="pre">+</span> <span class="pre">1</span></code> into the equation to get
+<code class="docutils literal notranslate"><span class="pre">T(n)</span> <span class="pre">=</span> <span class="pre">2*(2*T(n-2)</span> <span class="pre">+</span> <span class="pre">1)</span> <span class="pre">+</span> <span class="pre">1</span> <span class="pre">=</span> <span class="pre">2^2*T(n-2)</span> <span class="pre">+</span> <span class="pre">2</span> <span class="pre">+</span> <span class="pre">1</span></code></p></li>
+<li><p>Continue unrolling, until you reach <code class="docutils literal notranslate"><span class="pre">T(1)</span> <span class="pre">=</span> <span class="pre">1</span></code> (since it takes one
+move to move a single disk). After <code class="docutils literal notranslate"><span class="pre">k</span></code> steps, you get
+<code class="docutils literal notranslate"><span class="pre">T(n)</span> <span class="pre">=</span> <span class="pre">2^k*T(n-k)</span> <span class="pre">+</span> <span class="pre">2^k</span> <span class="pre">-</span> <span class="pre">1</span></code>.</p></li>
+<li><p>Stop when <code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">-</span> <span class="pre">k</span> <span class="pre">=</span> <span class="pre">1</span></code>, i.e., <code class="docutils literal notranslate"><span class="pre">k</span> <span class="pre">=</span> <span class="pre">n</span> <span class="pre">-</span> <span class="pre">1</span></code>. Thus,
+<code class="docutils literal notranslate"><span class="pre">T(n)</span> <span class="pre">=</span> <span class="pre">2^(n-1)*T(1)</span> <span class="pre">+</span> <span class="pre">2^(n-1)</span> <span class="pre">-</span> <span class="pre">1</span> <span class="pre">=</span> <span class="pre">2^(n-1)</span> <span class="pre">+</span> <span class="pre">2^(n-1)</span> <span class="pre">-</span> <span class="pre">1</span></code>.</p></li>
+<li><p>Since <code class="docutils literal notranslate"><span class="pre">2^(n-1)</span> <span class="pre">+</span> <span class="pre">2^(n-1)</span> <span class="pre">=</span> <span class="pre">2^n</span></code>, we finally get <code class="docutils literal notranslate"><span class="pre">T(n)</span> <span class="pre">=</span> <span class="pre">2^n</span> <span class="pre">-</span> <span class="pre">1</span></code>.</p></li>
+</ol>
+<p>So, the solution to the recurrence is <code class="docutils literal notranslate"><span class="pre">T(n)</span> <span class="pre">=</span> <span class="pre">2^n</span> <span class="pre">-</span> <span class="pre">1</span></code>, which means
+the number of moves required to solve the Towers of Hanoi puzzle with
+<code class="docutils literal notranslate"><span class="pre">n</span></code> disks is <code class="docutils literal notranslate"><span class="pre">2^n</span> <span class="pre">-</span> <span class="pre">1</span></code>. This is an exponential time complexity.</p>
+<div class="admonition-todo admonition" id="id17">
+<p class="admonition-title">Todo</p>
+<p>recursive version of the maze solver</p>
+</div>
 <hr class="docutils"/>
 </section>
 </section>
@@ -2350,7 +2819,7 @@ Java provides several other implementations of the <cite>Set</cite> interface, s
 <p>The exact order and selection of these topics may vary depending on the specific course and curriculum guidelines. Also, real-life examples and problem-solving exercises should be included to apply these data structures and concepts. The complexity and depth of these topics will increase when students move on to more advanced courses like CS7.</p>
 <section id="cs2-at-loyola-current-topics-and-learning-outcomes">
 <h3>CS2 at Loyola: Current topics and learning outcomes<a class="headerlink" href="#cs2-at-loyola-current-topics-and-learning-outcomes" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#cs2-at-loyola-current-topics-and-learning-outcomes'">¶</a></h3>
-<div class="admonition-todo admonition" id="id17">
+<div class="admonition-todo admonition" id="id18">
 <p class="admonition-title">Todo</p>
 <p>Update as needed.</p>
 </div>
@@ -2925,8 +3394,8 @@ Balto says: Howl!
 <p>Subtyping is an important concept in object-oriented programming and is closely related to inheritance. It allows for the substitution of objects of one class with objects of another class that is derived from or related to the former class.</p>
 <p>Subtyping enables polymorphism and supports the “is-a” relationship between classes. It allows objects of a derived class to be treated as objects of their parent class, providing flexibility and extensibility in program design. By leveraging subtyping, code can be written in a way that is more generic and adaptable to different types of objects.</p>
 <p>In the context of CS2, subtyping is a significant aspect of understanding inheritance and polymorphism. It enables students to create class hierarchies, define relationships between classes, and utilize the principles of code reuse and abstraction. By grasping the concept of subtyping, students can effectively design and implement object-oriented programs that utilize inheritance and polymorphism to their full potential.</p>
-<table class="docutils align-default" id="id20">
-<caption><span class="caption-text">Comparison between type hierarchy relationships</span><a class="headerlink" href="#id20" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id21">
+<caption><span class="caption-text">Comparison between type hierarchy relationships</span><a class="headerlink" href="#id21" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 33%"/>
 <col style="width: 33%"/>
@@ -3153,8 +3622,8 @@ Balto says: Howl!
 </pre></div>
 </div>
 <p>This example demonstrates how the <cite>Car</cite> object composes the <cite>Engine</cite> and <cite>Wheel</cite> objects, utilizing their behaviors and encapsulating them within its own functionality.</p>
-<table class="docutils align-default" id="id21">
-<caption><span class="caption-text">Comparison among object relationships</span><a class="headerlink" href="#id21" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id22">
+<caption><span class="caption-text">Comparison among object relationships</span><a class="headerlink" href="#id22" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 25%"/>
 <col style="width: 25%"/>
@@ -3307,8 +3776,8 @@ Balto says: Howl!
 <p>If you have any further questions or need additional clarification, please let me know!</p>
 </section>
 </section>
-<section id="id18">
-<h2>Maps<a class="headerlink" href="#id18" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id18'">¶</a></h2>
+<section id="id19">
+<h2>Maps<a class="headerlink" href="#id19" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id19'">¶</a></h2>
 <p><em>Which is the Swiss army knife of data structures?</em></p>
 <p>The “Swiss army knife” of data structures is often considered to be the “Array.” Arrays are versatile and widely used data structures that offer flexibility in storing and accessing elements.</p>
 <p>Here are some reasons why arrays can be considered the Swiss army knife of data structures:</p>
@@ -3337,7 +3806,7 @@ Balto says: Howl!
 </ol>
 <p>By utilizing lists, you gain the advantages of a dynamic and flexible data structure that can handle a wide range of element types and provide efficient operations for adding, removing, and accessing elements.</p>
 <p>If you have any further questions or need additional information, feel free to ask!</p>
-<div class="admonition-todo admonition" id="id19">
+<div class="admonition-todo admonition" id="id20">
 <p class="admonition-title">Todo</p>
 <p>move to SE course?</p>
 </div>
@@ -3446,6 +3915,18 @@ Balto says: Howl!
 <li><a :data-current="activeSection === '#putting-everything-together-maze-solver'" class="reference internal" href="#putting-everything-together-maze-solver">Putting everything together: maze solver</a></li>
 </ul>
 </li>
+<li><a :data-current="activeSection === '#recursion'" class="reference internal" href="#recursion">Recursion</a><ul>
+<li><a :data-current="activeSection === '#example-factorial'" class="reference internal" href="#example-factorial">Example: Factorial</a></li>
+<li><a :data-current="activeSection === '#the-call-stack'" class="reference internal" href="#the-call-stack">The call stack</a></li>
+<li><a :data-current="activeSection === '#equivalent-iterative-version-factorial'" class="reference internal" href="#equivalent-iterative-version-factorial">Equivalent iterative version: Factorial</a></li>
+<li><a :data-current="activeSection === '#space-complexity-stack-safety-and-tail-recursion'" class="reference internal" href="#space-complexity-stack-safety-and-tail-recursion">Space complexity, stack safety, and tail recursion</a></li>
+<li><a :data-current="activeSection === '#tail-recursion-vs-iteration'" class="reference internal" href="#tail-recursion-vs-iteration">Tail recursion vs. iteration</a></li>
+<li><a :data-current="activeSection === '#example-fibonacci-numbers'" class="reference internal" href="#example-fibonacci-numbers">Example: Fibonacci numbers</a></li>
+<li><a :data-current="activeSection === '#multiple-or-tree-recursion-towers-of-hanoi'" class="reference internal" href="#multiple-or-tree-recursion-towers-of-hanoi">Multiple or tree recursion: Towers of Hanoi</a></li>
+<li><a :data-current="activeSection === '#terminology'" class="reference internal" href="#terminology">Terminology</a></li>
+<li><a :data-current="activeSection === '#performance-analysis-towers-of-hanoi'" class="reference internal" href="#performance-analysis-towers-of-hanoi">Performance analysis: Towers of Hanoi</a></li>
+</ul>
+</li>
 <li><a :data-current="activeSection === '#top-15-cs2-topics-as-opposed-to-cs7'" class="reference internal" href="#top-15-cs2-topics-as-opposed-to-cs7">Top 15 CS2 topics as opposed to CS7</a><ul>
 <li><a :data-current="activeSection === '#cs2-at-loyola-current-topics-and-learning-outcomes'" class="reference internal" href="#cs2-at-loyola-current-topics-and-learning-outcomes">CS2 at Loyola: Current topics and learning outcomes</a></li>
 </ul>
@@ -3467,7 +3948,7 @@ Balto says: Howl!
 <li><a :data-current="activeSection === '#only-observable-relationships-matter'" class="reference internal" href="#only-observable-relationships-matter">Only observable relationships matter</a></li>
 </ul>
 </li>
-<li><a :data-current="activeSection === '#id18'" class="reference internal" href="#id18">Maps</a></li>
+<li><a :data-current="activeSection === '#id19'" class="reference internal" href="#id19">Maps</a></li>
 <li><a :data-current="activeSection === '#software-engineering-principles'" class="reference internal" href="#software-engineering-principles">Software engineering principles</a><ul>
 <li><a :data-current="activeSection === '#what-does-beautiful-code-look-like-in-the-context-of-a-cs2-course'" class="reference internal" href="#what-does-beautiful-code-look-like-in-the-context-of-a-cs2-course">What does beautiful code look like in the context of a CS2 course?</a></li>
 </ul>
