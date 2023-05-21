@@ -709,6 +709,9 @@ Here are the top 10 methods that you will commonly use when working more general
 These methods cover the most common operations you'll perform on a List: adding elements, removing elements, getting or setting the value of an element, checking the size, and checking if an element is present in the List.
 
 
+.. todo:: Introduce correctness at the API level: preconditions and postconditions
+
+
 How to create mutable List instances
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -1039,6 +1042,9 @@ Here is an example of using each of the List methods with an ArrayList implement
 In this program, a new ArrayList of integers is created. The program then randomly adds integers, gets and removes integers at random indices, checks the size, and checks if the list is empty. The list is then cleared, and finally checks if the list contains a random number. Each operation is output to the console using `System.out.println()`.
 
 
+.. todo:: Introduce algorithm analysis at a very basic level - big-O notation for constant-time and linear-time performance.
+
+
 Performance of ArrayList methods
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -1097,6 +1103,8 @@ Sample implementation
 ^^^^^^^^^^^^^^^^^^^^^
 
 .. Can you show a simple yet modern Java implementation class of the Map interface, pedagogically suitable for a CS2 audience (second computer science course)? The implementation doesn't have to be complete but should include the handful or so of essential methods.
+
+.. todo:: Introduce correctness at the implementation level: class invariants (data invariants) and their relationship with pre- and postconditions.
 
 An implementation of a basic `ArrayList` in Java might look like this:
 
@@ -1436,6 +1444,9 @@ Unit tests help validate the behavior of individual methods. Here's an example o
 Each of these tests instantiates a new `HashMap`, performs some operations on it, and then checks that the state of the map is as expected. These checks use methods like `assertEquals`, `assertTrue`, and `assertFalse` from JUnit to assert expected outcomes. If an assertion fails, JUnit will report a failure for that test, indicating that there's a bug in the code under test.
 
 Note that unit tests should generally be written for each method in isolation and for interaction of methods, and should cover both common cases and edge cases. A full test suite for a `Map` implementation would have more tests than what's included here.
+
+
+.. todo:: Briefly discuss O(log n) and give overview of the complexity classes familiar at this point.
 
 
 Performance of Map API methods
@@ -2638,6 +2649,9 @@ Example: Factorial
 .. _user-58: Can you provide a simple, complete, real-world code example of recursion in Java?
 
 
+.. todo:: add non-recursive, stack-based versions of the non-tail-recursive examples
+
+
 One of the classic examples of recursion is implementing a
 method to compute the factorial of a number.
 
@@ -2869,6 +2883,9 @@ Space complexity, stack safety, and tail recursion
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. _user-61: Weird that the stack would grow so much for the recursive version, given that it is functionally/observationally equivalent to the iterative one. Can you rewrite the recursive version in such a way that it would run in constant space IF Java were able to perform tail call elimination or even just elimination of tail recursion?
+
+.. todo:: discuss time vs. space complexity - mention that time complexity is still linear but space complexity is our concern
+
 
 In a language that supports tail call optimization, you would write the
 recursive factorial function in a tail-recursive manner. Here’s what it
