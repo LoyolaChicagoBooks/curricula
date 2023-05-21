@@ -2597,9 +2597,569 @@ Putting everything together: maze solver
 .. todo:: extended example
 
 
+Recursion
+---------
+
+.. User: Hi, assuming you’re familiar with recursion in the context of an ACM CS2 course, could you please motivate and introduce me to the concept, provide a succinct definition?
+
+Recursion is a fundamental concept in computer science that provides a powerful and versatile way of solving problems. 
+It’s a method of solving a problem where the solution depends on solutions to smaller instances of the same problem.
+
+Recursion can make code cleaner and easier to understand by reducing complex problems into simpler sub-problems. In many cases, recursive approaches can be more intuitive than their iterative counterparts.
+
+For example, consider a file system on a computer. 
+If you wanted to find all files in a directory and all of its subdirectories, a recursive approach would be very natural: if the current “item” is a file, you can add it to your list, but if it’s a directory, you need to look at each
+item in the directory (which could in turn be another directory to look
+inside).
+
+Recursion is also the natural choice for problems based on nested or
+hierarchical data structures, such as trees and graphs, where data can
+be processed in a “divide-and-conquer” approach. 
+
+**Definition:** In computer programming, recursion is a method of problem-solving where the solution to a problem depends on solutions to smaller instances of the same problem. 
+The process in which a function calls itself directly or indirectly is called recursion and the corresponding function is called a recursive function.
+
+Recursion involves several key aspects:
+
+1. Base Case(s): The simplest instance of the problem that can be solved    directly. It’s the condition that allows the recursion to stop.
+
+2. Recursive Case(s): A more complex instance of the problem that’s solved by breaking it down, and calling the same function with the simpler version of the original problem.
+
+3. Recursive Call: The process of a function invoking itself with a different argument.
+
+Remember that each recursive call must make progress towards a base case
+to ensure that the recursion ends. Failing to do so can result in an
+infinite recursion, leading to a stack overflow error.
+
+
+Example: Factorial
+^^^^^^^^^^^^^^^^^^
+
+.. _user-58: Can you provide a simple, complete, real-world code example of recursion in Java?
+
+
+One of the classic examples of recursion is implementing a
+method to compute the factorial of a number.
+
+Factorial of a non-negative integer n, denoted by n!, is the product of
+all positive integers less than or equal to n. It’s defined recursively
+in mathematical terms as follows:
+
+-  0! = 1 (base case)
+-  n! = n \* (n-1)! for n > 0 (recursive case)
+
+Here’s how this can be implemented in Java:
+
+.. code-block:: java
+
+   public class Main {
+       public static void main(final String[] args) {
+           var n = 5;
+           System.out.printf("The factorial of %d is: %d%n", n, factorial(n));
+       }
+
+       public static long factorial(final int n) {
+           // Base Case
+           if (n == 0) {
+               return 1;
+           }
+           // Recursive Case
+           else {
+               return n * factorial(n-1);
+           }
+       }
+   }
+
+When you run this program, it will output:
+
+.. code-block:: 
+
+   The factorial of 5 is: 120
+
+This is a recursive solution because the ``factorial`` method calls
+itself to compute the factorial of a smaller number. The recursion
+continues to “unroll” until it hits the base case (when n is 0), at
+which point it starts “rolling up” again to compute and return the final
+result.
+
+Although recursion can make code easier to read and understand, it’s
+important to note that it can be less efficient than iterative solutions
+due to the overhead of function calls and can lead to stack overflow
+errors if the recursion depth becomes too large. These factors should be
+taken into consideration when deciding whether to use recursion to solve
+a problem.
+
+
+The call stack
+^^^^^^^^^^^^^^
+
+.. _user-59: Can you ASCII-draw the call stack during each step in the evaluation of factorial(5)?
+
+Below is an ASCII representation of the call stack at each
+step in the computation of ``factorial(5)``. It’s important to note that
+the top of the stack is at the bottom of each illustration since new
+stack frames are added “on top” of previous ones. The direction of
+computation is from the top to the bottom, reflecting that the last
+called function is the first one to finish.
+
+.. code-block::
+
+   Step 1: Call factorial(5)
+   -------------------
+   | factorial(5) |
+   -------------------
+
+   Step 2: 5 * factorial(4)
+   -------------------
+   | factorial(4) |
+   -------------------
+   | factorial(5) |
+   -------------------
+
+   Step 3: 4 * factorial(3)
+   -------------------
+   | factorial(3) |
+   -------------------
+   | factorial(4) |
+   -------------------
+   | factorial(5) |
+   -------------------
+
+   Step 4: 3 * factorial(2)
+   -------------------
+   | factorial(2) |
+   -------------------
+   | factorial(3) |
+   -------------------
+   | factorial(4) |
+   -------------------
+   | factorial(5) |
+   -------------------
+
+   Step 5: 2 * factorial(1)
+   -------------------
+   | factorial(1) |
+   -------------------
+   | factorial(2) |
+   -------------------
+   | factorial(3) |
+   -------------------
+   | factorial(4) |
+   -------------------
+   | factorial(5) |
+   -------------------
+
+   Step 6: 1 * factorial(0)
+   -------------------
+   | factorial(0) |
+   -------------------
+   | factorial(1) |
+   -------------------
+   | factorial(2) |
+   -------------------
+   | factorial(3) |
+   -------------------
+   | factorial(4) |
+   -------------------
+   | factorial(5) |
+   -------------------
+
+   Step 7: Return 1 (Base case)
+   -------------------
+   | factorial(1) |
+   -------------------
+   | factorial(2) |
+   -------------------
+   | factorial(3) |
+   -------------------
+   | factorial(4) |
+   -------------------
+   | factorial(5) |
+   -------------------
+
+   Step 8: Return 1 * 1
+   -------------------
+   | factorial(2) |
+   -------------------
+   | factorial(3) |
+   -------------------
+   | factorial(4) |
+   -------------------
+   | factorial(5) |
+   -------------------
+
+   Step 9: Return 2 * 1
+   -------------------
+   | factorial(3) |
+   -------------------
+   | factorial(4) |
+   -------------------
+   | factorial(5) |
+   -------------------
+
+   Step 10: Return 3 * 2
+   -------------------
+   | factorial(4) |
+   -------------------
+   | factorial(5) |
+   -------------------
+
+   Step 11: Return 4 * 6
+   -------------------
+   | factorial(5) |
+   -------------------
+
+   Step 12: Return 5 * 24
+   -------------------
+
+At this point, the entire stack has been unwound and the result, 120, is returned.
+
+Each step represents the addition or removal of a stack frame in the
+computation of ``factorial(5)``. As you can see, as the recursion
+deepens (steps 1 to 6), stack frames are added. Once the base case is
+hit (step 7), the recursion starts to unwind, and the stack frames are
+removed one by one, each contributing to the final result (steps 8 to
+12).
+
+
+Equivalent iterative version: Factorial
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. _user-60: Can you show me an equivalent iterative implementation of the factorial function?
+
+Here’s how you can implement the factorial function iteratively
+using a for loop in Java:
+
+.. code-block::
+
+   public class Main {
+       public static void main(final String[] args) {
+           var n = 5;
+           System.out.printf("The factorial of %d is: %d%n", n, factorial(n));
+       }
+
+       public static long factorial(final int n) {
+           var result = 1L;
+           for (var i = 1; i <= n; i++) {
+               result *= i;
+           }
+           return result;
+       }
+   }
+
+In this version of the factorial function, we start with a ``result``
+variable set to 1. We then multiply ``result`` by each integer from 1 to
+``n`` inclusive. The result of each multiplication is stored back into
+``result``, so by the end of the loop, ``result`` contains the factorial
+of ``n``.
+
+This code will output the same result as the recursive version:
+
+::
+
+   The factorial of 5 is: 120
+
+Iterative solutions can be more efficient than recursive ones because
+they avoid the overhead of function call stack frames. However, they can
+sometimes be harder to understand or write, especially for problems that
+have a naturally recursive structure.
+
+
+Space complexity, stack safety, and tail recursion
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. _user-61: Weird that the stack would grow so much for the recursive version, given that it is functionally/observationally equivalent to the iterative one. Can you rewrite the recursive version in such a way that it would run in constant space IF Java were able to perform tail call elimination or even just elimination of tail recursion?
+
+In a language that supports tail call optimization, you would write the
+recursive factorial function in a tail-recursive manner. Here’s what it
+might look like in Java, although please note that as of Java 17, the
+Java programming language does not support tail call optimization:
+
+.. code-block:: java
+
+   public class Main {
+       public static void main(final String[] args) {
+           var n = 5;
+           System.out.printf("The factorial of %d is: %d%n", n, factorial(n, 1));
+       }
+
+       public static long factorial(final int n, final long acc) {
+           if (n == 0) {
+               return acc;
+           } else {
+               return factorial(n - 1, n * acc);
+           }
+       }
+   }
+
+In this version of ``factorial``, the function takes an additional
+parameter ``acc`` which accumulates the factorial as the recursion
+progresses. This parameter is multiplied by ``n`` in each recursive
+call.
+
+The critical change here is that the last thing each call does is to
+make a recursive call to ``factorial(n - 1, n * acc)``. There’s no need
+to wait for the recursive call to return before performing the
+multiplication operation. This is what allows a tail call optimizing
+compiler to reuse the same stack frame for each recursive call,
+achieving constant space complexity.
+
+However, as I mentioned before, Java does not support tail call
+optimization as of version 17, so this version of ``factorial`` would
+still use O(n) stack space in Java. It’s written this way to illustrate
+the concept of tail recursion.
+
+
+Tail recursion vs. iteration
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. _user-62: Can we convert any tail-recursive method to an iterative one?
+
+Any tail-recursive method can be transformed into an iterative one.
+Tail-recursive methods have a single recursive call as their last
+operation. This feature makes it easy to convert them into iterative
+methods, using loops.
+
+The rationale behind this is that tail-recursive methods don’t need to
+perform any additional computations after the recursive call, and this
+directly translates to the body of a loop in the iterative version. In
+the loop, the computation is performed at each iteration, then the loop
+repeats until the base condition is satisfied, just like the base case
+in recursion.
+
+It’s important to note that while all tail-recursive methods can be
+converted into iterative ones, not all recursive methods can be easily
+converted into tail-recursive or iterative methods. Some recursive
+problems involve multiple recursive calls or need to perform operations
+after a recursive call, making them trickier to translate into an
+iterative form.
+
+Also, while converting tail-recursive methods to iterative ones can be
+beneficial from a performance standpoint (since it eliminates the
+function call overhead and the need for stack space), the resulting
+iterative code can sometimes be more difficult to read and understand,
+especially for problems that have a naturally recursive structure.
+
+
+Example: Fibonacci numbers
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. _user-63: Can you give me an example of an algorithm or method that cannot be converted to a tail recursive version?
+
+A classic example of a recursive algorithm that can’t be converted into
+a tail-recursive version in an obvious way is the computation of the Fibonacci sequence.
+The Fibonacci sequence is defined recursively as follows:
+
+-  fib(0) = 0
+-  fib(1) = 1
+-  fib(n) = fib(n-1) + fib(n-2) for n > 1
+
+In Java, the function might be implemented like this:
+
+::
+
+   public static int fib(final int n) {
+       if (n <= 1) {
+           return n;
+       } else {
+           return fib(n - 1) + fib(n - 2);
+       }
+   }
+
+The reason this can’t be converted into a tail-recursive version is that
+there are two recursive calls in the function and these calls are not
+the last operation. After the two recursive calls return, their results
+must be added together.
+
+That said, even though the Fibonacci sequence can’t be computed with a
+tail-recursive algorithm, it can still be computed with an iterative
+algorithm or a recursive algorithm that uses memoization to avoid
+redundant computations. This is a common example of how different
+techniques can be used to implement the same algorithm, depending on the
+requirements and constraints of the problem.
+
+.. _user-64: Can’t you write a tail-recursive version of fib with multiple accumulators?
+
+.. Yes, absolutely! You’re correct, and that’s a good insight. 
+
+Even though this is not obvious, it is
+possible to compute Fibonacci numbers in a tail-recursive manner by
+using more than one accumulator. In this case, we’ll use two
+accumulators to keep track of the last two numbers in the Fibonacci
+sequence. This way, each recursive call can be made with these two
+numbers updated appropriately.
+
+Here is how it could be implemented:
+
+.. code-block:: java
+
+   public class Main {
+       public static void main(final String[] args) {
+           final var n = 10;
+           System.out.printf("The %dth number in Fibonacci sequence is: %d%n", n, fib(n));
+       }
+
+       public static int fib(final int n) {
+           return fibHelper(n, 0, 1);
+       }
+
+       private static int fibHelper(final int n, final int a, final int b) {
+           if (n == 0) {
+               return a;
+           } else {
+               return fibHelper(n - 1, b, a + b);
+           }
+       }
+   }
+
+In this example, ``fibHelper`` is the tail-recursive helper function.
+``a`` and ``b`` are accumulators that keep track of the last two numbers
+in the sequence. At each step, we shift ``b`` to ``a`` and ``a + b`` to
+``b``, which corresponds to moving one step forward in the Fibonacci
+sequence.
+
+However, it’s important to note that despite this function being
+tail-recursive, Java does not perform tail call optimization, so the
+space complexity is still O(n) due to the stack depth. This code is
+mainly for illustrative purposes and to demonstrate the principle of
+transforming standard recursion into tail recursion.
+
+Multiple or tree recursion: Towers of Hanoi
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. _user-65: Can you give another classic example of a problem with a straightforward, natural recursive solution that cannot easily be converted to an iterative solution (without introducing an additional data structure)?
+
+.. _user-66: Very nice, but suppose students haven’t seen trees yet, can you think of something simpler, perhaps some easy to grasp puzzle?
+
+There are problems with straightforward, natural, recursive solutions that cannot easily be converted to an iterative solution (without introducing an additional data structure)?
+
+An example of such a problem is the puzzle game of Towers of Hanoi. The game
+consists of three rods and a number of disks of different sizes which
+can slide onto any rod. The puzzle starts with the disks neatly stacked
+in ascending order of size on one rod, the smallest at the top.
+
+The objective of the puzzle is to move the entire stack to another rod,
+obeying the following rules:
+
+1. Only one disk may be moved at a time.
+2. Each move consists of taking the upper disk from one of the rods and
+   sliding it onto another rod, on top of the other disks that may
+   already be present on that rod.
+3. No disk may be placed on top of a smaller disk.
+
+Here’s a simple recursive solution in Java:
+
+.. code-block:: java
+
+   public class Main {
+       public static void main(final String[] args) {
+           hanoi(3, "A", "B", "C");
+       }
+
+       public static void hanoi(final int n, final String from, final String to, final String aux) {
+           if (n == 1) {
+               System.out.printf("Move disk 1 from rod %s to rod %s%n", from, to);
+           } else {
+               hanoi(n - 1, from, aux, to);
+               System.out.printf("Move disk %d from rod %s to rod %s%n", n, from, to);
+               hanoi(n - 1, aux, to, from);
+           }
+       }
+   }
+
+The recursive solution to the problem is intuitive and easy to
+understand: if we want to move ``n`` disks from rod ``from`` to rod
+``to``, we first move ``n-1`` disks from ``from`` to the auxiliary rod
+``aux``, then move the ``n``\ th disk from ``from`` to ``to``, and
+finally move the ``n-1`` disks from ``aux`` to ``to``. The base case is
+when we only have one disk left to move.
+
+However, implementing this iteratively is not straightforward. We would
+need to simulate the program stack ourselves to keep track of the state
+of each recursive call, which would be significantly more complicated,
+and usually requires an explicit stack. So, this is an example of a
+problem where a recursive solution is more intuitive and easier to
+implement than an iterative solution.
+
+
+Terminology
+^^^^^^^^^^^
+
+.. _user-67: Are there terms for methods that make at most one recursive call per branch, as opposed to those that have at least one branch that makes more than one recursive call?
+
+.. _chatgpt-67:
+
+There are specific terms to describe the various types of recursion:
+
+1. Single Recursion or Linear Recursion: In this type of recursion, a
+   function makes at most one recursive call in each branch, meaning it
+   calls itself only once. Examples include the factorial function and
+   the Fibonacci sequence function (although the Fibonacci function has
+   two recursive branches, each branch only makes one recursive call).
+   These types of problems can often be solved iteratively quite easily.
+
+2. Multiple Recursion or Tree Recursion: This refers to functions that
+   call themselves more than once in at least one branch, leading to a
+   tree-like structure of subproblems. An example is the Towers of Hanoi
+   problem, where the function calls itself twice in the non-base case.
+   Problems with multiple recursion often involve a branching of
+   possibilities and are typically harder to solve iteratively without
+   introducing an additional data structure, like an explicit stack, to
+   maintain state information.
+
+Remember, the terms “single recursion” and “multiple recursion” aren’t
+universally standardized, but are commonly used to describe these types
+of recursion.
+
+
+Performance analysis: Towers of Hanoi
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. In the Hanoi puzzle, if every move is considered one step, can you come up with a recurrence relation T(n) for the number of moves required to solve the puzzle for n disks? And then explain step by step how to come up with a closed form solution of the recurrence relation?
+
+The Towers of Hanoi puzzle is a classic example of a problem that can be
+solved using recursion, and the time complexity of the solution can be
+expressed using a recurrence relation.
+
+For ``n`` disks, the number of moves ``T(n)`` required to solve the
+puzzle can be described by the recurrence relation:
+
+``T(n) = 2*T(n-1) + 1``
+
+The intuition behind this recurrence is as follows:
+
+-  To move ``n`` disks from the source peg to the destination peg, we
+   first need to move ``n-1`` disks from the source peg to the auxiliary
+   peg. This requires ``T(n-1)`` moves.
+-  Then, we move the remaining disk (the largest one) from the source
+   peg to the destination peg. This requires one move.
+-  Finally, we need to move the ``n-1`` disks from the auxiliary peg to
+   the destination peg. This again requires ``T(n-1)`` moves.
+
+Thus, the total number of moves is ``T(n) = 2*T(n-1) + 1``.
+
+To solve this recurrence relation, we can use a method called
+“unrolling” or “iteration”. Here’s how it works:
+
+1. Start with the equation ``T(n) = 2*T(n-1) + 1``
+2. Substitute ``T(n-1) = 2*T(n-2) + 1`` into the equation to get
+   ``T(n) = 2*(2*T(n-2) + 1) + 1 = 2^2*T(n-2) + 2 + 1``
+3. Continue unrolling, until you reach ``T(1) = 1`` (since it takes one
+   move to move a single disk). After ``k`` steps, you get
+   ``T(n) = 2^k*T(n-k) + 2^k - 1``.
+4. Stop when ``n - k = 1``, i.e., ``k = n - 1``. Thus,
+   ``T(n) = 2^(n-1)*T(1) + 2^(n-1) - 1 = 2^(n-1) + 2^(n-1) - 1``.
+5. Since ``2^(n-1) + 2^(n-1) = 2^n``, we finally get ``T(n) = 2^n - 1``.
+
+So, the solution to the recurrence is ``T(n) = 2^n - 1``, which means
+the number of moves required to solve the Towers of Hanoi puzzle with
+``n`` disks is ``2^n - 1``. This is an exponential time complexity.
+
+
+.. todo:: recursive version of the maze solver
+
 
 ******************************************
-
 
 ==========================================
 *CONTENT BELOW HERE TO BE ORGANIZED LATER*
