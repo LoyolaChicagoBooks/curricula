@@ -2,6 +2,16 @@
 Welcome to the CS Curricular Mapping Initiative
 ================================================
 
+.. only:: html
+
+      .. image:: https://github.com/LoyolaChicagoBooks/curricula/actions/workflows/main.yml/badge.svg
+         :target: https://github.com/LoyolaChicagoBooks/curricula/actions/workflows/main.yml
+         :alt: GitHub Pages and Release PDF
+
+
+Motivation
+------------
+
 This is an effort to map our curriculum at Loyola University Chicago to the established international guidelines (ACM and IEEE).
 We are motivated by the following research questions:
 
@@ -10,7 +20,8 @@ We are motivated by the following research questions:
 - Can generative AI large language/coding models help us to *improve* teaching of theoretical and practical (programming) topics?
 - Can we provide more historical/cultural context to CS students (also with the help of generative AI)? 
 
-The following is an outline of the contents of this online book:
+Table of Contents
+----------------------
 
 .. toctree::
    :maxdepth: 2
@@ -29,14 +40,6 @@ The following is an outline of the contents of this online book:
    95-chatgpt-limitations/content.rst
    98-openai/content.rst
    99-sandbox/content.rst
-
-Repository
-   `github.com/LoyolaChicagoBooks/curricula <https://github.com/LoyolaChicagoBooks/curricula>`_
-
-Releases
-   `github.com/LoyolaChicagoBooks/curricula/releases/latest <https://github.com/LoyolaChicagoBooks/curricula/releases/latest>`_
-
-Topics
 
 Indices and tables
 ----------------------
