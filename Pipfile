@@ -7,6 +7,7 @@ name = "pypi"
 sphinx = "*"
 sphinx-rtd-theme = "*"
 travis-sphinx = "*"
+sphinxawesome-theme = "*"
 
 [dev-packages]
 
