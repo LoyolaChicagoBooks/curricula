@@ -1,24 +1,19 @@
 Preliminaries
 ================
 
-.. note:: replace all of this
-
-This is a project aimed at understanding our curriculum and how it aligns with ACM/IEEE and any other international expectations.
 
 Build Status
 --------------
 
 .. only:: html
 
-      .. image:: https://github.com/LoyolaChicagoBooks/curricula/actions/workflows/main.yml/badge.svg
-         :target: https://github.com/LoyolaChicagoBooks/curricula/actions/workflows/main.yml
-         :alt: GitHub Pages and Release PDF
+      Build Status 
+            .. image:: https://github.com/LoyolaChicagoBooks/curricula/actions/workflows/main.yml/badge.svg
+               :target: https://github.com/LoyolaChicagoBooks/curricula/actions/workflows/main.yml
+               :alt: GitHub Pages and Release PDF
 
-
-GitHub Actions
+GitHub Actions Logs
    See https://github.com/LoyolaChicagoBooks/curricula/actions
-
-
 
 Download
 ---------
@@ -30,7 +25,7 @@ PDF
    See https://github.com/LoyolaChicagoBooks/curricula/releases/latest/download/CS-Curricula.pdf.
 
 Source Code
-   TBA
+   See https://github.com/LoyolaChicagoBooks/curricula
 
 
 Citation
@@ -47,16 +42,10 @@ Citation
       month={May}
     }
 
-Motivation for Our Work
--------------------------
-
-TBA
-
 Contributors
 --------------
 
-- `George K. Thiruvathukal (project lead) <https://gkt.sh>`__
-- `Konstantin Läufer <https://laufer.cs.luc.edu>`__
+`George K. Thiruvathukal <https://gkt.sh>`__ and  `Konstantin Läufer <https://laufer.cs.luc.edu>`__
 
 Acknowledgements
 -----------------
