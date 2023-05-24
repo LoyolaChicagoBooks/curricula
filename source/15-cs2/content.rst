@@ -88,8 +88,6 @@ Overview of cross-cutting topics
 
 Cross-cutting topics in a curriculum are those that span multiple areas of study or are applicable to a variety of specific topics. In the context of a CS2 course focused on data structures, these topics often include general principles and methodologies rather than specific technologies or structures. 
 
-Certainly! Here are summaries for each of the cross-cutting topics:
-
 1. **Problem Solving and Program Correctness**: Problem solving and program correctness encompass techniques and approaches to effectively analyze and solve problems in programming. It involves understanding the problem domain, breaking down complex problems into manageable components, designing appropriate algorithms, and ensuring the correctness of program logic. Emphasizing problem-solving skills and program correctness helps students develop systematic thinking, error prevention, and the ability to write robust and reliable code.
 
 2. **Algorithm Analysis and Performance**: Algorithm analysis and performance focus on evaluating the efficiency and performance characteristics of algorithms. Students learn techniques to measure and analyze the time complexity, space complexity, and other performance metrics of algorithms. Understanding algorithm analysis enables students to make informed decisions about choosing the most efficient algorithms for specific tasks and provides a foundation for optimizing code performance.
@@ -1163,8 +1161,6 @@ Key takeaways
 
 The key takeaways from a discussion of ArrayList and its comparison with basic arrays are as follows:
 
-Certainly! Here's a revised order of the key takeaways based on your request:
-
 1. **Efficiency and Performance**: `ArrayList` provides efficient random access to elements by their index, allowing for quick retrieval and modification operations. It offers similar performance characteristics to basic arrays in terms of accessing elements.
 
 2. **Convenience and Abstraction**: `ArrayList` abstracts away the complexity of managing array resizing and provides built-in methods for adding, removing, and accessing elements. It offers a higher-level interface compared to basic arrays, making it more convenient to work with collections of data.
@@ -1691,7 +1687,7 @@ How to create Set instances
 
 .. How to create Set instances? Include the Set.of() factory method first.
 
-Certainly! Here's an overview of how to create `Set` instances, including the `Set.of()` factory method:
+Here's an overview of how to create `Set` instances, including the `Set.of()` factory method:
 
 1. **Using `Set.of()` Factory Method (Java 9+)**:
    The `Set` interface provides a factory method called `of()` that allows you to create an immutable `Set` with a fixed number of elements. Here's an example:
