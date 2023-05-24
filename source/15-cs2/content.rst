@@ -3189,9 +3189,8 @@ the number of moves required to solve the Towers of Hanoi puzzle with
 
 ******************************************
 
-==========================================
 *CONTENT BELOW HERE TO BE ORGANIZED LATER*
-==========================================
+------------------------------------------
 
 
 Top 15 CS2 topics as opposed to CS7
