@@ -1351,10 +1351,21 @@ Here's an overview of how to create `Map` instances, including the `Map.of()` fa
         map.put("Banana", 2);
         map.put("Orange", 3);
 
-   In this example, a `TreeMap` instance is created by instantiating the `TreeMap` class. The `TreeMap` implementation provides a sorted map based on the natural ordering of the keys.
+   In this example, a `TreeMap` instance is created by instantiating the `TreeMap` class. The `TreeMap` implementation provides a sorted map based on the natural ordering of the keys. These examples demonstrate different approaches to creating `Map` instances. You can use the `Map.of()` factory method for creating small immutable maps, or instantiate specific implementations like `HashMap`, `TreeMap`, or others based on your requirements.
 
-These examples demonstrate different approaches to creating `Map` instances. You can use the `Map.of()` factory method for creating small immutable maps, or instantiate specific implementations like `HashMap`, `TreeMap`, or others based on your requirements.
+4. **How use Map.of() or equivalent with pairs**:
+   Note that `Map.of()` method can be error-prone because of the way it takes key-value pairs. A safer alternative is to use `Map.entry()` method which creates a single key-value pair. Then you can use `Map.ofEntries()` method to create a map from these entries.  Here is how you can use it:
 
+   .. code-block:: java
+
+        import java.util.Map;
+        Map<String, Integer> map = Map.ofEntries(
+            Map.entry("Apple", 1),
+            Map.entry("Banana", 2),
+            Map.entry("Orange", 3)
+        );
+
+   This approach is safer because you are grouping the key and its corresponding value together. It's clearer to see which keys are associated with which values, and it's harder to accidentally leave out a key or value.
 
 Unit tests for the Map API
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
