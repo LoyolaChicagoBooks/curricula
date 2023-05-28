@@ -472,3 +472,231 @@ Here is a brief explanation of the ARM assembler instructions used in the above 
    "MVN", "Source, Target", "Moves the bitwise NOT of the Source into the Target."
 
 
+Number Theory Examples
+-------------------------
+
+.. note:: These are really more in line with discrete math topics, but I am structuring my prompts along the lines of ACM/IEEE curricula. I might move these to Discrete Math (and add math to them).
+
+Here are 15 examples of Discrete Structures/Number Theory concepts in Go language, each represented as a function.
+
+Please note that some of these examples are simplifications, and they may not handle all possible edge cases or optimizations.
+
+.. note:: George still checking but most look good.
+
+Prime Number Checking
+^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. code-block:: go
+
+   func isPrime(n int) bool {
+       if n <= 1 {
+           return false
+       }
+       for i := 2; i*i <= n; i++ {
+           if n%i == 0 {
+               return false
+           }
+       }
+       return true
+   }
+
+Greatest Common Divisor - GCD
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: go
+
+   func gcd(a, b int) int {
+       for b != 0 {
+           a, b = b, a%b
+       }
+       return a
+   }
+
+
+Least Common Multiple
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: go
+
+   func lcm(a, b int) int {
+       return a / gcd(a, b) * b
+   }
+
+Sieve of Eratosthenes (Simple)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: go
+
+   func sieveOfEratosthenes(n int) []int {
+       primes := make([]bool, n+1)
+       for i := 2; i <= n; i++ {
+           primes[i] = true
+       }
+       p := 2
+       for p*p <= n {
+           if primes[p] {
+               for i := p * p; i <= n; i += p {
+                   primes[i] = false
+               }
+           }
+           p++
+       }
+
+       var primeNumbers []int
+       for i := 2; i <= n; i++ {
+           if primes[i] {
+               primeNumbers = append(primeNumbers, i)
+           }
+       }
+       return primeNumbers
+   }
+
+Fibonacci sequence
+^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: go
+
+   func fibonacci(n int) []int {
+       fibSequence := make([]int, n+1)
+       fibSequence[0], fibSequence[1] = 0, 1
+       for i := 2; i <= n; i++ {
+           fibSequence[i] = fibSequence[i-1] + fibSequence[i-2]
+       }
+       return fibSequence
+   }
+
+Checking if a number is a Fibonacci number
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: go
+
+   func isFibonacci(n int) bool {
+       x := 5*n*n + 4
+       y := 5*n*n - 4
+       return isPerfectSquare(x) || isPerfectSquare(y)
+   }
+
+   // Helper function to check if a number is a perfect square
+   func isPerfectSquare(n int) bool {
+       x := int(math.Sqrt(float64(n)))
+       return x*x == n
+   }
+
+Factorial
+^^^^^^^^^^^^
+
+.. code-block:: go
+
+   func factorial(n int) int {
+       result := 1
+       for i := 2; i <= n; i++ {
+           result *= i
+       }
+       return result
+   }
+
+Permutations
+^^^^^^^^^^^^^^^
+
+.. code-block:: go
+
+   func permutations(n, r int) int {
+       return factorial(n) / factorial(n-r)
+   }
+
+
+Combinations
+^^^^^^^^^^^^^^^^
+
+.. code-block:: go
+
+   func combinations(n, r int) int {
+       return factorial(n) / (factorial(r) * factorial(n-r))
+   }
+
+Powerset
+^^^^^^^^^^
+
+.. code-block:: go
+
+   func powerSet(set []int) [][]int {
+       powerSetSize := int(math.Pow(2, float64(len(set))))
+       var result [][]int
+       for i := 0; i < powerSetSize; i++ {
+           var subset []int
+           for j := 0; j < len(set); j++ {
+               if (i & (1 << uint(j))) > 0 {
+                   subset = append(subset, set[j])
+               }
+           }
+           result = append(result, subset)
+       }
+       return result
+   }
+
+
+Sum of an Arithmetic Series
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: go
+
+   func sumArithmeticSeries(n, a1, d int) int {
+       return n/2 * (2*a1 + (n-1)*d)
+   }
+
+
+Sum of a Geometric Series
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: go
+
+   func sumGeometricSeries(n, a1, r int) int {
+       if r == 1 {
+           return n * a1
+       }
+       return a1 * (1 - int(math.Pow(float64(r), float64(n)))) / (1 - r)
+   }
+
+Cartesian Product of two sets
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: go
+
+   func cartesianProduct(setA, setB []int) [][2]int {
+       var result [][2]int
+       for _, a := range setA {
+           for _, b := range setB {
+               result = append(result, [2]int{a, b})
+           }
+       }
+       return result
+   }
+
+Modulo operation (a mod b)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: go
+
+   func mod(a, b int) int {
+       return a - (a/b) * b
+   }
+
+Fast Exponentiation (a^n mod m)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: go
+
+   func fastExponentiation(a, n, m int) int {
+       res := 1
+       a = a % m
+       for n > 0 {
+           if n%2 == 1 {
+               res = (res * a) % m
+           }
+           n = n >> 1
+           a = (a * a) % m
+       }
+       return res
+   }
+
