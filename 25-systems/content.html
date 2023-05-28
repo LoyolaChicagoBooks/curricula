@@ -601,16 +601,13 @@
 <h2>Number Theory Examples<a class="headerlink" href="#number-theory-examples" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#number-theory-examples'">¶</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>These are really more in line with discrete math topics, but I am structuring my prompts along the lines of ACM/IEEE curricula. I might move these to Discrete Math (and add math to them).</p>
+<p>These are really more in line with discrete math topics, but I am structuring my prompts along the lines of ACM/IEEE curricula. I might move these to Discrete Math (and add math to them). These explanations provide a concise understanding of each concept’s importance and how it works, allowing you to grasp their significance within Discrete Structures/Number Theory.</p>
 </div>
-<p>Here are 15 examples of Discrete Structures/Number Theory concepts in Go language, each represented as a function.</p>
-<p>Please note that some of these examples are simplifications, and they may not handle all possible edge cases or optimizations.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>George still checking but most look good.</p>
-</div>
+<p>These explanations highlight the importance of each example within systems programming, showcasing their relevance in various optimization techniques, algorithm design, and efficient computation.</p>
 <section id="prime-number-checking">
 <h3>Prime Number Checking<a class="headerlink" href="#prime-number-checking" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#prime-number-checking'">¶</a></h3>
+<p>Checking if a number is prime is crucial in cryptography, number theory, and algorithms. The function checks if a number <cite>n</cite> is divisible by any integer from 2 to the square root of <cite>n</cite>.</p>
+<p>Prime number checking is important in systems programming for tasks such as generating cryptographic keys and optimizing algorithms.</p>
 <div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="kd">func</span><span class="w"> </span><span class="nx">isPrime</span><span class="p">(</span><span class="nx">n</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">n</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span>
@@ -627,6 +624,8 @@
 </section>
 <section id="greatest-common-divisor-gcd">
 <h3>Greatest Common Divisor - GCD<a class="headerlink" href="#greatest-common-divisor-gcd" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#greatest-common-divisor-gcd'">¶</a></h3>
+<p>The GCD is used in various mathematical calculations, including simplifying fractions, finding modular inverses, and solving linear Diophantine equations. The function uses the Euclidean algorithm to iteratively find the GCD of two numbers <cite>a</cite> and <cite>b</cite>.</p>
+<p>GCD calculations are useful in systems programming for tasks like optimizing memory allocation and implementing efficient algorithms.</p>
 <div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="kd">func</span><span class="w"> </span><span class="nx">gcd</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nx">b</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">b</span><span class="p">,</span><span class="w"> </span><span class="nx">a</span><span class="o">%</span><span class="nx">b</span>
@@ -638,6 +637,8 @@
 </section>
 <section id="least-common-multiple">
 <h3>Least Common Multiple<a class="headerlink" href="#least-common-multiple" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#least-common-multiple'">¶</a></h3>
+<p>Lowest Common Multiple (LCM): The LCM is important in problems involving fractions, least common denominators, and scheduling. The function calculates the LCM of two numbers <cite>a</cite> and <cite>b</cite> by dividing their product by their GCD.</p>
+<p>LCM calculations are relevant in systems programming for tasks such as scheduling processes and handling periodic tasks.</p>
 <div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="kd">func</span><span class="w"> </span><span class="nx">lcm</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nx">gcd</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">b</span>
 <span class="p">}</span>
@@ -646,6 +647,8 @@
 </section>
 <section id="sieve-of-eratosthenes-simple">
 <h3>Sieve of Eratosthenes (Simple)<a class="headerlink" href="#sieve-of-eratosthenes-simple" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#sieve-of-eratosthenes-simple'">¶</a></h3>
+<p>Sieve of Eratosthenes: Finding prime numbers is fundamental in number theory and cryptography. The function uses the Sieve of Eratosthenes algorithm to generate all prime numbers up to a given limit <cite>n</cite>.</p>
+<p>The Sieve of Eratosthenes is valuable in systems programming for tasks like finding prime numbers efficiently and optimizing algorithms.</p>
 <div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="kd">func</span><span class="w"> </span><span class="nx">sieveOfEratosthenes</span><span class="p">(</span><span class="nx">n</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="p">[]</span><span class="kt">int</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="nx">primes</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nb">make</span><span class="p">([]</span><span class="kt">bool</span><span class="p">,</span><span class="w"> </span><span class="nx">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
 <span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="nx">n</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="w"> </span><span class="p">{</span>
@@ -674,6 +677,8 @@
 </section>
 <section id="fibonacci-sequence">
 <h3>Fibonacci sequence<a class="headerlink" href="#fibonacci-sequence" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#fibonacci-sequence'">¶</a></h3>
+<p>Fibonacci Sequence: The Fibonacci sequence has applications in algorithms, mathematics, and nature. The function generates the Fibonacci sequence up to the <cite>n</cite>-th term.</p>
+<p>The Fibonacci sequence has applications in systems programming for tasks such as optimizing algorithmic complexity and generating efficient code.</p>
 <div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="kd">func</span><span class="w"> </span><span class="nx">fibonacci</span><span class="p">(</span><span class="nx">n</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="p">[]</span><span class="kt">int</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="nx">fibSequence</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nb">make</span><span class="p">([]</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="nx">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
 <span class="w">    </span><span class="nx">fibSequence</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="w"> </span><span class="nx">fibSequence</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span>
@@ -687,6 +692,8 @@
 </section>
 <section id="checking-if-a-number-is-a-fibonacci-number">
 <h3>Checking if a number is a Fibonacci number<a class="headerlink" href="#checking-if-a-number-is-a-fibonacci-number" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#checking-if-a-number-is-a-fibonacci-number'">¶</a></h3>
+<p>Checking if a Number is Fibonacci: Identifying whether a number is part of the Fibonacci sequence is important in number theory and optimization problems. The function checks if a given number <cite>n</cite> is a Fibonacci number by verifying if either <cite>5n^2 + 4</cite> or <cite>5n^2 - 4</cite> is a perfect square.</p>
+<p>Identifying Fibonacci numbers can be important in systems programming for optimizing algorithms and implementing efficient data structures.</p>
 <div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="kd">func</span><span class="w"> </span><span class="nx">isFibonacci</span><span class="p">(</span><span class="nx">n</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="nx">x</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">5</span><span class="o">*</span><span class="nx">n</span><span class="o">*</span><span class="nx">n</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">4</span>
 <span class="w">    </span><span class="nx">y</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">5</span><span class="o">*</span><span class="nx">n</span><span class="o">*</span><span class="nx">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">4</span>
@@ -703,6 +710,8 @@
 </section>
 <section id="factorial">
 <h3>Factorial<a class="headerlink" href="#factorial" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#factorial'">¶</a></h3>
+<p>Factorial: The factorial is crucial in combinatorics, probability theory, and mathematical analysis. The function calculates the factorial of a non-negative integer <cite>n</cite> using an iterative approach.</p>
+<p>Factorial calculations are relevant in systems programming for tasks like optimizing combinatorial algorithms and handling large-scale computations.</p>
 <div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="kd">func</span><span class="w"> </span><span class="nx">factorial</span><span class="p">(</span><span class="nx">n</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="nx">result</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">1</span>
 <span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="nx">n</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="w"> </span><span class="p">{</span>
@@ -715,6 +724,12 @@
 </section>
 <section id="permutations">
 <h3>Permutations<a class="headerlink" href="#permutations" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#permutations'">¶</a></h3>
+<p>Permutations (nPr): Permutations are essential in combinatorics and probability theory when the order of elements matters. The function calculates the number of permutations of <cite>r</cite> elements taken from a set of <cite>n</cite> elements using the factorial function.</p>
+<p>Permutations are significant in systems programming for tasks such as generating test cases and optimizing algorithms that involve ordering or arrangement of elements.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This shows the number of permutations but not the actual permutations. That comes later!</p>
+</div>
 <div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="kd">func</span><span class="w"> </span><span class="nx">permutations</span><span class="p">(</span><span class="nx">n</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">factorial</span><span class="p">(</span><span class="nx">n</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nx">factorial</span><span class="p">(</span><span class="nx">n</span><span class="o">-</span><span class="nx">r</span><span class="p">)</span>
 <span class="p">}</span>
@@ -723,6 +738,8 @@
 </section>
 <section id="combinations">
 <h3>Combinations<a class="headerlink" href="#combinations" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#combinations'">¶</a></h3>
+<p>Combinations (nCr): Combinations are used when selecting a subset from a larger set without considering the order. The function calculates the number of combinations of <cite>r</cite> elements taken from a set of <cite>n</cite> elements using the factorial function.</p>
+<p>Combinations are important in systems programming for tasks such as optimizing resource allocation and implementing efficient data structures.</p>
 <div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="kd">func</span><span class="w"> </span><span class="nx">combinations</span><span class="p">(</span><span class="nx">n</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">factorial</span><span class="p">(</span><span class="nx">n</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="nx">factorial</span><span class="p">(</span><span class="nx">r</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">factorial</span><span class="p">(</span><span class="nx">n</span><span class="o">-</span><span class="nx">r</span><span class="p">))</span>
 <span class="p">}</span>
@@ -731,6 +748,8 @@
 </section>
 <section id="powerset">
 <h3>Powerset<a class="headerlink" href="#powerset" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#powerset'">¶</a></h3>
+<p>Power Set: The power set is crucial in set theory, combinatorics, and algorithm design. The function generates all possible subsets of a given set using bitwise manipulation.</p>
+<p>Power set generation is relevant in systems programming for tasks such as optimizing algorithms that involve exploring all possible subsets of a set.</p>
 <div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="kd">func</span><span class="w"> </span><span class="nx">powerSet</span><span class="p">(</span><span class="nx">set</span><span class="w"> </span><span class="p">[]</span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="p">[][]</span><span class="kt">int</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="nx">powerSetSize</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nb">int</span><span class="p">(</span><span class="nx">math</span><span class="p">.</span><span class="nx">Pow</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="nb">float64</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nx">set</span><span class="p">))))</span>
 <span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="p">[][]</span><span class="kt">int</span>
@@ -750,6 +769,8 @@
 </section>
 <section id="sum-of-an-arithmetic-series">
 <h3>Sum of an Arithmetic Series<a class="headerlink" href="#sum-of-an-arithmetic-series" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#sum-of-an-arithmetic-series'">¶</a></h3>
+<p>Sum of an Arithmetic Series: The sum of an arithmetic series is used in mathematics, finance, and algorithm analysis. The function calculates the sum of an arithmetic series with <cite>n</cite> terms, initial term <cite>a1</cite>, and common difference <cite>d</cite>.</p>
+<p>Calculating the sum of an arithmetic series is useful in systems programming for tasks such as optimizing loop iterations and memory management.</p>
 <div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="kd">func</span><span class="w"> </span><span class="nx">sumArithmeticSeries</span><span class="p">(</span><span class="nx">n</span><span class="p">,</span><span class="w"> </span><span class="nx">a1</span><span class="p">,</span><span class="w"> </span><span class="nx">d</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">n</span><span class="o">/</span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="nx">a1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="nx">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="nx">d</span><span class="p">)</span>
 <span class="p">}</span>
@@ -758,6 +779,8 @@
 </section>
 <section id="sum-of-a-geometric-series">
 <h3>Sum of a Geometric Series<a class="headerlink" href="#sum-of-a-geometric-series" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#sum-of-a-geometric-series'">¶</a></h3>
+<p>Sum of a Geometric Series: Geometric series are used in various mathematical and financial calculations. The function calculates the sum of a geometric series with <cite>n</cite> terms, initial term <cite>a1</cite>, and common ratio <cite>r</cite>.</p>
+<p>Geometric series calculations are important in systems programming for tasks such as optimizing algorithms that involve exponential growth or decay.</p>
 <div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="kd">func</span><span class="w"> </span><span class="nx">sumGeometricSeries</span><span class="p">(</span><span class="nx">n</span><span class="p">,</span><span class="w"> </span><span class="nx">a1</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">r</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">n</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">a1</span>
@@ -769,6 +792,8 @@
 </section>
 <section id="cartesian-product-of-two-sets">
 <h3>Cartesian Product of two sets<a class="headerlink" href="#cartesian-product-of-two-sets" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#cartesian-product-of-two-sets'">¶</a></h3>
+<p>Cartesian Product: The Cartesian product is crucial in set theory, combinatorics, and database queries. The function calculates the Cartesian product of two sets by pairing each element of the first set with each element of the second set.</p>
+<p>The Cartesian product is valuable in systems programming for tasks such as optimizing database queries and handling multi-dimensional data structures.</p>
 <div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="kd">func</span><span class="w"> </span><span class="nx">cartesianProduct</span><span class="p">(</span><span class="nx">setA</span><span class="p">,</span><span class="w"> </span><span class="nx">setB</span><span class="w"> </span><span class="p">[]</span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="p">[][</span><span class="mi">2</span><span class="p">]</span><span class="kt">int</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="p">[][</span><span class="mi">2</span><span class="p">]</span><span class="kt">int</span>
 <span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nx">_</span><span class="p">,</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">range</span><span class="w"> </span><span class="nx">setA</span><span class="w"> </span><span class="p">{</span>
@@ -783,6 +808,12 @@
 </section>
 <section id="modulo-operation-a-mod-b">
 <h3>Modulo operation (a mod b)<a class="headerlink" href="#modulo-operation-a-mod-b" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#modulo-operation-a-mod-b'">¶</a></h3>
+<p>Modulo Operation: The modulo operation is widely used in computer science, number theory, and cryptography. The function calculates the remainder of the division of <cite>a</cite> by <cite>b</cite> using the modulo operator.</p>
+<p>The modulo operation is significant in systems programming for tasks such as optimizing hashing functions and handling cyclic or periodic operations.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is showing how to compute modulo without the mod operator itself.</p>
+</div>
 <div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="kd">func</span><span class="w"> </span><span class="nx">mod</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="p">(</span><span class="nx">a</span><span class="o">/</span><span class="nx">b</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">b</span>
 <span class="p">}</span>
@@ -791,6 +822,8 @@
 </section>
 <section id="fast-exponentiation-a-n-mod-m">
 <h3>Fast Exponentiation (a^n mod m)<a class="headerlink" href="#fast-exponentiation-a-n-mod-m" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#fast-exponentiation-a-n-mod-m'">¶</a></h3>
+<p>Fast Exponentiation: Fast exponentiation is important for efficient computation of large powers in cryptography. The function calculates <cite>a</cite> raised to the power of <cite>n</cite> modulo <cite>m</cite> using the fast exponentiation algorithm.</p>
+<p>Fast exponentiation is relevant in systems programming for tasks such as optimizing cryptographic algorithms and implementing efficient modular arithmetic operations.</p>
 <div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="kd">func</span><span class="w"> </span><span class="nx">fastExponentiation</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">n</span><span class="p">,</span><span class="w"> </span><span class="nx">m</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="nx">res</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">1</span>
 <span class="w">    </span><span class="nx">a</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="nx">m</span>
