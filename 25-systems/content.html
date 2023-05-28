@@ -416,6 +416,187 @@
 </div>
 </section>
 </section>
+<section id="arm-assembly-language-versions">
+<h2>ARM Assembly Language Versions<a class="headerlink" href="#arm-assembly-language-versions" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#arm-assembly-language-versions'">¶</a></h2>
+</section>
+<section id="id2">
+<h2>Truth Tables<a class="headerlink" href="#id2" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id2'">¶</a></h2>
+<p>Truth tables show the outcome of all possible inputs of a logic gate. While ARM assembly does not directly support the creation of truth tables, the results of logic gates can be computed and stored in registers.</p>
+</section>
+<section id="id3">
+<h2>Logical Equivalence<a class="headerlink" href="#id3" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id3'">¶</a></h2>
+<p>ARM assembly can compare two values and set the condition codes based on the result, which can be used to test logical equivalence. For example:</p>
+<div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nf">MOV</span><span class="w"> </span><span class="no">R0</span><span class="p">,</span><span class="w"> </span><span class="mi">#1</span><span class="w">      </span><span class="c1">; Load 1 into R0</span>
+<span class="nf">MOV</span><span class="w"> </span><span class="no">R1</span><span class="p">,</span><span class="w"> </span><span class="mi">#1</span><span class="w">      </span><span class="c1">; Load 1 into R1</span>
+<span class="nf">CMP</span><span class="w"> </span><span class="no">R0</span><span class="p">,</span><span class="w"> </span><span class="no">R1</span><span class="w">      </span><span class="c1">; Compare R0 with R1</span>
+<span class="nf">BEQ</span><span class="w"> </span><span class="no">equivalent</span><span class="w">  </span><span class="c1">; If R0 equals R1, branch to 'equivalent'</span>
+</pre></div>
+</div>
+</section>
+<section id="id4">
+<h2>De Morgan’s Laws<a class="headerlink" href="#id4" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id4'">¶</a></h2>
+<p>De Morgan’s laws state that the negation of a conjunction is the disjunction of the negations, and the negation of a disjunction is the conjunction of the negations. This can be demonstrated using bitwise operations in ARM assembly, but the implementation is nontrivial.</p>
+</section>
+<section id="id5">
+<h2>Conditional Statements<a class="headerlink" href="#id5" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id5'">¶</a></h2>
+<p>Conditional execution in ARM assembly is handled by condition codes. For example:</p>
+<div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nf">MOV</span><span class="w"> </span><span class="no">R0</span><span class="p">,</span><span class="w"> </span><span class="mi">#1</span><span class="w">      </span><span class="c1">; Load 1 into R0</span>
+<span class="nf">CMP</span><span class="w"> </span><span class="no">R0</span><span class="p">,</span><span class="w"> </span><span class="mi">#1</span><span class="w">      </span><span class="c1">; Compare R0 with 1</span>
+<span class="nf">BEQ</span><span class="w"> </span><span class="no">true_branch</span><span class="w"> </span><span class="c1">; If R0 equals 1, branch to 'true_branch'</span>
+<span class="nf">B</span><span class="w"> </span><span class="no">false_branch</span><span class="w">  </span><span class="c1">; Otherwise, branch to 'false_branch'</span>
+</pre></div>
+</div>
+</section>
+<section id="id6">
+<h2>Biconditional Statements<a class="headerlink" href="#id6" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id6'">¶</a></h2>
+<p>A biconditional statement in ARM assembly can be represented as two conditional branches. For example:</p>
+<div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nf">MOV</span><span class="w"> </span><span class="no">R0</span><span class="p">,</span><span class="w"> </span><span class="mi">#1</span><span class="w">      </span><span class="c1">; Load 1 into R0</span>
+<span class="nf">MOV</span><span class="w"> </span><span class="no">R1</span><span class="p">,</span><span class="w"> </span><span class="mi">#1</span><span class="w">      </span><span class="c1">; Load 1 into R1</span>
+<span class="nf">CMP</span><span class="w"> </span><span class="no">R0</span><span class="p">,</span><span class="w"> </span><span class="no">R1</span><span class="w">      </span><span class="c1">; Compare R0 with R1</span>
+<span class="nf">BEQ</span><span class="w"> </span><span class="no">true_branch</span><span class="w"> </span><span class="c1">; If R0 equals R1, branch to 'true_branch'</span>
+<span class="nf">B</span><span class="w"> </span><span class="no">false_branch</span><span class="w">  </span><span class="c1">; Otherwise, branch to 'false_branch'</span>
+</pre></div>
+</div>
+<p>Alright, here are the remaining 10 logic concepts, along with brief explanations of how they might be implemented in ARM Assembly.</p>
+</section>
+<section id="id7">
+<h2>Logical Implication<a class="headerlink" href="#id7" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id7'">¶</a></h2>
+<p>Logical implication can be expressed using conditional execution. Here is an example where if R0 is true, R1 is checked.</p>
+<div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nf">CMP</span><span class="w"> </span><span class="no">R0</span><span class="p">,</span><span class="w"> </span><span class="mi">#1</span>
+<span class="nf">BEQ</span><span class="w"> </span><span class="no">check_R1</span>
+<span class="nf">B</span><span class="w"> </span><span class="no">end</span>
+<span class="nl">check_R1:</span>
+<span class="nf">CMP</span><span class="w"> </span><span class="no">R1</span><span class="p">,</span><span class="w"> </span><span class="mi">#1</span>
+<span class="nf">BNE</span><span class="w"> </span><span class="no">not_implied</span>
+<span class="nl">end:</span>
+<span class="c1">; R0 implies R1</span>
+</pre></div>
+</div>
+</section>
+<section id="id8">
+<h2>Exclusive OR (XOR)<a class="headerlink" href="#id8" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id8'">¶</a></h2>
+<p>The XOR operation can be performed using the EOR instruction.</p>
+<div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nf">MOV</span><span class="w"> </span><span class="no">R0</span><span class="p">,</span><span class="w"> </span><span class="mi">#1</span>
+<span class="nf">MOV</span><span class="w"> </span><span class="no">R1</span><span class="p">,</span><span class="w"> </span><span class="mi">#0</span>
+<span class="nf">EOR</span><span class="w"> </span><span class="no">R2</span><span class="p">,</span><span class="w"> </span><span class="no">R0</span><span class="p">,</span><span class="w"> </span><span class="no">R1</span><span class="w">  </span><span class="c1">; R2 = R0 XOR R1</span>
+</pre></div>
+</div>
+</section>
+<section id="id9">
+<h2>NAND and NOR Operations<a class="headerlink" href="#id9" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id9'">¶</a></h2>
+<p>NAND and NOR are not directly supported, but can be implemented using AND/OR and NOT.</p>
+<div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nf">AND</span><span class="w"> </span><span class="no">R2</span><span class="p">,</span><span class="w"> </span><span class="no">R0</span><span class="p">,</span><span class="w"> </span><span class="no">R1</span><span class="w">  </span><span class="c1">; R2 = R0 AND R1</span>
+<span class="nf">MVN</span><span class="w"> </span><span class="no">R2</span><span class="p">,</span><span class="w"> </span><span class="no">R2</span><span class="w">      </span><span class="c1">; R2 = NOT R2 (NAND)</span>
+
+<span class="nf">ORR</span><span class="w"> </span><span class="no">R2</span><span class="p">,</span><span class="w"> </span><span class="no">R0</span><span class="p">,</span><span class="w"> </span><span class="no">R1</span><span class="w">  </span><span class="c1">; R2 = R0 OR R1</span>
+<span class="nf">MVN</span><span class="w"> </span><span class="no">R2</span><span class="p">,</span><span class="w"> </span><span class="no">R2</span><span class="w">      </span><span class="c1">; R2 = NOT R2 (NOR)</span>
+</pre></div>
+</div>
+</section>
+<section id="id10">
+<h2>Logical Operators with Non-Boolean Values<a class="headerlink" href="#id10" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id10'">¶</a></h2>
+<p>In assembly, non-zero values are often treated as true and zero as false. So, you might see code that uses non-boolean values with logical operators.</p>
+<div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nf">CMP</span><span class="w"> </span><span class="no">R0</span><span class="p">,</span><span class="w"> </span><span class="mi">#0</span><span class="w">   </span><span class="c1">; Compare R0 with 0</span>
+<span class="nf">BNE</span><span class="w"> </span><span class="no">true_branch</span><span class="w"> </span><span class="c1">; If R0 is not zero, branch to 'true_branch'</span>
+</pre></div>
+</div>
+</section>
+<section id="id11">
+<h2>Short-Circuit Evaluation<a class="headerlink" href="#id11" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id11'">¶</a></h2>
+<p>There’s no direct equivalent of short-circuit evaluation in assembly. However, the behavior can be emulated through the use of conditional branching.</p>
+<div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nf">CMP</span><span class="w"> </span><span class="no">R0</span><span class="p">,</span><span class="w"> </span><span class="mi">#1</span><span class="w">   </span><span class="c1">; Compare R0 with 1</span>
+<span class="nf">BEQ</span><span class="w"> </span><span class="no">end</span><span class="w">      </span><span class="c1">; If R0 is 1, branch to 'end' (skip the next instruction)</span>
+<span class="nf">CMP</span><span class="w"> </span><span class="no">R1</span><span class="p">,</span><span class="w"> </span><span class="mi">#1</span><span class="w">   </span><span class="c1">; Compare R1 with 1 (only executed if R0 is not 1)</span>
+<span class="nl">end:</span>
+</pre></div>
+</div>
+</section>
+<section id="id12">
+<h2>Truth Tables<a class="headerlink" href="#id12" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id12'">¶</a></h2>
+<p>As an assembly language, ARM does not directly support data structures like tables. However, you could use an array of values to represent a truth table, and then loop through the array to perform operations.</p>
+</section>
+<section id="id13">
+<h2>Logical Equivalence<a class="headerlink" href="#id13" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id13'">¶</a></h2>
+<p>Logical equivalence can be demonstrated by comparing two values.</p>
+<div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nf">CMP</span><span class="w"> </span><span class="no">R0</span><span class="p">,</span><span class="w"> </span><span class="no">R1</span><span class="w">  </span><span class="c1">; Compare R0 and R1</span>
+<span class="nf">BEQ</span><span class="w"> </span><span class="no">equivalent</span><span class="w"> </span><span class="c1">; If they are equal, branch to 'equivalent'</span>
+</pre></div>
+</div>
+</section>
+<section id="id14">
+<h2>De Morgan’s Laws<a class="headerlink" href="#id14" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id14'">¶</a></h2>
+<p>De Morgan’s laws are not directly supported in assembly. However, they could be implemented using a combination of AND, OR, and NOT operations, along with appropriate branching.</p>
+</section>
+<section id="id15">
+<h2>Conditional Statements<a class="headerlink" href="#id15" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id15'">¶</a></h2>
+<p>Conditional statements can be represented with conditional branches in assembly.</p>
+<div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nf">CMP</span><span class="w"> </span><span class="no">R0</span><span class="p">,</span><span class="w"> </span><span class="mi">#1</span><span class="w">   </span><span class="c1">; Compare R0 with 1</span>
+<span class="nf">BEQ</span><span class="w"> </span><span class="no">true_branch</span><span class="w"> </span><span class="c1">; If R0 is 1, branch to 'true_branch'</span>
+</pre></div>
+</div>
+</section>
+<section id="id16">
+<h2>Biconditional Statements<a class="headerlink" href="#id16" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#id16'">¶</a></h2>
+<p>Biconditional statements could be implemented with a sequence of conditional branches.</p>
+<div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nf">CMP</span><span class="w"> </span><span class="no">R0</span><span class="p">,</span><span class="w"> </span><span class="no">R1</span><span class="w">   </span><span class="c1">; Compare R0 with R1</span>
+<span class="nf">BEQ</span><span class="w"> </span><span class="no">true_branch</span><span class="w"> </span><span class="c1">; If they are equal, branch to 'true_branch'</span>
+<span class="nf">B</span><span class="w"> </span><span class="no">false_branch</span><span class="w"> </span><span class="c1">; If they are not equal, branch to 'false_branch'</span>
+</pre></div>
+</div>
+<p>Please note that Assembly is a very low-level language and these concepts are quite abstract for such a language. Most of these tasks would be much easier and more intuitively performed in a higher-level language.</p>
+<p>Here is a brief explanation of the ARM assembler instructions used in the above examples:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20%"/>
+<col style="width: 30%"/>
+<col style="width: 50%"/>
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Instruction</p></th>
+<th class="head"><p>Inputs</p></th>
+<th class="head"><p>Result</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>MOV</p></td>
+<td><p>Source, Target</p></td>
+<td><p>Copies the value from Source into Target register.</p></td>
+</tr>
+<tr class="row-odd"><td><p>CMP</p></td>
+<td><p>Operand1, Operand2</p></td>
+<td><p>Compares Operand1 with Operand2 and sets condition flags.</p></td>
+</tr>
+<tr class="row-even"><td><p>BEQ</p></td>
+<td><p>Label</p></td>
+<td><p>Branches to the specified Label if the result of the previous comparison was equal.</p></td>
+</tr>
+<tr class="row-odd"><td><p>BNE</p></td>
+<td><p>Label</p></td>
+<td><p>Branches to the specified Label if the result of the previous comparison was not equal.</p></td>
+</tr>
+<tr class="row-even"><td><p>B</p></td>
+<td><p>Label</p></td>
+<td><p>Unconditionally branches to the specified Label.</p></td>
+</tr>
+<tr class="row-odd"><td><p>AND</p></td>
+<td><p>Source, Target</p></td>
+<td><p>Performs a bitwise AND operation between the Source and Target, storing the result in the Target.</p></td>
+</tr>
+<tr class="row-even"><td><p>ORR</p></td>
+<td><p>Source, Target</p></td>
+<td><p>Performs a bitwise OR operation between the Source and Target, storing the result in the Target.</p></td>
+</tr>
+<tr class="row-odd"><td><p>EOR</p></td>
+<td><p>Source, Target</p></td>
+<td><p>Performs a bitwise exclusive OR (XOR) operation between the Source and Target, storing the result in the Target.</p></td>
+</tr>
+<tr class="row-even"><td><p>MVN</p></td>
+<td><p>Source, Target</p></td>
+<td><p>Moves the bitwise NOT of the Source into the Target.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
 </section>
 </div></div><aside class="hidden text-sm xl:block" id="right-sidebar">
 <div class="sticky top-16 -mt-10 max-h-[calc(var(--vh)-4rem)] overflow-y-auto pt-6 space-y-2"><p class="font-medium">On this page</p>
@@ -449,6 +630,22 @@
 <li><a :data-current="activeSection === '#short-circuit-evaluation'" class="reference internal" href="#short-circuit-evaluation">Short-Circuit Evaluation</a></li>
 </ul>
 </li>
+<li><a :data-current="activeSection === '#arm-assembly-language-versions'" class="reference internal" href="#arm-assembly-language-versions">ARM Assembly Language Versions</a></li>
+<li><a :data-current="activeSection === '#id2'" class="reference internal" href="#id2">Truth Tables</a></li>
+<li><a :data-current="activeSection === '#id3'" class="reference internal" href="#id3">Logical Equivalence</a></li>
+<li><a :data-current="activeSection === '#id4'" class="reference internal" href="#id4">De Morgan’s Laws</a></li>
+<li><a :data-current="activeSection === '#id5'" class="reference internal" href="#id5">Conditional Statements</a></li>
+<li><a :data-current="activeSection === '#id6'" class="reference internal" href="#id6">Biconditional Statements</a></li>
+<li><a :data-current="activeSection === '#id7'" class="reference internal" href="#id7">Logical Implication</a></li>
+<li><a :data-current="activeSection === '#id8'" class="reference internal" href="#id8">Exclusive OR (XOR)</a></li>
+<li><a :data-current="activeSection === '#id9'" class="reference internal" href="#id9">NAND and NOR Operations</a></li>
+<li><a :data-current="activeSection === '#id10'" class="reference internal" href="#id10">Logical Operators with Non-Boolean Values</a></li>
+<li><a :data-current="activeSection === '#id11'" class="reference internal" href="#id11">Short-Circuit Evaluation</a></li>
+<li><a :data-current="activeSection === '#id12'" class="reference internal" href="#id12">Truth Tables</a></li>
+<li><a :data-current="activeSection === '#id13'" class="reference internal" href="#id13">Logical Equivalence</a></li>
+<li><a :data-current="activeSection === '#id14'" class="reference internal" href="#id14">De Morgan’s Laws</a></li>
+<li><a :data-current="activeSection === '#id15'" class="reference internal" href="#id15">Conditional Statements</a></li>
+<li><a :data-current="activeSection === '#id16'" class="reference internal" href="#id16">Biconditional Statements</a></li>
 </ul>
 </div>
 </aside>
