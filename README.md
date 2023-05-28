@@ -1,4 +1,4 @@
-# About UnoAPI
+# Status / Deployment
 
 [![GitHub Pages and Release PDF](https://github.com/LoyolaChicagoBooks/curricula/actions/workflows/main.yml/badge.svg)](https://github.com/LoyolaChicagoBooks/unoapi/actions/workflows/main.yml)
 
