@@ -300,12 +300,12 @@ ARM Assembly Language Versions
 ---------------------------------
 
 Truth Tables
-------------
+^^^^^^^^^^^^
 
 Truth tables show the outcome of all possible inputs of a logic gate. While ARM assembly does not directly support the creation of truth tables, the results of logic gates can be computed and stored in registers.
 
 Logical Equivalence
--------------------
+^^^^^^^^^^^^^^^^^^^
 
 ARM assembly can compare two values and set the condition codes based on the result, which can be used to test logical equivalence. For example:
 
@@ -317,12 +317,12 @@ ARM assembly can compare two values and set the condition codes based on the res
     BEQ equivalent  ; If R0 equals R1, branch to 'equivalent'
 
 De Morgan's Laws
-----------------
+^^^^^^^^^^^^^^^^
 
 De Morgan's laws state that the negation of a conjunction is the disjunction of the negations, and the negation of a disjunction is the conjunction of the negations. This can be demonstrated using bitwise operations in ARM assembly, but the implementation is nontrivial.
 
 Conditional Statements
-----------------------
+^^^^^^^^^^^^^^^^^^^^^^
 
 Conditional execution in ARM assembly is handled by condition codes. For example:
 
@@ -334,7 +334,7 @@ Conditional execution in ARM assembly is handled by condition codes. For example
     B false_branch  ; Otherwise, branch to 'false_branch'
 
 Biconditional Statements
-------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 A biconditional statement in ARM assembly can be represented as two conditional branches. For example:
 
@@ -350,7 +350,7 @@ A biconditional statement in ARM assembly can be represented as two conditional 
 Alright, here are the remaining 10 logic concepts, along with brief explanations of how they might be implemented in ARM Assembly. 
 
 Logical Implication
--------------------
+^^^^^^^^^^^^^^^^^^^
 
 Logical implication can be expressed using conditional execution. Here is an example where if R0 is true, R1 is checked. 
 
@@ -366,7 +366,7 @@ Logical implication can be expressed using conditional execution. Here is an exa
     ; R0 implies R1
 
 Exclusive OR (XOR)
-------------------
+^^^^^^^^^^^^^^^^^^
 
 The XOR operation can be performed using the EOR instruction.
 
@@ -377,7 +377,7 @@ The XOR operation can be performed using the EOR instruction.
     EOR R2, R0, R1  ; R2 = R0 XOR R1
 
 NAND and NOR Operations
------------------------
+^^^^^^^^^^^^^^^^^^^^^^^
 
 NAND and NOR are not directly supported, but can be implemented using AND/OR and NOT.
 
@@ -390,7 +390,7 @@ NAND and NOR are not directly supported, but can be implemented using AND/OR and
     MVN R2, R2      ; R2 = NOT R2 (NOR)
 
 Logical Operators with Non-Boolean Values
------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 In assembly, non-zero values are often treated as true and zero as false. So, you might see code that uses non-boolean values with logical operators.
 
@@ -400,7 +400,7 @@ In assembly, non-zero values are often treated as true and zero as false. So, yo
     BNE true_branch ; If R0 is not zero, branch to 'true_branch'
 
 Short-Circuit Evaluation
-------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 There's no direct equivalent of short-circuit evaluation in assembly. However, the behavior can be emulated through the use of conditional branching.
 
@@ -412,12 +412,12 @@ There's no direct equivalent of short-circuit evaluation in assembly. However, t
     end:
 
 Truth Tables
-------------
+^^^^^^^^^^^^
 
 As an assembly language, ARM does not directly support data structures like tables. However, you could use an array of values to represent a truth table, and then loop through the array to perform operations.
 
 Logical Equivalence
--------------------
+^^^^^^^^^^^^^^^^^^^
 
 Logical equivalence can be demonstrated by comparing two values.
 
@@ -427,12 +427,12 @@ Logical equivalence can be demonstrated by comparing two values.
     BEQ equivalent ; If they are equal, branch to 'equivalent'
 
 De Morgan's Laws
-----------------
+^^^^^^^^^^^^^^^^
 
 De Morgan's laws are not directly supported in assembly. However, they could be implemented using a combination of AND, OR, and NOT operations, along with appropriate branching.
 
 Conditional Statements
-----------------------
+^^^^^^^^^^^^^^^^^^^^^^
 
 Conditional statements can be represented with conditional branches in assembly.
 
@@ -442,7 +442,7 @@ Conditional statements can be represented with conditional branches in assembly.
     BEQ true_branch ; If R0 is 1, branch to 'true_branch'
 
 Biconditional Statements
-------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 Biconditional statements could be implemented with a sequence of conditional branches.
 
