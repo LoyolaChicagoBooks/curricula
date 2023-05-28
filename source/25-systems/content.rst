@@ -475,17 +475,16 @@ Here is a brief explanation of the ARM assembler instructions used in the above 
 Number Theory Examples
 -------------------------
 
-.. note:: These are really more in line with discrete math topics, but I am structuring my prompts along the lines of ACM/IEEE curricula. I might move these to Discrete Math (and add math to them).
+.. note:: These are really more in line with discrete math topics, but I am structuring my prompts along the lines of ACM/IEEE curricula. I might move these to Discrete Math (and add math to them). These explanations provide a concise understanding of each concept's importance and how it works, allowing you to grasp their significance within Discrete Structures/Number Theory.
 
-Here are 15 examples of Discrete Structures/Number Theory concepts in Go language, each represented as a function.
-
-Please note that some of these examples are simplifications, and they may not handle all possible edge cases or optimizations.
-
-.. note:: George still checking but most look good.
+These explanations highlight the importance of each example within systems programming, showcasing their relevance in various optimization techniques, algorithm design, and efficient computation.
 
 Prime Number Checking
 ^^^^^^^^^^^^^^^^^^^^^^^
 
+Checking if a number is prime is crucial in cryptography, number theory, and algorithms. The function checks if a number `n` is divisible by any integer from 2 to the square root of `n`.
+
+Prime number checking is important in systems programming for tasks such as generating cryptographic keys and optimizing algorithms.
 
 .. code-block:: go
 
@@ -504,6 +503,10 @@ Prime Number Checking
 Greatest Common Divisor - GCD
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+The GCD is used in various mathematical calculations, including simplifying fractions, finding modular inverses, and solving linear Diophantine equations. The function uses the Euclidean algorithm to iteratively find the GCD of two numbers `a` and `b`.
+
+GCD calculations are useful in systems programming for tasks like optimizing memory allocation and implementing efficient algorithms.
+
 .. code-block:: go
 
    func gcd(a, b int) int {
@@ -517,6 +520,10 @@ Greatest Common Divisor - GCD
 Least Common Multiple
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
+Lowest Common Multiple (LCM): The LCM is important in problems involving fractions, least common denominators, and scheduling. The function calculates the LCM of two numbers `a` and `b` by dividing their product by their GCD.
+
+LCM calculations are relevant in systems programming for tasks such as scheduling processes and handling periodic tasks.
+
 .. code-block:: go
 
    func lcm(a, b int) int {
@@ -525,6 +532,10 @@ Least Common Multiple
 
 Sieve of Eratosthenes (Simple)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Sieve of Eratosthenes: Finding prime numbers is fundamental in number theory and cryptography. The function uses the Sieve of Eratosthenes algorithm to generate all prime numbers up to a given limit `n`.
+
+The Sieve of Eratosthenes is valuable in systems programming for tasks like finding prime numbers efficiently and optimizing algorithms.
 
 .. code-block:: go
 
@@ -555,6 +566,10 @@ Sieve of Eratosthenes (Simple)
 Fibonacci sequence
 ^^^^^^^^^^^^^^^^^^^^^
 
+Fibonacci Sequence: The Fibonacci sequence has applications in algorithms, mathematics, and nature. The function generates the Fibonacci sequence up to the `n`-th term.
+
+The Fibonacci sequence has applications in systems programming for tasks such as optimizing algorithmic complexity and generating efficient code.
+
 .. code-block:: go
 
    func fibonacci(n int) []int {
@@ -566,8 +581,13 @@ Fibonacci sequence
        return fibSequence
    }
 
+
 Checking if a number is a Fibonacci number
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Checking if a Number is Fibonacci: Identifying whether a number is part of the Fibonacci sequence is important in number theory and optimization problems. The function checks if a given number `n` is a Fibonacci number by verifying if either `5n^2 + 4` or `5n^2 - 4` is a perfect square.
+
+Identifying Fibonacci numbers can be important in systems programming for optimizing algorithms and implementing efficient data structures.
 
 .. code-block:: go
 
@@ -586,6 +606,10 @@ Checking if a number is a Fibonacci number
 Factorial
 ^^^^^^^^^^^^
 
+Factorial: The factorial is crucial in combinatorics, probability theory, and mathematical analysis. The function calculates the factorial of a non-negative integer `n` using an iterative approach.
+
+Factorial calculations are relevant in systems programming for tasks like optimizing combinatorial algorithms and handling large-scale computations.
+
 .. code-block:: go
 
    func factorial(n int) int {
@@ -599,6 +623,12 @@ Factorial
 Permutations
 ^^^^^^^^^^^^^^^
 
+Permutations (nPr): Permutations are essential in combinatorics and probability theory when the order of elements matters. The function calculates the number of permutations of `r` elements taken from a set of `n` elements using the factorial function.
+
+Permutations are significant in systems programming for tasks such as generating test cases and optimizing algorithms that involve ordering or arrangement of elements.
+
+.. note:: This shows the number of permutations but not the actual permutations. That comes later!
+
 .. code-block:: go
 
    func permutations(n, r int) int {
@@ -609,6 +639,10 @@ Permutations
 Combinations
 ^^^^^^^^^^^^^^^^
 
+Combinations (nCr): Combinations are used when selecting a subset from a larger set without considering the order. The function calculates the number of combinations of `r` elements taken from a set of `n` elements using the factorial function.
+
+Combinations are important in systems programming for tasks such as optimizing resource allocation and implementing efficient data structures.
+
 .. code-block:: go
 
    func combinations(n, r int) int {
@@ -617,6 +651,10 @@ Combinations
 
 Powerset
 ^^^^^^^^^^
+
+Power Set: The power set is crucial in set theory, combinatorics, and algorithm design. The function generates all possible subsets of a given set using bitwise manipulation.
+
+Power set generation is relevant in systems programming for tasks such as optimizing algorithms that involve exploring all possible subsets of a set.
 
 .. code-block:: go
 
@@ -639,6 +677,10 @@ Powerset
 Sum of an Arithmetic Series
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Sum of an Arithmetic Series: The sum of an arithmetic series is used in mathematics, finance, and algorithm analysis. The function calculates the sum of an arithmetic series with `n` terms, initial term `a1`, and common difference `d`.
+
+Calculating the sum of an arithmetic series is useful in systems programming for tasks such as optimizing loop iterations and memory management.
+
 .. code-block:: go
 
    func sumArithmeticSeries(n, a1, d int) int {
@@ -648,6 +690,10 @@ Sum of an Arithmetic Series
 
 Sum of a Geometric Series
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Sum of a Geometric Series: Geometric series are used in various mathematical and financial calculations. The function calculates the sum of a geometric series with `n` terms, initial term `a1`, and common ratio `r`.
+
+Geometric series calculations are important in systems programming for tasks such as optimizing algorithms that involve exponential growth or decay.
 
 .. code-block:: go
 
@@ -660,6 +706,10 @@ Sum of a Geometric Series
 
 Cartesian Product of two sets
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Cartesian Product: The Cartesian product is crucial in set theory, combinatorics, and database queries. The function calculates the Cartesian product of two sets by pairing each element of the first set with each element of the second set.
+
+The Cartesian product is valuable in systems programming for tasks such as optimizing database queries and handling multi-dimensional data structures.
 
 .. code-block:: go
 
@@ -676,6 +726,11 @@ Cartesian Product of two sets
 Modulo operation (a mod b)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Modulo Operation: The modulo operation is widely used in computer science, number theory, and cryptography. The function calculates the remainder of the division of `a` by `b` using the modulo operator.
+
+The modulo operation is significant in systems programming for tasks such as optimizing hashing functions and handling cyclic or periodic operations.
+
+.. note:: This is showing how to compute modulo without the mod operator itself.
 .. code-block:: go
 
    func mod(a, b int) int {
@@ -684,6 +739,10 @@ Modulo operation (a mod b)
 
 Fast Exponentiation (a^n mod m)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Fast Exponentiation: Fast exponentiation is important for efficient computation of large powers in cryptography. The function calculates `a` raised to the power of `n` modulo `m` using the fast exponentiation algorithm.
+
+Fast exponentiation is relevant in systems programming for tasks such as optimizing cryptographic algorithms and implementing efficient modular arithmetic operations.
 
 .. code-block:: go
 
@@ -699,4 +758,3 @@ Fast Exponentiation (a^n mod m)
        }
        return res
    }
-
