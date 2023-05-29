@@ -9,9 +9,6 @@ Welcome to the CS Curricular Mapping Initiative
          :alt: GitHub Pages and Release PDF
 
 
-Motivation
-------------
-
 This is an effort to map our curriculum at Loyola University Chicago to the established international guidelines (ACM and IEEE).
 We are motivated by the following research questions:
 
@@ -19,9 +16,6 @@ We are motivated by the following research questions:
 - What are the actual learning outcomes in our *foundation sequence* courses?
 - Can generative AI large language/coding models help us to *improve* teaching of theoretical and practical (programming) topics?
 - Can we provide more historical/cultural context to CS students (also with the help of generative AI)? 
-
-Table of Contents
-----------------------
 
 .. toctree::
    :maxdepth: 2
