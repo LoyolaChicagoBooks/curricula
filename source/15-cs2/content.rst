@@ -2583,7 +2583,7 @@ Here's a simple example of using `Collections.asLifoQueue`:
 
     public class LifoQueueExample {
         public static void main(final String[] args) {
-            final ArrayDeque<Integer> deque = new ArrayDeque<>();
+            final var deque = new ArrayDeque<Integer>();
             final Queue<Integer> queue = Collections.asLifoQueue(deque);
 
             queue.add(1);
