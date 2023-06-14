@@ -184,3 +184,46 @@ In the following, we asked ChatGPT to show how to write a solution that not only
     }
     
        
+What does the Neon float32x4_t do?
+-------------------------------------
+
+Here's a minimal example demonstrating how to use float32x4_t from the ARM Neon library to perform some basic SIMD operations. In this example, we perform element-wise addition, subtraction, multiplication and division on two 4-element float vectors:
+
+.. code-block:: c
+
+   #include <stdio.h>
+   #include <arm_neon.h>
+   
+   int main() {
+       // Initialize two 4-element float vectors
+       float32x4_t a = {1.0f, 2.0f, 3.0f, 4.0f};
+       float32x4_t b = {5.0f, 6.0f, 7.0f, 8.0f};
+   
+       // Perform element-wise addition
+       float32x4_t result_add = vaddq_f32(a, b);
+   
+       // Perform element-wise subtraction
+       float32x4_t result_sub = vsubq_f32(a, b);
+   
+       // Perform element-wise multiplication
+       float32x4_t result_mul = vmulq_f32(a, b);
+   
+       // Perform element-wise division
+       float32x4_t result_div = vdivq_f32(a, b);
+   
+       // Print results
+       for(int i = 0; i < 4; i++) {
+           printf("Element %d: Add = %.2f, Sub = %.2f, Mul = %.2f, Div = %.2f\n",
+               i, result_add[i], result_sub[i], result_mul[i], result_div[i]);
+       }
+   
+       return 0;
+   }
+   
+Please note that SIMD operations operate on all elements of the vectors at once, which is what gives them their parallel processing capability. Also note that ARM Neon supports a wide range of SIMD operations beyond the ones shown in this example.
+
+To compile this program on an ARM system, you would typically use a command like:
+
+::
+
+   gcc -O3 -march=armv8-a+simd program.c -o program
