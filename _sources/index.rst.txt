@@ -9,9 +9,8 @@ ACM/IEEE CS Curriculum Mapping Project
          :alt: GitHub Pages and Release PDF
 
 
-**Contents**
-
 .. toctree::
+   :caption: Table of Contents
    :maxdepth: 2
 
    00-preliminaries/content.rst
@@ -26,6 +25,7 @@ ACM/IEEE CS Curriculum Mapping Project
    80-pedagogy-crosscutting/content.rst
    90-contributing/content.rst
    95-chatgpt-limitations/content.rst
+   97-energy-efficiency/content.rst
    98-openai/content.rst
    99-sandbox/content.rst
 
