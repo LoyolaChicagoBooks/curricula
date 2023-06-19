@@ -1,5 +1,5 @@
-ACM/IEEE Curricular Standards
-===============================
+ACM/IEEE (and other)Curricular Standards
+==========================================
 
 The Association for Computing Machinery (ACM) is a leading international organization for computing professionals, and they periodically release guidelines for computing curricula to help educational institutions design their programs.
 
@@ -19,7 +19,7 @@ Here are some key components of the ACM computing curriculum:
 
 - Continuous improvement: The ACM regularly updates its curriculum guidelines to keep up with the rapidly evolving field of computing.
 
-Let's take a look at specificlearning outcomes (George and William to check) for typical computing (computing-related) degree programs.
+Let's take a look at specific learning outcomes (George and William to check) for typical computing (computing-related) degree programs.
 For this analysis, we are looking at programs *we* offer at Loyola University Chicago:
 
 - B.S. in Computer Science
