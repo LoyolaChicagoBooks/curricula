@@ -335,7 +335,7 @@ Please note that specific requirements can vary widely from one program or insti
 Cracking the Math "problem" in various CS program(s)
 --------------------------------------------------------
 
-What are the ndergraduate computer science classes where calculus is needed as a prerequisite?
+What are the undergraduate computer science classes where calculus is needed as a prerequisite?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Calculus is often required for more advanced or specialized computer science courses, particularly those that involve continuous mathematics, algorithm analysis, or mathematical modeling. Here's a list of some of the courses where calculus might be used:
