@@ -330,3 +330,90 @@ Mathematics provides a foundation for understanding and solving problems in many
 4. Some programs might require a course in Discrete Mathematics or Algorithms
 
 Please note that specific requirements can vary widely from one program or institution to another. For precise information, it's always best to check the curriculum of the specific program at the institution you are interested in.
+
+
+Cracking the Math "problem" in various CS program(s)
+--------------------------------------------------------
+
+What are the ndergraduate computer science classes where calculus is needed as a prerequisite?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Calculus is often required for more advanced or specialized computer science courses, particularly those that involve continuous mathematics, algorithm analysis, or mathematical modeling. Here's a list of some of the courses where calculus might be used:
+
+1. **Algorithms**: This course involves analyzing the running time of algorithms, which often requires understanding of calculus concepts, especially when considering the asymptotic behavior of functions.
+
+2. **Machine Learning**: Many machine learning algorithms are based on calculus. For example, optimization methods such as gradient descent require understanding of derivatives.
+
+3. **Artificial Intelligence**: AI also often uses calculus, particularly in areas like neural networks and other machine learning methods.
+
+4. **Computer Graphics**: The study of computer graphics involves quite a bit of mathematics, including calculus, as it's needed to understand things like rendering, shading, and geometric transformations.
+
+5. **Data Science/Big Data**: These courses may involve calculus when they cover machine learning algorithms, optimization methods, or statistical analyses.
+
+6. **Computer Vision**: This involves algorithms for interpreting visual data, and many of these algorithms use calculus, particularly for understanding image gradients, optimizations, and so on.
+
+7. **Control Systems or Robotics**: These involve mathematical modeling of system dynamics, which requires differential equations—a field of study built on calculus.
+
+8. **Signal Processing**: This involves analyzing and manipulating signals, such as sound or images, and this often requires understanding of calculus and especially Fourier transforms.
+
+9. **Scientific Computing or Numerical Analysis**: These involve creating numerical solutions to mathematical problems, which often requires understanding of calculus and differential equations.
+
+10. **Computational Geometry**: This field involves the algorithmic aspects of geometry, which often requires understanding of calculus for areas like curve and surface modeling.
+
+Note that the specific courses and their prerequisites can vary widely between different universities or programs, so it's always best to check the specific course listings at the institution you're interested in.
+
+Is Calculus required for the CS1 (Introduction to CS) course?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Typically, calculus is not required for introductory computer science courses, also known as CS1 courses. These courses often focus on the basics of programming and problem-solving using a specific programming language (like Python or Java), and generally don't involve advanced mathematical concepts.
+
+However, requirements can vary between different universities and programs, and some programs might co-list calculus as a requirement or co-requisite alongside their CS1 course. This is often because calculus is considered part of the foundational curriculum for a degree in computer science, and students are expected to complete it early in their academic career.
+
+.. note:: In general, it's always a good idea to check the specific course listings at the institution you're interested in to confirm their prerequisites.
+
+Is Calculus required for introduction to computer systems course?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+An Introduction to Computer Systems course typically focuses on how computers work, from the hardware level up to the interaction with the operating system and software. This can include understanding of computer architecture, memory, processors, I/O devices, and basic operating system principles.
+
+Generally, calculus is not a prerequisite for an introductory course in computer systems. Instead, prerequisites often include an introductory programming course and possibly a course in discrete mathematics or digital logic design. Understanding computer systems usually involves more binary math, logic, and potentially some basic linear algebra, rather than calculus.
+
+.. note:: However, as always, prerequisites can vary between different universities and programs. It's best to check the specific course listings at the institution you're interested in to confirm their requirements.
+
+Is calculus required as a prerequisite for a first data structures course?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Generally, calculus is not required as a prerequisite for a first course in data structures. These courses typically focus on the principles and implementations of various types of data structures like arrays, linked lists, stacks, queues, trees, and graphs, and the algorithms associated with these data structures. The mathematics involved in understanding these topics is usually discrete mathematics, not calculus.
+
+The prerequisites for a data structures course often include an introductory programming course where students learn the basics of writing, debugging, and testing code. Some universities may also require or recommend a course in discrete mathematics before or alongside the data structures course, as it provides important foundational knowledge for understanding data structures and algorithms.
+
+.. note:: However, the exact prerequisites can vary between different universities and programs, so it's always best to check the specific course listings at the institution you're interested in to confirm their requirements.
+
+For each of the courses you listed where Calculus is needed, in what year these courses are typically taken by CS students?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The sequence and timing of courses can vary quite a bit between different universities and programs, and can also depend on the specific preparation and pace of individual students. However, here's a general idea of when these courses might typically be taken in a four-year undergraduate Computer Science program:
+
+1. **Algorithms**: Typically taken in the second or third year. This course often follows an introductory course in data structures.
+
+2. **Machine Learning**: Usually an upper-level course, so it might be taken in the third or fourth year. It may require prerequisites in algorithms, statistics, or linear algebra.
+
+3. **Artificial Intelligence**: Also usually an upper-level course, taken in the third or fourth year. It may require prerequisites in algorithms and possibly machine learning.
+
+4. **Computer Graphics**: This could be taken in the second, third, or fourth year, depending on the program and the student's interests and preparation.
+
+5. **Data Science/Big Data**: These courses may be taken in the second, third, or fourth year, often requiring prerequisites in statistics and possibly algorithms or machine learning.
+
+6. **Computer Vision**: Usually an upper-level course, taken in the third or fourth year. It may require prerequisites in linear algebra, algorithms, and possibly machine learning or computer graphics.
+
+7. **Control Systems or Robotics**: Usually an upper-level course, taken in the third or fourth year. It may require prerequisites in linear algebra, algorithms, and possibly physics.
+
+8. **Signal Processing**: Usually an upper-level course, taken in the third or fourth year. It often requires prerequisites in calculus, linear algebra, and sometimes differential equations.
+
+9. **Scientific Computing or Numerical Analysis**: Usually an upper-level course, taken in the third or fourth year. It often requires prerequisites in calculus, linear algebra, and sometimes differential equations.
+
+10. **Computational Geometry**: Usually an upper-level course, taken in the third or fourth year. It often requires prerequisites in algorithms and possibly linear algebra.
+
+.. note:: Again, these are just general tendencies, and the actual timing can depend on many factors. Always check the specific course listings and academic plans at the institution you're interested in for the most accurate information.
+
+
