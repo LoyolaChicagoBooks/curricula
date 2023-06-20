@@ -254,6 +254,32 @@ Bioinformatics often deals with large and complex biological data sets, and unde
 
 Each of these data structures has strengths and weaknesses depending on the specific problem being solved, so it's essential to understand their characteristics and when to use each one.
 
+What data structures are typically needed in a B.S. in Data Science degree?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+A Bachelor of Science in Data Science program often requires knowledge of various data structures, as they are crucial for handling and manipulating data efficiently. Here are the most commonly used data structures in data science:
+
+1. **Arrays and Lists**: These are basic structures used to store and manipulate collections of data. They are often used to store numerical data for statistical analysis.
+
+2. **Matrices**: A matrix is a two-dimensional grid of numbers and is a fundamental tool in linear algebra. They are used in various machine learning algorithms, data visualization, and statistical analysis.
+
+3. **Data Frames**: This is a table-like data structure that can store data of different types (numbers, strings, etc.) in columns. It's commonly used in data cleaning, data manipulation, and analysis.
+
+4. **Trees**: More specifically, decision trees and other variations like Random Forests, are used extensively in machine learning for both regression and classification tasks.
+
+5. **Graphs**: Graphs (nodes connected by edges) are used in network analysis, which has applications in social network analysis, telecommunications, and other areas where relationships between entities are important.
+
+6. **Hash Tables (Dictionaries)**: These are used to store and retrieve data efficiently, often used in data preprocessing and cleaning stages.
+
+7. **Sets**: Used for storing distinct elements in no particular order. Sets are helpful for finding unique items and for operations such as union, intersection, difference, etc.
+
+8. **Queues and Stacks**: These are used in various algorithms and processes in data science.
+
+9. **Tuples**: These are ordered, immutable collections of elements. They're often used in data manipulation tasks.
+
+Remember that the choice of data structure in any given situation depends on the nature of the specific task, the operations that need to be performed on the data, and the computational complexity of these operations.
+
+
 What mathematics courses are commonly required for each of the above degree programs?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
