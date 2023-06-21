@@ -521,3 +521,59 @@ This is an initial analysis of how each learning outcome is mapped to each degre
    "Understanding of Bioinformatics Techniques and Tools", "Remember", "Remember", "Remember", "Remember", "Remember", "Create"
 
 .. note:: There are concerns about the answeres for Biological Concepts and Bioinformatics. However, it should be noted that many universities require core science knowledge, so basic "recall" may be a valid mapping. -George
+
+What about Computer Engineering and Electrical Engineering?
+-------------------------------------------------------------
+
+Who maintains standards for B.S. programs in Computer Engineering and Electrical Engineering?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The main body that maintains and enforces standards for B.S. programs in Computer Engineering and Electrical Engineering in the United States is ABET (Accreditation Board for Engineering and Technology). ABET is a non-profit and non-governmental accrediting agency for programs in applied and natural science, computing, engineering, and engineering technology. 
+
+ABET accreditation provides assurance that a college or university program meets the quality standards of the profession for which that program prepares graduates. The accreditation process requires that each program identifies specific learning outcomes and demonstrates that its students have achieved those outcomes.
+
+For Computer Engineering and Electrical Engineering programs specifically, the IEEE (Institute of Electrical and Electronics Engineers) plays a significant role as a professional organization. While IEEE does not accredit programs, it does contribute to the setting of educational standards in these fields through its Educational Activities Board (EAB), which develops resources and provides support for educators and students.
+
+It's important to note that in other countries, different organizations may be responsible for maintaining standards in engineering education. For example, in the United Kingdom, the Institution of Engineering and Technology (IET) is one such organization. It's also common for national or regional accrediting bodies to follow the principles laid out by the International Engineering Alliance's "Washington Accord," which outlines the outcomes expected from undergraduate engineering programs.
+
+
+What are the key learning outcomes for B.S. programs in Electrical Engineering and Computer Engineering?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Here are some of the key learning outcomes that are common for B.S. programs in Electrical Engineering (EE), Computer Engineering (CE), and Computer Science (CS). Note that these outcomes can vary based on the particular focus of a program or institution.
+
+**Electrical Engineering (EE):**
+
+1. **Knowledge of Mathematics and Science**: Apply knowledge of mathematics, science, and engineering.
+2. **System Design/Analysis**: Design and conduct experiments, analyze and interpret data, design a system, component, or process to meet desired needs.
+3. **Modern Tool Usage**: Use the techniques, skills, and modern engineering tools necessary for engineering practice.
+4. **Problem Identification and Solutions**: Identify, formulate, and solve engineering problems.
+5. **Professional and Ethical Responsibility**: Understand professional and ethical responsibility.
+6. **Communication**: Communicate effectively.
+7. **Impact of Engineering Solutions**: Understand the impact of engineering solutions in a global, economic, environmental, and societal context.
+
+**Computer Engineering (CE):**
+
+1. **Knowledge of Mathematics and Science**: Apply knowledge of mathematics, science, and engineering.
+2. **System Design/Analysis**: Design and conduct experiments, analyze and interpret data, design a system, component, or process to meet desired needs.
+3. **Modern Tool Usage**: Use the techniques, skills, and modern engineering tools necessary for engineering practice.
+4. **Problem Identification and Solutions**: Identify, formulate, and solve engineering problems.
+5. **Professional and Ethical Responsibility**: Understand professional and ethical responsibility.
+6. **Communication**: Communicate effectively.
+7. **Impact of Engineering Solutions**: Understand the impact of engineering solutions in a global, economic, environmental, and societal context.
+8. **Computer Systems**: Understand computer hardware and software, design computer systems.
+9. **Software Design and Development**: Ability to write efficient software, understand software development methodologies.
+
+**Common outcomes with Computer Science (CS):**
+
+1. **Problem Solving**: Ability to apply knowledge of computing and mathematics to solve problems.
+2. **System Design/Analysis**: Ability to design, implement and evaluate a computer-based system, process, component, or program to meet desired needs.
+3. **Modern Tool Usage**: Use current techniques, skills, and tools necessary for computing practice.
+4. **Professional and Ethical Responsibility**: Understand professional, ethical, legal, security and social issues and responsibilities.
+5. **Communication**: Ability to communicate effectively with a range of audiences.
+6. **Computer Systems**: Understand computer hardware and software, design computer systems (more emphasized in CE than CS).
+
+.. note:: It's worth noting that while there are many commonalities between these three fields, each has its own specific areas of focus. For example, electrical engineering places more emphasis on the design and analysis of electrical and electronic systems, while computer engineering straddles the space between electrical engineering and computer science, often focusing more on the hardware and low-level software aspects of computing. On the other hand, computer science usually places more emphasis on algorithm design, data structures, and high-level software design and development.
+
+
+
