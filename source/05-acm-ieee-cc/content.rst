@@ -91,33 +91,6 @@ While there's considerable overlap between Computer Science and Software Enginee
 As with the previous set of outcomes, these can vary depending on the specifics of the institution and the program, but they provide a general idea of what most B.S. in Software Engineering programs aim to achieve.
 
 
-B.S. in Cybersecurity
-------------------------
-
-A Bachelor of Science in Cybersecurity program focuses on equipping students with the skills and knowledge necessary to protect computer systems, networks, and data from cyber threats. Here are some common program outcomes:
-
-1. **Understanding of Cybersecurity Fundamentals**: This includes knowledge of how to protect and defend computer systems and networks by ensuring their availability, integrity, authentication, and confidentiality.
-
-2. **Proficiency in Identifying and Mitigating Threats**: Graduates should be able to identify potential threats and vulnerabilities in a system, and know how to put measures in place to mitigate them.
-
-3. **Knowledge of Cybersecurity Tools and Technologies**: Students should be proficient in using current tools and technologies to prevent and detect cyber threats.
-
-4. **Skills in Risk Management**: This includes understanding how to assess the risk to a system, how to quantify that risk, and how to implement measures to manage it.
-
-5. **Understanding of Legal and Ethical Issues**: Graduates should understand the legal, ethical, and professional issues involved in cybersecurity, such as privacy concerns, intellectual property rights, and cybercrime laws.
-
-6. **Incident Response Skills**: Students should be able to develop and implement an effective incident response strategy to reduce the impact of security breaches and network intrusions.
-
-7. **Understanding of Networking and Systems**: This includes knowledge of networking protocols, operating systems principles, and how they can be secured.
-
-8. **Knowledge of Cryptography**: Students should understand the principles of cryptography and how it is used to secure data.
-
-9. **Communication and Teamwork**: As with the other degrees, students should be able to effectively communicate and collaborate in a team to achieve a common goal.
-
-10. **Ability to Stay Current**: Given the rapidly evolving nature of cybersecurity threats, students should be prepared to continuously learn and adapt to new challenges and technologies.
-
-These outcomes aim to prepare students for a range of cybersecurity roles, such as Security Analyst, Security Engineer, or Security Architect, and can vary slightly depending on the specific focus of the program at a given institution.
-
 B.S. in Information Technology
 -------------------------------
 
@@ -144,6 +117,33 @@ A Bachelor of Science in Information Technology program typically aims to equip 
 10. **Adaptability to New Technologies**: IT is a rapidly evolving field, and students should be prepared to learn and adapt to new technologies and tools.
 
 These outcomes aim to prepare students for a wide range of IT roles, such as IT Support Specialist, Network Administrator, System Analyst, or IT Project Manager, and can vary depending on the specific focus of the program at a given institution.
+
+B.S. in Cybersecurity
+------------------------
+
+A Bachelor of Science in Cybersecurity program focuses on equipping students with the skills and knowledge necessary to protect computer systems, networks, and data from cyber threats. Here are some common program outcomes:
+
+1. **Understanding of Cybersecurity Fundamentals**: This includes knowledge of how to protect and defend computer systems and networks by ensuring their availability, integrity, authentication, and confidentiality.
+
+2. **Proficiency in Identifying and Mitigating Threats**: Graduates should be able to identify potential threats and vulnerabilities in a system, and know how to put measures in place to mitigate them.
+
+3. **Knowledge of Cybersecurity Tools and Technologies**: Students should be proficient in using current tools and technologies to prevent and detect cyber threats.
+
+4. **Skills in Risk Management**: This includes understanding how to assess the risk to a system, how to quantify that risk, and how to implement measures to manage it.
+
+5. **Understanding of Legal and Ethical Issues**: Graduates should understand the legal, ethical, and professional issues involved in cybersecurity, such as privacy concerns, intellectual property rights, and cybercrime laws.
+
+6. **Incident Response Skills**: Students should be able to develop and implement an effective incident response strategy to reduce the impact of security breaches and network intrusions.
+
+7. **Understanding of Networking and Systems**: This includes knowledge of networking protocols, operating systems principles, and how they can be secured.
+
+8. **Knowledge of Cryptography**: Students should understand the principles of cryptography and how it is used to secure data.
+
+9. **Communication and Teamwork**: As with the other degrees, students should be able to effectively communicate and collaborate in a team to achieve a common goal.
+
+10. **Ability to Stay Current**: Given the rapidly evolving nature of cybersecurity threats, students should be prepared to continuously learn and adapt to new challenges and technologies.
+
+These outcomes aim to prepare students for a range of cybersecurity roles, such as Security Analyst, Security Engineer, or Security Architect, and can vary slightly depending on the specific focus of the program at a given institution.
 
 B.S. in Data Science
 ----------------------
@@ -416,4 +416,40 @@ The sequence and timing of courses can vary quite a bit between different univer
 
 .. note:: Again, these are just general tendencies, and the actual timing can depend on many factors. Always check the specific course listings and academic plans at the institution you're interested in for the most accurate information.
 
+Bloom's Taxonomy and Learning Outcomes (by degree)
+----------------------------------------------------
 
+Bloom's taxonomy is a framework used to classify educational learning objectives into levels of complexity and specificity. The levels are typically listed as:
+
+1. Remember (Knowledge)
+2. Understand (Comprehension)
+3. Apply (Application)
+4. Analyze (Analysis)
+5. Evaluate (Evaluation)
+6. Create (Synthesis)
+
+Higher numbers to mean that a greater degree of mastery is required in that particular learning outcome for a degree program. However, please note that the actual levels of mastery required can vary greatly depending on the specific curriculum and course requirements of each university's program. Here's an illustrative mapping:
+
+This is an initial analysis of how each learning outcome is mapped to each degree program using Bloom's taxonomy:
+
+.. csv-table:: Learning Outcomes Across Programs
+   :header: "Learning Outcomes", "Computer Science", "Software Engineering", "Cybersecurity", "Information Technology", "Data Science", "Bioinformatics"
+   :widths: 20, 20, 20, 20, 20, 20, 20
+
+   "Problem Solving", "Evaluate", "Create", "Evaluate", "Evaluate", "Create", "Create"
+   "Software Design and Development", "Create", "Create", "Apply", "Evaluate", "Apply", "Evaluate"
+   "Algorithm and Data Structure Knowledge", "Create", "Evaluate", "Apply", "Analyze", "Evaluate", "Evaluate"
+   "Knowledge of Computer Systems", "Evaluate", "Evaluate", "Evaluate", "Evaluate", "Analyze", "Analyze"
+   "Mathematical and Theoretical Foundations", "Create", "Evaluate", "Apply", "Analyze", "Evaluate", "Evaluate"
+   "Critical Thinking and Ethical Considerations", "Evaluate", "Evaluate", "Create", "Evaluate", "Evaluate", "Evaluate"
+   "Understanding of Security Principles", "Apply", "Analyze", "Create", "Evaluate", "Apply", "Apply"
+   "Ability to Maintain and Manage IT Systems", "Apply", "Apply", "Apply", "Evaluate", "Apply", "Apply"
+   "Understanding of Network and Database Systems", "Evaluate", "Evaluate", "Evaluate", "Evaluate", "Analyze", "Evaluate"
+   "Understanding of Software Engineering Principles", "Evaluate", "Create", "Apply", "Evaluate", "Apply", "Analyze"
+   "Data Analysis and Visualization", "Apply", "Apply", "Apply", "Evaluate", "Create", "Evaluate"
+   "Application of Statistics and Probability", "Apply", "Apply", "Apply", "Apply", "Create", "Evaluate"
+   "Understanding of Machine Learning Algorithms", "Apply", "Apply", "Apply", "Apply", "Create", "Analyze"
+   "Understanding of Biological Concepts", "Remember", "Remember", "Remember", "Remember", "Remember", "Create"
+   "Understanding of Bioinformatics Techniques and Tools", "Remember", "Remember", "Remember", "Remember", "Remember", "Create"
+
+.. note:: There are concerns about the answeres for Biological Concepts and Bioinformatics. However, it should be noted that many universities require core science knowledge, so basic "recall" may be a valid mapping. -George
