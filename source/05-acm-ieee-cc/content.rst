@@ -1,5 +1,8 @@
-ACM/IEEE (and other)Curricular Standards
+Curricular Standards
 ==========================================
+
+ACM/IEEE
+---------
 
 The Association for Computing Machinery (ACM) is a leading international organization for computing professionals, and they periodically release guidelines for computing curricula to help educational institutions design their programs.
 
@@ -19,6 +22,71 @@ Here are some key components of the ACM computing curriculum:
 
 - Continuous improvement: The ACM regularly updates its curriculum guidelines to keep up with the rapidly evolving field of computing.
 
+ABET
+-----
+
+While ABET (Accreditation Board for Engineering and Technology) does generally align with ACM (Association for Computing Machinery) and IEEE (Institute of Electrical and Electronics Engineers), there are slight differences in how they express program outcomes. This is primarily because ABET covers a wider range of disciplines, including applied and natural science, computing, engineering, and engineering technology, while ACM and IEEE's Computer Society specifically target computing and related fields.
+
+ABET uses a set of "Student Outcomes" (labeled 1-7) for programs in computing:
+
+1. An ability to analyze a complex computing problem and to apply principles of computing and other relevant disciplines to identify solutions.
+2. An ability to design, implement, and evaluate a computing-based solution to meet a given set of computing requirements in the context of the program’s discipline.
+3. An ability to communicate effectively in a variety of professional contexts.
+4. An ability to recognize professional responsibilities and make informed judgments in computing practice based on legal and ethical principles.
+5. An ability to function effectively as a member or leader of a team engaged in activities appropriate to the program’s discipline.
+6. An ability to apply computer science theory and software development fundamentals to produce computing-based solutions.
+7. A familiarity with the impact of computing on individuals, organizations, and society, including ethical, legal, security, and global policy issues.
+
+This is quite similar to ACM and IEEE's outcomes, but with a slightly broader perspective that considers the impacts of computing on society and the ethical responsibilities of computing professionals. ABET also places strong emphasis on communication skills and teamwork.
+
+.. note:: Please note that you should check the most recent ABET, ACM, and IEEE curricular guidelines to ensure you have the most up-to-date information.
+
+NICE
+-----
+
+
+The National Initiative for Cybersecurity Education (NICE), led by the National Institute of Standards and Technology (NIST) in the U.S., doesn't provide a specific curriculum structure for Cybersecurity B.S. programs, but they do provide a comprehensive Framework that can guide educational institutions in developing or improving Cybersecurity programs.
+
+The NICE Cybersecurity Workforce Framework (NICE Framework) organizes cybersecurity work into 7 high-level categories, each containing several specialty areas. These categories are:
+
+1. **Securely Provision (SP)**: Conceptualize, design, procure, and/or build secure information technology (IT) systems.
+2. **Operate and Maintain (OM)**: Provide support, administration, and maintenance necessary to ensure effective and efficient IT system performance and security.
+3. **Oversee and Govern (OV)**: Provide leadership, management, direction, or development and advocacy so the organization may effectively conduct cybersecurity work.
+4. **Protect and Defend (PR)**: Identify, analyze, and mitigate threats to internal IT systems and/or networks.
+5. **Analyze (AN)**: Perform highly specialized review and evaluation of incoming cybersecurity information to determine its usefulness for intelligence.
+6. **Collect and Operate (CO)**: Provide specialized denial and deception operations and collection of cybersecurity information that may be used to develop intelligence.
+7. **Investigate (IN)**: Investigate cybersecurity events or crimes related to information technology (IT) systems, networks, and digital evidence.
+
+In each specialty area, the Framework lists a set of Abilities, Knowledge, and Skills (KSA) required, as well as specific tasks often associated with work in that area.
+
+When developing a B.S. program in Cybersecurity, educational institutions can use the NICE Framework as a reference to ensure that their curriculum covers the essential areas of cybersecurity work and provides students with the required KSAs.
+
+.. note:: However, it's important to note that different institutions might emphasize different specialty areas based on their particular focus or expertise, the needs of their local or regional job market, and other factors. Therefore, there could be some variation in the specific courses and learning outcomes of different Cybersecurity B.S. programs.
+
+ISCB and Bioinformatics/Computational Biology
+-----------------------------------------------
+
+What does ISCB (International Society for Computational Biology) for Bioinformatics programs say about required computer science background for Bioinformatics B.S. programs?
+
+The International Society for Computational Biology (ISCB) has recommended guidelines for undergraduate bioinformatics programs. While they don't provide a specific list of computer science courses, they emphasize that a well-rounded bioinformatics curriculum should include a solid grounding in computer science. The core competencies they suggest in the computational area are:
+
+1. **Programming**: Bioinformatics students should be proficient in at least one scripting language (like Python or Perl) and one systems programming language (like Java or C++). They should be comfortable writing programs, testing code, using version control, and debugging.
+
+2. **Algorithms and Data Structures**: Bioinformatics students should understand common data structures and algorithms, particularly those used in bioinformatics applications like dynamic programming, graph algorithms, and string matching algorithms.
+
+3. **Databases**: Familiarity with relational databases, SQL, and possibly NoSQL databases is also important, as bioinformatics often involves managing and querying large biological databases.
+
+4. **High-Performance Computing**: Given the large datasets often used in bioinformatics, students should also understand the basics of parallel computing and be able to write programs that can run on high-performance computing clusters.
+
+5. **Software Engineering**: Students should understand good software development practices, like code review and testing, which can help in building larger software tools and pipelines in bioinformatics.
+
+6. **Data Science**: Given the large and complex nature of biological datasets, skills in data analysis and statistics, including the use of tools like R, can also be very important.
+
+.. note:: the exact list of computer science courses may vary from one program or institution to another, and some topics may be integrated within bioinformatics-specific courses rather than being taught as separate computer science courses. For a precise understanding of course requirements, it's always best to refer to the curricular details provided by the specific degree program or institution.
+
+The Rest of the Story: Analyzing our (Loyola's) programs
+----------------------------------------------------------
+
 Let's take a look at specific learning outcomes (George and William to check) for typical computing (computing-related) degree programs.
 For this analysis, we are looking at programs *we* offer at Loyola University Chicago:
 
@@ -37,7 +105,7 @@ We offer others:
 
 
 B.S. in Computer Science
---------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 In a Bachelor of Science (B.S.) in Computer Science program, the curriculum typically aims to achieve a set of outcomes to prepare students for a wide range of computer science related careers, or for further academic pursuits in the field. Here are some of the most common program outcomes:
 
@@ -64,7 +132,7 @@ In a Bachelor of Science (B.S.) in Computer Science program, the curriculum typi
 These outcomes can vary depending on the institution, but the ones listed above are common to many B.S. in Computer Science programs.
 
 B.S. in Software Engineering
------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 While there's considerable overlap between Computer Science and Software Engineering degrees, a Bachelor of Science in Software Engineering typically has a heavier emphasis on the principles and practices of designing and maintaining large software systems. Here are some typical program outcomes:
 
@@ -92,7 +160,7 @@ As with the previous set of outcomes, these can vary depending on the specifics 
 
 
 B.S. in Information Technology
--------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 A Bachelor of Science in Information Technology program typically aims to equip students with a broad range of technical skills, while also providing them with an understanding of business processes. Here are some common program outcomes:
 
@@ -119,7 +187,7 @@ A Bachelor of Science in Information Technology program typically aims to equip 
 These outcomes aim to prepare students for a wide range of IT roles, such as IT Support Specialist, Network Administrator, System Analyst, or IT Project Manager, and can vary depending on the specific focus of the program at a given institution.
 
 B.S. in Cybersecurity
-------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 A Bachelor of Science in Cybersecurity program focuses on equipping students with the skills and knowledge necessary to protect computer systems, networks, and data from cyber threats. Here are some common program outcomes:
 
@@ -146,7 +214,7 @@ A Bachelor of Science in Cybersecurity program focuses on equipping students wit
 These outcomes aim to prepare students for a range of cybersecurity roles, such as Security Analyst, Security Engineer, or Security Architect, and can vary slightly depending on the specific focus of the program at a given institution.
 
 B.S. in Data Science
-----------------------
+^^^^^^^^^^^^^^^^^^^^^^
 
 A Bachelor of Science in Data Science program typically combines disciplines such as statistics, computer science, and business to equip students with the skills and knowledge necessary to extract insights from complex data. Here are some common program outcomes:
 
@@ -172,8 +240,34 @@ A Bachelor of Science in Data Science program typically combines disciplines suc
 
 These outcomes aim to prepare students for a wide range of data science roles, such as Data Scientist, Data Analyst, or Machine Learning Engineer, and can vary depending on the specific focus of the program at a given institution.
 
+What data structures are typically needed in a B.S. in Data Science degree?
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+A Bachelor of Science in Data Science program often requires knowledge of various data structures, as they are crucial for handling and manipulating data efficiently. Here are the most commonly used data structures in data science:
+
+1. **Arrays and Lists**: These are basic structures used to store and manipulate collections of data. They are often used to store numerical data for statistical analysis.
+
+2. **Matrices**: A matrix is a two-dimensional grid of numbers and is a fundamental tool in linear algebra. They are used in various machine learning algorithms, data visualization, and statistical analysis.
+
+3. **Data Frames**: This is a table-like data structure that can store data of different types (numbers, strings, etc.) in columns. It's commonly used in data cleaning, data manipulation, and analysis.
+
+4. **Trees**: More specifically, decision trees and other variations like Random Forests, are used extensively in machine learning for both regression and classification tasks.
+
+5. **Graphs**: Graphs (nodes connected by edges) are used in network analysis, which has applications in social network analysis, telecommunications, and other areas where relationships between entities are important.
+
+6. **Hash Tables (Dictionaries)**: These are used to store and retrieve data efficiently, often used in data preprocessing and cleaning stages.
+
+7. **Sets**: Used for storing distinct elements in no particular order. Sets are helpful for finding unique items and for operations such as union, intersection, difference, etc.
+
+8. **Queues and Stacks**: These are used in various algorithms and processes in data science.
+
+9. **Tuples**: These are ordered, immutable collections of elements. They're often used in data manipulation tasks.
+
+Remember that the choice of data structure in any given situation depends on the nature of the specific task, the operations that need to be performed on the data, and the computational complexity of these operations.
+
+
 B.S. in Bioinformatics
--------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 A Bachelor of Science in Bioinformatics program typically combines biology, computer science, and statistics to enable students to analyze and interpret complex biological data. Here are some common program outcomes:
 
@@ -200,7 +294,7 @@ A Bachelor of Science in Bioinformatics program typically combines biology, comp
 These outcomes aim to prepare students for a wide range of bioinformatics roles, such as Bioinformatician, Genomic Data Analyst, or Research Scientist, and can vary depending on the specific focus of the program at a given institution.
 
 What Biology, Chemistry, Mathematics, and Computer Science courses are needed for a B.S. in Bioinformatics?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 A Bachelor of Science in Bioinformatics program typically requires a mix of Biology, Chemistry, Mathematics, and Computer Science courses. Here's a streamlined list of these foundational courses:
 
@@ -232,7 +326,7 @@ A Bachelor of Science in Bioinformatics program typically requires a mix of Biol
 In addition to these foundational courses, students usually take specialized courses in bioinformatics that cover topics like genomic data analysis, biological databases, and computational molecular biology. Also, some programs might require physics or other courses, and many programs encourage or require research experience. Be sure to check with specific institutions to see their exact requirements as these can vary.
 
 What data structures are typically needed in a B.S. in Bioinformatics degree?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 Bioinformatics often deals with large and complex biological data sets, and understanding the right data structures can be crucial for processing this data efficiently. Here are some data structures commonly used in bioinformatics:
 
@@ -254,34 +348,8 @@ Bioinformatics often deals with large and complex biological data sets, and unde
 
 Each of these data structures has strengths and weaknesses depending on the specific problem being solved, so it's essential to understand their characteristics and when to use each one.
 
-What data structures are typically needed in a B.S. in Data Science degree?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-A Bachelor of Science in Data Science program often requires knowledge of various data structures, as they are crucial for handling and manipulating data efficiently. Here are the most commonly used data structures in data science:
-
-1. **Arrays and Lists**: These are basic structures used to store and manipulate collections of data. They are often used to store numerical data for statistical analysis.
-
-2. **Matrices**: A matrix is a two-dimensional grid of numbers and is a fundamental tool in linear algebra. They are used in various machine learning algorithms, data visualization, and statistical analysis.
-
-3. **Data Frames**: This is a table-like data structure that can store data of different types (numbers, strings, etc.) in columns. It's commonly used in data cleaning, data manipulation, and analysis.
-
-4. **Trees**: More specifically, decision trees and other variations like Random Forests, are used extensively in machine learning for both regression and classification tasks.
-
-5. **Graphs**: Graphs (nodes connected by edges) are used in network analysis, which has applications in social network analysis, telecommunications, and other areas where relationships between entities are important.
-
-6. **Hash Tables (Dictionaries)**: These are used to store and retrieve data efficiently, often used in data preprocessing and cleaning stages.
-
-7. **Sets**: Used for storing distinct elements in no particular order. Sets are helpful for finding unique items and for operations such as union, intersection, difference, etc.
-
-8. **Queues and Stacks**: These are used in various algorithms and processes in data science.
-
-9. **Tuples**: These are ordered, immutable collections of elements. They're often used in data manipulation tasks.
-
-Remember that the choice of data structure in any given situation depends on the nature of the specific task, the operations that need to be performed on the data, and the computational complexity of these operations.
-
-
 What mathematics courses are commonly required for each of the above degree programs?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
 
