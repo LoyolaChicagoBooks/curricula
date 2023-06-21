@@ -56,7 +56,10 @@ Citation
 Contributors
 --------------
 
-`George K. Thiruvathukal <https://gkt.sh>`__ and  `Konstantin Läufer <https://laufer.cs.luc.edu>`__
+- `George K. Thiruvathukal <https://gkt.sh>`__, Loyola University Chicago, CS Department
+- `Konstantin Läufer <https://laufer.cs.luc.edu>`__, Loyola University Chicago, CS Department
+
+.. note:: Your name here?
 
 Acknowledgements
 -----------------

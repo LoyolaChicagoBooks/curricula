@@ -43,7 +43,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'CS Curricula'
-copyright = u'2023-Present, LUC: Computer Science Department'
+copyright = u'2023-Present, CS Curricula Authors'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -81,7 +81,7 @@ exclude_patterns = []
 
 # If true, sectionauthor and moduleauthor directives will be shown in the
 # output. They are ignored by default.
-#show_authors = False
+show_authors = True
 
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'
@@ -220,7 +220,7 @@ latex_elements = {
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
   ('index', 'CS-Curricula.tex', u'ACM/IEEE Curricular Mapping Project: An Ongoing Study',
-   u'CS Curricula, LUC: Computer Science Department', 'manual'),
+   u'CS Curricula, CS Curricula Authors', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
@@ -250,7 +250,7 @@ latex_documents = [
 # (source start file, name, description, authors, manual section).
 man_pages = [
     ('index', 'cs-curriculum', u'ACM/IEEE Curricular Mapping Project: An Ongoing Study',
-     [u'LUC: Computer Science Department'], 1)
+     [u'CS Curricula Authors'], 1)
 ]
 
 # If true, show URL addresses after external links.
@@ -282,9 +282,9 @@ texinfo_documents = [
 
 # Bibliographic Dublin Core info.
 epub_title = u'CS-Curricula'
-epub_author = u'LUC: Computer Science Department'
-epub_publisher = u' LUC: Computer Science Department'
-epub_copyright = u'2023, LUC: Computer Science Department'
+epub_author = u'CS Curricula Authors'
+epub_publisher = u' CS Curricula Authors'
+epub_copyright = u'2023, CS Curricula Authors'
 
 # The language of the text. It defaults to the language option
 # or en if the language is not set.
