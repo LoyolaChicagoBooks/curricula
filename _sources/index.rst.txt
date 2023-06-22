@@ -17,16 +17,24 @@ However, this topic is not of interest only to Loyola University Chicago. Everyo
 More importantly, we need a blueprint for what CS will become as LLMs and generative AI (our own "creation") impacts all disciplines--including Computer Science and related disciplines--in ways that we never imagined.
 
 
-To this end, we are motivated by the following general questions:
+To this end, we are motivated by the following general (research? education research?) questions:
 
+General Questions
+^^^^^^^^^^^^^^^^^^^
 - How do the degree requirements for CS, SE, IT, and Cybersecurity majors map to the ACM/IEEE Computing Curricula (and other) guidelines? 
-- What are the expected learning outcomes for these disciplines?
+- What are the expected learning outcomes for the abovementioned disciplines?
 - What are the expected learning outcomes for related disciplines where CS plays a key support role (e.g. Data Science, Bioinformatics, etc.)?
+- What are the expected learning outcomes for engineering-related disciplines that overlap with CS (e.g. EE and CE)??
+
+Questions arising from Generative AI / Large Language/Coding Models
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Can generative AI help us to take a proper inventory of topics that we *should* be covering and generate proper checklists?
 - Can generative AI large language/coding models help us to *improve* teaching of theoretical and practical (programming) topics? If everyone is teaching almost the same topics anyway, why not streamline the teaching thereof?
 - Can generative AI help to shorten the "cycle time" of teaching foundational material, potentially allowing for more experiential learning to take place earlier?
 - Can we provide more historical/cultural context in what we teach in CS?  As generative AI seems to "know everything", there is an opportunity to connect what we teach in CS today to what is relevant in all of computing history (dating to the Abacus). As many professors and students today seem unaware of important historical ideas, generative AI can help to jiggle our memory about what has been accomplished, historically, so students can have proper context of what is *new* vs. *derivative* in nature.
-- Can generative AI help us to look beyond *pair* programming to the notion of *trio* programming, where pairs of students (possibly both struggling) have a third member who helps them to establish a deeper connection to the material and (hopefully) results in improved success.
-- Can we look beyond the relatively "obvious" concerns about cheating to develop critical thinking skills that help to understand the limitations of generative AI and how to iterate to working, robust solutions?
+- Can generative AI help us to look beyond *pair* programming to the notion of *trio* programming, where pairs of students (possibly both struggling) have a third member who helps them to establish a deeper connection to the material and (hopefully) results in improved success. An AI *buddy* seems more like a welcome particpant than not, given the *continued* challenges of meeting industry demand for computing gradudates.
+- Can we look beyond the relatively "obvious" *longstanding* concerns (well before generative AI) about cheating to develop critical thinking skills that help to understand the limitations of generative AI and how to iterate to working, robust solutions?
 
 .. note:: This list of questions is not exhaustive, and we are exploring some others in the various sections.
 
