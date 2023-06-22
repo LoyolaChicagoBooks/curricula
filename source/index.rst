@@ -2,9 +2,6 @@
 ACM/IEEE CS Curriculum Mapping Project
 ======================================
 
-Build Status
---------------
-
 .. only:: html
 
       .. image:: https://github.com/LoyolaChicagoBooks/curricula/actions/workflows/main.yml/badge.svg
@@ -72,7 +69,6 @@ Contributors
    :maxdepth: 2
    :hidden:
 
-   00-preliminaries/content.rst
    05-acm-ieee-cc/content.rst
    10-cs1/content.rst
    12-discrete-structures/content.rst
