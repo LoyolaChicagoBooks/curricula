@@ -31,6 +31,7 @@
 <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
 <script src="../_static/doctools.js"></script>
 <script src="../_static/sphinx_highlight.js"></script>
+<script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <script defer="" src="../_static/theme.ad172c0f1249198ea036.js"></script>
 </head>
 <body :class="{ 'overflow-hidden': showSidebar }" class="min-h-screen font-sans antialiased bg-background text-foreground" x-data="{ showSidebar: false }">
@@ -894,6 +895,114 @@
 </div>
 </section>
 </section>
+<section id="horner-s-rule-express-an-integer-in-any-base">
+<h2>Horner’s Rule / Express an Integer in Any Base<a class="headerlink" href="#horner-s-rule-express-an-integer-in-any-base" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#horner-s-rule-express-an-integer-in-any-base'">¶</a></h2>
+<section id="polynomial-evaluation">
+<h3>Polynomial Evaluation<a class="headerlink" href="#polynomial-evaluation" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#polynomial-evaluation'">¶</a></h3>
+<p>Horner’s Rule, also known as Horner’s method or Horner’s scheme, is a technique used to efficiently evaluate polynomials. It allows you to compute the value of a polynomial at a given point by factoring out common factors and reducing the number of multiplications.</p>
+<p>The general form of a polynomial is <span class="math notranslate nohighlight">\(P(x) = a_n x^n + a_{n-1} x^{n-1} + \ldots + a_1 x + a_0\)</span>.</p>
+<p>where <span class="math notranslate nohighlight">\(P(x)\)</span> is the polynomial, <span class="math notranslate nohighlight">\(x\)</span> is the input value, and <span class="math notranslate nohighlight">\(a_0\)</span>, <span class="math notranslate nohighlight">\(a_1\)</span>, …, <span class="math notranslate nohighlight">\(a_n\)</span> are the coefficients of the polynomial.</p>
+<p>Horner’s Rule enables us to rewrite the polynomial as a nested form <span class="math notranslate nohighlight">\(P(x) = ((\ldots((a_n x + a_{n-1}) x + a_{n-2}) x + \ldots) x + a_0\)</span></p>
+<p>This form allows for efficient evaluation by reducing the number of multiplications required. By repeatedly multiplying the result by x and adding the next coefficient, we can evaluate the polynomial with fewer multiplications compared to the traditional approach.</p>
+</section>
+<section id="converting-a-32-bit-integer-to-its-digits-in-c">
+<h3>Converting a 32-bit Integer to its Digits in C<a class="headerlink" href="#converting-a-32-bit-integer-to-its-digits-in-c" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#converting-a-32-bit-integer-to-its-digits-in-c'">¶</a></h3>
+<p>To convert a 32-bit integer to its digits one at a time in C, you can use the following approach:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">printDigits</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">num</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="n">num</span><span class="p">;</span><span class="w"> </span><span class="c1">// Convert negative number to positive</span>
+<span class="w">        </span><span class="n">putchar</span><span class="p">(</span><span class="sc">'-'</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">num</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">putchar</span><span class="p">(</span><span class="sc">'0'</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">digits</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">num</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">digits</span><span class="p">[</span><span class="n">count</span><span class="o">++</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="sc">'0'</span><span class="p">;</span>
+<span class="w">        </span><span class="n">num</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="o">--</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">putchar</span><span class="p">(</span><span class="n">digits</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1234567890</span><span class="p">;</span>
+<span class="w">    </span><span class="n">printDigits</span><span class="p">(</span><span class="n">num</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In this code, the <code class="docutils literal notranslate"><span class="pre">printDigits</span></code> function takes an integer <code class="docutils literal notranslate"><span class="pre">num</span></code> as input and converts it to its digits one at a time. It handles negative numbers by converting them to positive and printing a minus sign (-) before the digits.</p>
+<p>The function uses a character array <code class="docutils literal notranslate"><span class="pre">digits</span></code> to store the individual digits as characters. It iteratively extracts the least significant digit by taking the remainder of the number divided by 10 and converts it to the corresponding character by adding ‘0’. The number is then divided by 10 to remove the least significant digit. This process continues until the number becomes zero.</p>
+<p>Finally, the function prints the digits in reverse order (from most significant to least significant) by iterating over the <code class="docutils literal notranslate"><span class="pre">digits</span></code> array in reverse.</p>
+<p>In the <code class="docutils literal notranslate"><span class="pre">main</span></code> function, an example integer <code class="docutils literal notranslate"><span class="pre">num</span></code> is provided, and <code class="docutils literal notranslate"><span class="pre">printDigits</span></code> is called to convert and print its digits.</p>
+<p>Executing this program will output: <code class="docutils literal notranslate"><span class="pre">1234567890</span></code>, which are the individual digits of the number 1234567890 printed one at a time.</p>
+</section>
+<section id="converting-a-32-bit-integer-to-its-digits-in-go">
+<h3>Converting a 32-bit Integer to its Digits in Go<a class="headerlink" href="#converting-a-32-bit-integer-to-its-digits-in-go" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#converting-a-32-bit-integer-to-its-digits-in-go'">¶</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Here is another version, in Go, where we write each digit (one at a time) to a string builder (strings.Builder).  C operates at a really low-level and does not provide a standard string buffer (yet).</p>
+</div>
+<div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span><span class="w"> </span><span class="nx">main</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="p">(</span>
+<span class="w">     </span><span class="s">"fmt"</span>
+<span class="w">     </span><span class="s">"strconv"</span>
+<span class="w">     </span><span class="s">"strings"</span>
+<span class="p">)</span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">intToString</span><span class="p">(</span><span class="nx">num</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="nx">strings</span><span class="p">.</span><span class="nx">Builder</span><span class="w"> </span><span class="p">{</span>
+<span class="w">     </span><span class="kd">var</span><span class="w"> </span><span class="nx">sb</span><span class="w"> </span><span class="nx">strings</span><span class="p">.</span><span class="nx">Builder</span>
+
+<span class="w">     </span><span class="nx">isNegative</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="kc">false</span>
+<span class="w">     </span><span class="k">if</span><span class="w"> </span><span class="nx">num</span><span class="w"> </span><span class="p">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">{</span>
+<span class="w">             </span><span class="nx">isNegative</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">             </span><span class="nx">num</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="o">-</span><span class="nx">num</span><span class="w"> </span><span class="c1">// Convert negative number to positive</span>
+<span class="w">     </span><span class="p">}</span>
+
+<span class="w">     </span><span class="k">if</span><span class="w"> </span><span class="nx">num</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">{</span>
+<span class="w">             </span><span class="nx">sb</span><span class="p">.</span><span class="nx">WriteRune</span><span class="p">(</span><span class="sc">'0'</span><span class="p">)</span>
+<span class="w">             </span><span class="k">return</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">sb</span>
+<span class="w">     </span><span class="p">}</span>
+
+<span class="w">     </span><span class="kd">var</span><span class="w"> </span><span class="nx">digits</span><span class="w"> </span><span class="p">[]</span><span class="kt">rune</span>
+<span class="w">     </span><span class="k">for</span><span class="w"> </span><span class="nx">num</span><span class="w"> </span><span class="p">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">{</span>
+<span class="w">             </span><span class="nx">digit</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">num</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">10</span>
+<span class="w">             </span><span class="nx">digits</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">append</span><span class="p">(</span><span class="nx">digits</span><span class="p">,</span><span class="w"> </span><span class="sc">'0'</span><span class="o">+</span><span class="nb">rune</span><span class="p">(</span><span class="nx">digit</span><span class="p">))</span>
+<span class="w">             </span><span class="nx">num</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">10</span>
+<span class="w">     </span><span class="p">}</span>
+
+<span class="w">     </span><span class="k">if</span><span class="w"> </span><span class="nx">isNegative</span><span class="w"> </span><span class="p">{</span>
+<span class="w">             </span><span class="nx">sb</span><span class="p">.</span><span class="nx">WriteRune</span><span class="p">(</span><span class="sc">'-'</span><span class="p">)</span>
+<span class="w">     </span><span class="p">}</span>
+
+<span class="w">     </span><span class="k">for</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="nx">digits</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">--</span><span class="w"> </span><span class="p">{</span>
+<span class="w">             </span><span class="nx">sb</span><span class="p">.</span><span class="nx">WriteRune</span><span class="p">(</span><span class="nx">digits</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span>
+<span class="w">     </span><span class="p">}</span>
+
+<span class="w">     </span><span class="k">return</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">sb</span>
+<span class="p">}</span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">     </span><span class="nx">num</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">1234567890</span>
+<span class="w">     </span><span class="nx">strBuffer</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">intToString</span><span class="p">(</span><span class="nx">num</span><span class="p">)</span>
+<span class="w">     </span><span class="nx">result</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">strBuffer</span><span class="p">.</span><span class="nx">String</span><span class="p">()</span>
+<span class="w">     </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
 </section>
 </div></div><aside class="hidden text-sm xl:block" id="right-sidebar">
 <div class="sticky top-16 -mt-10 max-h-[calc(var(--vh)-4rem)] overflow-y-auto pt-6 space-y-2"><p class="font-medium">On this page</p>
@@ -967,6 +1076,12 @@
 <li><a :data-current="activeSection === '#c-language'" class="reference internal" href="#c-language">C Language</a></li>
 <li><a :data-current="activeSection === '#python'" class="reference internal" href="#python">Python</a></li>
 <li><a :data-current="activeSection === '#java'" class="reference internal" href="#java">Java</a></li>
+</ul>
+</li>
+<li><a :data-current="activeSection === '#horner-s-rule-express-an-integer-in-any-base'" class="reference internal" href="#horner-s-rule-express-an-integer-in-any-base">Horner’s Rule / Express an Integer in Any Base</a><ul>
+<li><a :data-current="activeSection === '#polynomial-evaluation'" class="reference internal" href="#polynomial-evaluation">Polynomial Evaluation</a></li>
+<li><a :data-current="activeSection === '#converting-a-32-bit-integer-to-its-digits-in-c'" class="reference internal" href="#converting-a-32-bit-integer-to-its-digits-in-c">Converting a 32-bit Integer to its Digits in C</a></li>
+<li><a :data-current="activeSection === '#converting-a-32-bit-integer-to-its-digits-in-go'" class="reference internal" href="#converting-a-32-bit-integer-to-its-digits-in-go">Converting a 32-bit Integer to its Digits in Go</a></li>
 </ul>
 </li>
 </ul>
