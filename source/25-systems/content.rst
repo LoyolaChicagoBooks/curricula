@@ -821,3 +821,126 @@ This Java program demonstrates the data representation of an integer. It prints 
        }
    }
 
+
+Horner's Rule / Express an Integer in Any Base
+-------------------------------------------------
+
+Polynomial Evaluation
+^^^^^^^^^^^^^^^^^^^^^^
+
+Horner's Rule, also known as Horner's method or Horner's scheme, is a technique used to efficiently evaluate polynomials. It allows you to compute the value of a polynomial at a given point by factoring out common factors and reducing the number of multiplications.
+
+The general form of a polynomial is :math:`P(x) = a_n x^n + a_{n-1} x^{n-1} + \ldots + a_1 x + a_0`.
+
+where :math:`P(x)` is the polynomial, :math:`x` is the input value, and :math:`a_0`, :math:`a_1`, ..., :math:`a_n` are the coefficients of the polynomial.
+
+Horner's Rule enables us to rewrite the polynomial as a nested form :math:`P(x) = ((\ldots((a_n x + a_{n-1}) x + a_{n-2}) x + \ldots) x + a_0`
+
+This form allows for efficient evaluation by reducing the number of multiplications required. By repeatedly multiplying the result by x and adding the next coefficient, we can evaluate the polynomial with fewer multiplications compared to the traditional approach.
+
+Converting a 32-bit Integer to its Digits in C
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+To convert a 32-bit integer to its digits one at a time in C, you can use the following approach:
+
+.. code-block:: c
+
+    #include <stdio.h>
+
+    void printDigits(int num) {
+        if (num < 0) {
+            num = -num; // Convert negative number to positive
+            putchar('-');
+        }
+
+        if (num == 0) {
+            putchar('0');
+            return;
+        }
+
+        char digits[10];
+        int count = 0;
+
+        while (num > 0) {
+            digits[count++] = num % 10 + '0';
+            num /= 10;
+        }
+
+        for (int i = count - 1; i >= 0; --i) {
+            putchar(digits[i]);
+        }
+    }
+
+    int main() {
+        int num = 1234567890;
+        printDigits(num);
+        return 0;
+    }
+
+In this code, the ``printDigits`` function takes an integer ``num`` as input and converts it to its digits one at a time. It handles negative numbers by converting them to positive and printing a minus sign (-) before the digits.
+
+The function uses a character array ``digits`` to store the individual digits as characters. It iteratively extracts the least significant digit by taking the remainder of the number divided by 10 and converts it to the corresponding character by adding '0'. The number is then divided by 10 to remove the least significant digit. This process continues until the number becomes zero.
+
+Finally, the function prints the digits in reverse order (from most significant to least significant) by iterating over the ``digits`` array in reverse.
+
+In the ``main`` function, an example integer ``num`` is provided, and ``printDigits`` is called to convert and print its digits.
+
+Executing this program will output: ``1234567890``, which are the individual digits of the number 1234567890 printed one at a time.
+
+
+
+Converting a 32-bit Integer to its Digits in Go
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. note:: Here is another version, in Go, where we write each digit (one at a time) to a string builder (strings.Builder).  C operates at a really low-level and does not provide a standard string buffer (yet). 
+
+.. code-block:: go
+
+   package main
+   
+   import (
+   	"fmt"
+   	"strconv"
+   	"strings"
+   )
+   
+   func intToString(num int) *strings.Builder {
+   	var sb strings.Builder
+   
+   	isNegative := false
+   	if num < 0 {
+   		isNegative = true
+   		num = -num // Convert negative number to positive
+   	}
+   
+   	if num == 0 {
+   		sb.WriteRune('0')
+   		return &sb
+   	}
+   
+   	var digits []rune
+   	for num > 0 {
+   		digit := num % 10
+   		digits = append(digits, '0'+rune(digit))
+   		num /= 10
+   	}
+   
+   	if isNegative {
+   		sb.WriteRune('-')
+   	}
+   
+   	for i := len(digits) - 1; i >= 0; i-- {
+   		sb.WriteRune(digits[i])
+   	}
+   
+   	return &sb
+   }
+   
+   func main() {
+   	num := 1234567890
+   	strBuffer := intToString(num)
+   	result := strBuffer.String()
+   	fmt.Println(result)
+   }
+   
+
