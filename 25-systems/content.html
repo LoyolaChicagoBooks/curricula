@@ -1048,15 +1048,6 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>In this recursive version, the <cite>intToString</cite> function now calls a recursive helper function named <cite>intToStringRecursive</cite>. The <cite>intToStringRecursive</cite> function takes the integer <cite>num</cite> and a pointer to the string buffer <cite>sb</cite>.</p>
-<p>Inside the <cite>intToStringRecursive</cite> function, the base case is when <cite>num</cite> becomes zero. In that case, the function simply returns.</p>
-<p>For the recursive case, the function divides <cite>num</cite> by 10 and recursively calls <cite>intToStringRecursive</cite> with the quotient to process the remaining digits. After the recursive call, the remainder of <cite>num</cite> modulo 10 is added as a rune to the string buffer using <cite>sb.WriteRune</cite>.</p>
-<p>In the <cite>intToString</cite> function, if the input <cite>num</cite> is negative, a negative sign (‘-’) is added to the string buffer before calling <cite>intToStringRecursive</cite>.</p>
-<p>The <cite>main</cite> function remains the same, where an example integer <cite>num</cite> is provided, and the <cite>intToString</cite> function is called to convert it to a string representation using the string buffer. The resulting string is printed using <cite>fmt.Println</cite>.</p>
-<dl class="simple">
-<dt>Executing this Go program will output: <cite>1234567890</cite>, which is the string representation of the number 1234567890 obtained by converting its digits using the recursive approach with a string buffer.</dt><dd><p>oo</p>
-</dd>
-</dl>
 <p>In this recursive version, the intToString function now calls a recursive helper function named intToStringRecursive. The intToStringRecursive function takes the integer num and a pointer to the string buffer sb.</p>
 <p>Inside the intToStringRecursive function, the base case is when num becomes zero. In that case, the function simply returns.</p>
 <p>For the recursive case, the function divides num by 10 and recursively calls intToStringRecursive with the quotient to process the remaining digits. After the recursive call, the remainder of num modulo 10 is added as a rune to the string buffer using sb.WriteRune.</p>

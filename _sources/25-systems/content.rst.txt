@@ -1001,19 +1001,6 @@ Simplify using Recursion
    
 
 
-In this recursive version, the `intToString` function now calls a recursive helper function named `intToStringRecursive`. The `intToStringRecursive` function takes the integer `num` and a pointer to the string buffer `sb`.
-
-Inside the `intToStringRecursive` function, the base case is when `num` becomes zero. In that case, the function simply returns.
-
-For the recursive case, the function divides `num` by 10 and recursively calls `intToStringRecursive` with the quotient to process the remaining digits. After the recursive call, the remainder of `num` modulo 10 is added as a rune to the string buffer using `sb.WriteRune`.
-
-In the `intToString` function, if the input `num` is negative, a negative sign ('-') is added to the string buffer before calling `intToStringRecursive`.
-
-The `main` function remains the same, where an example integer `num` is provided, and the `intToString` function is called to convert it to a string representation using the string buffer. The resulting string is printed using `fmt.Println`.
-
-Executing this Go program will output: `1234567890`, which is the string representation of the number 1234567890 obtained by converting its digits using the recursive approach with a string buffer.
-   oo
-
 In this recursive version, the intToString function now calls a recursive helper function named intToStringRecursive. The intToStringRecursive function takes the integer num and a pointer to the string buffer sb.
 
 Inside the intToStringRecursive function, the base case is when num becomes zero. In that case, the function simply returns.
