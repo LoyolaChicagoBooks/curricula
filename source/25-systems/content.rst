@@ -944,19 +944,21 @@ Converting a 32-bit Integer to its Digits in Go
    }
    
 
-In this code, the `intToString` function takes an integer `num` as input and returns a pointer to a `strings.Builder` that contains the string representation of the integer.
+.. note:: In Go, a rune is a built-in type that represents a Unicode code point. It is synonymous with an integer value and is used to represent individual characters. Rune literals are expressed using single quotes, such as 'A' or '你', and they can represent characters from various scripts, including ASCII characters and characters from other languages. Runes are commonly used when dealing with Unicode strings and text processing in Go. They provide a way to work with individual characters, iterate over strings, perform character-based operations, and handle multi-byte encoded characters in a consistent and efficient manner. The rune type is an essential component in Go's robust support for Unicode and internationalization.
 
-Inside the function, a `strings.Builder` named `sb` is created to collect the characters. The function handles negative numbers by setting a flag and converting the number to positive. It handles the special case of `num` being zero by directly writing '0' to the string buffer.
+In this code, the ``intToString`` function takes an integer ``num`` as input and returns a pointer to a ``strings.Builder`` that contains the string representation of the integer.
 
-The function iteratively extracts the least significant digit by taking the remainder of the number divided by 10 and appends it as a character to a slice of runes named `digits`. The number is then divided by 10 to remove the least significant digit. This process continues until the number becomes zero.
+Inside the function, a ``strings.Builder`` named ``sb`` is created to collect the characters. The function handles negative numbers by setting a flag and converting the number to positive. It handles the special case of ``num`` being zero by directly writing '0' to the string buffer.
+
+The function iteratively extracts the least significant digit by taking the remainder of the number divided by 10 and appends it as a character to a slice of runes named ``digits``. The number is then divided by 10 to remove the least significant digit. This process continues until the number becomes zero.
 
 Afterward, if the number was negative, a negative sign ('-') is written to the string buffer.
 
-Finally, the function iterates over the `digits` slice in reverse order and writes each rune to the string buffer. The function returns a pointer to the string buffer.
+Finally, the function iterates over the ``digits`` slice in reverse order and writes each rune to the string buffer. The function returns a pointer to the string buffer.
 
-In the `main` function, an example integer `num` is provided, and the `intToString` function is called to convert it to a string representation using the string buffer. The resulting string is printed using `fmt.Println`.
+In the ``main`` function, an example integer ``num`` is provided, and the ``intToString`` function is called to convert it to a string representation using the string buffer. The resulting string is printed using ``fmt.Println``.
 
-Executing this Go program will output: `1234567890`, which is the string representation of the number 1234567890 obtained by converting its digits using the string buffer.
+Executing this Go program will output: ``1234567890``, which is the string representation of the number ``1234567890`` obtained by converting its digits using the string buffer.
 
 Simplify using Recursion
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1001,14 +1003,14 @@ Simplify using Recursion
    
 
 
-In this recursive version, the intToString function now calls a recursive helper function named intToStringRecursive. The intToStringRecursive function takes the integer num and a pointer to the string buffer sb.
+In this recursive version, the intToString function now calls a recursive helper function named ``intToStringRecursive``. The ``intToStringRecursive`` function takes the integer num and a pointer to the string buffer sb.
 
-Inside the intToStringRecursive function, the base case is when num becomes zero. In that case, the function simply returns.
+Inside the ``intToStringRecursive`` function, the base case is when ``num`` becomes zero. In that case, the function simply returns.
 
-For the recursive case, the function divides num by 10 and recursively calls intToStringRecursive with the quotient to process the remaining digits. After the recursive call, the remainder of num modulo 10 is added as a rune to the string buffer using sb.WriteRune.
+For the recursive case, the function divides num by 10 and recursively calls ``intToStringRecursive`` with the quotient to process the remaining digits. After the recursive call, the remainder of num modulo 10 is added as a rune to the string buffer using sb.WriteRune.
 
-In the intToString function, if the input num is negative, a negative sign ('-') is added to the string buffer before calling intToStringRecursive.
+In the ``intToString`` function, if the input num is negative, a negative sign ('-') is added to the string buffer before calling ``intToStringRecursive``.
 
-The main function remains the same, where an example integer num is provided, and the intToString function is called to convert it to a string representation using the string buffer. The resulting string is printed using fmt.Println.
+The main function remains the same, where an example integer ``num`` is provided, and the ``intToString`` function is called to convert it to a string representation using the string buffer. The resulting string is printed using ``fmt.Println``.
 
 Executing this Go program will output: 1234567890, which is the string representation of the number 1234567890 obtained by converting its digits using the recursive approach with a string buffer.
