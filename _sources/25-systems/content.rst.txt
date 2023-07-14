@@ -758,3 +758,66 @@ Fast exponentiation is relevant in systems programming for tasks such as optimiz
        }
        return res
    }
+
+Data Representation
+----------------------
+
+These examples illustrate how different programming languages can represent and display data in various numeric formats, such as decimal, hexadecimal, octal, and binary, allowing you to observe the data representation in action.
+
+.. note:: The intent here is to show what everyone should be learning (at a minimum!).
+
+C Language
+^^^^^^^^^^^
+
+This C program demonstrates the data representation of an integer (`int`). It prints the decimal, hexadecimal, octal, and binary representations of the number 42.  Python
+
+.. code-block:: c
+
+   #include <stdio.h>
+   
+   int main() {
+       int num = 42;
+       printf("Decimal: %d\n", num);
+       printf("Hexadecimal: 0x%x\n", num);
+       printf("Octal: %o\n", num);
+       printf("Binary: ");
+       for (int i = sizeof(num) * 8 - 1; i >= 0; i--) {
+           printf("%d", (num >> i) & 1);
+       }
+       printf("\n");
+       return 0;
+   }
+
+
+Python
+^^^^^^^^^
+
+This Python program demonstrates the data representation of an integer. It prints the decimal, hexadecimal, octal, and binary representations of the number 42.
+
+.. code-block:: python
+
+
+   num = 42
+   print(f"Decimal: {num}")
+   print(f"Hexadecimal: 0x{num:x}")
+   print(f"Octal: 0o{num:o}")
+   print(f"Binary: {bin(num)[2:]}")
+   
+
+Java
+^^^^^^^
+
+This Java program demonstrates the data representation of an integer. It prints the decimal, hexadecimal, octal, and binary representations of the number 42.
+
+.. code-block:: java
+
+   public class DataRepresentation {
+       public static void main(String[] args) {
+           int num = 42;
+           System.out.println("Decimal: " + num);
+           System.out.println("Hexadecimal: 0x" + Integer.toHexString(num));
+           System.out.println("Octal: 0" + Integer.toOctalString(num));
+           System.out.println("Binary: " + Integer.toBinaryString(num));
+       }
+   }
+
