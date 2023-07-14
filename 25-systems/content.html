@@ -1001,6 +1001,68 @@
 <span class="p">}</span>
 </pre></div>
 </div>
+<p>In this code, the <cite>intToString</cite> function takes an integer <cite>num</cite> as input and returns a pointer to a <cite>strings.Builder</cite> that contains the string representation of the integer.</p>
+<p>Inside the function, a <cite>strings.Builder</cite> named <cite>sb</cite> is created to collect the characters. The function handles negative numbers by setting a flag and converting the number to positive. It handles the special case of <cite>num</cite> being zero by directly writing ‘0’ to the string buffer.</p>
+<p>The function iteratively extracts the least significant digit by taking the remainder of the number divided by 10 and appends it as a character to a slice of runes named <cite>digits</cite>. The number is then divided by 10 to remove the least significant digit. This process continues until the number becomes zero.</p>
+<p>Afterward, if the number was negative, a negative sign (‘-’) is written to the string buffer.</p>
+<p>Finally, the function iterates over the <cite>digits</cite> slice in reverse order and writes each rune to the string buffer. The function returns a pointer to the string buffer.</p>
+<p>In the <cite>main</cite> function, an example integer <cite>num</cite> is provided, and the <cite>intToString</cite> function is called to convert it to a string representation using the string buffer. The resulting string is printed using <cite>fmt.Println</cite>.</p>
+<p>Executing this Go program will output: <cite>1234567890</cite>, which is the string representation of the number 1234567890 obtained by converting its digits using the string buffer.</p>
+</section>
+<section id="simplify-using-recursion">
+<h3>Simplify using Recursion<a class="headerlink" href="#simplify-using-recursion" title="Permalink to this heading" x-intersect.margin.0%.0%.-70%.0%="activeSection = '#simplify-using-recursion'">¶</a></h3>
+<div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span><span class="w"> </span><span class="nx">main</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="p">(</span>
+<span class="w">     </span><span class="s">"fmt"</span>
+<span class="w">     </span><span class="s">"strings"</span>
+<span class="p">)</span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">intToString</span><span class="p">(</span><span class="nx">num</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="nx">strings</span><span class="p">.</span><span class="nx">Builder</span><span class="w"> </span><span class="p">{</span>
+<span class="w">     </span><span class="kd">var</span><span class="w"> </span><span class="nx">sb</span><span class="w"> </span><span class="nx">strings</span><span class="p">.</span><span class="nx">Builder</span>
+
+<span class="w">     </span><span class="k">if</span><span class="w"> </span><span class="nx">num</span><span class="w"> </span><span class="p">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">{</span>
+<span class="w">             </span><span class="nx">sb</span><span class="p">.</span><span class="nx">WriteRune</span><span class="p">(</span><span class="sc">'-'</span><span class="p">)</span>
+<span class="w">             </span><span class="nx">num</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="o">-</span><span class="nx">num</span>
+<span class="w">     </span><span class="p">}</span>
+
+<span class="w">     </span><span class="nx">intToStringRecursive</span><span class="p">(</span><span class="nx">num</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">sb</span><span class="p">)</span>
+
+<span class="w">     </span><span class="k">return</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">sb</span>
+<span class="p">}</span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">intToStringRecursive</span><span class="p">(</span><span class="nx">num</span><span class="w"> </span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="nx">sb</span><span class="w"> </span><span class="o">*</span><span class="nx">strings</span><span class="p">.</span><span class="nx">Builder</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">     </span><span class="k">if</span><span class="w"> </span><span class="nx">num</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">{</span>
+<span class="w">             </span><span class="k">return</span>
+<span class="w">     </span><span class="p">}</span>
+
+<span class="w">     </span><span class="nx">intToStringRecursive</span><span class="p">(</span><span class="nx">num</span><span class="o">/</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="nx">sb</span><span class="p">)</span>
+<span class="w">     </span><span class="nx">sb</span><span class="p">.</span><span class="nx">WriteRune</span><span class="p">(</span><span class="sc">'0'</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">rune</span><span class="p">(</span><span class="nx">num</span><span class="o">%</span><span class="mi">10</span><span class="p">))</span>
+<span class="p">}</span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">     </span><span class="nx">num</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">1234567890</span>
+<span class="w">     </span><span class="nx">strBuffer</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">intToString</span><span class="p">(</span><span class="nx">num</span><span class="p">)</span>
+<span class="w">     </span><span class="nx">result</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">strBuffer</span><span class="p">.</span><span class="nx">String</span><span class="p">()</span>
+<span class="w">     </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In this recursive version, the <cite>intToString</cite> function now calls a recursive helper function named <cite>intToStringRecursive</cite>. The <cite>intToStringRecursive</cite> function takes the integer <cite>num</cite> and a pointer to the string buffer <cite>sb</cite>.</p>
+<p>Inside the <cite>intToStringRecursive</cite> function, the base case is when <cite>num</cite> becomes zero. In that case, the function simply returns.</p>
+<p>For the recursive case, the function divides <cite>num</cite> by 10 and recursively calls <cite>intToStringRecursive</cite> with the quotient to process the remaining digits. After the recursive call, the remainder of <cite>num</cite> modulo 10 is added as a rune to the string buffer using <cite>sb.WriteRune</cite>.</p>
+<p>In the <cite>intToString</cite> function, if the input <cite>num</cite> is negative, a negative sign (‘-’) is added to the string buffer before calling <cite>intToStringRecursive</cite>.</p>
+<p>The <cite>main</cite> function remains the same, where an example integer <cite>num</cite> is provided, and the <cite>intToString</cite> function is called to convert it to a string representation using the string buffer. The resulting string is printed using <cite>fmt.Println</cite>.</p>
+<dl class="simple">
+<dt>Executing this Go program will output: <cite>1234567890</cite>, which is the string representation of the number 1234567890 obtained by converting its digits using the recursive approach with a string buffer.</dt><dd><p>oo</p>
+</dd>
+</dl>
+<p>In this recursive version, the intToString function now calls a recursive helper function named intToStringRecursive. The intToStringRecursive function takes the integer num and a pointer to the string buffer sb.</p>
+<p>Inside the intToStringRecursive function, the base case is when num becomes zero. In that case, the function simply returns.</p>
+<p>For the recursive case, the function divides num by 10 and recursively calls intToStringRecursive with the quotient to process the remaining digits. After the recursive call, the remainder of num modulo 10 is added as a rune to the string buffer using sb.WriteRune.</p>
+<p>In the intToString function, if the input num is negative, a negative sign (‘-’) is added to the string buffer before calling intToStringRecursive.</p>
+<p>The main function remains the same, where an example integer num is provided, and the intToString function is called to convert it to a string representation using the string buffer. The resulting string is printed using fmt.Println.</p>
+<p>Executing this Go program will output: 1234567890, which is the string representation of the number 1234567890 obtained by converting its digits using the recursive approach with a string buffer.</p>
 </section>
 </section>
 </section>
@@ -1082,6 +1144,7 @@
 <li><a :data-current="activeSection === '#polynomial-evaluation'" class="reference internal" href="#polynomial-evaluation">Polynomial Evaluation</a></li>
 <li><a :data-current="activeSection === '#converting-a-32-bit-integer-to-its-digits-in-c'" class="reference internal" href="#converting-a-32-bit-integer-to-its-digits-in-c">Converting a 32-bit Integer to its Digits in C</a></li>
 <li><a :data-current="activeSection === '#converting-a-32-bit-integer-to-its-digits-in-go'" class="reference internal" href="#converting-a-32-bit-integer-to-its-digits-in-go">Converting a 32-bit Integer to its Digits in Go</a></li>
+<li><a :data-current="activeSection === '#simplify-using-recursion'" class="reference internal" href="#simplify-using-recursion">Simplify using Recursion</a></li>
 </ul>
 </li>
 </ul>
