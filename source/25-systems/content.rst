@@ -944,7 +944,7 @@ Converting a 32-bit Integer to its Digits in Go
    }
    
 
-.. note:: In Go, a rune is a built-in type that represents a Unicode code point. It is synonymous with an integer value and is used to represent individual characters. Rune literals are expressed using single quotes, such as 'A' or '你', and they can represent characters from various scripts, including ASCII characters and characters from other languages. Runes are commonly used when dealing with Unicode strings and text processing in Go. They provide a way to work with individual characters, iterate over strings, perform character-based operations, and handle multi-byte encoded characters in a consistent and efficient manner. The rune type is an essential component in Go's robust support for Unicode and internationalization.
+.. note:: In Go, a rune is a built-in type that represents a Unicode code point. It is synonymous with an integer value and is used to represent individual characters. Rune literals are expressed using single quotes, and they can represent characters from various scripts, including ASCII characters and characters from other languages. Runes are commonly used when dealing with Unicode strings and text processing in Go. They provide a way to work with individual characters, iterate over strings, perform character-based operations, and handle multi-byte encoded characters in a consistent and efficient manner. The rune type is an essential component in Go's robust support for Unicode and internationalization.
 
 In this code, the ``intToString`` function takes an integer ``num`` as input and returns a pointer to a ``strings.Builder`` that contains the string representation of the integer.
 
