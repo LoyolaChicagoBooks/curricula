@@ -1,4 +1,4 @@
-name: "Online/Print Book"
+name: "UnoAPI Book"
 
 on:
   push:
