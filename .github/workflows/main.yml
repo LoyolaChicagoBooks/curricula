@@ -1,4 +1,4 @@
-name: GitHub Pages and Release PDF
+name: "Online/Print Book"
 
 on:
   push:
