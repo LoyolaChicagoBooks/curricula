@@ -1014,3 +1014,7 @@ In the ``intToString`` function, if the input num is negative, a negative sign (
 The main function remains the same, where an example integer ``num`` is provided, and the ``intToString`` function is called to convert it to a string representation using the string buffer. The resulting string is printed using ``fmt.Println``.
 
 Executing this Go program will output: 1234567890, which is the string representation of the number 1234567890 obtained by converting its digits using the recursive approach with a string buffer.
+
+
+.. note:: See https://chat.openai.com/share/fa2e8734-dde4-4d06-84c0-6fbbb45c2e1d for some of the initial explorations leading to this chapter.
+    
