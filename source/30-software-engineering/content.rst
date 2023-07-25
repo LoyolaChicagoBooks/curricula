@@ -37,8 +37,11 @@ One of the key features of Eiffel is Design by Contract, a technique for ensurin
 
 Eiffel has been used in a variety of applications, including finance, telecommunications, aerospace, and education. It remains a popular choice for developers who value its strong typing and its ability to produce efficient and reliable code.
 
+
 Rational Numbers - Eiffel
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. note:: Working with Eiffel in modern times is a bit challenging. While the following code is likely correct, compiling it successfully remains elusive. Nevertheless, the principles of DbC are illustrative. We will demonstrate these principles with well-supported modern languages. Thus far, our attempts to create multi-module programs in EiffelStudio (outside of the IDE) have not been successful.
 
 .. code-block:: eiffel
 
@@ -149,7 +152,7 @@ These languages offer varying levels of support for DbC and may implement the co
 Python - DBC
 ^^^^^^^^^^^^^
 
-Here is an example of how Python supports DBC? It must have at least one postcondition, precondition, and invariant.
+Here is an example of how Python supports DBC? It has at least one postcondition, precondition, and invariant.
 
 .. code-block:: python
 
