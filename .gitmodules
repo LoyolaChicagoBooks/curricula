@@ -1,3 +1,12 @@
 [submodule "examples/modern-cpp-examples"]
 	path = examples/modern-cpp-examples
 	url = https://github.com/LoyolaChicagoCode/modern-cpp-examples
+[submodule "examples/curricula-fortran"]
+	path = examples/curricula-fortran
+	url = https://github.com/LoyolaChicagoCode/curricula-fortran
+[submodule "examples/curricula-go"]
+	path = examples/curricula-go
+	url = https://github.com/LoyolaChicagoCode/curricula-go
+[submodule "examples/curricula-eiffel"]
+	path = examples/curricula-eiffel
+	url = https://github.com/LoyolaChicagoCode/curricula-eiffel
