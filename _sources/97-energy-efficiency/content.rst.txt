@@ -539,3 +539,110 @@ The following code uses 8-wide SIMD for the Intel version (using AVX2) and 4-wid
    }
    
    
+Selecting Architecture at command line
+----------------------------------------
+
+Below is the complete code for the program, accepting the command-line argument for the size of the vector and dynamically selecting the architecture.
+
+.. note:: This version still has some conditionally compiled code, which exists only to prevent syntax errors. After all, ARM won't be available on Intel/AMD hosts and vice versa. 
+
+.. code-block:: c
+
+   #include <stdio.h>
+   #include <stdlib.h>
+   #include <string.h>
+   #include <omp.h>
+   
+   #ifdef __ARM_NEON
+   #include <arm_neon.h>
+   #endif
+   
+   #ifdef __AVX2__
+   #include <immintrin.h>
+   #endif
+   
+   typedef enum { ARCH_NEON, ARCH_AVX2 } arch_t;
+
+   float dot_product(int n, float *a, float *b, arch_t architecture) {
+       float result = 0.0f;
+       int step_size = (architecture == ARCH_NEON) ? 4 : 8;
+   
+       #pragma omp parallel for reduction(+:result)
+       for (int i = 0; i <= n - step_size; i += step_size) {
+           switch (architecture) {
+               case ARCH_NEON:
+   #ifdef __ARM_NEON
+                   float32x4_t va = vld1q_f32(&a[i]);
+                   float32x4_t vb = vld1q_f32(&b[i]);
+                   float32x4_t sum = vmlaq_f32(vdupq_n_f32(0.0f), va, vb);
+                   float temp_neon[4];
+                   vst1q_f32(temp_neon, sum);
+                   for (int j = 0; j < 4; j++) {
+                       result += temp_neon[j];
+                   }
+   #endif
+                   break;
+               case ARCH_AVX2:
+   #ifdef __AVX2__
+                   __m256 va = _mm256_loadu_ps(&a[i]);
+                   __m256 vb = _mm256_loadu_ps(&b[i]);
+                   __m256 prod = _mm256_mul_ps(va, vb);
+                   __m256 sum = _mm256_add_ps(_mm256_setzero_ps(), prod);
+                   float temp_avx[8];
+                   _mm256_storeu_ps(temp_avx, sum);
+                   for (int j = 0; j < 8; j++) {
+                       result += temp_avx[j];
+                   }
+   #endif
+                   break;
+               default:
+                   fprintf(stderr, "Invalid architecture specified.\n");
+                   exit(1);
+           }
+       }
+   
+       // Handle the tail of the vectors, if the size is not a multiple of step
+       for(int i = n - (n % step_size); i < n; i++) {
+           result += a[i] * b[i];
+       }
+   
+       return result;
+   }
+   
+   int main(int argc, char *argv[]) {
+       if (argc != 3) {
+           fprintf(stderr, "Usage: %s -n <size_of_vector>\n", argv[0]);
+           return 1;
+       }
+   
+       int n = atoi(argv[2]);
+       arch_t architecture;
+   
+   #ifdef __ARM_NEON
+       architecture = ARCH_NEON;
+   #elif __AVX2__
+       architecture = ARCH_AVX2;
+   #else
+       fprintf(stderr, "Unsupported architecture.\n");
+       return 1;
+   #endif
+   
+       float *a = (float *)malloc(n * sizeof(float));
+       float *b = (float *)malloc(n * sizeof(float));
+   
+       for (int i = 0; i < n; i++) {
+           a[i] = (float)rand() / RAND_MAX;
+           b[i] = (float)rand() / RAND_MAX;
+       }
+   
+       float result = dot_product(n, a, b, architecture);
+   
+       printf("Dot Product: %.5f\n", result);
+   
+       free(a);
+       free(b);
+   
+       return 0;
+   }
+
+This code automatically detects the architecture and runs the dot product accordingly. Make sure to compile with the necessary flags for OpenMP and the appropriate SIMD extension, depending on the platform.
