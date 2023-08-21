@@ -272,3 +272,270 @@ Remember to compile with `-fopenmp` and `-mfpu=neon` flags when using GCC:
    gcc -fopenmp -mfpu=neon dot_product.c -o dot_product
 
 Also, as before, it's important to measure the performance of your code before and after these optimizations to ensure that they're actually improving performance. Depending on various factors such as the size of your data and the specifics of your hardware, it's possible that these optimizations could make your code slower, rather than faster.
+
+Can we write the ARM64 Neon and OMP example to support Intel's SIMD?
+----------------------------------------------------------------------
+
+If you want to write an OpenMP parallelized code for the dot product that leverages Intel's SIMD instructions, you can use the Intel intrinsics for the SIMD operations and OpenMP for parallelizing the loop. Below is a simple example that utilizes OpenMP for parallelism and AVX2 for SIMD (256-bit wide vector operations).
+
+.. code-block:: c
+
+   #include <stdio.h>
+   #include <stdlib.h>
+   #include <immintrin.h>
+   #include <omp.h>
+   
+   float dot_product(int n, float *a, float *b) {
+       float result = 0.0f;
+       __m256 sum = _mm256_setzero_ps();
+   
+       #pragma omp parallel for reduction(+:result)
+       for(int i = 0; i <= n - 8; i += 8) {
+           __m256 va = _mm256_loadu_ps(&a[i]);
+           __m256 vb = _mm256_loadu_ps(&b[i]);
+           __m256 prod = _mm256_mul_ps(va, vb);
+           sum = _mm256_add_ps(sum, prod);
+       }
+   
+       float temp[8];
+       _mm256_storeu_ps(temp, sum);
+       for(int i = 0; i < 8; i++) {
+           result += temp[i];
+       }
+   
+       // Handle the tail of the vectors, if the size is not a multiple of 8
+       for(int i = n - (n % 8); i < n; i++) {
+           result += a[i] * b[i];
+       }
+   
+       return result;
+   }
+
+   int main(int argc, char *argv[]) {
+       int n = 1000000; // Default vector size
+       if (argc > 1) {
+           n = atoi(argv[1]);
+       }
+   
+       float *a = (float *)malloc(n * sizeof(float));
+       float *b = (float *)malloc(n * sizeof(float));
+       for(int i = 0; i < n; i++) {
+           a[i] = 1.0f;
+           b[i] = 1.0f;
+       }
+   
+       float result = dot_product(n, a, b);
+       printf("Dot product: %f\n", result);
+   
+       free(a);
+       free(b);
+       return 0;
+   }
+
+
+Here, we used OpenMP to parallelize the loop over the vectors and the AVX2 intrinsics to perform the SIMD multiplication and addition of the vectors. The AVX2 intrinsics use 256-bit wide vectors, allowing eight single-precision floating-point numbers to be processed at once.
+
+You'll need to have a compatible compiler (like recent versions of GCC or Clang) and a processor that supports AVX2 to compile and run this code. A typical compile command might look like this:
+
+::
+
+   gcc -O3 -march=native -fopenmp program.c -o program
+
+Make sure to replace "program.c" and "program" with the actual source and output filenames. The ``-march=native`` option tells the compiler to generate code that is optimized for the host CPU, and ``-fopenmp`` enables OpenMP support.
+
+Please note that vectorization, especially manual vectorization, can be a complex subject, and the code may need to be carefully tuned to get the best performance on a specific processor or system.
+
+Can we write a single version that can support both ARM64 and Intel/AMD?
+--------------------------------------------------------------------------
+
+.. note:: My original question asked about whether we could use something like the *strategy* design pattern to manage these in a single code base. GPT4 got there after a bit of prodding!
+
+You can create a shared codebase that handles both ARM64 and x86_64 architectures by using preprocessor directives. Here's a simple example of how you can accomplish this:
+
+.. code-block:: c
+
+   #include <stdio.h>
+   #include <stdlib.h>
+   #include <omp.h>
+   
+   #ifdef __ARM_NEON
+   #include <arm_neon.h>
+   #endif
+   
+   #ifdef __AVX2__
+   #include <immintrin.h>
+   #endif
+
+   float dot_product(int n, float *a, float *b) {
+       float result = 0.0f;
+   
+   #ifdef __ARM_NEON
+       float32x4_t sum = vdupq_n_f32(0.0f);
+   #elif defined(__AVX2__)
+       __m256 sum = _mm256_setzero_ps();
+   #endif
+   
+       #pragma omp parallel for reduction(+:result)
+       for(int i = 0; i <= n - 4; i += 4) {
+   #ifdef __ARM_NEON
+           float32x4_t va = vld1q_f32(&a[i]);
+           float32x4_t vb = vld1q_f32(&b[i]);
+           sum = vmlaq_f32(sum, va, vb);
+   #elif defined(__AVX2__)
+           __m256 va = _mm256_loadu_ps(&a[i]);
+           __m256 vb = _mm256_loadu_ps(&b[i]);
+           __m256 prod = _mm256_mul_ps(va, vb);
+           sum = _mm256_add_ps(sum, prod);
+   #endif
+       }
+   
+   #ifdef __ARM_NEON
+       float temp[4];
+       vst1q_f32(temp, sum);
+   #elif defined(__AVX2__)
+       float temp[8];
+       _mm256_storeu_ps(temp, sum);
+   #endif
+   
+       for(int i = 0; i < 4; i++) {
+           result += temp[i];
+       }
+   
+       // Handle the tail of the vectors, if the size is not a multiple of 4
+       for(int i = n - (n % 4); i < n; i++) {
+           result += a[i] * b[i];
+       }
+   
+       return result;
+   }
+   
+   int main(int argc, char *argv[]) {
+       int n = 1000000; // Default vector size
+       if (argc > 1) {
+           n = atoi(argv[1]);
+       }
+   
+       float *a = (float *)malloc(n * sizeof(float));
+       float *b = (float *)malloc(n * sizeof(float));
+       for(int i = 0; i < n; i++) {
+           a[i] = 1.0f;
+           b[i] = 1.0f;
+       }
+   
+       float result = dot_product(n, a, b);
+       printf("Dot product: %f\n", result);
+   
+       free(a);
+       free(b);
+       return 0;
+   }
+   
+
+The code uses preprocessor directives to determine whether it should use ARM64's NEON or Intel's AVX2 intrinsics. The shared parts of the code remain the same, and only the platform-specific parts are wrapped in conditional compilation blocks.
+
+To compile this code, you'll need to use the appropriate compiler flags for the target architecture:
+
+::
+
+    gcc -O3 -march=native -fopenmp program.c -o program
+
+For x86_64 with AVX2 support:
+
+::
+
+    gcc -O3 -march=native -fopenmp -mavx2 program.c -o program
+
+The ``-march=native`` flag should allow the compiler to automatically detect and enable support for the appropriate SIMD instruction set based on the host CPU. If you need to target a specific CPU, you might replace ``-march=native`` with an appropriate ``-march``` option for that CPU.
+
+Remember, this code assumes that the size of your vectors (:math:`n`) is a multiple of 4; otherwise, there will be some remaining elements that aren't handled by the SIMD code. The example handles these "tail" elements with a simple scalar loop after the main SIMD loop.
+
+.. note:: This version has *most* of what I want, but I was not entirely happy that it used a least-common-denominator approach by using 4-wide SIMD. The AMD/Intel SIMD are 8-wide. This led me to the next version!
+
+Improved version that uses the actual width of the CPU-specific SIMD mode
+---------------------------------------------------------------------------
+
+.. note:: This was driven by my interest in design patterns, e.g. strategy. My next stop is to show that we can do this without conditional compilation!
+
+The following code uses 8-wide SIMD for the Intel version (using AVX2) and 4-wide SIMD for the ARM64 version (using NEON). This way, the code takes full advantage of the respective SIMD capabilities for each architecture.
+
+.. code-block:: c
+
+   #include <stdio.h>
+   #include <stdlib.h>
+   #include <omp.h>
+   
+   #ifdef __ARM_NEON
+   #include <arm_neon.h>
+   #endif
+   
+   #ifdef __AVX2__
+   #include <immintrin.h>
+   #endif
+   
+   float dot_product(int n, float *a, float *b) {
+       float result = 0.0f;
+   
+   #ifdef __ARM_NEON
+       float32x4_t sum = vdupq_n_f32(0.0f);
+       int step = 4;
+   #elif defined(__AVX2__)
+       __m256 sum = _mm256_setzero_ps();
+       int step = 8;
+   #endif
+   
+       #pragma omp parallel for reduction(+:result)
+       for(int i = 0; i <= n - step; i += step) {
+   #ifdef __ARM_NEON
+           float32x4_t va = vld1q_f32(&a[i]);
+           float32x4_t vb = vld1q_f32(&b[i]);
+           sum = vmlaq_f32(sum, va, vb);
+   #elif defined(__AVX2__)
+           __m256 va = _mm256_loadu_ps(&a[i]);
+           __m256 vb = _mm256_loadu_ps(&b[i]);
+           __m256 prod = _mm256_mul_ps(va, vb);
+           sum = _mm256_add_ps(sum, prod);
+   #endif
+       }
+   
+   #ifdef __ARM_NEON
+       float temp[4];
+       vst1q_f32(temp, sum);
+   #elif defined(__AVX2__)
+       float temp[8];
+       _mm256_storeu_ps(temp, sum);
+   #endif
+   
+       for(int i = 0; i < step; i++) {
+           result += temp[i];
+       }
+   
+       // Handle the tail of the vectors, if the size is not a multiple of step
+       for(int i = n - (n % step); i < n; i++) {
+           result += a[i] * b[i];
+       }
+   
+       return result;
+   }
+   
+   int main(int argc, char *argv[]) {
+       int n = 1000000; // Default vector size
+       if (argc > 1) {
+           n = atoi(argv[1]);
+       }
+   
+       float *a = (float *)malloc(n * sizeof(float));
+       float *b = (float *)malloc(n * sizeof(float));
+       for(int i = 0; i < n; i++) {
+           a[i] = 1.0f;
+           b[i] = 1.0f;
+       }
+   
+       float result = dot_product(n, a, b);
+       printf("Dot product: %f\n", result);
+   
+       free(a);
+       free(b);
+       return 0;
+   }
+   
+   
